@@ -1,0 +1,80 @@
+{
+  "id": "2026-03-19T12-23-25.256Z-item-4-da8723c1",
+  "slug": "item-4-da8723c1",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-18T08-42-10.615Z.analysis.json",
+    "imported_at": "2026-03-19T12:23:25.256Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_research_pending",
+    "created_at": "2026-03-19T12:23:25.256Z",
+    "updated_at": "2026-03-19T12:23:25.256Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "product_profile": "food-contact-home",
+    "risk_tags": [
+      "food-contact"
+    ],
+    "requires_supplier_response": true,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-da8723c1\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-da8723c1\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-da8723c1\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-da8723c1\\supplier-response.template.json",
+    "latest_supplier_response_path": "",
+    "supplier_responses": [],
+    "outreach": {
+      "status": "not_contacted",
+      "supplier_name": "",
+      "supplier_im_url": "",
+      "supplier_shop_url": "",
+      "search_summary_path": "",
+      "first_message_sent_at": "",
+      "last_contacted_at": "",
+      "follow_up_sent_count": 0,
+      "nudge_sent_count": 0
+    }
+  },
+  "listing": {
+    "status": "not_ready",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-da8723c1\\product.json"
+  },
+  "product": {
+    "name": "可伸缩缝隙收纳盒（厨房/浴室用）",
+    "category": "家居/收纳",
+    "target_price_rub": 1890,
+    "supply_price_cny": 28,
+    "est_weight_kg": 0.6,
+    "package_long_edge_cm": 40,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "high",
+    "seasonality": "stable",
+    "why_it_can_sell": "解决俄国家庭常见收纳痛点，图片展示效果好，无需安装",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 60,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 90
+    },
+    "total_score": 90,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  }
+}

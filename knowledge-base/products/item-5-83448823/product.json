@@ -1,0 +1,80 @@
+{
+  "id": "2026-03-19T12-23-25.268Z-item-5-83448823",
+  "slug": "item-5-83448823",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-18T08-42-10.615Z.analysis.json",
+    "imported_at": "2026-03-19T12:23:25.268Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_research_pending",
+    "created_at": "2026-03-19T12:23:25.268Z",
+    "updated_at": "2026-03-19T12:23:25.268Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "product_profile": "automotive-accessories",
+    "risk_tags": [
+      "vehicle"
+    ],
+    "requires_supplier_response": true,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-83448823\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-83448823\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-83448823\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-83448823\\supplier-response.template.json",
+    "latest_supplier_response_path": "",
+    "supplier_responses": [],
+    "outreach": {
+      "status": "not_contacted",
+      "supplier_name": "",
+      "supplier_im_url": "",
+      "supplier_shop_url": "",
+      "search_summary_path": "",
+      "first_message_sent_at": "",
+      "last_contacted_at": "",
+      "follow_up_sent_count": 0,
+      "nudge_sent_count": 0
+    }
+  },
+  "listing": {
+    "status": "not_ready",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-83448823\\product.json"
+  },
+  "product": {
+    "name": "汽车座椅缝隙收纳袋",
+    "category": "车品",
+    "target_price_rub": 1390,
+    "supply_price_cny": 20,
+    "est_weight_kg": 0.35,
+    "package_long_edge_cm": 30,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "why_it_can_sell": "解决车主痛点，安装即用，无电子无认证，退货率极低",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 60,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 65
+    },
+    "total_score": 88,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  }
+}

@@ -1,0 +1,7 @@
+node_modules/
+output/
+.profiles/
+.openclaw/
+.playwright-cli/
+.trash/
+smoke-test.log

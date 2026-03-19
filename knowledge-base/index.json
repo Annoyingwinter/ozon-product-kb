@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-03-19T12:23:25.311Z",
+  "counts": {
+    "total": 7,
+    "supplier_research_pending": 7,
+    "supplier_contacted_waiting_reply": 0,
+    "human_review_pending": 0,
+    "approved_for_listing": 0,
+    "rejected": 0
+  },
+  "products": [
+    {
+      "slug": "3-847e4f82",
+      "name": "可重复使用蜂蜡食品保鲜布（3件套）",
+      "profile": "food-contact-home",
+      "stage": "supplier_research_pending",
+      "reviewStatus": "pending",
+      "outreachStatus": "not_contacted",
+      "sourceDecision": "Go",
+      "finalDecision": "Go"
+    },
+    {
+      "slug": "item-2-2050c16a",
+      "name": "防滑抽屉分隔板（可裁剪）",
+      "profile": "storage-home",
+      "stage": "supplier_research_pending",
+      "reviewStatus": "pending",
+      "outreachStatus": "not_contacted",
+      "sourceDecision": "Go",
+      "finalDecision": "Go"
+    },
+    {
+      "slug": "item-3-2b849d87",
+      "name": "硅胶折叠宠物食碗",
+      "profile": "food-contact-home",
+      "stage": "supplier_research_pending",
+      "reviewStatus": "pending",
+      "outreachStatus": "not_contacted",
+      "sourceDecision": "Go",
+      "finalDecision": "Go"
+    },
+    {
+      "slug": "item-4-da8723c1",
+      "name": "可伸缩缝隙收纳盒（厨房/浴室用）",
+      "profile": "food-contact-home",
+      "stage": "supplier_research_pending",
+      "reviewStatus": "pending",
+      "outreachStatus": "not_contacted",
+      "sourceDecision": "Go",
+      "finalDecision": "Go"
+    },
+    {
+      "slug": "item-5-83448823",
+      "name": "汽车座椅缝隙收纳袋",
+      "profile": "automotive-accessories",
+      "stage": "supplier_research_pending",
+      "reviewStatus": "pending",
+      "outreachStatus": "not_contacted",
+      "sourceDecision": "Go",
+      "finalDecision": "Go"
+    },
+    {
+      "slug": "item-7-9b608d96",
+      "name": "车载手机支架（磁吸式）",
+      "profile": "magnetic-accessories",
+      "stage": "supplier_research_pending",
+      "reviewStatus": "pending",
+      "outreachStatus": "not_contacted",
+      "sourceDecision": "Go",
+      "finalDecision": "Go"
+    },
+    {
+      "slug": "usb-657aef64",
+      "name": "桌面理线收纳盒（带USB孔）",
+      "profile": "electronics-light",
+      "stage": "supplier_research_pending",
+      "reviewStatus": "pending",
+      "outreachStatus": "not_contacted",
+      "sourceDecision": "Go",
+      "finalDecision": "Go"
+    }
+  ]
+}

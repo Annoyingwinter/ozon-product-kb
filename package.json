@@ -1,0 +1,25 @@
+{
+  "name": "alphashop-auto-selector",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ozon product selection automation and candidate evaluator.",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/alphashop-agent.js",
+    "select": "node scripts/alphashop-agent.js",
+    "ozon": "node scripts/alphashop-agent.js --platform ozon",
+    "ozon:evaluate": "node scripts/ozon-evaluator.js --input examples/ozon-candidates.sample.json",
+    "pipeline": "powershell -ExecutionPolicy Bypass -File launchers/run-ozon-pipeline.ps1",
+    "workflow:prepare": "node scripts/prepare-merchant-workflow.js",
+    "workflow:reconcile": "node scripts/reconcile-merchant-workflow.js",
+    "workflow:ingest": "node scripts/ingest-supplier-response.js",
+    "workflow:review": "node scripts/update-product-review.js",
+    "workflow:stop": "node scripts/build-openclaw-stop.js",
+    "1688:inquiry": "node scripts/test-1688-supplier-inquiry.js",
+    "1688:watch": "node scripts/watch-1688-supplier-reply.js",
+    "1688:monitor": "node scripts/monitor-1688-supplier-replies.js"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0"
+  }
+}

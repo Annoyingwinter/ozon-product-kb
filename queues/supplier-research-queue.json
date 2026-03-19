@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "3-847e4f82",
+    "name": "可重复使用蜂蜡食品保鲜布（3件套）",
+    "stage": "supplier_research_pending",
+    "inquiryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\3-847e4f82\\supplier-inquiry.md",
+    "responseTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\3-847e4f82\\supplier-response.template.json",
+    "searchPlanPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\3-847e4f82\\supplier-search-plan.json",
+    "shortlistTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\3-847e4f82\\supplier-shortlist.template.json",
+    "knowledgePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\3-847e4f82\\product.json"
+  },
+  {
+    "slug": "item-2-2050c16a",
+    "name": "防滑抽屉分隔板（可裁剪）",
+    "stage": "supplier_research_pending",
+    "inquiryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\supplier-inquiry.md",
+    "responseTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\supplier-response.template.json",
+    "searchPlanPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\supplier-search-plan.json",
+    "shortlistTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\supplier-shortlist.template.json",
+    "knowledgePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\product.json"
+  },
+  {
+    "slug": "item-3-2b849d87",
+    "name": "硅胶折叠宠物食碗",
+    "stage": "supplier_research_pending",
+    "inquiryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-3-2b849d87\\supplier-inquiry.md",
+    "responseTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-3-2b849d87\\supplier-response.template.json",
+    "searchPlanPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-3-2b849d87\\supplier-search-plan.json",
+    "shortlistTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-3-2b849d87\\supplier-shortlist.template.json",
+    "knowledgePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-3-2b849d87\\product.json"
+  },
+  {
+    "slug": "item-4-da8723c1",
+    "name": "可伸缩缝隙收纳盒（厨房/浴室用）",
+    "stage": "supplier_research_pending",
+    "inquiryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-da8723c1\\supplier-inquiry.md",
+    "responseTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-da8723c1\\supplier-response.template.json",
+    "searchPlanPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-da8723c1\\supplier-search-plan.json",
+    "shortlistTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-da8723c1\\supplier-shortlist.template.json",
+    "knowledgePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-da8723c1\\product.json"
+  },
+  {
+    "slug": "item-5-83448823",
+    "name": "汽车座椅缝隙收纳袋",
+    "stage": "supplier_research_pending",
+    "inquiryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-83448823\\supplier-inquiry.md",
+    "responseTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-83448823\\supplier-response.template.json",
+    "searchPlanPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-83448823\\supplier-search-plan.json",
+    "shortlistTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-83448823\\supplier-shortlist.template.json",
+    "knowledgePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-83448823\\product.json"
+  },
+  {
+    "slug": "item-7-9b608d96",
+    "name": "车载手机支架（磁吸式）",
+    "stage": "supplier_research_pending",
+    "inquiryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-9b608d96\\supplier-inquiry.md",
+    "responseTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-9b608d96\\supplier-response.template.json",
+    "searchPlanPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-9b608d96\\supplier-search-plan.json",
+    "shortlistTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-9b608d96\\supplier-shortlist.template.json",
+    "knowledgePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-9b608d96\\product.json"
+  },
+  {
+    "slug": "usb-657aef64",
+    "name": "桌面理线收纳盒（带USB孔）",
+    "stage": "supplier_research_pending",
+    "inquiryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\usb-657aef64\\supplier-inquiry.md",
+    "responseTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\usb-657aef64\\supplier-response.template.json",
+    "searchPlanPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\usb-657aef64\\supplier-search-plan.json",
+    "shortlistTemplatePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\usb-657aef64\\supplier-shortlist.template.json",
+    "knowledgePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\usb-657aef64\\product.json"
+  }
+]
