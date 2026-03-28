@@ -1,0 +1,17 @@
+{
+  "hero_text": "车载手机支架（磁吸式）",
+  "badge_text": "低合规风险",
+  "subtitle_text": "适合日常家庭场景，强调易用和轻小件优势。",
+  "scene_text": "手机支架在车品场景中的使用效果",
+  "detail_text": "规格：0.2 kg / 15 cm",
+  "overlay_lines": [
+    "标准化强，安装简单，无电子元件，物流友好",
+    "适合日常家庭场景，强调易用和轻小件优势。",
+    "轻小件：0.2 kg / 15 cm"
+  ],
+  "prompt_pack": [
+    "Main image: white background, centered product shot, show the full 手机支架 clearly.",
+    "Scene image: show the 手机支架 in its main use case for 车品.",
+    "Detail image: highlight material, structure, size, and any foldable or cuttable feature."
+  ]
+}

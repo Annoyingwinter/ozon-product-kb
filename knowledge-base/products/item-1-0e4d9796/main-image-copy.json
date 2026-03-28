@@ -1,0 +1,17 @@
+{
+  "hero_text": "可重复使用蜂蜡食品保鲜布",
+  "badge_text": "低合规风险",
+  "subtitle_text": "适合厨房、餐具和日常食品接触场景。",
+  "scene_text": "蜂蜡保鲜布在家居场景中的使用效果",
+  "detail_text": "规格：0.15 kg / 20 cm",
+  "overlay_lines": [
+    "环保趋势强，轻小件，无认证要求，俄语内容易做（替代塑料膜）",
+    "适合厨房、餐具和日常食品接触场景。",
+    "轻小件：0.15 kg / 20 cm"
+  ],
+  "prompt_pack": [
+    "Main image: white background, centered product shot, show the full 蜂蜡保鲜布 clearly.",
+    "Scene image: show the 蜂蜡保鲜布 in its main use case for 家居.",
+    "Detail image: highlight material, structure, size, and any foldable or cuttable feature."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "2026-03-25T13:18:21.931Z-item-9-6d2b8b28",
+  "slug": "item-9-6d2b8b28",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-25T13-18-14.970Z.analysis.json",
+    "imported_at": "2026-03-25T13:18:21.931Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_compare_blocked",
+    "created_at": "2026-03-25T13:18:21.931Z",
+    "updated_at": "2026-03-25T13:22:48.480Z",
+    "pipeline": "product-kb",
+    "run_id": "2026-03-25T13-18-21.490Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "source_platform": "1688",
+    "compare_status": "blocked",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-9-6d2b8b28\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-9-6d2b8b28\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-9-6d2b8b28\\1688-competitor-offers.json",
+    "compared_at": "2026-03-25T13:22:48.480Z",
+    "shortlist_count": 0,
+    "last_error": "invalid_detail_page, missing_source_url, missing_media, less_than_three_competitors, missing_selected_offer",
+    "blocked_snapshot_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\product-kb-blocked\\item-9-6d2b8b28\\ozon-knowledge.blocked.json"
+  },
+  "listing": {
+    "status": "not_ready",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-9-6d2b8b28\\ozon-knowledge.json",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-9-6d2b8b28\\product.json",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-9-6d2b8b28\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-9-6d2b8b28\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-9-6d2b8b28\\1688-competitor-offers.json",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-9-6d2b8b28\\ozon-knowledge.json"
+  },
+  "product": {
+    "name": "可折叠购物袋（超轻尼龙）",
+    "category": "家居/礼品",
+    "target_price_rub": 990,
+    "supply_price_cny": 8,
+    "est_weight_kg": 0.08,
+    "package_long_edge_cm": 10,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "high",
+    "content_potential": "high",
+    "seasonality": "stable",
+    "why_it_can_sell": "极致轻小，适合礼品场景，俄语卖点如“可放口袋”“承重10kg”易传播",
+    "risk_notes": [
+      "售价略低于1000 RUB，但可组合销售或提价至1090 RUB"
+    ],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 95,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 22,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 90
+    },
+    "total_score": 85,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": [
+      "竞争过于拥挤"
+    ]
+  },
+  "knowledge_base": null
+}

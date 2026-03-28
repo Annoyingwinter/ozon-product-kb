@@ -1,0 +1,100 @@
+{
+  "id": "2026-03-20T06-26-32.668Z-foldable-wardrobe-storage-box-70524214",
+  "slug": "foldable-wardrobe-storage-box-70524214",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-evaluator-2026-03-19T15-18-39.603Z.analysis.json",
+    "imported_at": "2026-03-20T06:26:32.668Z"
+  },
+  "workflow": {
+    "current_stage": "approved_for_listing",
+    "created_at": "2026-03-20T06:26:32.668Z",
+    "updated_at": "2026-03-20T10:25:09.583Z"
+  },
+  "review": {
+    "status": "approved",
+    "notes": "Auto-approved by draft-only Ozon flow.",
+    "reviewed_at": "2026-03-20T10:25:09.583Z"
+  },
+  "research": {
+    "product_profile": "general-merchandise",
+    "risk_tags": [],
+    "requires_supplier_response": false,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\foldable-wardrobe-storage-box-70524214\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\foldable-wardrobe-storage-box-70524214\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\foldable-wardrobe-storage-box-70524214\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\foldable-wardrobe-storage-box-70524214\\supplier-response.template.json",
+    "latest_supplier_response_path": "",
+    "supplier_responses": [],
+    "outreach": {
+      "status": "not_contacted",
+      "supplier_name": "",
+      "supplier_im_url": "",
+      "supplier_shop_url": "",
+      "search_summary_path": "",
+      "first_message_sent_at": "",
+      "last_contacted_at": "",
+      "follow_up_sent_count": 0,
+      "nudge_sent_count": 0
+    },
+    "autonomous_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\foldable-wardrobe-storage-box-70524214\\autonomous-summary.md",
+    "autonomous_approval": true,
+    "autonomous_approval_reason": "low-complexity product; supplier response not required"
+  },
+  "listing": {
+    "status": "draft_generated",
+    "listing_brief_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\foldable-wardrobe-storage-box-70524214\\listing-brief.md",
+    "title_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\listing-title.json",
+    "bullets_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\listing-bullets.json",
+    "attributes_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\listing-attributes.json",
+    "main_image_copy_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\main-image-copy.json",
+    "assets_md_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\listing-assets.md",
+    "autonomous_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\foldable-wardrobe-storage-box-70524214\\autonomous-summary.md",
+    "package_id": "2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214",
+    "draft_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\ozon-listing-draft.json",
+    "draft_md_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\ozon-listing-draft.md",
+    "selected_title": "Foldable Wardrobe Storage Box",
+    "title_ru_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\listing-title.ru.json",
+    "bullets_ru_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\listing-bullets.ru.json",
+    "main_image_copy_ru_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\main-image-copy.ru.json",
+    "assets_ru_md_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-foldable-wardrobe-storage-box-70524214\\foldable-wardrobe-storage-box-70524214\\listing-assets.ru.md",
+    "generated_at": "2026-03-20T10:25:09.583Z"
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\foldable-wardrobe-storage-box-70524214\\product.json"
+  },
+  "product": {
+    "name": "Foldable Wardrobe Storage Box",
+    "category": "Home Storage",
+    "target_price_rub": 3290,
+    "supply_price_cny": 41,
+    "est_weight_kg": 1.35,
+    "package_long_edge_cm": 52,
+    "fragility": "medium",
+    "certification_risk": "low",
+    "return_risk": "medium",
+    "competition_level": "medium",
+    "content_potential": "high",
+    "seasonality": "stable",
+    "search_trend": "high",
+    "why_it_can_sell": "Strong visual transformation content and broad household use cases.",
+    "risk_notes": [
+      "Oversize risk for cross-border shipping",
+      "Packaging must resist corner damage"
+    ],
+    "source": "manual shortlist",
+    "source_url": "",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 71,
+      "competition": 60,
+      "compliance_risk": 95,
+      "return_risk": 60,
+      "content_potential": 90,
+      "search_trend": 88
+    },
+    "total_score": 80,
+    "final_decision": "Go",
+    "issue_summary": []
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "id": "2026-03-23T11-38-14.327Z-item-7-b909cc54",
+  "slug": "item-7-b909cc54",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-23T11-37-27.976Z.analysis.json",
+    "imported_at": "2026-03-23T11:38:14.327Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_research_pending",
+    "created_at": "2026-03-23T11:38:14.327Z",
+    "updated_at": "2026-03-23T11:38:14.327Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "product_profile": "food-contact-home",
+    "risk_tags": [
+      "food-contact"
+    ],
+    "requires_supplier_response": true,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-b909cc54\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-b909cc54\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-b909cc54\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-b909cc54\\supplier-response.template.json",
+    "latest_supplier_response_path": "",
+    "supplier_responses": [],
+    "outreach": {
+      "status": "not_contacted",
+      "supplier_name": "",
+      "supplier_im_url": "",
+      "supplier_shop_url": "",
+      "search_summary_path": "",
+      "first_message_sent_at": "",
+      "last_contacted_at": "",
+      "follow_up_sent_count": 0,
+      "nudge_sent_count": 0
+    }
+  },
+  "listing": {
+    "status": "not_ready",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-b909cc54\\product.json"
+  },
+  "product": {
+    "name": "多功能厨房剪刀（带开瓶器）",
+    "category": "家居/小工具",
+    "target_price_rub": 1590,
+    "supply_price_cny": 18,
+    "est_weight_kg": 0.35,
+    "package_long_edge_cm": 28,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "why_it_can_sell": "标准化金属制品，功能明确，俄语卖点清晰（‘一剪多用’）",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 60,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 65
+    },
+    "total_score": 88,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  }
+}

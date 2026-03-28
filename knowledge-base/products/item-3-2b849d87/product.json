@@ -1,14 +1,14 @@
 {
-  "id": "2026-03-19T12-23-25.240Z-item-3-2b849d87",
+  "id": "2026-03-23T11-38-14.299Z-item-3-2b849d87",
   "slug": "item-3-2b849d87",
   "source": {
-    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-18T08-42-10.615Z.analysis.json",
-    "imported_at": "2026-03-19T12:23:25.240Z"
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-23T11-37-27.976Z.analysis.json",
+    "imported_at": "2026-03-23T11:38:14.299Z"
   },
   "workflow": {
-    "current_stage": "supplier_research_pending",
-    "created_at": "2026-03-19T12:23:25.240Z",
-    "updated_at": "2026-03-19T12:23:25.240Z"
+    "current_stage": "supplier_contacted_waiting_reply",
+    "created_at": "2026-03-23T11:38:14.299Z",
+    "updated_at": "2026-03-24T09:24:46.854Z"
   },
   "review": {
     "status": "pending",
@@ -28,15 +28,34 @@
     "latest_supplier_response_path": "",
     "supplier_responses": [],
     "outreach": {
-      "status": "not_contacted",
-      "supplier_name": "",
-      "supplier_im_url": "",
-      "supplier_shop_url": "",
-      "search_summary_path": "",
-      "first_message_sent_at": "",
-      "last_contacted_at": "",
+      "status": "contacted_waiting_reply",
+      "supplier_name": "顺0705",
+      "supplier_im_url": "https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E9%A1%BA0705&site=cnalichn&fromid=cnalichntb591578701&offerId=641754384332",
+      "supplier_shop_url": "http://xuanshun.1688.com/",
+      "search_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\playwright\\1688-inquiry-2026-03-24T09-24-08.045Z\\summary.json",
+      "first_message_sent_at": "2026-03-24T09:24:46.854Z",
+      "last_contacted_at": "2026-03-24T09:24:46.854Z",
       "follow_up_sent_count": 0,
-      "nudge_sent_count": 0
+      "nudge_sent_count": 0,
+      "competitor_contacts": [
+        {
+          "supplier_key": "item-3-2b849d87::_0705",
+          "supplier_name": "顺0705",
+          "supplier_im_url": "https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E9%A1%BA0705&site=cnalichn&fromid=cnalichntb591578701&offerId=641754384332",
+          "supplier_shop_url": "http://xuanshun.1688.com/",
+          "supplier_product_title": "",
+          "supplier_product_url": "https://detail.1688.com/offer/641754384332.html",
+          "search_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\playwright\\1688-inquiry-2026-03-24T09-24-08.045Z\\summary.json",
+          "candidate_index": 10,
+          "first_message_sent_at": "2026-03-24T09:24:46.854Z",
+          "last_contacted_at": "2026-03-24T09:24:46.854Z",
+          "follow_up_sent_count": 0,
+          "nudge_sent_count": 0,
+          "last_chat_capture_path": ""
+        }
+      ],
+      "supplier_product_title": "",
+      "supplier_product_url": "https://detail.1688.com/offer/641754384332.html"
     }
   },
   "listing": {
@@ -49,17 +68,17 @@
   "product": {
     "name": "硅胶折叠宠物食碗",
     "category": "宠物",
-    "target_price_rub": 1290,
+    "target_price_rub": 1490,
     "supply_price_cny": 18,
     "est_weight_kg": 0.25,
-    "package_long_edge_cm": 20,
+    "package_long_edge_cm": 18,
     "fragility": "low",
     "certification_risk": "low",
     "return_risk": "low",
     "competition_level": "medium",
     "content_potential": "high",
     "seasonality": "stable",
-    "why_it_can_sell": "轻便、可折叠、易清洗，适合宠物主人日常及出行使用，俄语卖点易表达（如“节省空间”“防漏”）",
+    "why_it_can_sell": "轻便、易收纳、适合遛狗场景，俄语卖点易本地化（如‘不占空间’‘防漏设计’），图片展示直观",
     "risk_notes": [],
     "go_or_no_go": "Go",
     "score_breakdown": {

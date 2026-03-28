@@ -1,0 +1,317 @@
+{
+  "id": "2026-03-20T15-23-20.366Z-item-2-6df4177f",
+  "slug": "item-2-6df4177f",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-20T07-46-49.071Z.analysis.json",
+    "imported_at": "2026-03-20T15:23:20.366Z"
+  },
+  "workflow": {
+    "current_stage": "human_review_pending",
+    "created_at": "2026-03-20T15:23:20.366Z",
+    "updated_at": "2026-03-21T15:50:30.337Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "product_profile": "pet-accessories",
+    "risk_tags": [
+      "pet"
+    ],
+    "requires_supplier_response": true,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-response.template.json",
+    "latest_supplier_response_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-response.2026-03-21T14-40-13.473Z.json",
+    "supplier_responses": [
+      {
+        "ingested_at": "2026-03-21T14:39:49.222Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-response.2026-03-21T14-39-49.211Z.json",
+        "data": {
+          "slug": "item-2-6df4177f",
+          "product_name": "可伸缩宠物拾便袋盒（带挂钩）",
+          "product_profile": "pet-accessories",
+          "supplier_platform": "1688",
+          "supplier_name": "浙江当康宠物用品有限公司",
+          "supplier_type": "pet-accessories",
+          "contact_person": "",
+          "store_url": "http://shop95f3e82e81687.1688.com/",
+          "source_url": "https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E6%B5%99%E6%B1%9F%E5%BD%93%E5%BA%B7%E5%AE%A0%E7%89%A9%E7%94%A8%E5%93%81%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&site=cnalichn&fromid=cnalichntb591578701&offerId=726627478634",
+          "phone": "",
+          "wechat": "",
+          "enterprise_wechat": "",
+          "market_location": "",
+          "export_experience": "",
+          "moq": 100,
+          "unit_price_cny": 3.7,
+          "sample_price_cny": 0,
+          "materials": [],
+          "variants": [],
+          "net_weight_kg": 0,
+          "packed_weight_kg": 0,
+          "packed_dimensions_cm": {
+            "length": 0,
+            "width": 0,
+            "height": 0
+          },
+          "packing_quantity_per_carton": 0,
+          "contains_battery": false,
+          "contains_liquid": false,
+          "contains_magnet": false,
+          "contains_blade": false,
+          "food_contact": false,
+          "certifications": [],
+          "custom_logo_supported": false,
+          "sample_lead_time_days": 0,
+          "bulk_lead_time_days": 4,
+          "defect_notes": [],
+          "seller_notes": [
+            "1000个单价：3.7，500个单价：3.8元",
+            "本链接的产品就是这个垃圾袋收纳盒",
+            "数量少有现货的",
+            "咱们家这款就是可伸缩宠物拾便袋盒（带挂钩）。 智能客户专员",
+            "1000个做货时间4-5天",
+            "几个到几十个，100-500有现货"
+          ],
+          "shop_assessment": {
+            "reply_speed_score": 0,
+            "product_match_score": 0,
+            "factory_capability_score": 0,
+            "compliance_readiness_score": 0,
+            "fulfillment_stability_score": 0,
+            "communication_quality_score": 0,
+            "overall_score": 0
+          },
+          "auto_generated_from_chat": true,
+          "raw_chat_capture_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T14-39-49.189Z.json"
+        },
+        "source": "1688-auto-chat-capture"
+      },
+      {
+        "ingested_at": "2026-03-21T14:40:13.479Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-response.2026-03-21T14-40-13.473Z.json",
+        "data": {
+          "slug": "item-2-6df4177f",
+          "product_name": "可伸缩宠物拾便袋盒（带挂钩）",
+          "product_profile": "pet-accessories",
+          "supplier_platform": "1688",
+          "supplier_name": "浙江当康宠物用品有限公司",
+          "supplier_type": "unknown",
+          "contact_person": "",
+          "store_url": "http://shop95f3e82e81687.1688.com/",
+          "source_url": "https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E6%B5%99%E6%B1%9F%E5%BD%93%E5%BA%B7%E5%AE%A0%E7%89%A9%E7%94%A8%E5%93%81%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&site=cnalichn&fromid=cnalichntb591578701&offerId=726627478634",
+          "phone": "",
+          "wechat": "",
+          "enterprise_wechat": "",
+          "market_location": "",
+          "export_experience": "",
+          "moq": 100,
+          "unit_price_cny": 3.7,
+          "sample_price_cny": 0,
+          "materials": [],
+          "variants": [],
+          "net_weight_kg": 0,
+          "packed_weight_kg": 0,
+          "packed_dimensions_cm": {
+            "length": 0,
+            "width": 0,
+            "height": 0
+          },
+          "packing_quantity_per_carton": 0,
+          "contains_battery": false,
+          "contains_liquid": false,
+          "contains_magnet": false,
+          "contains_blade": false,
+          "food_contact": false,
+          "certifications": [],
+          "custom_logo_supported": false,
+          "sample_lead_time_days": 0,
+          "bulk_lead_time_days": 4,
+          "defect_notes": [],
+          "seller_notes": [
+            "1000个单价：3.7，500个单价：3.8元",
+            "本链接的产品就是这个垃圾袋收纳盒",
+            "数量少有现货的",
+            "咱们家这款就是可伸缩宠物拾便袋盒（带挂钩）。 智能客户专员",
+            "1000个做货时间4-5天",
+            "几个到几十个，100-500有现货"
+          ],
+          "shop_assessment": {
+            "reply_speed_score": 0,
+            "product_match_score": 0,
+            "factory_capability_score": 0,
+            "compliance_readiness_score": 0,
+            "fulfillment_stability_score": 0,
+            "communication_quality_score": 0,
+            "overall_score": 0
+          },
+          "auto_generated_from_chat": true,
+          "raw_chat_capture_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T14-40-13.465Z.json"
+        },
+        "source": "1688-auto-chat-capture"
+      }
+    ],
+    "outreach": {
+      "status": "replied",
+      "supplier_name": "浙江当康宠物用品有限公司",
+      "supplier_im_url": "https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E6%B5%99%E6%B1%9F%E5%BD%93%E5%BA%B7%E5%AE%A0%E7%89%A9%E7%94%A8%E5%93%81%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&site=cnalichn&fromid=cnalichntb591578701&offerId=726627478634",
+      "supplier_shop_url": "http://shop95f3e82e81687.1688.com/",
+      "search_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\playwright\\1688-inquiry-2026-03-21T13-46-29.649Z\\summary.json",
+      "first_message_sent_at": "2026-03-21T13:47:10.659Z",
+      "last_contacted_at": "2026-03-21T15:50:30.337Z",
+      "follow_up_sent_count": 4,
+      "nudge_sent_count": 1,
+      "competitor_contacts": [
+        {
+          "supplier_key": "item-2-6df4177f::_",
+          "supplier_name": "浙江当康宠物用品有限公司",
+          "supplier_im_url": "https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E6%B5%99%E6%B1%9F%E5%BD%93%E5%BA%B7%E5%AE%A0%E7%89%A9%E7%94%A8%E5%93%81%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&site=cnalichn&fromid=cnalichntb591578701&offerId=726627478634",
+          "supplier_shop_url": "http://shop95f3e82e81687.1688.com/",
+          "supplier_product_title": "",
+          "supplier_product_url": "https://detail.1688.com/offer/726627478634.html",
+          "search_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\playwright\\1688-inquiry-2026-03-21T13-46-29.649Z\\summary.json",
+          "candidate_index": 0,
+          "first_message_sent_at": "2026-03-21T13:47:10.659Z",
+          "last_contacted_at": "2026-03-21T15:50:30.338Z",
+          "follow_up_sent_count": 4,
+          "nudge_sent_count": 1,
+          "last_chat_capture_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T15-50-30.329Z.json"
+        }
+      ],
+      "supplier_product_title": "",
+      "supplier_product_url": "https://detail.1688.com/offer/726627478634.html"
+    },
+    "chat_captures": [
+      {
+        "captured_at": "2026-03-21T09:41:29.746Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T09-41-29.746Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-21T13:52:24.577Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T13-52-24.577Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-21T13:53:35.228Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T13-53-35.228Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-21T14:05:57.017Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T14-05-57.017Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-21T14:06:51.312Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T14-06-51.312Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-21T14:14:32.243Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T14-14-32.243Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-21T14:20:48.321Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T14-20-48.321Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-21T14:26:42.131Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T14-26-42.131Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": true
+      },
+      {
+        "captured_at": "2026-03-21T14:39:49.189Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T14-39-49.189Z.json",
+        "has_human_reply": true,
+        "auto_only": false,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-21T14:40:13.465Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T14-40-13.465Z.json",
+        "has_human_reply": true,
+        "auto_only": false,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-21T15:50:30.328Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T15-50-30.329Z.json",
+        "has_human_reply": true,
+        "auto_only": false,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      }
+    ],
+    "last_chat_capture_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\supplier-chat.2026-03-21T15-50-30.329Z.json"
+  },
+  "listing": {
+    "status": "not_ready",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-6df4177f\\product.json"
+  },
+  "product": {
+    "name": "可伸缩宠物拾便袋盒（带挂钩）",
+    "category": "宠物",
+    "target_price_rub": 1290,
+    "supply_price_cny": 11,
+    "est_weight_kg": 0.15,
+    "package_long_edge_cm": 15,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "low",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "why_it_can_sell": "宠物主日常刚需，复购率高（耗材），轻小无风险",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 92,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 65
+    },
+    "total_score": 93,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  }
+}

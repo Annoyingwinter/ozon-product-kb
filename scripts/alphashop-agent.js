@@ -1,6 +1,8 @@
 import fs from "node:fs/promises";
+import { timestamp, ensureDir } from "./shared-utils.js";
 import path from "node:path";
 import { chromium } from "playwright";
+import { extractHostname, gotoWithProxyFallback } from "./browser-network.js";
 
 const DEFAULT_URL = "https://www.alphashop.cn/select-product/general-agent";
 const LOGIN_URL = "https://www.alphashop.cn/login";
@@ -170,13 +172,9 @@ function buildPrompt(args, rules) {
   ].join("\n");
 }
 
-function timestamp() {
-  return new Date().toISOString().replaceAll(":", "-");
-}
 
-async function ensureDir(target) {
-  await fs.mkdir(target, { recursive: true });
-}
+
+
 
 async function submitPrompt(page, prompt) {
   if (!prompt) return false;
@@ -285,6 +283,14 @@ async function waitForReplay(page, timeoutMs, prompt = "") {
   let previousText = "";
   let stableRounds = 0;
   const normalizedPrompt = normalizeVisibleText(prompt);
+  let lastSnapshot = {
+    text: "",
+    loadingVisible: false,
+    stableRounds: 0,
+    elapsedMs: 0,
+    promptStillDominates: false,
+  };
+  let nextHeartbeatAt = start + 15000;
 
   while (Date.now() - start < timeoutMs) {
     await page.waitForTimeout(2500);
@@ -323,6 +329,7 @@ async function waitForReplay(page, timeoutMs, prompt = "") {
       };
     });
     const normalized = normalizeVisibleText(pageState.text);
+    const elapsedMs = Date.now() - start;
     const promptStillDominates =
       normalizedPrompt &&
       normalized.includes(normalizedPrompt) &&
@@ -335,17 +342,40 @@ async function waitForReplay(page, timeoutMs, prompt = "") {
       previousText = normalized;
     }
 
+    lastSnapshot = {
+      text: normalized,
+      loadingVisible: pageState.loadingVisible,
+      stableRounds,
+      elapsedMs,
+      promptStillDominates: Boolean(promptStillDominates),
+    };
+
+    if (Date.now() >= nextHeartbeatAt) {
+      console.log(
+        `[selection-wait] elapsed=${Math.round(elapsedMs / 1000)}s loading=${pageState.loadingVisible} stable=${stableRounds} promptOnly=${Boolean(promptStillDominates)} textLen=${normalized.length}`,
+      );
+      nextHeartbeatAt = Date.now() + 15000;
+    }
+
     if (
       normalized &&
       stableRounds >= 3 &&
       !pageState.loadingVisible &&
       !promptStillDominates
     ) {
-      return normalized;
+      return {
+        text: normalized,
+        timedOut: false,
+        snapshot: lastSnapshot,
+      };
     }
   }
 
-  return previousText;
+  return {
+    text: previousText,
+    timedOut: true,
+    snapshot: lastSnapshot,
+  };
 }
 
 function normalizeJsonCandidate(text) {
@@ -671,8 +701,9 @@ function extractStructuredResult(texts) {
   return null;
 }
 
-function hasAuthFailure(replayText, responses, consoleMessages) {
-  if (/FAIL_SYS_SESSION_EXPIRED|User not login in/i.test(replayText || "")) {
+function hasAuthFailure(replayText, responses, consoleMessages, settledText = "", candidateTexts = []) {
+  const textBundle = [replayText, settledText, ...candidateTexts].filter(Boolean).join("\n");
+  if (/FAIL_SYS_SESSION_EXPIRED|User not login in|立即登录|登录后使用|请先登录/i.test(textBundle)) {
     return true;
   }
 
@@ -785,6 +816,17 @@ async function hasSavedStorageState(storageStatePath) {
   }
 }
 
+async function persistStorageStateSnapshot(context, ...pathsToWrite) {
+  const targets = pathsToWrite.filter(Boolean);
+  if (!context || targets.length === 0) {
+    return;
+  }
+
+  for (const target of targets) {
+    await context.storageState({ path: target }).catch(() => {});
+  }
+}
+
 function getLaunchOptions(headless) {
   return {
     headless,
@@ -862,15 +904,34 @@ async function bootstrapStorageState(context, storageStatePath, hasState) {
 async function createPageForRun(context, storageStatePath, hasState) {
   await bootstrapStorageState(context, storageStatePath, hasState);
 
-  const existingPages = context.pages();
+  const existingPages = context.pages().filter((page) => !page.isClosed());
 
-  for (const existingPage of existingPages) {
-    await existingPage.close().catch(() => {});
+  if (existingPages.length > 0) {
+    const [page, ...extraPages] = existingPages;
+    for (const extraPage of extraPages) {
+      await extraPage.close().catch(() => {});
+    }
+    await page.bringToFront().catch(() => {});
+    return page;
   }
 
-  const page = await context.newPage();
-  await page.bringToFront();
-  return page;
+  try {
+    const page = await context.newPage();
+    await page.bringToFront();
+    return page;
+  } catch (error) {
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+    const retryPages = context.pages().filter((page) => !page.isClosed());
+    if (retryPages.length > 0) {
+      const [page, ...extraPages] = retryPages;
+      for (const extraPage of extraPages) {
+        await extraPage.close().catch(() => {});
+      }
+      await page.bringToFront().catch(() => {});
+      return page;
+    }
+    throw error;
+  }
 }
 
 async function launchLegacyBrowserContext(profileDir, headless) {
@@ -925,11 +986,40 @@ async function launchLegacyBrowserContext(profileDir, headless) {
   }
 }
 
+function isProfileInUseError(error) {
+  const message = String(error || "");
+  return /user data dir(?:ectory)? is already in use|已在现有浏览器会话中打开|另一个浏览器会话|existing browser session/i.test(
+    message,
+  );
+}
+
+function createProfileLockedError(browserProfileDir) {
+  const error = new Error(
+    `AlphaShop 专用浏览器配置目录正在被占用。先关闭占用 ${browserProfileDir} 的浏览器窗口，再重试。不要在普通 Chrome/Edge 窗口里单独登录。`,
+  );
+  error.code = "PROFILE_LOCKED";
+  return error;
+}
+
+async function isBrowserProfileLocked(browserProfileDir) {
+  const lockNames = ["SingletonLock", "SingletonCookie", "SingletonSocket", "lockfile"];
+  for (const name of lockNames) {
+    try {
+      await fs.access(path.join(browserProfileDir, name));
+      return true;
+    } catch {
+      // Ignore missing lock markers.
+    }
+  }
+  return false;
+}
+
 async function navigateToTarget(page, targetUrl, timeoutMs) {
   try {
-    await page.goto(targetUrl, {
+    await gotoWithProxyFallback(page, targetUrl, {
       waitUntil: "domcontentloaded",
-      timeout: timeoutMs,
+      timeoutMs,
+      hosts: [extractHostname(targetUrl), "alphashop.cn", "www.alphashop.cn"],
     });
   } catch (error) {
     const message = String(error);
@@ -941,9 +1031,10 @@ async function navigateToTarget(page, targetUrl, timeoutMs) {
   await page.waitForTimeout(4000);
 
   if (page.url() === "about:blank") {
-    await page.goto(LOGIN_URL, {
+    await gotoWithProxyFallback(page, LOGIN_URL, {
       waitUntil: "domcontentloaded",
-      timeout: timeoutMs,
+      timeoutMs,
+      hosts: ["alphashop.cn", "www.alphashop.cn"],
     });
     await page.waitForTimeout(3000);
   }
@@ -970,9 +1061,10 @@ async function redirectIfLoginUrlWasRenderedAsPlainText(page, timeoutMs) {
     return false;
   }
 
-  await page.goto(renderedUrl, {
+  await gotoWithProxyFallback(page, renderedUrl, {
     waitUntil: "domcontentloaded",
-    timeout: timeoutMs,
+    timeoutMs,
+    hosts: [extractHostname(renderedUrl), "alphashop.cn", "www.alphashop.cn"],
   }).catch(() => {});
   await page.waitForTimeout(3000);
   return true;
@@ -991,9 +1083,10 @@ async function ensureSignedIn(
   }
 
   if (hasState) {
-    await page.goto(targetUrl, {
+    await gotoWithProxyFallback(page, targetUrl, {
       waitUntil: "domcontentloaded",
-      timeout: timeoutMs,
+      timeoutMs,
+      hosts: [extractHostname(targetUrl), "alphashop.cn", "www.alphashop.cn"],
     }).catch(() => {});
     await page.waitForTimeout(3000);
     if (!/\/login/.test(page.url())) {
@@ -1001,13 +1094,15 @@ async function ensureSignedIn(
     }
   }
 
-  await page.goto(DIRECT_SIGNIN_URL, {
+  await gotoWithProxyFallback(page, DIRECT_SIGNIN_URL, {
     waitUntil: "domcontentloaded",
-    timeout: timeoutMs,
+    timeoutMs,
+    hosts: ["alphashop.cn", "www.alphashop.cn"],
   }).catch(async () => {
-    await page.goto(LOGIN_URL, {
+    await gotoWithProxyFallback(page, LOGIN_URL, {
       waitUntil: "domcontentloaded",
-      timeout: timeoutMs,
+      timeoutMs,
+      hosts: ["alphashop.cn", "www.alphashop.cn"],
     });
   });
   await redirectIfLoginUrlWasRenderedAsPlainText(page, timeoutMs);
@@ -1030,9 +1125,15 @@ async function ensureSignedIn(
 async function runSelectionAttempt(page, prompt, timeoutMs) {
   const promptSubmitted = await submitPrompt(page, prompt);
   console.log(promptSubmitted ? "Prompt submission triggered." : "Prompt submission did not trigger.");
-  const settledText = await waitForReplay(page, timeoutMs, prompt);
+  const replayState = await waitForReplay(page, timeoutMs, prompt);
   const candidateTexts = await collectResultCandidates(page).catch(() => []);
-  return { promptSubmitted, settledText, candidateTexts };
+  return {
+    promptSubmitted,
+    settledText: replayState.text,
+    candidateTexts,
+    replayTimedOut: replayState.timedOut,
+    replaySnapshot: replayState.snapshot,
+  };
 }
 
 async function main() {
@@ -1049,15 +1150,23 @@ async function main() {
   const consoleMessages = [];
   let replayText = "";
   let candidateTexts = [];
+  let replayTimedOut = false;
+  let replaySnapshot = null;
 
   let runtime;
   try {
+    if (await isBrowserProfileLocked(args.browserProfileDir)) {
+      throw createProfileLockedError(args.browserProfileDir);
+    }
     runtime = await launchBrowserContext(
       args.profileDir,
       args.browserProfileDir,
       args.headless,
     );
   } catch (error) {
+    if (error?.code === "PROFILE_LOCKED" || isProfileInUseError(error)) {
+      throw createProfileLockedError(args.browserProfileDir);
+    }
     console.warn(
       `Persistent profile startup failed, falling back to storage-state mode: ${error}`,
     );
@@ -1128,15 +1237,18 @@ async function main() {
       args.loginTimeoutMs,
       hasState,
     );
+    await persistStorageStateSnapshot(context, storageStatePath);
   }
 
   let settledText = "";
   await runSelectionAttempt(page, builtPrompt, args.timeoutMs).then((result) => {
     settledText = result.settledText;
     candidateTexts = result.candidateTexts || [];
+    replayTimedOut = Boolean(result.replayTimedOut);
+    replaySnapshot = result.replaySnapshot || null;
   });
 
-  if (hasAuthFailure(replayText, seenResponses, consoleMessages)) {
+  if (hasAuthFailure(replayText, seenResponses, consoleMessages, settledText, candidateTexts)) {
     if (args.headless) {
       throw new Error(
         "AlphaShop responded with an unauthenticated session while running headless.",
@@ -1154,16 +1266,20 @@ async function main() {
       false,
       true,
     );
+    await persistStorageStateSnapshot(context, storageStatePath);
 
-    await page.goto(args.url, {
+    await gotoWithProxyFallback(page, args.url, {
       waitUntil: "domcontentloaded",
-      timeout: args.timeoutMs,
+      timeoutMs: args.timeoutMs,
+      hosts: [extractHostname(args.url), "alphashop.cn", "www.alphashop.cn"],
     });
     await page.waitForTimeout(3000);
 
     await runSelectionAttempt(page, builtPrompt, args.timeoutMs).then((result) => {
       settledText = result.settledText;
       candidateTexts = result.candidateTexts || [];
+      replayTimedOut = Boolean(result.replayTimedOut);
+      replaySnapshot = result.replaySnapshot || null;
     });
   }
 
@@ -1199,8 +1315,7 @@ async function main() {
   const basename = `alphashop-${args.platform}-${timestamp()}`;
   const screenshot = await page.screenshot({ fullPage: true, type: "png" });
   const outputStorageStatePath = path.join(args.outputDir, `${basename}.storage-state.json`);
-  await context.storageState({ path: storageStatePath });
-  await context.storageState({ path: outputStorageStatePath });
+  await persistStorageStateSnapshot(context, storageStatePath, outputStorageStatePath);
 
   const manifest = {
     startedAt,
@@ -1215,6 +1330,8 @@ async function main() {
     responseCount: seenResponses.length,
     extractedStructuredResult: Boolean(structured),
     candidateTextCount: candidateTexts.length,
+    replayTimedOut,
+    replaySnapshot,
     consoleMessages,
     responses: seenResponses,
   };
@@ -1241,6 +1358,12 @@ async function main() {
       ? `Structured products extracted: ${analyzedProducts.length}`
       : "Structured products extracted: 0",
   );
+
+  if (!structured && replayTimedOut) {
+    throw new Error(
+      `AlphaShop selection timed out without a structured result. Manifest saved at ${manifestPath}`,
+    );
+  }
 
   if (args.keepOpen && !args.headless) {
     console.log("Keeping browser open. Close the browser window when you are done inspecting it.");

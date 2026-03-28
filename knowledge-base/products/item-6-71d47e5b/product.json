@@ -1,0 +1,75 @@
+{
+  "id": "2026-03-25T13:18:21.740Z-item-6-71d47e5b",
+  "slug": "item-6-71d47e5b",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-25T13-18-14.970Z.analysis.json",
+    "imported_at": "2026-03-25T13:18:21.740Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_compare_blocked",
+    "created_at": "2026-03-25T13:18:21.740Z",
+    "updated_at": "2026-03-25T13:21:07.794Z",
+    "pipeline": "product-kb",
+    "run_id": "2026-03-25T13-18-21.490Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "source_platform": "1688",
+    "compare_status": "blocked",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-6-71d47e5b\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-6-71d47e5b\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-6-71d47e5b\\1688-competitor-offers.json",
+    "compared_at": "2026-03-25T13:21:07.794Z",
+    "shortlist_count": 0,
+    "last_error": "invalid_detail_page, missing_source_url, missing_media, less_than_three_competitors, missing_selected_offer",
+    "blocked_snapshot_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\product-kb-blocked\\item-6-71d47e5b\\ozon-knowledge.blocked.json"
+  },
+  "listing": {
+    "status": "not_ready",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-6-71d47e5b\\ozon-knowledge.json",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-6-71d47e5b\\product.json",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-6-71d47e5b\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-6-71d47e5b\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-6-71d47e5b\\1688-competitor-offers.json",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-6-71d47e5b\\ozon-knowledge.json"
+  },
+  "product": {
+    "name": "汽车座椅缝隙收纳盒",
+    "category": "车品",
+    "target_price_rub": 1890,
+    "supply_price_cny": 22,
+    "est_weight_kg": 0.45,
+    "package_long_edge_cm": 38,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "why_it_can_sell": "解决车主日常痛点，标准化塑料件，无认证要求，图片展示效果直观",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 60,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 65
+    },
+    "total_score": 88,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  },
+  "knowledge_base": null
+}

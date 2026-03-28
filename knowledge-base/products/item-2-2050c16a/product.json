@@ -6,14 +6,14 @@
     "imported_at": "2026-03-19T12:23:25.225Z"
   },
   "workflow": {
-    "current_stage": "supplier_research_pending",
+    "current_stage": "approved_for_listing",
     "created_at": "2026-03-19T12:23:25.225Z",
-    "updated_at": "2026-03-19T12:23:25.225Z"
+    "updated_at": "2026-03-20T01:22:42.124Z"
   },
   "review": {
-    "status": "pending",
-    "notes": "",
-    "reviewed_at": ""
+    "status": "approved",
+    "notes": "Auto-approved by draft-only Ozon flow.",
+    "reviewed_at": "2026-03-20T01:22:15.404Z"
   },
   "research": {
     "product_profile": "storage-home",
@@ -35,11 +35,24 @@
       "last_contacted_at": "",
       "follow_up_sent_count": 0,
       "nudge_sent_count": 0
-    }
+    },
+    "autonomous_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\autonomous-summary.md",
+    "autonomous_approval": true,
+    "autonomous_approval_reason": "low-complexity product; supplier response not required"
   },
   "listing": {
-    "status": "not_ready",
-    "listing_brief_path": ""
+    "status": "draft_generated",
+    "listing_brief_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\listing-brief.md",
+    "package_id": "2026-03-20T01-22-42.125Z-item-2-2050c16a",
+    "draft_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T01-22-42.125Z-item-2-2050c16a\\item-2-2050c16a\\ozon-listing-draft.json",
+    "draft_md_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T01-22-42.125Z-item-2-2050c16a\\item-2-2050c16a\\ozon-listing-draft.md",
+    "selected_title": "防滑抽屉分隔板（可裁剪）",
+    "generated_at": "2026-03-20T01:22:42.124Z",
+    "title_json_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\listing-title.json",
+    "bullets_json_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\listing-bullets.json",
+    "attributes_json_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\listing-attributes.json",
+    "main_image_copy_json_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\main-image-copy.json",
+    "assets_md_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\listing-assets.md"
   },
   "paths": {
     "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2050c16a\\product.json"

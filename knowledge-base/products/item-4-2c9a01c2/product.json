@@ -1,0 +1,75 @@
+{
+  "id": "2026-03-25T13:18:21.689Z-item-4-2c9a01c2",
+  "slug": "item-4-2c9a01c2",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-25T13-18-14.970Z.analysis.json",
+    "imported_at": "2026-03-25T13:18:21.689Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_compare_blocked",
+    "created_at": "2026-03-25T13:18:21.689Z",
+    "updated_at": "2026-03-25T13:20:13.766Z",
+    "pipeline": "product-kb",
+    "run_id": "2026-03-25T13-18-21.490Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "source_platform": "1688",
+    "compare_status": "blocked",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-2c9a01c2\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-2c9a01c2\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-2c9a01c2\\1688-competitor-offers.json",
+    "compared_at": "2026-03-25T13:20:13.766Z",
+    "shortlist_count": 0,
+    "last_error": "invalid_detail_page, missing_source_url, missing_media, less_than_three_competitors, missing_selected_offer",
+    "blocked_snapshot_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\product-kb-blocked\\item-4-2c9a01c2\\ozon-knowledge.blocked.json"
+  },
+  "listing": {
+    "status": "not_ready",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-2c9a01c2\\ozon-knowledge.json",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-2c9a01c2\\product.json",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-2c9a01c2\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-2c9a01c2\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-2c9a01c2\\1688-competitor-offers.json",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-2c9a01c2\\ozon-knowledge.json"
+  },
+  "product": {
+    "name": "硅胶折叠收纳碗（宠物用）",
+    "category": "宠物",
+    "target_price_rub": 1490,
+    "supply_price_cny": 18,
+    "est_weight_kg": 0.25,
+    "package_long_edge_cm": 18,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "high",
+    "seasonality": "stable",
+    "why_it_can_sell": "轻便、可折叠、易展示，适合宠物主人户外使用，俄语卖点易本地化（如“节省空间”“便携”）",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 60,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 90
+    },
+    "total_score": 90,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  },
+  "knowledge_base": null
+}

@@ -1,0 +1,20 @@
+{
+  "marketplace": "Ozon Russia",
+  "slug": "item-2-6df4177f",
+  "product_name": "可伸缩宠物拾便袋盒（带挂钩）",
+  "category": "宠物",
+  "profile": "pet-accessories",
+  "target_price_rub": 1290,
+  "supply_price_cny": 11,
+  "weight_kg": 0.15,
+  "long_edge_cm": 15,
+  "fragility": "low",
+  "certification_risk": "low",
+  "return_risk": "low",
+  "competition_level": "low",
+  "content_potential": "medium",
+  "risk_tags": [
+    "pet"
+  ],
+  "final_decision": "Go"
+}

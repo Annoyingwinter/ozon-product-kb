@@ -1,0 +1,730 @@
+{
+  "id": "2026-03-25T14:17:40.334Z-10kg-15a5c8d3",
+  "slug": "10kg-15a5c8d3",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-25T14-03-25.277Z.analysis.json",
+    "imported_at": "2026-03-25T14:17:40.334Z"
+  },
+  "workflow": {
+    "current_stage": "knowledge_base_ready",
+    "created_at": "2026-03-25T14:17:40.334Z",
+    "updated_at": "2026-03-25T16:36:42.016Z",
+    "pipeline": "product-kb",
+    "run_id": "2026-03-25T14-17-40.295Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "source_platform": "1688",
+    "compare_status": "completed",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\1688-competitor-offers.json",
+    "compared_at": "2026-03-25T16:36:42.016Z",
+    "shortlist_count": 3,
+    "last_error": "",
+    "blocked_snapshot_path": ""
+  },
+  "listing": {
+    "status": "not_ready",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\ozon-knowledge.json",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\product.json",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\1688-competitor-offers.json",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\ozon-knowledge.json"
+  },
+  "product": {
+    "name": "可折叠购物袋（承重10kg）",
+    "category": "家居",
+    "target_price_rub": 1190,
+    "supply_price_cny": 9,
+    "est_weight_kg": 0.12,
+    "package_long_edge_cm": 10,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "high",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "why_it_can_sell": "环保趋势+日常刚需，轻小极致，复购率高，俄语本地化简单（‘超市必备’‘可洗’）",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 22,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 65
+    },
+    "total_score": 82,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": [
+      "竞争过于拥挤"
+    ]
+  },
+  "knowledge_base": {
+    "schema_version": "ozon-kb-v1",
+    "generated_at": "2026-03-25T16:36:42.015Z",
+    "source_platform": "1688",
+    "source_url": "https://detail.1688.com/offer/748171139623.html",
+    "source_platform_urls": [
+      "https://detail.1688.com/offer/748171139623.html",
+      "https://detail.1688.com/offer/570751123797.html",
+      "https://detail.1688.com/offer/666076545534.html"
+    ],
+    "spu_id": "SPU-10KG-15A5C8D3",
+    "sku_id": "SPU-10KG-15A5C8D3-DEFAULT",
+    "group_id": "SPU-10KG-15A5C8D3",
+    "variant_theme": "",
+    "variant_values": {},
+    "brand": "",
+    "model": "",
+    "vendor_code": "110",
+    "barcode": "",
+    "title_cn": "可折叠购物袋（承重10kg）",
+    "title_en": "",
+    "title_ru": "",
+    "description": "环保趋势+日常刚需，轻小极致，复购率高，俄语本地化简单（‘超市必备’‘可洗’）；材质：防水牛津格子布；规格：53*38+26cm底部10cm；颜色：混色,绿色.,蓝色.,酒红.,藏青.,灰色.,黑色.,宝蓝,橘黄,咖啡色；风格：时尚",
+    "bullet_points": [
+      "环保趋势+日常刚需，轻小极致，复购率高，俄语本地化简单（‘超市必备’‘可洗’）",
+      "material: 防水牛津格子布",
+      "size: 53*38+26cm底部10cm",
+      "color: 混色,绿色.,蓝色.,酒红.,藏青.,灰色.,黑色.,宝蓝,橘黄,咖啡色",
+      "style: 时尚",
+      "country_of_origin: 义乌"
+    ],
+    "price": 4.405,
+    "old_price": 0,
+    "currency": "CNY",
+    "stock": null,
+    "min_order_qty": 5,
+    "package_quantity": 1,
+    "vat": "",
+    "weight": 0.12,
+    "length": 10,
+    "width": 0,
+    "height": 0,
+    "category_path": "义乌市羊城箱包有限公司 > 主营：收纳防尘 > 5.0分 > 分 > 准时发货率",
+    "category_id_source": "",
+    "ozon_category_id": "",
+    "attributes": {
+      "source_category": "家居",
+      "seasonality": "stable",
+      "fragility": "low",
+      "competition_level": "high",
+      "content_potential": "medium",
+      "size": "53*38+26cm底部10cm",
+      "style": "时尚",
+      "material": "防水牛津格子布",
+      "color": "混色,绿色.,蓝色.,酒红.,藏青.,灰色.,黑色.,宝蓝,橘黄,咖啡色"
+    },
+    "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01IFpPgG2MHpWpuddaB_!!4172819803-0-cib.jpg_460x460q100.jpg_.webp",
+    "images": [
+      "https://cbu01.alicdn.com/img/ibank/O1CN01IFpPgG2MHpWpuddaB_!!4172819803-0-cib.jpg_460x460q100.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01IFpPgG2MHpWpuddaB_!!4172819803-0-cib.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/19680823007_944059079.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01PTOTWc2MHpNs9EoYZ_!!4172819803-0-cib.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/19609860077_944059079.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01rnXA6k2MHpTGR9p9k_!!4172819803-0-cib.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/19608204084_944059079.jpg_sum.jpg",
+      "https://cbu01.alicdn.com/img/ibank/19680874855_944059079.jpg_sum.jpg"
+    ],
+    "video_url": "",
+    "image_count": 8,
+    "image_hash": "90726673110af48b614b2e2aa233e8fb00547078",
+    "white_background": null,
+    "is_adult": false,
+    "is_fragile": false,
+    "dangerous_goods": false,
+    "country_of_origin": "义乌",
+    "certificate_files": [],
+    "brand_authorization": "",
+    "customs_code": "",
+    "restricted_category_flag": false,
+    "competitor_offers": [
+      {
+        "source_platform": "1688",
+        "source_url": "https://detail.1688.com/offer/748171139623.html",
+        "offer_title": "可折叠购物袋（承重10kg）",
+        "shop_name": "义乌市羊城箱包有限公司",
+        "shop_url": "http://yangchenxb.1688.com/?tracelog=p4p",
+        "price": 4.405,
+        "price_text": "¥4.405个起批¥4.30100-9999个¥4.10≥10000个已售1.6万+个",
+        "currency": "CNY",
+        "min_order_qty": 5,
+        "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01IFpPgG2MHpWpuddaB_!!4172819803-0-cib.jpg_460x460q100.jpg_.webp",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN01IFpPgG2MHpWpuddaB_!!4172819803-0-cib.jpg_460x460q100.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01IFpPgG2MHpWpuddaB_!!4172819803-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/19680823007_944059079.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01PTOTWc2MHpNs9EoYZ_!!4172819803-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/19609860077_944059079.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01rnXA6k2MHpTGR9p9k_!!4172819803-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/19608204084_944059079.jpg_sum.jpg",
+          "https://cbu01.alicdn.com/img/ibank/19680874855_944059079.jpg_sum.jpg"
+        ],
+        "image_count": 10,
+        "image_hash": "9ba2b2c54f1f846952bf0afbef65f7b39d180451",
+        "category_path": "义乌市羊城箱包有限公司 > 主营：收纳防尘 > 5.0分 > 分 > 准时发货率",
+        "description": "义乌市羊城箱包有限公司 关注 客服 商品 入驻8年 主营：收纳防尘 店铺回头率 76% 店铺服务分 5.0分 准时发货率 93% 店铺好评率 99.9% start Play 00:00 01:00 主图视频 款式 手提式 可否折叠 可以 材质 牛津布 产品类别 购物袋 品牌 洋辰箱包 最大承重 20KG 是否进口 否 规格 53*38+26cm底部10cm 产地 义乌 适用性别 通用 风格 休闲 图案 纯色 加印LOGO 可以 加工定制 是 适用送礼场合 展销会、广告促销、商务馈赠、公关策划 产品上市时间 2023 价格段 5元以内 购物袋风格 时尚 购物篮材质 防水牛津格子布 贸易属性 内贸+外贸 专利 否 货号 110 购物袋样式 横向大号 颜色 混色、绿色.、蓝色.、酒红.、藏青.、灰色.、黑色.、宝蓝、橘黄、咖啡色 主要下游平台 亚马逊 主要销售地区 欧洲、南美、东南亚、北美 有可授权的自有品牌 否 是否跨境出口专供货源 是 全部参数 参数 现货牛津布防水购物袋可折叠购物袋单肩超市购物袋便携买菜包 200+人好评 200+人已加购 ¥ 4 .40 5个起批 ¥ 4 .30 100-9999个 ¥ 4 .10 ≥10000个 已售1.6万+个 满50包邮 10件混批 先采后付0元下单 浙江金华 送至 选择收货地址 预计18小时发货 承诺48小时发货·常发中通快递 运费 ¥4 起 退货包运费 7天无理由退货 晚发必赔 极速退款 颜色 混色 ¥4.4 库存12062个 绿色. ¥4.4 库存18720个 蓝色. ¥4.4 库存20002个 酒红. ¥4.4 库存19200个 藏青. ¥4.4 库存5822个 灰色. ¥4.4 库存14991个 黑色. ¥4.4 库存17747个 宝蓝 ¥4.4 库存20115个 橘黄 ¥4.4 库存18597个 咖啡色 ¥4.4 库存20045个 立即下单 加采购车 收藏(213) 分销代发 ≥5件 ￥4.4 官方仓退货 立即铺货 加铺货单 代发下单 商品评价 商品属性 包装信息 商品详情 热门推荐 搭配组货 商品评价 5.0 200+条评价 好评率 100% 质量很好3 客服态度好2 性价比超高2 葡**人 1个 购物袋的布料很厚实，看着大概是放水材质，很好收纳也轻便，打开也很大，可以放在包包里以备不时之需。 预览 预览 匿名购买 5个 质量很好 特别好用 值得购买 预览 查看全部评价 商品属性 款式 手提式 品牌 洋辰箱包 可否折叠 可以 最大承重 20KG 材质 牛津布 产品类别 购物袋 是否进口 否 规格 53*38+26cm底部10cm 产地 义乌 适用性别 通用 风格 休闲 图案 纯色 加印LOGO 可以 加工定制 是 适用送礼场合 展销会,广告促销,商务馈赠,公关策划 产品上市时间 2023 价格段 5元以",
+        "source_attributes": [
+          {
+            "key": "品牌",
+            "value": "洋辰箱包"
+          },
+          {
+            "key": "最大承重",
+            "value": "20KG"
+          },
+          {
+            "key": "是否进口",
+            "value": "否"
+          },
+          {
+            "key": "规格",
+            "value": "53*38+26cm底部10cm"
+          },
+          {
+            "key": "产地",
+            "value": "义乌"
+          },
+          {
+            "key": "适用性别",
+            "value": "通用"
+          },
+          {
+            "key": "风格",
+            "value": "休闲"
+          },
+          {
+            "key": "图案",
+            "value": "纯色"
+          },
+          {
+            "key": "加印LOGO",
+            "value": "可以"
+          },
+          {
+            "key": "加工定制",
+            "value": "是"
+          },
+          {
+            "key": "适用送礼场合",
+            "value": "展销会、广告促销、商务馈赠、公关策划"
+          },
+          {
+            "key": "产品上市时间",
+            "value": "2023"
+          },
+          {
+            "key": "价格段",
+            "value": "5元以内"
+          },
+          {
+            "key": "购物袋风格",
+            "value": "时尚"
+          },
+          {
+            "key": "购物篮材质",
+            "value": "防水牛津格子布"
+          },
+          {
+            "key": "贸易属性",
+            "value": "内贸+外贸"
+          },
+          {
+            "key": "专利",
+            "value": "否"
+          },
+          {
+            "key": "货号",
+            "value": "110"
+          },
+          {
+            "key": "购物袋样式",
+            "value": "横向大号"
+          },
+          {
+            "key": "颜色",
+            "value": "混色、绿色.、蓝色.、酒红.、藏青.、灰色.、黑色.、宝蓝、橘黄、咖啡色"
+          },
+          {
+            "key": "主要下游平台",
+            "value": "亚马逊"
+          },
+          {
+            "key": "主要销售地区",
+            "value": "欧洲、南美、东南亚、北美"
+          },
+          {
+            "key": "有可授权的自有品牌",
+            "value": "否"
+          },
+          {
+            "key": "是否跨境出口专供货源",
+            "value": "是"
+          },
+          {
+            "key": "款式",
+            "value": "手提式"
+          },
+          {
+            "key": "品牌",
+            "value": "洋辰箱包"
+          },
+          {
+            "key": "可否折叠",
+            "value": "可以"
+          },
+          {
+            "key": "最大承重",
+            "value": "20KG"
+          },
+          {
+            "key": "材质",
+            "value": "牛津布"
+          },
+          {
+            "key": "产品类别",
+            "value": "购物袋"
+          },
+          {
+            "key": "是否进口",
+            "value": "否"
+          },
+          {
+            "key": "规格",
+            "value": "53*38+26cm底部10cm"
+          },
+          {
+            "key": "产地",
+            "value": "义乌"
+          },
+          {
+            "key": "适用性别",
+            "value": "通用"
+          },
+          {
+            "key": "风格",
+            "value": "休闲"
+          },
+          {
+            "key": "图案",
+            "value": "纯色"
+          },
+          {
+            "key": "加印LOGO",
+            "value": "可以"
+          },
+          {
+            "key": "加工定制",
+            "value": "是"
+          },
+          {
+            "key": "适用送礼场合",
+            "value": "展销会,广告促销,商务馈赠,公关策划"
+          },
+          {
+            "key": "产品上市时间",
+            "value": "2023"
+          },
+          {
+            "key": "价格段",
+            "value": "5元以内"
+          },
+          {
+            "key": "购物袋风格",
+            "value": "时尚"
+          },
+          {
+            "key": "购物篮材质",
+            "value": "防水牛津格子布"
+          },
+          {
+            "key": "贸易属性",
+            "value": "内贸+外贸"
+          },
+          {
+            "key": "专利",
+            "value": "否"
+          },
+          {
+            "key": "货号",
+            "value": "110"
+          },
+          {
+            "key": "购物袋样式",
+            "value": "横向大号"
+          },
+          {
+            "key": "颜色",
+            "value": "混色,绿色.,蓝色.,酒红.,藏青.,灰色.,黑色.,宝蓝,橘黄,咖啡色"
+          },
+          {
+            "key": "主要下游平台",
+            "value": "亚马逊"
+          },
+          {
+            "key": "主要销售地区",
+            "value": "欧洲,南美,东南亚,北美"
+          },
+          {
+            "key": "有可授权的自有品牌",
+            "value": "否"
+          },
+          {
+            "key": "是否跨境出口专供货源",
+            "value": "是"
+          }
+        ],
+        "normalizedAttributes": {
+          "brand": "否",
+          "size": "53*38+26cm底部10cm",
+          "country_of_origin": "义乌",
+          "style": "时尚",
+          "material": "防水牛津格子布",
+          "vendor_code": "110",
+          "color": "混色,绿色.,蓝色.,酒红.,藏青.,灰色.,黑色.,宝蓝,橘黄,咖啡色"
+        },
+        "package_dimensions_cm": {
+          "length": 0,
+          "width": 0,
+          "height": 0
+        },
+        "weight_kg": 0,
+        "page_type": "detail",
+        "title_candidates": [
+          "义乌市羊城箱包有限公司",
+          "现货牛津布防水购物袋可折叠购物袋单肩超市购物袋便携买菜包 - 阿里巴巴"
+        ],
+        "raw_search_title": "5~99个",
+        "raw_search_shop_name": "义乌市羊城箱包有限公司"
+      },
+      {
+        "source_platform": "1688",
+        "source_url": "https://detail.1688.com/offer/570751123797.html",
+        "offer_title": "可折叠购物袋（承重10kg）",
+        "shop_name": "义乌市欣沐制袋有限公司",
+        "shop_url": "http://shop1463418109051.1688.com/?tracelog=p4p",
+        "price": 2.4,
+        "price_text": "价格¥2.40登录查看更多优惠",
+        "currency": "CNY",
+        "min_order_qty": 224482,
+        "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01g24LgY1ctPTVWImAc_!!2886043658-0-cib.jpg_460x460q100.jpg_.webp",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN01g24LgY1ctPTVWImAc_!!2886043658-0-cib.jpg_460x460q100.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01g24LgY1ctPTVWImAc_!!2886043658-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/8944171824_1140611161.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/10973335362_1140611161.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/9663990100_1140611161.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/10945458638_1140611161.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/12356564913_1140611161.jpg_sum.jpg",
+          "https://cbu01.alicdn.com/img/ibank/12320869518_1140611161.jpg_sum.jpg"
+        ],
+        "image_count": 10,
+        "image_hash": "d3f1e70c52e026267f0aa924c852515b82003c8c",
+        "category_path": "义乌市欣沐制袋有限公司 > 主营：收纳防尘 > 3.5分 > 分 > 准时发货率",
+        "description": "义乌市欣沐制袋有限公司 关注 客服 商品 入驻10年 主营：收纳防尘 店铺回头率 60% 店铺服务分 3.5分 准时发货率 95% 店铺好评率 97.7% start Play 00:00 00:45 主图视频 可折叠购物袋印广告LOGO超市大号包便携可收纳环保袋手提袋子现货 200+人好评 商品复购率26.32% 100+人已加购 价格 ¥ 2 .40 登录查看更多优惠 满9.8减1 浙江金华 送至 选择收货地址 承诺48小时发货·常发中通快递 运费 ¥3.3 起 7天无理由退货 晚发必赔 颜色 深蓝星星 库存224482件 满天星 库存145273件 深蓝圆点 库存545648件 天蓝星星 库存647137件 深蓝条纹 库存539108件 粉色条纹 库存514044件 展开已售罄商品 登录查看全部规格 密文代发 1件包邮 ￥4.5 ≥2件 ￥2.4 官方仓退货 立即铺货 加铺货单 代发下单 商品评价 商品属性 包装信息 商品详情 商品评价 4.9 200+条评价 好评率 97.9% 质量物美价廉2 a**s 10件 质量没得说,质量物美价廉,性价比很不错,款式简单 预览 PLUS m**王 10件 做出来的成品比我心里预想的还要好，不错 预览 查看全部评价 商品属性 款式 手提式 品牌 其他 最大承重 10KG 材质 涤纶 产品类别 购物袋 是否进口 否 规格 35.5*5*8侧宽 型号 方形折叠购物袋 适用性别 通用 风格 休闲 加印LOGO 可以 加工定制 是 适用送礼场合 展销会,广告促销,商务馈赠,公关策划,21102607111 产品上市时间 其他 价格段 5元以内 购物袋风格 百搭 购物篮材质 涤纶牛津 专利 否 货号 花布方包 购物袋样式 纵向大号 颜色 深蓝星星,满天星,深蓝圆点,天蓝星星,深蓝条纹,粉色条纹,大量现货,量大联系客服 展开全部 包装信息 商品件重尺 重量(g) 40 商品详情 【平台活动下价格】 活动前价格：（1）非分销场景下，指平台活动（不含分销场景的活动）预热期（若无预热期，则为爆发期）前的商品销售价格；（2）分销场景下，专指分销活动预热期（若无预热期，则为爆发期）前的商品销售价格。 前述价格未计算平台发放的各种采购津贴、跨店券、红包等优惠，未计算商家设置的满减优惠、优惠券、店铺返利金、店铺会员折扣以及L会员价、商家设置的指定人群单品优惠活动等各种优惠；该价格会计算其他非平台活动下的各种优惠（包括商家自行设置的非指定人群的单品优惠等，最终以商家的自行设置为准）。前述商品销售价格指商品页面当日展示的标价；若当日商家多次调整销售价格的，取当日最后展示的销售价格。 【非平台活动下价格】 划线价格：指商家自营销活动场景下的商品价格，该价格不包含平台的各种优惠活动。可能是商品的销售指导价或该商品的曾经展示过的销售价等，并非原价，",
+        "source_attributes": [
+          {
+            "key": "款式",
+            "value": "手提式"
+          },
+          {
+            "key": "品牌",
+            "value": "其他"
+          },
+          {
+            "key": "最大承重",
+            "value": "10KG"
+          },
+          {
+            "key": "材质",
+            "value": "涤纶"
+          },
+          {
+            "key": "产品类别",
+            "value": "购物袋"
+          },
+          {
+            "key": "是否进口",
+            "value": "否"
+          },
+          {
+            "key": "规格",
+            "value": "35.5*5*8侧宽"
+          },
+          {
+            "key": "型号",
+            "value": "方形折叠购物袋"
+          },
+          {
+            "key": "适用性别",
+            "value": "通用"
+          },
+          {
+            "key": "风格",
+            "value": "休闲"
+          },
+          {
+            "key": "加印LOGO",
+            "value": "可以"
+          },
+          {
+            "key": "加工定制",
+            "value": "是"
+          },
+          {
+            "key": "适用送礼场合",
+            "value": "展销会,广告促销,商务馈赠,公关策划,21102607111"
+          },
+          {
+            "key": "产品上市时间",
+            "value": "其他"
+          },
+          {
+            "key": "价格段",
+            "value": "5元以内"
+          },
+          {
+            "key": "购物袋风格",
+            "value": "百搭"
+          },
+          {
+            "key": "购物篮材质",
+            "value": "涤纶牛津"
+          },
+          {
+            "key": "专利",
+            "value": "否"
+          },
+          {
+            "key": "货号",
+            "value": "花布方包"
+          },
+          {
+            "key": "购物袋样式",
+            "value": "纵向大号"
+          },
+          {
+            "key": "颜色",
+            "value": "深蓝星星,满天星,深蓝圆点,天蓝星星,深蓝条纹,粉色条纹,大量现货,量大联系客服"
+          }
+        ],
+        "normalizedAttributes": {
+          "brand": "其他",
+          "material": "涤纶牛津",
+          "size": "35.5*5*8侧宽",
+          "model": "方形折叠购物袋",
+          "style": "百搭",
+          "vendor_code": "花布方包",
+          "color": "深蓝星星,满天星,深蓝圆点,天蓝星星,深蓝条纹,粉色条纹,大量现货,量大联系客服"
+        },
+        "package_dimensions_cm": {
+          "length": 35.5,
+          "width": 5,
+          "height": 8
+        },
+        "weight_kg": 0,
+        "page_type": "detail",
+        "title_candidates": [
+          "义乌市欣沐制袋有限公司",
+          "可折叠购物袋印广告LOGO超市大号包便携可收纳环保袋手提袋子现货 - 阿里巴巴"
+        ],
+        "raw_search_title": "1~999件",
+        "raw_search_shop_name": "义乌市欣沐制袋有限公司"
+      },
+      {
+        "source_platform": "1688",
+        "source_url": "https://detail.1688.com/offer/666076545534.html",
+        "offer_title": "可折叠购物袋（承重10kg）",
+        "shop_name": "金华顶贯箱包有限公司",
+        "shop_url": "http://jsdgbd.1688.com/",
+        "price": 2.8,
+        "price_text": "价格¥2.80登录查看更多优惠",
+        "currency": "CNY",
+        "min_order_qty": 30,
+        "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN014PqyAu1owPYYUplPD_!!2097515289-0-cib.jpg_460x460q100.jpg_.webp",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN014PqyAu1owPYYUplPD_!!2097515289-0-cib.jpg_460x460q100.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN014PqyAu1owPYYUplPD_!!2097515289-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01WzN2Q71owPpYVuNG2_!!2097515289-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01pooNgr1owPWZJiX3r_!!2097515289-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01snUBcf1owPut6Z39m_!!2097515289-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN010uWV8u1owPWfT0Bef_!!2097515289-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01iAFezM1owPYWUyWav_!!2097515289-0-cib.jpg_sum.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01PjJLgs1owPjbZ4AZj_!!2097515289-0-cib.jpg_sum.jpg"
+        ],
+        "image_count": 10,
+        "image_hash": "8e758d7a29910b07642fb36de07437dca2925a0a",
+        "category_path": "金华顶贯箱包有限公司 > 主营：收纳防尘 > 5.0分 > 分 > 准时发货率",
+        "description": "金华顶贯箱包有限公司 关注 客服 商品 入驻12年 主营：收纳防尘 店铺回头率 72% 店铺服务分 5.0分 准时发货率 88% 店铺好评率 99.7% start Play 00:00 00:27 主图视频 新款大号可折叠购物袋花布方形袋便携购物袋可折叠手提袋 60+人好评 200+人已加购 价格 ¥ 2 .80 登录查看更多优惠 30件混批 浙江金华 送至 选择收货地址 预计18小时发货 承诺48小时发货·常发申通快递 包邮 7天无理由退货 晚发必赔 颜色 随机混色 01 02 03 04 06 07 08 09 11 13 14 15 16 17 18 19 20 21 22 23 24 25 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 容量 45*65 库存753736件 登录查看全部规格 分销代发 ≥5件 ￥2.8 官方仓退货 立即铺货 加铺货单 代发下单 商品评价 商品属性 包装信息 商品详情 热门推荐 搭配组货 商品评价 5.0 60+条评价 好评率 100% 质量不错4 物流速度杠的3 客服很耐心3 价格很实惠3 匿名购买 2件 刚收到宝贝就迫不及待打开了，真的太惊喜了！物流速度杠杠的，打开一看物超所值，购物体验棒棒哒！性价比高得不得了，推荐购买！👍👍👍 预览 匿名购买 2000件 回头客 款式不错,物流速度非常的快,卖家服务很好,价格大众化,发货好快,性价比很不错,沟通起来很轻松,性价比好高,店主服务很好,与图片相符,款式很好,质量杠好 查看全部评价 商品属性 款式 手提式 品牌 匠士 可否折叠 可以 最大承重 15 材质 涤纶 产品类别 购物袋 是否进口 否 规格 大号 型号 大号花色方包 产地 义乌 适用性别 通用 风格 休闲 图案 印花 加印LOGO 可以 加工定制 是 适用送礼场合 展销会,广告促销,商务馈赠,公关策划 产品上市时间 2021年夏 价格段 5元以内 购物袋风格 休闲 购物篮材质 涤纶 贸易属性 内贸+外贸 专利 否 货号 大号花色方包 购物袋样式 纵向大号 颜色 随机混色,01,02,03,04,06,07,08,09,11,13,14,15,16,17,18,19,20,21,22,23,24,25,27",
+        "source_attributes": [
+          {
+            "key": "款式",
+            "value": "手提式"
+          },
+          {
+            "key": "品牌",
+            "value": "匠士"
+          },
+          {
+            "key": "可否折叠",
+            "value": "可以"
+          },
+          {
+            "key": "最大承重",
+            "value": "15"
+          },
+          {
+            "key": "材质",
+            "value": "涤纶"
+          },
+          {
+            "key": "产品类别",
+            "value": "购物袋"
+          },
+          {
+            "key": "是否进口",
+            "value": "否"
+          },
+          {
+            "key": "规格",
+            "value": "大号"
+          },
+          {
+            "key": "型号",
+            "value": "大号花色方包"
+          },
+          {
+            "key": "产地",
+            "value": "义乌"
+          },
+          {
+            "key": "适用性别",
+            "value": "通用"
+          },
+          {
+            "key": "风格",
+            "value": "休闲"
+          },
+          {
+            "key": "图案",
+            "value": "印花"
+          },
+          {
+            "key": "加印LOGO",
+            "value": "可以"
+          },
+          {
+            "key": "加工定制",
+            "value": "是"
+          },
+          {
+            "key": "适用送礼场合",
+            "value": "展销会,广告促销,商务馈赠,公关策划"
+          },
+          {
+            "key": "产品上市时间",
+            "value": "2021年夏"
+          },
+          {
+            "key": "价格段",
+            "value": "5元以内"
+          },
+          {
+            "key": "购物袋风格",
+            "value": "休闲"
+          },
+          {
+            "key": "购物篮材质",
+            "value": "涤纶"
+          },
+          {
+            "key": "贸易属性",
+            "value": "内贸+外贸"
+          },
+          {
+            "key": "专利",
+            "value": "否"
+          },
+          {
+            "key": "货号",
+            "value": "大号花色方包"
+          },
+          {
+            "key": "购物袋样式",
+            "value": "纵向大号"
+          },
+          {
+            "key": "颜色",
+            "value": "随机混色,01,02,03,04,06,07,08,09,11,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114"
+          },
+          {
+            "key": "容量",
+            "value": "45*65"
+          },
+          {
+            "key": "是否跨境出口专供货源",
+            "value": "否"
+          },
+          {
+            "key": "尺寸",
+            "value": "45*65"
+          }
+        ],
+        "normalizedAttributes": {
+          "brand": "匠士",
+          "material": "涤纶",
+          "size": "45*65",
+          "model": "大号花色方包",
+          "country_of_origin": "义乌",
+          "style": "休闲",
+          "vendor_code": "大号花色方包",
+          "color": "随机混色,01,02,03,04,06,07,08,09,11,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114"
+        },
+        "package_dimensions_cm": {
+          "length": 0,
+          "width": 0,
+          "height": 0
+        },
+        "weight_kg": 0,
+        "page_type": "detail",
+        "title_candidates": [
+          "金华顶贯箱包有限公司",
+          "新款大号可折叠购物袋花布方形袋便携购物袋可折叠手提袋 - 阿里巴巴"
+        ],
+        "raw_search_title": "5~499件",
+        "raw_search_shop_name": "金华顶贯箱包有限公司"
+      }
+    ],
+    "comparison_summary": {
+      "compared_at": "2026-03-25T16:36:42.016Z",
+      "candidate_count": 3,
+      "selected_offer_source_url": "https://detail.1688.com/offer/748171139623.html",
+      "price_min": 2.4,
+      "price_max": 4.405,
+      "price_avg": 3.2,
+      "notes": []
+    },
+    "data_quality": {
+      "title_source": "source-analysis",
+      "description_source": "web-augmented",
+      "web_detail_valid": true,
+      "inferred_fields": [
+        "title_cn"
+      ]
+    }
+  }
+}

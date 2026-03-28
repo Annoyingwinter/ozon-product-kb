@@ -1,0 +1,80 @@
+{
+  "id": "2026-03-22T11-23-48.655Z-pp-10a33b11",
+  "slug": "pp-10a33b11",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-22T11-23-43.694Z.analysis.json",
+    "imported_at": "2026-03-22T11:23:48.655Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_research_pending",
+    "created_at": "2026-03-22T11:23:48.655Z",
+    "updated_at": "2026-03-22T11:23:48.655Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "product_profile": "storage-home",
+    "risk_tags": [],
+    "requires_supplier_response": false,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\pp-10a33b11\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\pp-10a33b11\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\pp-10a33b11\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\pp-10a33b11\\supplier-response.template.json",
+    "latest_supplier_response_path": "",
+    "supplier_responses": [],
+    "outreach": {
+      "status": "not_contacted",
+      "supplier_name": "",
+      "supplier_im_url": "",
+      "supplier_shop_url": "",
+      "search_summary_path": "",
+      "first_message_sent_at": "",
+      "last_contacted_at": "",
+      "follow_up_sent_count": 0,
+      "nudge_sent_count": 0
+    }
+  },
+  "listing": {
+    "status": "not_ready",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\pp-10a33b11\\product.json"
+  },
+  "product": {
+    "name": "多层抽屉式桌面收纳盒（PP材质）",
+    "category": "收纳",
+    "target_price_rub": 1890,
+    "supply_price_cny": 22,
+    "est_weight_kg": 0.9,
+    "package_long_edge_cm": 42,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "high",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "why_it_can_sell": "家庭办公刚需，标准化程度高，俄语卖点强调‘模块化’‘透明可视’‘节省空间’",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 22,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 65
+    },
+    "total_score": 82,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": [
+      "竞争过于拥挤"
+    ]
+  }
+}

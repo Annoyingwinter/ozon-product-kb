@@ -1,0 +1,17 @@
+{
+  "hero_text": "可伸缩缝隙收纳盒（厨房/浴室用）",
+  "badge_text": "低合规风险",
+  "subtitle_text": "适合厨房、餐具和日常食品接触场景。",
+  "scene_text": "收纳盒在家居/收纳场景中的使用效果",
+  "detail_text": "规格：0.6 kg / 40 cm",
+  "overlay_lines": [
+    "解决俄国家庭常见收纳痛点，图片展示效果好，无需安装",
+    "适合厨房、餐具和日常食品接触场景。",
+    "轻小件：0.6 kg / 40 cm"
+  ],
+  "prompt_pack": [
+    "Main image: white background, centered product shot, show the full 收纳盒 clearly.",
+    "Scene image: show the 收纳盒 in its main use case for 家居/收纳.",
+    "Detail image: highlight material, structure, size, and any foldable or cuttable feature."
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "slug": "item-1-86f7dd61",
+  "status": "usable",
+  "note": "Approved by OZ Chief Listing Officer. Core listing gates passed.",
+  "gate_review": {
+    "status": "usable",
+    "hard_gates": {
+      "final_decision_go": true,
+      "has_source_url": true,
+      "compare_has_three_candidates": true,
+      "compare_has_selected_offer": true,
+      "title_ready": true,
+      "description_ready": true,
+      "bullet_points_ready": true,
+      "attributes_ready": true,
+      "price_ready": true,
+      "currency_ready": true,
+      "weight_known_and_fit": true,
+      "size_known_and_fit": true,
+      "has_main_image": true,
+      "has_enough_images": true,
+      "dangerous_goods_safe": true,
+      "restricted_category_safe": true,
+      "certification_not_high": true,
+      "return_not_high": true
+    },
+    "weak_signals": {
+      "source_signal_ok": true,
+      "sales_signal_present": true,
+      "moq_not_extreme": true,
+      "has_supplier_name": true,
+      "category_present": true,
+      "sell_price_in_band": true,
+      "multi_supplier_view": true
+    },
+    "hard_failures": [],
+    "weak_failures": []
+  },
+  "compare_summary": {
+    "slug": "item-1-86f7dd61",
+    "compared_at": "2026-03-26T15:32:23.355Z",
+    "candidate_count": 5,
+    "selected_offer_source_url": "https://detail.1688.com/offer/982202498620.html",
+    "price_min": 1.6,
+    "price_max": 14,
+    "price_avg": 7.76,
+    "shortlist": [
+      {
+        "rank": 1,
+        "source_url": "https://detail.1688.com/offer/982202498620.html",
+        "shop_name": "广州尚赢贸易有限公司",
+        "offer_title": "广州尚赢贸易有限公司",
+        "price": 1.6,
+        "min_order_qty": 358946
+      },
+      {
+        "rank": 2,
+        "source_url": "https://detail.1688.com/offer/719032576191.html",
+        "shop_name": "广州执行力车品有限公司",
+        "offer_title": "1~199只",
+        "price": 14,
+        "min_order_qty": 1
+      },
+      {
+        "rank": 3,
+        "source_url": "https://detail.1688.com/offer/674133198292.html",
+        "shop_name": "义乌翼航汽车用品有限公司",
+        "offer_title": "义乌翼航汽车用品有限公司",
+        "price": 2.38,
+        "min_order_qty": 99999706
+      },
+      {
+        "rank": 4,
+        "source_url": "https://detail.1688.com/offer/625475994189.html",
+        "shop_name": "余姚市恒威塑料制品有限公司",
+        "offer_title": "10~479只",
+        "price": 9.8,
+        "min_order_qty": 200
+      },
+      {
+        "rank": 5,
+        "source_url": "https://detail.1688.com/offer/800194839326.html",
+        "shop_name": "广州市比茵富汽车用品有限公司",
+        "offer_title": "广州市比茵富汽车用品有限公司",
+        "price": 11,
+        "min_order_qty": 1
+      }
+    ],
+    "notes": [
+      "Shortlist assembled from the same 1688 search cluster for Ozon listing review."
+    ]
+  },
+  "approved_at": "2026-03-26T15:32:23.410Z"
+}

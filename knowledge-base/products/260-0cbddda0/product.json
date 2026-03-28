@@ -1,0 +1,790 @@
+{
+  "id": "2026-03-22T11-23-48.638Z-260-0cbddda0",
+  "slug": "260-0cbddda0",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-22T11-23-43.694Z.analysis.json",
+    "imported_at": "2026-03-22T11:23:48.638Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_contacted_waiting_reply",
+    "created_at": "2026-03-22T11:23:48.638Z",
+    "updated_at": "2026-03-23T11:49:50.108Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "product_profile": "food-contact-home",
+    "risk_tags": [
+      "food-contact"
+    ],
+    "requires_supplier_response": true,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-response.template.json",
+    "latest_supplier_response_path": "",
+    "supplier_responses": [],
+    "outreach": {
+      "status": "replied",
+      "supplier_name": "阳江辉诚工贸",
+      "supplier_im_url": "https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E9%98%B3%E6%B1%9F%E8%BE%89%E8%AF%9A%E5%B7%A5%E8%B4%B8&site=cnalichn&fromid=cnalichntb591578701",
+      "supplier_shop_url": "http://shop5i0470693i944.1688.com/?tracelog=p4p",
+      "search_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\playwright\\1688-inquiry-2026-03-22T11-23-50.490Z\\summary.json",
+      "first_message_sent_at": "2026-03-22T11:24:24.119Z",
+      "last_contacted_at": "2026-03-23T11:49:50.108Z",
+      "follow_up_sent_count": 19,
+      "nudge_sent_count": 0,
+      "competitor_contacts": [
+        {
+          "supplier_key": "260-0cbddda0::_",
+          "supplier_name": "阳江辉诚工贸",
+          "supplier_im_url": "https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E9%98%B3%E6%B1%9F%E8%BE%89%E8%AF%9A%E5%B7%A5%E8%B4%B8&site=cnalichn&fromid=cnalichntb591578701",
+          "supplier_shop_url": "http://shop5i0470693i944.1688.com/?tracelog=p4p",
+          "supplier_product_title": "",
+          "supplier_product_url": "https://detail.1688.com/offer/960887140902.html",
+          "search_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\playwright\\1688-inquiry-2026-03-22T11-23-50.490Z\\summary.json",
+          "candidate_index": 0,
+          "first_message_sent_at": "2026-03-22T11:24:24.119Z",
+          "last_contacted_at": "2026-03-23T11:49:50.108Z",
+          "follow_up_sent_count": 19,
+          "nudge_sent_count": 0,
+          "last_chat_capture_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-23T11-49-50.101Z.json"
+        }
+      ],
+      "supplier_product_title": "",
+      "supplier_product_url": "https://detail.1688.com/offer/960887140902.html"
+    },
+    "chat_captures": [
+      {
+        "captured_at": "2026-03-22T11:26:17.408Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-26-17.408Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:26:47.906Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-26-47.906Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:27:18.857Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-27-18.857Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:27:49.937Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-27-49.937Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:28:21.169Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-28-21.169Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:28:52.062Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-28-52.062Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:29:24.249Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-29-24.249Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:29:58.141Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-29-58.141Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:30:51.193Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-30-51.194Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:31:50.972Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-31-50.972Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:32:21.375Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-32-21.375Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:33:04.405Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-33-04.405Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:33:53.584Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-33-53.584Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:34:39.749Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-34-39.749Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:35:15.345Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-35-15.345Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:35:51.666Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-35-51.666Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:36:52.486Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-36-52.486Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:37:28.198Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-37-28.198Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:38:02.406Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-38-02.406Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:38:37.605Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-38-37.605Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:39:30.543Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-39-30.543Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:40:07.703Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-40-07.703Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:41:12.667Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-41-12.667Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:41:47.633Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-41-47.633Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:42:23.627Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-42-23.627Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:43:16.468Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-43-16.468Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:43:53.226Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-43-53.226Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:44:29.990Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-44-29.990Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:45:06.755Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-45-06.756Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:45:43.482Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-45-43.482Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:46:19.171Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-46-19.171Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:46:54.934Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-46-54.934Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:47:50.776Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-47-50.776Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:48:29.097Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-48-29.097Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:49:05.626Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-49-05.626Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:49:42.190Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-49-42.190Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:50:17.678Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-50-17.678Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:50:53.585Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-50-53.585Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:51:28.804Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-51-28.804Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:52:05.061Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-52-05.061Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:52:59.383Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-52-59.383Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:53:57.073Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-53-57.073Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:54:36.905Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-54-36.905Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:55:13.291Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-55-13.291Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:55:58.013Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-55-58.013Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:56:58.382Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-56-58.382Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:57:55.811Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-57-55.811Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T11:59:00.666Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T11-59-00.666Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:00:17.527Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-00-17.527Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:01:18.324Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-01-18.325Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:02:00.432Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-02-00.432Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:03:00.658Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-03-00.658Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:03:58.377Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-03-58.378Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:05:09.061Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-05-09.061Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:06:02.639Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-06-02.639Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:06:54.597Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-06-54.597Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:07:35.006Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-07-35.006Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:08:19.803Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-08-19.803Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:09:02.611Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-09-02.611Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:09:49.371Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-09-49.371Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:10:36.669Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-10-36.669Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:11:22.723Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-11-22.723Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:12:05.953Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-12-05.953Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:12:48.983Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-12-48.983Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:13:33.548Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-13-33.548Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:14:14.835Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-14-14.835Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:14:58.776Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-14-58.776Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:15:42.426Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-15-42.426Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:16:25.720Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-16-25.720Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:17:13.327Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-17-13.327Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:17:57.618Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-17-57.618Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:18:42.898Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-18-42.898Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:19:29.475Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-19-29.475Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:20:17.075Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-20-17.075Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:21:07.237Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-21-07.237Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:21:53.498Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-21-53.498Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:22:39.730Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-22-39.730Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:23:18.912Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-23-18.912Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:27:35.954Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-27-35.954Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:39:59.779Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-39-59.779Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:56:12.579Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-56-12.579Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T12:58:19.542Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T12-58-19.542Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T13:01:43.668Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T13-01-43.668Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-22T15:08:27.015Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-22T15-08-27.015Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-23T11:43:53.385Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-23T11-43-53.386Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": true,
+        "nudge_sent": false
+      },
+      {
+        "captured_at": "2026-03-23T11:49:50.100Z",
+        "path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-23T11-49-50.101Z.json",
+        "has_human_reply": true,
+        "auto_only": true,
+        "follow_up_sent": false,
+        "nudge_sent": false
+      }
+    ],
+    "last_chat_capture_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\supplier-chat.2026-03-23T11-49-50.101Z.json"
+  },
+  "listing": {
+    "status": "not_ready",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\260-0cbddda0\\product.json"
+  },
+  "product": {
+    "name": "厨房硅胶防烫手套（耐高温260℃）",
+    "category": "家居",
+    "target_price_rub": 1190,
+    "supply_price_cny": 12,
+    "est_weight_kg": 0.15,
+    "package_long_edge_cm": 28,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "why_it_can_sell": "家庭高频使用，耐高温卖点易本地化，轻小且无认证要求",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 60,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 65
+    },
+    "total_score": 88,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  }
+}

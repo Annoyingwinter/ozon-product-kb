@@ -1,0 +1,20 @@
+{
+  "marketplace": "Ozon Russia",
+  "slug": "item-6-22b24b54",
+  "product_name": "可折叠硅胶水杯（户外/车载）",
+  "category": "家居/礼品",
+  "profile": "automotive-accessories",
+  "target_price_rub": 1090,
+  "supply_price_cny": 9,
+  "weight_kg": 0.18,
+  "long_edge_cm": 12,
+  "fragility": "low",
+  "certification_risk": "low",
+  "return_risk": "low",
+  "competition_level": "medium",
+  "content_potential": "medium",
+  "risk_tags": [
+    "vehicle"
+  ],
+  "final_decision": "Go"
+}

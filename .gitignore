@@ -4,4 +4,10 @@ output/
 .openclaw/
 .playwright-cli/
 .trash/
+.claude/
+.claude-flow/
 smoke-test.log
+*.env
+.env*
+nul
+memory/

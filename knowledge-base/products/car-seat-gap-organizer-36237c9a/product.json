@@ -1,0 +1,102 @@
+{
+  "id": "2026-03-20T06-26-32.660Z-car-seat-gap-organizer-36237c9a",
+  "slug": "car-seat-gap-organizer-36237c9a",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-evaluator-2026-03-19T15-18-39.603Z.analysis.json",
+    "imported_at": "2026-03-20T06:26:32.660Z"
+  },
+  "workflow": {
+    "current_stage": "approved_for_listing",
+    "created_at": "2026-03-20T06:26:32.660Z",
+    "updated_at": "2026-03-20T10:25:09.583Z"
+  },
+  "review": {
+    "status": "approved",
+    "notes": "Auto-approved by draft-only Ozon flow.",
+    "reviewed_at": "2026-03-20T10:25:09.583Z"
+  },
+  "research": {
+    "product_profile": "general-merchandise",
+    "risk_tags": [],
+    "requires_supplier_response": false,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\car-seat-gap-organizer-36237c9a\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\car-seat-gap-organizer-36237c9a\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\car-seat-gap-organizer-36237c9a\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\car-seat-gap-organizer-36237c9a\\supplier-response.template.json",
+    "latest_supplier_response_path": "",
+    "supplier_responses": [],
+    "outreach": {
+      "status": "not_contacted",
+      "supplier_name": "",
+      "supplier_im_url": "",
+      "supplier_shop_url": "",
+      "search_summary_path": "",
+      "first_message_sent_at": "",
+      "last_contacted_at": "",
+      "follow_up_sent_count": 0,
+      "nudge_sent_count": 0
+    },
+    "autonomous_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\car-seat-gap-organizer-36237c9a\\autonomous-summary.md",
+    "autonomous_approval": true,
+    "autonomous_approval_reason": "low-complexity product; supplier response not required"
+  },
+  "listing": {
+    "status": "draft_generated",
+    "listing_brief_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\car-seat-gap-organizer-36237c9a\\listing-brief.md",
+    "title_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\listing-title.json",
+    "bullets_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\listing-bullets.json",
+    "attributes_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\listing-attributes.json",
+    "main_image_copy_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\main-image-copy.json",
+    "assets_md_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\listing-assets.md",
+    "autonomous_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\car-seat-gap-organizer-36237c9a\\autonomous-summary.md",
+    "package_id": "2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a",
+    "draft_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\ozon-listing-draft.json",
+    "draft_md_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\ozon-listing-draft.md",
+    "selected_title": "Car Seat Gap Organizer",
+    "title_ru_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\listing-title.ru.json",
+    "bullets_ru_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\listing-bullets.ru.json",
+    "main_image_copy_ru_json_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\main-image-copy.ru.json",
+    "assets_ru_md_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\ozon-drafts\\2026-03-20T10-25-09.585Z-car-seat-gap-organizer-36237c9a\\car-seat-gap-organizer-36237c9a\\listing-assets.ru.md",
+    "generated_at": "2026-03-20T10:25:09.583Z"
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\car-seat-gap-organizer-36237c9a\\product.json"
+  },
+  "product": {
+    "name": "Car Seat Gap Organizer",
+    "category": "Car Accessories",
+    "target_price_rub": 2190,
+    "supply_price_cny": 32,
+    "est_weight_kg": 0.55,
+    "package_long_edge_cm": 38,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "medium",
+    "competition_level": "high",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "search_trend": "medium",
+    "why_it_can_sell": "Strong utility, simple fit check, and good bundle potential with car storage products.",
+    "risk_notes": [
+      "Need clear width compatibility note",
+      "Main image must show before/after use"
+    ],
+    "source": "manual shortlist",
+    "source_url": "",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 22,
+      "compliance_risk": 95,
+      "return_risk": 60,
+      "content_potential": 65,
+      "search_trend": 65
+    },
+    "total_score": 76,
+    "final_decision": "Go",
+    "issue_summary": [
+      "竞争过于拥挤"
+    ]
+  }
+}

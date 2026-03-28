@@ -3,9 +3,9 @@
 ## Product snapshot
 
 - Category: 车品
-- Target price (RUB): 1390
-- Supply price (CNY): 20
-- Weight (kg): 0.35
+- Target price (RUB): 1290
+- Supply price (CNY): 12
+- Weight (kg): 0.25
 - Long edge (cm): 30
 - Product profile: automotive-accessories
 - Risk tags: vehicle
@@ -61,7 +61,7 @@
 
 1. 请发细节图、包装图、箱规图。
 2. 请说明打样周期和大货交期。
-3. 如果要做跨境零售价 1390 RUB 左右，你们建议的出厂配置是什么？
+3. 如果要做跨境零售价 1290 RUB 左右，你们建议的出厂配置是什么？
 4. 请发安装方式说明、细节图和包装信息。
 5. 请说明差评高发原因，例如异味、松动、掉落。
 

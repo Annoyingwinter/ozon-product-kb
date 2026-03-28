@@ -1,0 +1,81 @@
+Sample product for auto-listing knowledge base
+
+spu_id: SPU-item-5-83448823
+sku_id: SKU-item-5-83448823-BASE
+source_platform: 1688
+source_url: https://detail.1688.com/offer/846835926197.html
+brand:
+model:
+vendor_code: ITEM-5-83448823
+barcode:
+
+title_cn: Car seat gap storage bag
+title_en: Car Seat Gap Storage Organizer
+title_ru: Car seat gap storage organizer
+description: Lightweight automotive organizer suitable for cross-border listing sample data.
+
+bullet_points:
+- Automotive accessory for seat gap storage
+- Lightweight and easy to ship
+- No battery, no liquid, no magnet
+- Suitable as a starter sample for Ozon listing automation
+
+price: 1290
+old_price: 0
+currency: RUB
+stock: 0
+min_order_qty: 2
+package_quantity: 1
+vat_rate:
+weight: 0.25
+length: 30
+width: 0
+height: 0
+
+category_path: Auto Accessories > Interior Storage > Seat Gap Organizer
+category_id_source:
+ozon_category_id:
+
+attributes:
+- product_profile: automotive-accessories
+- category: auto-accessories
+- applicable_scene: car seat gap storage
+- material:
+- color:
+- size:
+- installation_method: insert
+- power_supply: none
+- fragility: low
+- certification_risk: low
+- return_risk: low
+- competition_level: medium
+- content_potential: medium
+- seasonality: stable
+
+main_image:
+images: []
+video_url:
+image_count: 0
+image_hash:
+white_background: false
+
+is_adult: false
+is_fragile: false
+dangerous_goods: false
+country_of_origin: CN
+certificate_files: []
+brand_authorization:
+customs_code:
+restricted_category_flag: false
+
+supplier:
+- name: Supplier from 1688
+- platform: 1688
+- shop_url: http://qichebaijian.1688.com/
+- im_url: https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E4%BC%97%E6%A8%AA%E6%B1%BD%E8%BD%A6%E7%94%A8%E5%93%81&site=cnalichn&fromid=cnalichntb591578701&offerId=846835926197
+
+source_metrics:
+- target_price_rub: 1290
+- supply_price_cny: 12
+- total_score: 88
+- final_decision: Go

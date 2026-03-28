@@ -1,0 +1,77 @@
+{
+  "id": "2026-03-25T13:18:21.902Z-item-8-552647b3",
+  "slug": "item-8-552647b3",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-25T13-18-14.970Z.analysis.json",
+    "imported_at": "2026-03-25T13:18:21.905Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_compare_blocked",
+    "created_at": "2026-03-25T13:18:21.905Z",
+    "updated_at": "2026-03-25T13:22:28.783Z",
+    "pipeline": "product-kb",
+    "run_id": "2026-03-25T13-18-21.490Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "source_platform": "1688",
+    "compare_status": "blocked",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-8-552647b3\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-8-552647b3\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-8-552647b3\\1688-competitor-offers.json",
+    "compared_at": "2026-03-25T13:22:28.783Z",
+    "shortlist_count": 0,
+    "last_error": "invalid_detail_page, missing_source_url, missing_media, less_than_three_competitors, missing_selected_offer",
+    "blocked_snapshot_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\product-kb-blocked\\item-8-552647b3\\ozon-knowledge.blocked.json"
+  },
+  "listing": {
+    "status": "not_ready",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-8-552647b3\\ozon-knowledge.json",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-8-552647b3\\product.json",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-8-552647b3\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-8-552647b3\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-8-552647b3\\1688-competitor-offers.json",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-8-552647b3\\ozon-knowledge.json"
+  },
+  "product": {
+    "name": "厨房用硅胶食物密封夹",
+    "category": "家居",
+    "target_price_rub": 1090,
+    "supply_price_cny": 12,
+    "est_weight_kg": 0.2,
+    "package_long_edge_cm": 12,
+    "fragility": "low",
+    "certification_risk": "medium",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "high",
+    "seasonality": "stable",
+    "why_it_can_sell": "高频厨房用品，视觉表达强，但需确认是否接触食品——若为普通密封用途可规避认证",
+    "risk_notes": [
+      "需确保产品描述不强调‘食品级’以降低认证风险"
+    ],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 60,
+      "compliance_risk": 60,
+      "return_risk": 95,
+      "content_potential": 90
+    },
+    "total_score": 85,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  },
+  "knowledge_base": null
+}

@@ -1,0 +1,52 @@
+{
+  "seeds": [
+    {
+      "keyword": "车载缝隙收纳盒",
+      "category": "Auto Interior Organizer",
+      "target_users": "Russian car owners",
+      "why": "Small and visual, easy to demonstrate in listing images."
+    },
+    {
+      "keyword": "后备箱收纳网兜",
+      "category": "Auto Storage",
+      "target_users": "Russian car owners",
+      "why": "Low breakage, broad vehicle use case, simple logistics."
+    },
+    {
+      "keyword": "宠物粘毛器",
+      "category": "Pet Cleaning",
+      "target_users": "Pet owners",
+      "why": "Strong pain point and repeatable daily-use demand."
+    },
+    {
+      "keyword": "冰箱收纳盒",
+      "category": "Kitchen Storage",
+      "target_users": "Urban families",
+      "why": "Standardized storage improvement product with strong visuals."
+    },
+    {
+      "keyword": "抽屉分隔盒",
+      "category": "Home Storage",
+      "target_users": "Urban families",
+      "why": "Lightweight, modular, and suitable for bundle variants."
+    },
+    {
+      "keyword": "桌面理线器",
+      "category": "Desk Organizer",
+      "target_users": "Office workers and students",
+      "why": "Impulse-buy friendly and easy to localize."
+    },
+    {
+      "keyword": "浴室收纳架 免打孔",
+      "category": "Bathroom Storage",
+      "target_users": "Apartment households",
+      "why": "Clear before-and-after selling point with manageable logistics."
+    },
+    {
+      "keyword": "旅行鞋袋 收纳",
+      "category": "Travel Organizer",
+      "target_users": "Travelers",
+      "why": "Low after-sales risk and easy multi-pack positioning."
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+{
+  "schema_version": "ozon-kb-v1",
+  "generated_at": "2026-03-25T16:39:19.673Z",
+  "source_platform": "1688",
+  "source_url": "https://detail.1688.com/offer/952904404186.html",
+  "source_platform_urls": [
+    "https://detail.1688.com/offer/952904404186.html",
+    "https://detail.1688.com/offer/716744431079.html",
+    "https://detail.1688.com/offer/894870574407.html"
+  ],
+  "spu_id": "SPU-ITEM-3-2A763F31",
+  "sku_id": "SPU-ITEM-3-2A763F31-DEFAULT",
+  "group_id": "SPU-ITEM-3-2A763F31",
+  "variant_theme": "",
+  "variant_values": {},
+  "brand": "其他",
+  "model": "",
+  "vendor_code": "B6512-wcj",
+  "barcode": "",
+  "title_cn": "汽车空调出风口香薰夹",
+  "title_en": "",
+  "title_ru": "",
+  "description": "标准化小件，香型可系列化，适配Ozon推荐流，礼品属性强，俄语文案易突出‘清新’‘提神’；材质：塑料；规格：无规格；颜色：规格",
+  "bullet_points": [
+    "标准化小件，香型可系列化，适配Ozon推荐流，礼品属性强，俄语文案易突出‘清新’‘提神’",
+    "material: 塑料",
+    "size: 无规格",
+    "color: 规格",
+    "seasonality: stable"
+  ],
+  "price": 1.9,
+  "old_price": 9.5,
+  "currency": "CNY",
+  "stock": null,
+  "min_order_qty": 1,
+  "package_quantity": 1,
+  "vat": "",
+  "weight": 0.15,
+  "length": 12,
+  "width": 0,
+  "height": 0,
+  "category_path": "1688企业采购自营商城 > 主营：书籍、出版物 > 3.5分 > 分 > 准时发货率 > 10+人好评",
+  "category_id_source": "",
+  "ozon_category_id": "",
+  "attributes": {
+    "source_category": "车品",
+    "seasonality": "stable",
+    "fragility": "low",
+    "competition_level": "medium",
+    "content_potential": "high",
+    "material": "塑料",
+    "feature": "除异味",
+    "color": "规格",
+    "size": "无规格"
+  },
+  "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01Ay6DH51Ie2GTc2aiW_!!2216286150917-0-cib.jpg_460x460q100.jpg_.webp",
+  "images": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Ay6DH51Ie2GTc2aiW_!!2216286150917-0-cib.jpg_460x460q100.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Ay6DH51Ie2GTc2aiW_!!2216286150917-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01m2crt01Ie2GTt0qsQ_!!2216286150917-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Eiz2hy1Ie2GUXtBVL_!!2216286150917-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01G0Eyyf1Ie2GUCOqIh_!!2216286150917-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN019QPhAO1Ie2GTc3naN_!!2216286150917-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN013nYGTH1Ie2GTtcm4b_!!2216286150917-0-cib.jpg_sum.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01paMqLM1Ie2GVNhmvO_!!2216286150917-0-cib.jpg_sum.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ydmGuR1Ie2GTc408P_!!2216286150917-0-cib.jpg_sum.jpg"
+  ],
+  "video_url": "",
+  "image_count": 9,
+  "image_hash": "d1e31ae8f1cb5b1e09856de199de04fa2dec8b6c",
+  "white_background": null,
+  "is_adult": false,
+  "is_fragile": false,
+  "dangerous_goods": false,
+  "country_of_origin": "CN",
+  "certificate_files": [],
+  "brand_authorization": "",
+  "customs_code": "",
+  "restricted_category_flag": false,
+  "competitor_offers": [
+    {
+      "source_platform": "1688",
+      "source_url": "https://detail.1688.com/offer/952904404186.html",
+      "offer_title": "汽车空调出风口香薰夹",
+      "shop_name": "1688企业采购自营商城",
+      "shop_url": "http://shop737q93212t242.1688.com/",
+      "price": 1.9,
+      "price_text": "价格¥1.90起登录查看更多优惠",
+      "currency": "CNY",
+      "min_order_qty": 1,
+      "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01Ay6DH51Ie2GTc2aiW_!!2216286150917-0-cib.jpg_460x460q100.jpg_.webp",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01Ay6DH51Ie2GTc2aiW_!!2216286150917-0-cib.jpg_460x460q100.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01Ay6DH51Ie2GTc2aiW_!!2216286150917-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01m2crt01Ie2GTt0qsQ_!!2216286150917-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01Eiz2hy1Ie2GUXtBVL_!!2216286150917-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01G0Eyyf1Ie2GUCOqIh_!!2216286150917-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN019QPhAO1Ie2GTc3naN_!!2216286150917-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN013nYGTH1Ie2GTtcm4b_!!2216286150917-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01paMqLM1Ie2GVNhmvO_!!2216286150917-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01ydmGuR1Ie2GTc408P_!!2216286150917-0-cib.jpg_sum.jpg"
+      ],
+      "image_count": 10,
+      "image_hash": "53f5f09147ecdb2707d2eff6ead34387ffb4c924",
+      "category_path": "1688企业采购自营商城 > 主营：书籍、出版物 > 3.5分 > 分 > 准时发货率 > 10+人好评",
+      "description": "1688企业采购自营商城 关注 客服 商品 入驻2年 主营：书籍、出版物 店铺回头率 34% 店铺服务分 3.5分 准时发货率 91% 店铺好评率 87.2% 车载出风口香薰汽车空调香水隐藏式香膏夹淡香拨片清新固体除异味 10+人好评 商品复购率25% 价格 ¥ 1 .90 起 登录查看更多优惠 浙江金华 送至 选择收货地址 承诺48小时发货·常发申通快递 包邮 7天无理由退货 晚发必赔 颜色 黑色支架一个 银色支架一个 柠檬香片一个 桂花香片一个 海洋香片一个 古龙香片一个 【优雅黑支架1个】送柠檬香薰片6个 【优雅黑支架1个】送桂花香薰片6个 【优雅黑支架1个】送海洋香薰片6个 【优雅黑支架1个】送古龙香薰片6个 【气质银支架1个】送柠檬香薰片6个 【气质银支架1个】送桂花香薰片6个 【气质银支架1个】送海洋香薰片6个 【气质银支架1个】送古龙香薰片6个 规格 无规格 库存2000个 登录查看全部规格 分销代发 1件价格 ￥1.9 官方仓退货 立即铺货 加铺货单 代发下单 商品评价 商品属性 包装信息 商品详情 商品评价 5.0 10+条评价 好评率 100% 全部10+ 有内容10+ 好评10+ 有图3 薛**家 1件 整体评价：好 使用体验：好 安装情况：简单方便 做工形式：好 产品材质：好 预览 预览 预览 预览 预览 莫**9 1件 物流快 价格实惠，商家服务热情，产品质量不错，非常满意，下次还买。 预览 预览 预览 查看全部评价 商品属性 香水座材质 塑料 功能 除异味 分类类型 车用香薰 香味 其他 品牌 其他 摆放方式 出风口夹 加工定制 否 保质期 三年 执行质量标准 其他 货号 B6512-wcj 颜色 黑色支架一个,银色支架一个,柠檬香片一个,桂花香片一个,海洋香片一个,古龙香片一个,【优雅黑支架1个】送柠檬香薰片6个,【优雅黑支架1个】送桂花香薰片6个,【优雅黑支架1个】送海洋香薰片6个,【优雅黑支架1个】送古龙香薰片6个,【气质银支架1个】送柠檬香薰片6个,【气质银支架1个】送桂花香薰片6个,【气质银支架1个】送海洋香薰片6个,【气质银支架1个】送古龙香薰片6个 是否跨境出口专供货源 否 规格 无规格 是否专利货源 否 香调 芳草木质 净含量 其他 挥发时长 90日以上 包装信息 商品件重尺 颜色 规格 重量(g) 黑色支架一个 无规格 200 银色支架一个 无规格 200 柠檬香片一个 无规格 200 桂花香片一个 无规格 200 海洋香片一个 无规格 200 古龙香片一个 无规格 200 【优雅黑支架1个】送柠檬香薰片6个 无规格 200 【优雅黑支架1个】送桂花香薰片6个 无规格 200 【优雅黑支架1个】送海洋香薰片6个 无规格 200 【优雅黑支架1个】送古龙香薰片6个 无规格 200 【气质银支架1个】送柠檬香薰片6个",
+      "source_attributes": [
+        {
+          "key": "香水座材质",
+          "value": "塑料"
+        },
+        {
+          "key": "功能",
+          "value": "除异味"
+        },
+        {
+          "key": "分类类型",
+          "value": "车用香薰"
+        },
+        {
+          "key": "香味",
+          "value": "其他"
+        },
+        {
+          "key": "品牌",
+          "value": "其他"
+        },
+        {
+          "key": "摆放方式",
+          "value": "出风口夹"
+        },
+        {
+          "key": "加工定制",
+          "value": "否"
+        },
+        {
+          "key": "保质期",
+          "value": "三年"
+        },
+        {
+          "key": "执行质量标准",
+          "value": "其他"
+        },
+        {
+          "key": "货号",
+          "value": "B6512-wcj"
+        },
+        {
+          "key": "颜色",
+          "value": "黑色支架一个,银色支架一个,柠檬香片一个,桂花香片一个,海洋香片一个,古龙香片一个,【优雅黑支架1个】送柠檬香薰片6个,【优雅黑支架1个】送桂花香薰片6个,【优雅黑支架1个】送海洋香薰片6个,【优雅黑支架1个】送古龙香薰片6个,【气质银支架1个】送柠檬香薰片6个,【气质银支架1个】送桂花香薰片6个,【气质银支架1个】送海洋香薰片6个,【气质银支架1个】送古龙香薰片6个"
+        },
+        {
+          "key": "是否跨境出口专供货源",
+          "value": "否"
+        },
+        {
+          "key": "规格",
+          "value": "无规格"
+        },
+        {
+          "key": "是否专利货源",
+          "value": "否"
+        },
+        {
+          "key": "香调",
+          "value": "芳草木质"
+        },
+        {
+          "key": "净含量",
+          "value": "其他"
+        },
+        {
+          "key": "挥发时长",
+          "value": "90日以上"
+        },
+        {
+          "key": "颜色",
+          "value": "规格"
+        },
+        {
+          "key": "黑色支架一个",
+          "value": "无规格"
+        },
+        {
+          "key": "银色支架一个",
+          "value": "无规格"
+        },
+        {
+          "key": "柠檬香片一个",
+          "value": "无规格"
+        },
+        {
+          "key": "桂花香片一个",
+          "value": "无规格"
+        },
+        {
+          "key": "海洋香片一个",
+          "value": "无规格"
+        },
+        {
+          "key": "古龙香片一个",
+          "value": "无规格"
+        },
+        {
+          "key": "【优雅黑支架1个】送柠檬香薰片6个",
+          "value": "无规格"
+        },
+        {
+          "key": "【优雅黑支架1个】送桂花香薰片6个",
+          "value": "无规格"
+        },
+        {
+          "key": "【优雅黑支架1个】送海洋香薰片6个",
+          "value": "无规格"
+        },
+        {
+          "key": "【优雅黑支架1个】送古龙香薰片6个",
+          "value": "无规格"
+        },
+        {
+          "key": "【气质银支架1个】送柠檬香薰片6个",
+          "value": "无规格"
+        },
+        {
+          "key": "【气质银支架1个】送桂花香薰片6个",
+          "value": "无规格"
+        },
+        {
+          "key": "【气质银支架1个】送海洋香薰片6个",
+          "value": "无规格"
+        },
+        {
+          "key": "【气质银支架1个】送古龙香薰片6个",
+          "value": "无规格"
+        }
+      ],
+      "normalizedAttributes": {
+        "material": "塑料",
+        "feature": "除异味",
+        "brand": "其他",
+        "vendor_code": "B6512-wcj",
+        "color": "规格",
+        "size": "无规格"
+      },
+      "package_dimensions_cm": {
+        "length": 0,
+        "width": 0,
+        "height": 0
+      },
+      "weight_kg": 0,
+      "page_type": "detail",
+      "title_candidates": [
+        "1688企业采购自营商城",
+        "车载出风口香薰汽车空调香水隐藏式香膏夹淡香拨片清新固体除异味 - 阿里巴巴"
+      ],
+      "raw_search_title": "车载出风口香薰汽车空调香水隐藏式香膏夹淡香拨片清新固体除异味",
+      "raw_search_shop_name": "1688企业采购自营商城"
+    },
+    {
+      "source_platform": "1688",
+      "source_url": "https://detail.1688.com/offer/716744431079.html",
+      "offer_title": "汽车空调出风口香薰夹",
+      "shop_name": "中山市横栏镇上合金属制品厂",
+      "shop_url": "http://shanghejinshu.1688.com/?tracelog=p4p",
+      "price": 5.5,
+      "price_text": "价格¥5.50登录查看更多优惠",
+      "currency": "CNY",
+      "min_order_qty": 50,
+      "main_image": "",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN011nJr8P1CwSUDHp3Rt_!!1006970145-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01C5QGLb1CwSGXyQyUN_!!1006970145-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN015mGqt21CwSGZcRJ49_!!1006970145-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01dopSr71CwSGYZE0LI_!!1006970145-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01PqVhkU1CwSGa8iaZO_!!1006970145-0-cib.jpg_.webp"
+      ],
+      "image_count": 7,
+      "image_hash": "b334c702cbe3103d024ead9ab64d51f11b2ac1e0",
+      "category_path": "中山市横栏镇上合金属制品厂 > 主营：钥匙配饰 > 4.5分 > 分 > 准时发货率",
+      "description": "中山市横栏镇上合金属制品厂 关注 客服 商品 入驻16年 主营：钥匙配饰 店铺回头率 65% 店铺服务分 4.5分 准时发货率 71% 店铺好评率 99.6% start Play 00:00 00:15 主图视频 工厂定制汽车空调出风口车载香薰 金属磁吸出风口香薰夹定制LOGO 商品复购率25% 价格 ¥ 5 .50 登录查看更多优惠 每200减20可跨店 满50包邮 广东中山 送至 北京 支付成功后预计7天出货 包邮 延期必赔 品质保障 印错包赔 破损包赔 退货包运费 拿样 轻定制 重定制 打样 购买数量 登录查看全部规格 商品评价 商品属性 商品详情 商品评价 暂无有效评价 商品属性 香水座材质 金属 功能 其它 品牌 其他 摆放方式 风口香水 产地 中山 加工定制 是 类型 出风口香水/香薰 香型 花香型 保质期 一年 香水座外形 圆形 适用送礼场合 广告促销 加印LOGO 可以 货号 1-22 是否跨境出口专供货源 否 是否专利货源 否 产品名称3 香薰定制 产品名称1 车载香薰 产品名称2 香薰夹定制 商品详情 【平台活动下价格】 活动前价格：（1）非分销场景下，指平台活动（不含分销场景的活动）预热期（若无预热期，则为爆发期）前的商品销售价格；（2）分销场景下，专指分销活动预热期（若无预热期，则为爆发期）前的商品销售价格。 前述价格未计算平台发放的各种采购津贴、跨店券、红包等优惠，未计算商家设置的满减优惠、优惠券、店铺返利金、店铺会员折扣以及L会员价、商家设置的指定人群单品优惠活动等各种优惠；该价格会计算其他非平台活动下的各种优惠（包括商家自行设置的非指定人群的单品优惠等，最终以商家的自行设置为准）。前述商品销售价格指商品页面当日展示的标价；若当日商家多次调整销售价格的，取当日最后展示的销售价格。 【非平台活动下价格】 划线价格：指商家自营销活动场景下的商品价格，该价格不包含平台的各种优惠活动。可能是商品的销售指导价或该商品的曾经展示过的销售价等，并非原价，仅供参考。 未划线价格：商品在1688平台上由商家自行设置的销售标价，具体的成交价格根据商家设置的各种优惠活动发生变化，最终以订单结算页价格为准。 【发布价】 指商品在1688平台上由商家自行设置的销售标价并叠加L会员价折扣后的价格，并非原价，仅供参考。 【全网销量】 指同款商品在多个平台（含淘宝、天猫及其他电子商务平台）上的累积销量 同款：指商品名称、外观、规格、成分、颜色、材质、功效、功能等多维度要素具有高度的相似性，但不视为二者具有完全相同的品牌、品质、功效或功能。 *注： 1、前述说明仅适用于价格比较下的场景。 2、活动前的时间通常为预热期/爆发期的前一天，但因数据的延迟性，取价时间可能会发生改变，最终以前述展示的具体时间和所对应的商品价格为准。 内容声明：阿里巴巴中国站为第三方交易平",
+      "source_attributes": [
+        {
+          "key": "香水座材质",
+          "value": "金属"
+        },
+        {
+          "key": "功能",
+          "value": "其它"
+        },
+        {
+          "key": "品牌",
+          "value": "其他"
+        },
+        {
+          "key": "摆放方式",
+          "value": "风口香水"
+        },
+        {
+          "key": "产地",
+          "value": "中山"
+        },
+        {
+          "key": "加工定制",
+          "value": "是"
+        },
+        {
+          "key": "类型",
+          "value": "出风口香水/香薰"
+        },
+        {
+          "key": "香型",
+          "value": "花香型"
+        },
+        {
+          "key": "保质期",
+          "value": "一年"
+        },
+        {
+          "key": "香水座外形",
+          "value": "圆形"
+        },
+        {
+          "key": "适用送礼场合",
+          "value": "广告促销"
+        },
+        {
+          "key": "加印LOGO",
+          "value": "可以"
+        },
+        {
+          "key": "货号",
+          "value": "1-22"
+        },
+        {
+          "key": "是否跨境出口专供货源",
+          "value": "否"
+        },
+        {
+          "key": "是否专利货源",
+          "value": "否"
+        },
+        {
+          "key": "产品名称3",
+          "value": "香薰定制"
+        },
+        {
+          "key": "产品名称1",
+          "value": "车载香薰"
+        },
+        {
+          "key": "产品名称2",
+          "value": "香薰夹定制"
+        }
+      ],
+      "normalizedAttributes": {
+        "material": "金属",
+        "feature": "其它",
+        "brand": "其他",
+        "country_of_origin": "中山",
+        "vendor_code": "1-22"
+      },
+      "package_dimensions_cm": {
+        "length": 0,
+        "width": 0,
+        "height": 0
+      },
+      "weight_kg": 0,
+      "page_type": "detail",
+      "title_candidates": [
+        "中山市横栏镇上合金属制品厂",
+        "工厂定制汽车空调出风口车载香薰 金属磁吸出风口香薰夹定制LOGO - 阿里巴巴"
+      ],
+      "raw_search_title": "≥100套",
+      "raw_search_shop_name": "中山市横栏镇上合金属制品厂"
+    },
+    {
+      "source_platform": "1688",
+      "source_url": "https://detail.1688.com/offer/894870574407.html",
+      "offer_title": "汽车空调出风口香薰夹",
+      "shop_name": "中山市尚合金属制品厂",
+      "shop_url": "http://shanghejingshu.1688.com/?tracelog=p4p",
+      "price": 9.5,
+      "price_text": "价格¥9.50登录查看更多优惠",
+      "currency": "CNY",
+      "min_order_qty": 6150,
+      "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN013muaV11lv5sbiuPmt_!!2219102844880-0-cib.jpg_460x460q100.jpg_.webp",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN013muaV11lv5sbiuPmt_!!2219102844880-0-cib.jpg_460x460q100.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN013muaV11lv5sbiuPmt_!!2219102844880-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN015neKgD1lv5q59sgSL_!!2219102844880-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN011RPqqm1lv5q6y5NWT_!!2219102844880-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01AdXbj41lv5q6SO0dq_!!2219102844880-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01h91dUE1lv5sDQjbmX_!!2219102844880-0-cib.jpg_.webp",
+        "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+      ],
+      "image_count": 8,
+      "image_hash": "ec40a303315d7049e3309ad28c82c59a7cacb53e",
+      "category_path": "中山市尚合金属制品厂 > 主营：汽车内饰用品 > 4.5分 > 分 > 准时发货率",
+      "description": "中山市尚合金属制品厂 关注 客服 商品 入驻2年 主营：汽车内饰用品 店铺回头率 74% 店铺服务分 4.5分 准时发货率 99% 店铺好评率 100.0% start Play 00:00 00:00 主图视频 工厂直销车载香薰汽车空调高级车载香薰盒汽车出风口香薰夹摆件 价格 ¥ 9 .50 登录查看更多优惠 包邮 广东中山 送至 选择收货地址 承诺48小时发货·常发韵达快递 包邮 7天无理由退货 晚发必赔 购买数量 库存6150个 登录查看全部规格 分销代发 ≥500件 ￥9.5 官方仓退货 立即铺货 加铺货单 代发下单 商品评价 商品属性 包装信息 商品详情 商品评价 5.0 8条评价 好评率 100% 客服态度超级棒2 跟店家描述一样1 t**5 2个 该用户觉得商品非常赞，给出了五星好评 PLUS 匿名购买 2个 刚收到货，迫不及待试了下，真的太赞了！做工细致，客服态度超级棒，问啥答啥，超有耐心性价比高，值得推荐！ 查看全部评价 商品属性 香水座材质 金属 功能 装饰,芳香,除异味,除甲醛 分类类型 车用香薰 香味 薄荷香 品牌 其他 摆放方式 出风口夹 加工定制 是 保质期 一年 执行质量标准 优品 货号 SH055 主要下游平台 ebay,亚马逊,wish,速卖通,独立站,LAZADA 主要销售地区 欧洲,南美,东南亚,北美,东北亚,中东 有可授权的自有品牌 否 是否跨境出口专供货源 是 是否专利货源 否 香调 花香调 1 车载香薰定制 净含量 5mL(含)-10mL(含) 2 出风口香薰 挥发时长 16-30日 3 香薰出风口夹 展开全部 包装信息 商品件重尺 长(cm) 宽(cm) 高(cm) 体积(cm³) 重量(g) 45 45 45 91125 40 商品详情 【平台活动下价格】 活动前价格：（1）非分销场景下，指平台活动（不含分销场景的活动）预热期（若无预热期，则为爆发期）前的商品销售价格；（2）分销场景下，专指分销活动预热期（若无预热期，则为爆发期）前的商品销售价格。 前述价格未计算平台发放的各种采购津贴、跨店券、红包等优惠，未计算商家设置的满减优惠、优惠券、店铺返利金、店铺会员折扣以及L会员价、商家设置的指定人群单品优惠活动等各种优惠；该价格会计算其他非平台活动下的各种优惠（包括商家自行设置的非指定人群的单品优惠等，最终以商家的自行设置为准）。前述商品销售价格指商品页面当日展示的标价；若当日商家多次调整销售价格的，取当日最后展示的销售价格。 【非平台活动下价格】 划线价格：指商家自营销活动场景下的商品价格，该价格不包含平台的各种优惠活动。可能是商品的销售指导价或该商品的曾经展示过的销售价等，并非原价，仅供参考。 未划线价格：商品在1688平台上由商家自行设置的销售标价，具体的成交价格根据商家设置的各种优惠活动发生变化，最终以订单",
+      "source_attributes": [
+        {
+          "key": "香水座材质",
+          "value": "金属"
+        },
+        {
+          "key": "功能",
+          "value": "装饰,芳香,除异味,除甲醛"
+        },
+        {
+          "key": "分类类型",
+          "value": "车用香薰"
+        },
+        {
+          "key": "香味",
+          "value": "薄荷香"
+        },
+        {
+          "key": "品牌",
+          "value": "其他"
+        },
+        {
+          "key": "摆放方式",
+          "value": "出风口夹"
+        },
+        {
+          "key": "加工定制",
+          "value": "是"
+        },
+        {
+          "key": "保质期",
+          "value": "一年"
+        },
+        {
+          "key": "执行质量标准",
+          "value": "优品"
+        },
+        {
+          "key": "货号",
+          "value": "SH055"
+        },
+        {
+          "key": "主要下游平台",
+          "value": "ebay,亚马逊,wish,速卖通,独立站,LAZADA"
+        },
+        {
+          "key": "主要销售地区",
+          "value": "欧洲,南美,东南亚,北美,东北亚,中东"
+        },
+        {
+          "key": "有可授权的自有品牌",
+          "value": "否"
+        },
+        {
+          "key": "是否跨境出口专供货源",
+          "value": "是"
+        },
+        {
+          "key": "是否专利货源",
+          "value": "否"
+        },
+        {
+          "key": "香调",
+          "value": "花香调"
+        },
+        {
+          "key": "1",
+          "value": "车载香薰定制"
+        },
+        {
+          "key": "净含量",
+          "value": "5mL(含)-10mL(含)"
+        },
+        {
+          "key": "2",
+          "value": "出风口香薰"
+        },
+        {
+          "key": "挥发时长",
+          "value": "16-30日"
+        },
+        {
+          "key": "3",
+          "value": "香薰出风口夹"
+        },
+        {
+          "key": "长(cm)",
+          "value": "宽(cm)"
+        },
+        {
+          "key": "高(cm)",
+          "value": "体积(cm³)"
+        },
+        {
+          "key": "45",
+          "value": "45"
+        },
+        {
+          "key": "45",
+          "value": "91125"
+        }
+      ],
+      "normalizedAttributes": {
+        "material": "金属",
+        "feature": "装饰,芳香,除异味,除甲醛",
+        "brand": "否",
+        "vendor_code": "SH055"
+      },
+      "package_dimensions_cm": {
+        "length": 0,
+        "width": 0,
+        "height": 0
+      },
+      "weight_kg": 0,
+      "page_type": "detail",
+      "title_candidates": [
+        "中山市尚合金属制品厂",
+        "工厂直销车载香薰汽车空调高级车载香薰盒汽车出风口香薰夹摆件 - 阿里巴巴"
+      ],
+      "raw_search_title": "≥500个",
+      "raw_search_shop_name": "中山市尚合金属制品厂"
+    }
+  ],
+  "comparison_summary": {
+    "compared_at": "2026-03-25T16:39:19.673Z",
+    "candidate_count": 3,
+    "selected_offer_source_url": "https://detail.1688.com/offer/952904404186.html",
+    "price_min": 1.9,
+    "price_max": 9.5,
+    "price_avg": 5.63,
+    "notes": []
+  },
+  "data_quality": {
+    "title_source": "source-analysis",
+    "description_source": "web-augmented",
+    "web_detail_valid": true,
+    "inferred_fields": [
+      "title_cn"
+    ]
+  }
+}

@@ -3,10 +3,10 @@
 ## Product snapshot
 
 - Category: 家居
-- Target price (RUB): 1690
-- Supply price (CNY): 25
-- Weight (kg): 0.2
-- Long edge (cm): 25
+- Target price (RUB): 1190
+- Supply price (CNY): 15
+- Weight (kg): 0.18
+- Long edge (cm): 20
 - Product profile: food-contact-home
 - Risk tags: food-contact
 
@@ -64,7 +64,7 @@
 
 1. 请发细节图、包装图、箱规图。
 2. 请说明打样周期和大货交期。
-3. 如果要做跨境零售价 1690 RUB 左右，你们建议的出厂配置是什么？
+3. 如果要做跨境零售价 1190 RUB 左右，你们建议的出厂配置是什么？
 4. 请发检测报告、材质证明或食品接触相关文件。
 5. 请说明长期使用后的开裂、变形、异味投诉情况。
 

@@ -1,0 +1,101 @@
+{
+  "id": "2026-03-22T11-23-48.630Z-item-4-e650144a",
+  "slug": "item-4-e650144a",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-22T11-23-43.694Z.analysis.json",
+    "imported_at": "2026-03-22T11:23:48.630Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_contacted_waiting_reply",
+    "created_at": "2026-03-22T11:23:48.630Z",
+    "updated_at": "2026-03-24T09:33:33.265Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "product_profile": "pet-accessories",
+    "risk_tags": [
+      "pet"
+    ],
+    "requires_supplier_response": true,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-e650144a\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-e650144a\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-e650144a\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-e650144a\\supplier-response.template.json",
+    "latest_supplier_response_path": "",
+    "supplier_responses": [],
+    "outreach": {
+      "status": "contacted_waiting_reply",
+      "supplier_name": "松林日用品",
+      "supplier_im_url": "https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E6%9D%BE%E6%9E%97%E6%97%A5%E7%94%A8%E5%93%81&site=cnalichn&fromid=cnalichntb591578701&offerId=993718131732",
+      "supplier_shop_url": "http://shop2008096u1uu75.1688.com/",
+      "search_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\playwright\\1688-inquiry-2026-03-24T09-32-45.893Z\\summary.json",
+      "first_message_sent_at": "2026-03-24T09:33:33.265Z",
+      "last_contacted_at": "2026-03-24T09:33:33.265Z",
+      "follow_up_sent_count": 0,
+      "nudge_sent_count": 0,
+      "competitor_contacts": [
+        {
+          "supplier_key": "item-4-e650144a::_",
+          "supplier_name": "松林日用品",
+          "supplier_im_url": "https://air.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im/index.html?uid=%E6%9D%BE%E6%9E%97%E6%97%A5%E7%94%A8%E5%93%81&site=cnalichn&fromid=cnalichntb591578701&offerId=993718131732",
+          "supplier_shop_url": "http://shop2008096u1uu75.1688.com/",
+          "supplier_product_title": "",
+          "supplier_product_url": "https://detail.1688.com/offer/993718131732.html",
+          "search_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\playwright\\1688-inquiry-2026-03-24T09-32-45.893Z\\summary.json",
+          "candidate_index": 11,
+          "first_message_sent_at": "2026-03-24T09:33:33.265Z",
+          "last_contacted_at": "2026-03-24T09:33:33.265Z",
+          "follow_up_sent_count": 0,
+          "nudge_sent_count": 0,
+          "last_chat_capture_path": ""
+        }
+      ],
+      "supplier_product_title": "",
+      "supplier_product_url": "https://detail.1688.com/offer/993718131732.html"
+    }
+  },
+  "listing": {
+    "status": "not_ready",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-e650144a\\product.json"
+  },
+  "product": {
+    "name": "宠物毛发清理滚筒（可替换粘纸）",
+    "category": "宠物",
+    "target_price_rub": 990,
+    "supply_price_cny": 10,
+    "est_weight_kg": 0.3,
+    "package_long_edge_cm": 30,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "high",
+    "seasonality": "stable",
+    "why_it_can_sell": "高复购（粘纸耗材），解决宠物家庭核心痛点，视频演示效果强",
+    "risk_notes": [
+      "售价略低于1000 RUB，但可捆绑销售提升客单"
+    ],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 95,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 60,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 90
+    },
+    "total_score": 90,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  }
+}

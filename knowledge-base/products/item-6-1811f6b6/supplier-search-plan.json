@@ -1,0 +1,131 @@
+{
+  "slug": "item-6-1811f6b6",
+  "product_name": "车载手机支架（磁吸+出风口夹）",
+  "profile": "magnetic-accessories",
+  "category_label": "磁吸配件",
+  "risk_tags": [
+    "magnet",
+    "vehicle"
+  ],
+  "channel_strategy": {
+    "primary": "1688",
+    "secondary": "Alibaba",
+    "discovery_order": [
+      "1688",
+      "Alibaba"
+    ],
+    "follow_up": "wechat-or-enterprise-chat",
+    "preferred_contact_channels": [
+      "site-chat",
+      "wangwang",
+      "wechat",
+      "rfq",
+      "message-center",
+      "whatsapp",
+      "enterprise-wechat"
+    ],
+    "rationale": [
+      "Yiwugo is for Yiwu market-style spot stock, small commodities, and home storage suppliers.",
+      "1688 用于找现货、源头厂、白牌供应链。",
+      "Alibaba 用于核对出口经验、英文资料、认证文件。",
+      "微信或站外沟通用于深聊样品、包装、证书和打样。"
+    ],
+    "platform_notes": [
+      {
+        "platform": "1688",
+        "positioning": "Use 1688 for spot stock, factory-direct stores, and mature domestic white-label supply chains.",
+        "supplier_signals": [
+          "Prioritize source factories or deep trade-integrated stores.",
+          "Collect MOQ, unit price, packed dimensions, and carton quantity in the first round."
+        ],
+        "contact_channels": [
+          "site-chat",
+          "wangwang",
+          "wechat"
+        ]
+      },
+      {
+        "platform": "Alibaba",
+        "positioning": "Use Alibaba to verify export experience, English materials, and compliance or certification readiness.",
+        "supplier_signals": [
+          "Prioritize suppliers with export records, certification files, and OEM or ODM support.",
+          "Use it as the escalation channel for regulated, export-facing, or customization-heavy products."
+        ],
+        "contact_channels": [
+          "rfq",
+          "message-center",
+          "whatsapp",
+          "wechat"
+        ]
+      }
+    ]
+  },
+  "supplier_discovery": {
+    "first_pass_target": 8,
+    "shortlist_target": 3,
+    "keywords_cn": [
+      "车载手机支架 磁吸 出风口夹",
+      "车载手机支架 磁吸 出风口夹 工厂",
+      "车载手机支架 磁吸 出风口夹 现货",
+      "车载手机支架 磁吸 出风口夹 磁吸",
+      "车载手机支架 磁吸 出风口夹 支架",
+      "车载手机支架 磁吸 出风口夹 车载",
+      "车载手机支架 磁吸 出风口夹 出口",
+      "车载手机支架 磁吸 出风口夹 无强磁"
+    ],
+    "preferred_store_signals": [
+      "源头工厂或深度工贸一体",
+      "支持贴牌/中性包装",
+      "对出口、认证或跨境参数回复完整",
+      "近 90 天有稳定成交和回复速度"
+    ],
+    "reject_signals": [
+      "参数不全，只给低价不报重量尺寸",
+      "无法说明材质或认证",
+      "售后问题避而不答",
+      "明显低价但交期、包装和瑕疵率模糊"
+    ],
+    "required_contact_fields": [
+      "contact_person",
+      "site_chat_url_or_store_url",
+      "phone",
+      "wechat",
+      "market_location_or_factory_city"
+    ]
+  },
+  "ranking_rubric": [
+    {
+      "factor": "product_match",
+      "weight": 30,
+      "rule": "标题、图片、参数与目标 SKU 的匹配度"
+    },
+    {
+      "factor": "factory_capability",
+      "weight": 20,
+      "rule": "是否源头厂、是否可持续供货、是否支持 OEM/包装"
+    },
+    {
+      "factor": "compliance_readiness",
+      "weight": 20,
+      "rule": "是否能提供合规/材质/认证信息"
+    },
+    {
+      "factor": "fulfillment_stability",
+      "weight": 15,
+      "rule": "交期、装箱参数、缺陷率、售后稳定性"
+    },
+    {
+      "factor": "communication_quality",
+      "weight": 15,
+      "rule": "回复速度、信息完整性、是否愿意配合提供细节"
+    }
+  ],
+  "execution_rule": {
+    "first_round_contact_count": 3,
+    "escalation_rule": "只对排序前三的店发首轮消息，回复差再补问下一家。",
+    "publish_blockers": [
+      "magnet",
+      "vehicle"
+    ]
+  }
+}

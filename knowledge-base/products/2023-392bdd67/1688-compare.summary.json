@@ -1,0 +1,54 @@
+{
+  "slug": "2023-392bdd67",
+  "compared_at": "2026-03-26T15:32:23.390Z",
+  "candidate_count": 5,
+  "selected_offer_source_url": "https://detail.1688.com/offer/735364667650.html",
+  "price_min": 0.33,
+  "price_max": 7.8,
+  "price_avg": 3.49,
+  "shortlist": [
+    {
+      "rank": 1,
+      "source_url": "https://detail.1688.com/offer/735364667650.html",
+      "shop_name": "义乌市唯美电子商务有限公司",
+      "offer_title": "义乌市唯美电子商务有限公司",
+      "price": 1.2,
+      "min_order_qty": 52314
+    },
+    {
+      "rank": 2,
+      "source_url": "https://detail.1688.com/offer/1002187615060.html",
+      "shop_name": "扬州朗匠休闲日用制品有限公司",
+      "offer_title": "扬州朗匠休闲日用制品有限公司",
+      "price": 2.5,
+      "min_order_qty": 999982
+    },
+    {
+      "rank": 3,
+      "source_url": "https://detail.1688.com/offer/761723862508.html",
+      "shop_name": "义乌市柚果宠物用品有限公司",
+      "offer_title": "1~199个",
+      "price": 7.8,
+      "min_order_qty": 7041
+    },
+    {
+      "rank": 4,
+      "source_url": "https://detail.1688.com/offer/997943767835.html",
+      "shop_name": "扬州朗匠休闲日用制品有限公司",
+      "offer_title": "2~199个",
+      "price": 5.6,
+      "min_order_qty": 98212
+    },
+    {
+      "rank": 5,
+      "source_url": "https://detail.1688.com/offer/1028939634987.html",
+      "shop_name": "义乌市依雪塑料制品有限公司",
+      "offer_title": "义乌市依雪塑料制品有限公司",
+      "price": 0.33,
+      "min_order_qty": 2
+    }
+  ],
+  "notes": [
+    "Shortlist assembled from the same 1688 search cluster for Ozon listing review."
+  ]
+}

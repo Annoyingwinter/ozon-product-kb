@@ -1,0 +1,54 @@
+{
+  "slug": "item-3-8523c65e",
+  "compared_at": "2026-03-26T15:32:23.373Z",
+  "candidate_count": 5,
+  "selected_offer_source_url": "https://detail.1688.com/offer/855384156567.html",
+  "price_min": 0.7,
+  "price_max": 119,
+  "price_avg": 33.84,
+  "shortlist": [
+    {
+      "rank": 1,
+      "source_url": "https://detail.1688.com/offer/855384156567.html",
+      "shop_name": "义乌市极骏日用品厂",
+      "offer_title": "义乌市极骏日用品厂",
+      "price": 0.7,
+      "min_order_qty": 2
+    },
+    {
+      "rank": 2,
+      "source_url": "https://detail.1688.com/offer/898593450269.html",
+      "shop_name": "宁波鑫逸达汽车部件有限公司",
+      "offer_title": "汽车后备箱弹力网兜SUV通用型车载收纳储物袋车用行李固定网",
+      "price": 11.49,
+      "min_order_qty": 4
+    },
+    {
+      "rank": 3,
+      "source_url": "https://detail.1688.com/offer/725612805246.html",
+      "shop_name": "东莞市锦峰手袋制品有限公司",
+      "offer_title": "20~499个",
+      "price": 31,
+      "min_order_qty": 403
+    },
+    {
+      "rank": 4,
+      "source_url": "https://detail.1688.com/offer/693167128406.html",
+      "shop_name": "深圳市北极象汽车用品有限公司",
+      "offer_title": "5~499个",
+      "price": 119,
+      "min_order_qty": 8
+    },
+    {
+      "rank": 5,
+      "source_url": "https://detail.1688.com/offer/648062374681.html",
+      "shop_name": "宁波鑫逸达汽车部件有限公司",
+      "offer_title": "宁波鑫逸达汽车部件有限公司",
+      "price": 7,
+      "min_order_qty": 2
+    }
+  ],
+  "notes": [
+    "Shortlist assembled from the same 1688 search cluster for Ozon listing review."
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "2026-03-25T13:18:21.764Z-item-7-8eb92e2b",
+  "slug": "item-7-8eb92e2b",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-25T13-18-14.970Z.analysis.json",
+    "imported_at": "2026-03-25T13:18:21.764Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_compare_blocked",
+    "created_at": "2026-03-25T13:18:21.764Z",
+    "updated_at": "2026-03-25T13:22:07.842Z",
+    "pipeline": "product-kb",
+    "run_id": "2026-03-25T13-18-21.490Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "source_platform": "1688",
+    "compare_status": "blocked",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-8eb92e2b\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-8eb92e2b\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-8eb92e2b\\1688-competitor-offers.json",
+    "compared_at": "2026-03-25T13:22:07.842Z",
+    "shortlist_count": 0,
+    "last_error": "invalid_detail_page, missing_source_url, missing_media, less_than_three_competitors, missing_selected_offer",
+    "blocked_snapshot_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\product-kb-blocked\\item-7-8eb92e2b\\ozon-knowledge.blocked.json"
+  },
+  "listing": {
+    "status": "not_ready",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-8eb92e2b\\ozon-knowledge.json",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-8eb92e2b\\product.json",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-8eb92e2b\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-8eb92e2b\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-8eb92e2b\\1688-competitor-offers.json",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-8eb92e2b\\ozon-knowledge.json"
+  },
+  "product": {
+    "name": "宠物指甲打磨器（手动）",
+    "category": "宠物",
+    "target_price_rub": 1790,
+    "supply_price_cny": 25,
+    "est_weight_kg": 0.28,
+    "package_long_edge_cm": 20,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "why_it_can_sell": "手动设计规避电子认证，宠物主定期护理需求稳定",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 60,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 65
+    },
+    "total_score": 88,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  },
+  "knowledge_base": null
+}

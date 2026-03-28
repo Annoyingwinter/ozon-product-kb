@@ -85,9 +85,13 @@ export function getWorkflowPaths(baseDir = process.cwd()) {
     queuesDir,
     indexPath: path.join(knowledgeBaseDir, "index.json"),
     researchQueuePath: path.join(queuesDir, "supplier-research-queue.json"),
+    blockedQueuePath: path.join(queuesDir, "supplier-compare-blocked-queue.json"),
     followUpQueuePath: path.join(queuesDir, "supplier-followup-queue.json"),
     reviewQueuePath: path.join(queuesDir, "human-review-queue.json"),
     listingQueuePath: path.join(queuesDir, "listing-draft-queue.json"),
+    blockedArtifactsDir: path.join(outputDir, "product-kb-blocked"),
+    liveStatusJsonPath: path.join(outputDir, "live-status.json"),
+    liveStatusMdPath: path.join(outputDir, "live-status.md"),
   };
 }
 
@@ -139,6 +143,361 @@ export async function listProductRecords(productsDir) {
   } catch {
     return [];
   }
+}
+
+function safeArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function parseTimestamp(value) {
+  const parsed = Date.parse(value || "");
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function sortByLatestTimestamp(left, right) {
+  return parseTimestamp(right.at) - parseTimestamp(left.at);
+}
+
+function formatTimestamp(value) {
+  return value || "";
+}
+
+function pickLatestActivity(candidates) {
+  return safeArray(candidates)
+    .filter((item) => item && item.at)
+    .sort(sortByLatestTimestamp)[0] || {
+      at: "",
+      label: "",
+      detail: "",
+    };
+}
+
+function summarizeRecentActivity(record) {
+  const stage = record?.workflow?.current_stage || "";
+  const outreach = record?.research?.outreach || {};
+  const review = record?.review || {};
+  const chatCaptures = safeArray(record?.research?.chat_captures);
+  const supplierResponses = safeArray(record?.research?.supplier_responses);
+  const latestCapture = chatCaptures.at(-1) || null;
+  const latestResponse = supplierResponses.at(-1) || null;
+
+  const candidates = [
+    stage === "supplier_research_pending"
+      ? {
+          at: record?.workflow?.updated_at || record?.workflow?.created_at || "",
+          label: "待首轮询盘",
+          detail: "产品已经进入供应商调研队列。",
+        }
+      : null,
+    stage === "supplier_contacted_waiting_reply"
+      ? {
+          at: latestCapture?.captured_at || outreach.last_contacted_at || record?.workflow?.updated_at || "",
+          label: latestCapture?.has_human_reply ? "商家已回复" : "等待回复",
+          detail: latestCapture?.has_human_reply
+            ? "监视器已捕获商家回复，AI 可以继续追问或整理参数。"
+            : "首轮消息已发出，等待商家回复。",
+        }
+      : null,
+    stage === "human_review_pending"
+      ? {
+          at: review.reviewed_at || latestResponse?.ingested_at || record?.workflow?.updated_at || "",
+          label: "待人工审核",
+          detail: "已拿到供应商回复，进入人工审核队列。",
+        }
+      : null,
+    stage === "approved_for_listing"
+      ? {
+          at: record?.workflow?.updated_at || review.reviewed_at || "",
+          label: "待上架草稿",
+          detail: "商品已批准，等待生成或同步上架草稿。",
+        }
+      : null,
+    stage === "rejected"
+      ? {
+          at: record?.workflow?.updated_at || review.reviewed_at || "",
+          label: "已拒绝",
+          detail: "该商品已被排除，不再推进。",
+        }
+      : null,
+    latestCapture?.captured_at
+      ? {
+          at: latestCapture.captured_at,
+          label: latestCapture.has_human_reply ? "捕获到回复" : "轮巡会话",
+          detail: latestCapture.has_human_reply
+            ? "聊天快照里出现了商家回复。"
+            : "聊天快照已刷新，正在跟踪会话。",
+        }
+      : null,
+    latestResponse?.ingested_at
+      ? {
+          at: latestResponse.ingested_at,
+          label: "回复已入库",
+          detail: "结构化供应商回复已写入知识库。",
+        }
+      : null,
+    outreach.first_message_sent_at
+      ? {
+          at: outreach.first_message_sent_at,
+          label: "首轮已发送",
+          detail: `首轮已发出，当前追问次数 ${outreach.follow_up_sent_count || 0}。`,
+        }
+      : null,
+    outreach.last_contacted_at
+      ? {
+          at: outreach.last_contacted_at,
+          label: "最近联系",
+          detail: "商品最近一次与商家有对话动作。",
+        }
+      : null,
+    record?.workflow?.updated_at
+      ? {
+          at: record.workflow.updated_at,
+          label: "工作流更新",
+          detail: `当前阶段：${stage || "unknown"}`,
+        }
+      : null,
+  ];
+
+  return pickLatestActivity(candidates);
+}
+
+function buildSelectionCounts(analysis) {
+  const counts = {
+    total: 0,
+    Go: 0,
+    Watch: 0,
+    "No-Go": 0,
+    Other: 0,
+  };
+
+  for (const product of analysis?.products || []) {
+    const decision = normalizeDecision(product.final_decision || product.go_or_no_go);
+    counts.total += 1;
+    if (decision === "Go") counts.Go += 1;
+    else if (decision === "Watch") counts.Watch += 1;
+    else if (decision === "No-Go") counts["No-Go"] += 1;
+    else counts.Other += 1;
+  }
+
+  return counts;
+}
+
+function buildLiveStatusMarkdown(status) {
+  const lines = [
+    "# Live Status",
+    "",
+    `Generated at: ${formatTimestamp(status.generatedAt)}`,
+    "",
+    "## Selection",
+    `- Analysis file: ${status.selection.analysisPath || "none"}`,
+    `- Total analyzed: ${status.selection.total}`,
+    `- Go: ${status.selection.Go}`,
+    `- Watch: ${status.selection.Watch}`,
+    `- No-Go: ${status.selection["No-Go"]}`,
+    `- Other: ${status.selection.Other}`,
+    "",
+    "## Workflow",
+    `- Total products: ${status.workflow.total}`,
+    `- Supplier research pending: ${status.workflow.supplier_research_pending}`,
+    `- Supplier contacted waiting reply: ${status.workflow.supplier_contacted_waiting_reply}`,
+    `- Human review pending: ${status.workflow.human_review_pending}`,
+    `- Approved for listing: ${status.workflow.approved_for_listing}`,
+    `- Rejected: ${status.workflow.rejected}`,
+    "",
+    "## Outreach",
+    `- Contacted suppliers: ${status.outreach.contacted}`,
+    `- Waiting reply: ${status.outreach.waiting_reply}`,
+    `- Replied: ${status.outreach.replied}`,
+    `- With chat captures: ${status.outreach.with_chat_capture}`,
+    `- First messages sent: ${status.outreach.first_messages_sent}`,
+    `- Follow-up messages sent: ${status.outreach.follow_ups_sent}`,
+    `- Nudges sent: ${status.outreach.nudges_sent}`,
+    "",
+    "## Current Queues",
+    `- Research queue: ${status.queues.research.count}`,
+    `- Follow-up queue: ${status.queues.followUp.count}`,
+    `- Human review queue: ${status.queues.review.count}`,
+    `- Listing draft queue: ${status.queues.listing.count}`,
+    "",
+    "### Waiting Reply",
+    ...(status.queues.followUp.sample.length
+      ? status.queues.followUp.sample.map(
+          (item) =>
+            `- ${item.slug} | ${item.name} | ${item.supplierName || "unknown"} | last contact ${item.lastContactedAt || "unknown"} | captures ${item.chatCaptureCount} | replies ${item.humanReplyCount}`,
+        )
+      : ["- none"]),
+    "",
+    "### Research Pending",
+    ...(status.queues.research.sample.length
+      ? status.queues.research.sample.map(
+          (item) => `- ${item.slug} | ${item.name} | ${item.profile} | ${item.stage}`,
+        )
+      : ["- none"]),
+    "",
+    "### Human Review",
+    ...(status.queues.review.sample.length
+      ? status.queues.review.sample.map(
+          (item) => `- ${item.slug} | ${item.name} | latest response ${item.latestSupplierResponsePath || "none"}`,
+        )
+      : ["- none"]),
+    "",
+    "### Listing Draft",
+    ...(status.queues.listing.sample.length
+      ? status.queues.listing.sample.map(
+          (item) => `- ${item.slug} | ${item.name} | ${item.listingStatus || "not_ready"}`,
+        )
+      : ["- none"]),
+    "",
+    "## Recent Activity",
+    ...(status.recentActivity.length
+      ? status.recentActivity.map(
+          (item, index) =>
+            `${index + 1}. ${item.at} | ${item.slug} | ${item.name} | ${item.label} | ${item.detail}`,
+        )
+      : ["- none"]),
+    "",
+    "## Files",
+    `- Knowledge base index: ${status.files.indexPath}`,
+    `- Research queue: ${status.files.researchQueuePath}`,
+    `- Follow-up queue: ${status.files.followUpQueuePath}`,
+    `- Human review queue: ${status.files.reviewQueuePath}`,
+    `- Listing queue: ${status.files.listingQueuePath}`,
+    `- Live status JSON: ${status.files.liveStatusJsonPath}`,
+    "",
+  ];
+
+  return lines.join("\n");
+}
+
+async function buildLiveStatus(paths, records, queues) {
+  let analysisPath = "";
+  let analysis = null;
+  try {
+    analysisPath = await findLatestAnalysisFile(paths.outputDir);
+    if (analysisPath) {
+      analysis = await readJson(analysisPath, null);
+    }
+  } catch {
+    analysisPath = "";
+    analysis = null;
+  }
+
+  const selection = buildSelectionCounts(analysis);
+  const researchQueue = queues?.researchQueue || [];
+  const followUpQueue = queues?.followUpQueue || [];
+  const reviewQueue = queues?.reviewQueue || [];
+  const listingQueue = queues?.listingQueue || [];
+
+  const outreachRecords = records.filter((record) => record?.workflow?.current_stage === "supplier_contacted_waiting_reply");
+  const withHumanReply = outreachRecords.filter((record) =>
+    safeArray(record?.research?.chat_captures).some((capture) => Boolean(capture?.has_human_reply)),
+  );
+
+  const liveStatus = {
+    generatedAt: new Date().toISOString(),
+    files: {
+      analysisPath,
+      indexPath: paths.indexPath,
+      researchQueuePath: paths.researchQueuePath,
+      followUpQueuePath: paths.followUpQueuePath,
+      reviewQueuePath: paths.reviewQueuePath,
+      listingQueuePath: paths.listingQueuePath,
+      liveStatusJsonPath: paths.liveStatusJsonPath,
+      liveStatusMdPath: paths.liveStatusMdPath,
+    },
+    selection: {
+      analysisPath,
+      ...selection,
+    },
+    workflow: {
+      total: records.length,
+      supplier_research_pending: researchQueue.length,
+      supplier_contacted_waiting_reply: followUpQueue.length,
+      human_review_pending: reviewQueue.length,
+      approved_for_listing: listingQueue.length,
+      rejected: records.filter((record) => record?.workflow?.current_stage === "rejected").length,
+    },
+    outreach: {
+      contacted: outreachRecords.length,
+      waiting_reply: outreachRecords.length - withHumanReply.length,
+      replied: withHumanReply.length,
+      with_chat_capture: outreachRecords.filter((record) => safeArray(record?.research?.chat_captures).length > 0).length,
+      first_messages_sent: outreachRecords.filter((record) => Boolean(record?.research?.outreach?.first_message_sent_at)).length,
+      follow_ups_sent: outreachRecords.reduce(
+        (sum, record) => sum + Number(record?.research?.outreach?.follow_up_sent_count || 0),
+        0,
+      ),
+      nudges_sent: outreachRecords.reduce(
+        (sum, record) => sum + Number(record?.research?.outreach?.nudge_sent_count || 0),
+        0,
+      ),
+    },
+    queues: {
+      research: {
+        count: researchQueue.length,
+        sample: researchQueue.slice(0, 5).map((item) => ({
+          slug: item.slug,
+          name: item.name || "",
+          profile: item.profile || "",
+          stage: item.stage || "",
+        })),
+      },
+      followUp: {
+        count: followUpQueue.length,
+        sample: followUpQueue.slice(0, 5).map((item) => {
+          const record = records.find((entry) => entry.slug === item.slug);
+          const chatCaptures = safeArray(record?.research?.chat_captures);
+          const latestCapture = chatCaptures.at(-1) || null;
+          return {
+            slug: item.slug,
+            name: item.name || "",
+            supplierName: item.supplierName || "",
+            lastContactedAt: item.lastContactedAt || item.firstMessageSentAt || "",
+            chatCaptureCount: chatCaptures.length,
+            humanReplyCount: chatCaptures.filter((capture) => Boolean(capture?.has_human_reply)).length,
+            latestCapturePath: item.lastChatCapturePath || "",
+            hasHumanReply: Boolean(latestCapture?.has_human_reply),
+          };
+        }),
+      },
+      review: {
+        count: reviewQueue.length,
+        sample: reviewQueue.slice(0, 5).map((item) => ({
+          slug: item.slug,
+          name: item.name || "",
+          latestSupplierResponsePath: item.latestSupplierResponsePath || "",
+        })),
+      },
+      listing: {
+        count: listingQueue.length,
+        sample: listingQueue.slice(0, 5).map((item) => ({
+          slug: item.slug,
+          name: item.name || "",
+          listingStatus: item.listingStatus || "",
+        })),
+      },
+    },
+    recentActivity: records
+      .map((record) => {
+        const activity = summarizeRecentActivity(record);
+        return {
+          slug: record.slug,
+          name: record?.product?.name || record.slug || "",
+          stage: record?.workflow?.current_stage || "",
+          at: activity.at || record?.workflow?.updated_at || "",
+          label: activity.label || "",
+          detail: activity.detail || "",
+        };
+      })
+      .filter((item) => item.at)
+      .sort((left, right) => parseTimestamp(right.at) - parseTimestamp(left.at))
+      .slice(0, 10),
+  };
+
+  return {
+    json: liveStatus,
+    markdown: buildLiveStatusMarkdown(liveStatus),
+  };
 }
 
 function compactWhitespace(value) {
@@ -795,53 +1154,132 @@ export function buildListingBrief(productRecord) {
 export async function refreshWorkflowArtifacts(paths) {
   const productEntries = await listProductRecords(paths.productsDir);
   const records = productEntries.map(({ record }) => record);
+  const safeName = (record) => record?.product?.name || record?.slug || "";
+  const safeStage = (record) => record?.workflow?.current_stage || "";
+  const safeReviewStatus = (record) => record?.review?.status || "";
+  const safeProfile = (record) => record?.research?.product_profile || "";
+  const safeOutreachStatus = (record) => record?.research?.outreach?.status || "";
+  const safePaths = (record) => record?.paths || {};
+  const safeResearch = (record) => record?.research || {};
+  const safeListing = (record) => record?.listing || {};
 
   const researchQueue = records
-    .filter((record) => record.workflow.current_stage === "supplier_research_pending")
+    .filter((record) => safeStage(record) === "supplier_research_pending")
     .map((record) => ({
       slug: record.slug,
-      name: record.product.name,
-      stage: record.workflow.current_stage,
-      inquiryPath: record.research.supplier_inquiry_path,
-      responseTemplatePath: record.research.supplier_response_template_path,
-      searchPlanPath: record.research.supplier_search_plan_path || "",
-      shortlistTemplatePath: record.research.supplier_shortlist_template_path || "",
-      knowledgePath: record.paths.product_json,
+      name: safeName(record),
+      profile: safeProfile(record),
+      stage: safeStage(record),
+      inquiryPath: safeResearch(record).supplier_inquiry_path,
+      responseTemplatePath: safeResearch(record).supplier_response_template_path,
+      searchPlanPath: safeResearch(record).supplier_search_plan_path || "",
+      shortlistTemplatePath: safeResearch(record).supplier_shortlist_template_path || "",
+      knowledgePath: safePaths(record).product_json,
     }));
 
   const followUpQueue = records
-    .filter((record) => record.workflow.current_stage === "supplier_contacted_waiting_reply")
-    .map((record) => ({
-      slug: record.slug,
-      name: record.product.name,
-      stage: record.workflow.current_stage,
-      supplierName: record.research.outreach?.supplier_name || "",
-      supplierImUrl: record.research.outreach?.supplier_im_url || "",
-      firstMessageSentAt: record.research.outreach?.first_message_sent_at || "",
-      followUpSentCount: record.research.outreach?.follow_up_sent_count || 0,
-      nudgeSentCount: record.research.outreach?.nudge_sent_count || 0,
-      lastChatCapturePath: record.research.last_chat_capture_path || "",
-      knowledgePath: record.paths.product_json,
-    }));
+    .filter((record) => safeStage(record) === "supplier_contacted_waiting_reply")
+    .flatMap((record) => {
+      const research = safeResearch(record);
+      const outreach = research.outreach || {};
+      const contacts = Array.isArray(outreach.competitor_contacts) ? outreach.competitor_contacts : [];
+      const dedupe = new Set();
+      const entries = [];
+      const pushEntry = (contact, { isPrimary = false, fallbackIndex = 0 } = {}) => {
+        const supplierImUrl = String(contact?.supplier_im_url || "").trim();
+        const supplierName = String(contact?.supplier_name || "").trim();
+        const rawKey = String(contact?.supplier_key || "").trim();
+        const normalizedKey =
+          rawKey ||
+          `${record.slug}::${(supplierName || supplierImUrl || `supplier-${fallbackIndex + 1}`)
+            .replace(/[^\w.-]+/g, "_")
+            .slice(0, 80)}`;
+        const dedupeKey = `${normalizedKey}::${supplierImUrl}`;
+        if (dedupe.has(dedupeKey)) return;
+        if (!supplierImUrl && !isPrimary) return;
+        dedupe.add(dedupeKey);
+        entries.push({
+          slug: record.slug,
+          name: safeName(record),
+          stage: safeStage(record),
+          supplierKey: normalizedKey,
+          supplierName,
+          supplierImUrl,
+          supplierShopUrl: String(contact?.supplier_shop_url || "").trim(),
+          supplierProductTitle: String(contact?.supplier_product_title || "").trim(),
+          supplierProductUrl: String(contact?.supplier_product_url || "").trim(),
+          searchSummaryPath: String(contact?.search_summary_path || "").trim(),
+          candidateIndex: Number(contact?.candidate_index || 0),
+          firstMessageSentAt:
+            String(contact?.first_message_sent_at || "").trim() ||
+            String(outreach.first_message_sent_at || "").trim(),
+          lastContactedAt:
+            String(contact?.last_contacted_at || "").trim() ||
+            String(outreach.last_contacted_at || "").trim(),
+          followUpSentCount:
+            Number(contact?.follow_up_sent_count || 0) || Number(outreach.follow_up_sent_count || 0),
+          nudgeSentCount:
+            Number(contact?.nudge_sent_count || 0) || Number(outreach.nudge_sent_count || 0),
+          lastChatCapturePath:
+            String(contact?.last_chat_capture_path || "").trim() ||
+            String(research.last_chat_capture_path || "").trim(),
+          knowledgePath: safePaths(record).product_json,
+        });
+      };
+
+      pushEntry(
+        {
+          supplier_key: `${record.slug}::primary`,
+          supplier_name: outreach.supplier_name || "",
+          supplier_im_url: outreach.supplier_im_url || "",
+          supplier_shop_url: outreach.supplier_shop_url || "",
+          supplier_product_title: outreach.supplier_product_title || "",
+          supplier_product_url: outreach.supplier_product_url || "",
+          search_summary_path: outreach.search_summary_path || "",
+          first_message_sent_at: outreach.first_message_sent_at || "",
+          last_contacted_at: outreach.last_contacted_at || "",
+          follow_up_sent_count: outreach.follow_up_sent_count || 0,
+          nudge_sent_count: outreach.nudge_sent_count || 0,
+          last_chat_capture_path: research.last_chat_capture_path || "",
+        },
+        { isPrimary: true, fallbackIndex: 0 },
+      );
+
+      for (let index = 0; index < contacts.length; index += 1) {
+        pushEntry(contacts[index], { isPrimary: false, fallbackIndex: index + 1 });
+      }
+
+      return entries;
+    });
 
   const reviewQueue = records
-    .filter((record) => record.workflow.current_stage === "human_review_pending")
+    .filter((record) => safeStage(record) === "human_review_pending")
     .map((record) => ({
       slug: record.slug,
-      name: record.product.name,
-      stage: record.workflow.current_stage,
-      latestSupplierResponsePath: record.research.latest_supplier_response_path || "",
-      knowledgePath: record.paths.product_json,
+      name: safeName(record),
+      stage: safeStage(record),
+      latestSupplierResponsePath: safeResearch(record).latest_supplier_response_path || "",
+      knowledgePath: safePaths(record).product_json,
     }));
 
   const listingQueue = records
-    .filter((record) => record.workflow.current_stage === "approved_for_listing")
+    .filter((record) => safeStage(record) === "approved_for_listing")
     .map((record) => ({
       slug: record.slug,
-      name: record.product.name,
-      stage: record.workflow.current_stage,
-      listingBriefPath: record.listing.listing_brief_path || "",
-      knowledgePath: record.paths.product_json,
+      name: safeName(record),
+      stage: safeStage(record),
+      listingStatus: safeListing(record).status || "",
+      titleJsonPath: safeListing(record).title_json_path || "",
+      bulletsJsonPath: safeListing(record).bullets_json_path || "",
+      attributesJsonPath: safeListing(record).attributes_json_path || "",
+      mainImageCopyJsonPath: safeListing(record).main_image_copy_json_path || "",
+      assetsMdPath: safeListing(record).assets_md_path || "",
+      listingBriefPath: safeListing(record).listing_brief_path || "",
+      draftJsonPath: safeListing(record).draft_json_path || "",
+      draftMdPath: safeListing(record).draft_md_path || "",
+      packageId: safeListing(record).package_id || "",
+      selectedTitle: safeListing(record).selected_title || "",
+      knowledgePath: safePaths(record).product_json,
     }));
 
   const summary = {
@@ -852,18 +1290,23 @@ export async function refreshWorkflowArtifacts(paths) {
       supplier_contacted_waiting_reply: followUpQueue.length,
       human_review_pending: reviewQueue.length,
       approved_for_listing: listingQueue.length,
-      rejected: records.filter((record) => record.workflow.current_stage === "rejected").length,
+      rejected: records.filter((record) => safeStage(record) === "rejected").length,
     },
-    products: records.map((record) => ({
-      slug: record.slug,
-      name: record.product.name,
-      profile: record.research.product_profile || "",
-      stage: record.workflow.current_stage,
-      reviewStatus: record.review.status,
-      outreachStatus: record.research.outreach?.status || "",
-      sourceDecision: record.product.source_decision || record.product.final_decision || "",
-      finalDecision: record.product.final_decision || "",
-    })),
+      products: records.map((record) => ({
+        slug: record.slug,
+        name: safeName(record),
+        profile: safeProfile(record),
+        stage: safeStage(record),
+        reviewStatus: safeReviewStatus(record),
+        outreachStatus: safeOutreachStatus(record),
+        listingStatus: safeListing(record).status || "",
+        titleJsonPath: safeListing(record).title_json_path || "",
+        bulletsJsonPath: safeListing(record).bullets_json_path || "",
+        attributesJsonPath: safeListing(record).attributes_json_path || "",
+        mainImageCopyJsonPath: safeListing(record).main_image_copy_json_path || "",
+        sourceDecision: record?.product?.source_decision || record?.product?.final_decision || "",
+        finalDecision: record?.product?.final_decision || "",
+      })),
   };
 
   await writeJson(paths.indexPath, summary);
@@ -871,4 +1314,13 @@ export async function refreshWorkflowArtifacts(paths) {
   await writeJson(paths.followUpQueuePath, followUpQueue);
   await writeJson(paths.reviewQueuePath, reviewQueue);
   await writeJson(paths.listingQueuePath, listingQueue);
+
+  const liveStatus = await buildLiveStatus(paths, records, {
+    researchQueue,
+    followUpQueue,
+    reviewQueue,
+    listingQueue,
+  });
+  await writeJson(paths.liveStatusJsonPath, liveStatus.json);
+  await writeText(paths.liveStatusMdPath, liveStatus.markdown);
 }

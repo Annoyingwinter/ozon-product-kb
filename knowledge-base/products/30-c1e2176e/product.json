@@ -1,0 +1,78 @@
+{
+  "id": "2026-03-22T03-46-54.307Z-30-c1e2176e",
+  "slug": "30-c1e2176e",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-22T03-07-50.724Z.analysis.json",
+    "imported_at": "2026-03-22T03:46:54.307Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_research_pending",
+    "created_at": "2026-03-22T03:46:54.307Z",
+    "updated_at": "2026-03-22T03:46:54.307Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "product_profile": "general-merchandise",
+    "risk_tags": [],
+    "requires_supplier_response": false,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\30-c1e2176e\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\30-c1e2176e\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\30-c1e2176e\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\30-c1e2176e\\supplier-response.template.json",
+    "latest_supplier_response_path": "",
+    "supplier_responses": [],
+    "outreach": {
+      "status": "not_contacted",
+      "supplier_name": "",
+      "supplier_im_url": "",
+      "supplier_shop_url": "",
+      "search_summary_path": "",
+      "first_message_sent_at": "",
+      "last_contacted_at": "",
+      "follow_up_sent_count": 0,
+      "nudge_sent_count": 0
+    }
+  },
+  "listing": {
+    "status": "not_ready",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\30-c1e2176e\\product.json"
+  },
+  "product": {
+    "name": "万能防滑家具脚垫（30片装）",
+    "category": "家居",
+    "target_price_rub": 1050,
+    "supply_price_cny": 9,
+    "est_weight_kg": 0.15,
+    "package_long_edge_cm": 12,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "low",
+    "content_potential": "low",
+    "seasonality": "stable",
+    "why_it_can_sell": "超轻小、极低售后、高毛利，适合作为引流品",
+    "risk_notes": [],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 92,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 40
+    },
+    "total_score": 90,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "hero_text": "Pet Hair Remover Roller",
+  "badge_text": "低合规风险",
+  "subtitle_text": "适合通用家庭使用场景，覆盖日常高频需求。",
+  "scene_text": "宠物除毛滚筒在Pet Supplies场景中的使用效果",
+  "detail_text": "规格：0.28 kg / 24 cm",
+  "overlay_lines": [
+    "Low demo cost, easy to explain",
+    "适合通用家庭使用场景，覆盖日常高频需求。",
+    "轻小件：0.28 kg / 24 cm"
+  ],
+  "prompt_pack": [
+    "Main image: white background, centered product shot, show the full 宠物除毛滚筒 clearly.",
+    "Scene image: show the 宠物除毛滚筒 in its main use case for Pet Supplies.",
+    "Detail image: highlight material, structure, size, and any foldable or cuttable feature."
+  ]
+}

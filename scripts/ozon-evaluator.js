@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { timestamp, ensureDir } from "./shared-utils.js";
 import path from "node:path";
 
 const DEFAULT_PLATFORM = "ozon";
@@ -93,13 +94,9 @@ function getRules(args) {
   };
 }
 
-async function ensureDir(target) {
-  await fs.mkdir(target, { recursive: true });
-}
 
-function timestamp() {
-  return new Date().toISOString().replaceAll(":", "-");
-}
+
+
 
 function parseLevel(value) {
   const normalized = String(value || "").trim().toLowerCase();

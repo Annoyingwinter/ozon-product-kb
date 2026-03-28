@@ -268,3 +268,88 @@ node scripts/update-product-review.js --slug product-slug --reject --notes "comp
 - `knowledge-base/products/<slug>/listing-brief.md`
 
 这样就可以把 `approved_for_listing` 阶段的数据继续交给 OpenClaw 或其他上架执行器。
+
+### Draft-only Ozon flow
+
+```bash
+npm run ozon:draft
+```
+
+This flow will:
+
+- auto-approve low-complexity `Go` items that do not require supplier replies
+- generate `output/ozon-drafts/<run-id>/<slug>/ozon-listing-draft.{json,md}`
+- update the product record to `approved_for_listing`
+- keep publish disabled and stop at draft-ready output
+
+### Generated listing assets
+
+For each eligible `Go` product, the flow now also writes these source files under `knowledge-base/products/<slug>/`:
+
+- `listing-title.json`
+- `listing-title.ru.json`
+- `listing-bullets.json`
+- `listing-bullets.ru.json`
+- `listing-attributes.json`
+- `main-image-copy.json`
+- `main-image-copy.ru.json`
+- `listing-assets.md`
+- `listing-assets.ru.md`
+
+## Selection + Inquiry Automation
+
+If you want one entry point that does all three stages:
+
+1. run Ozon selection
+2. prepare knowledge-base and queues
+3. send the first round of 1688 supplier inquiries
+
+use:
+
+```bash
+npm run select:inquiry
+```
+
+Useful flags:
+
+```bash
+node scripts/select-and-inquire.js \
+  --platform ozon \
+  --timeout-ms 180000 \
+  --limit 3 \
+  --keep-open
+```
+
+This command also writes a machine-readable summary to:
+
+- `output/latest-selection-inquiry-summary.json`
+- `output/automation/*.selection-inquiry-summary.json`
+
+## Selection + Inquiry Automation
+
+If you want one entry point that does all three stages:
+
+1. run Ozon selection
+2. prepare knowledge-base and queues
+3. send the first round of 1688 supplier inquiries
+
+use:
+
+```bash
+npm run select:inquiry
+```
+
+Useful flags:
+
+```bash
+node scripts/select-and-inquire.js \
+  --platform ozon \
+  --timeout-ms 180000 \
+  --limit 3 \
+  --keep-open
+```
+
+This command also writes a machine-readable summary to:
+
+- `output/latest-selection-inquiry-summary.json`
+- `output/automation/*.selection-inquiry-summary.json`

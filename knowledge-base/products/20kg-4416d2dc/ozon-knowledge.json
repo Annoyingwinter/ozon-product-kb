@@ -1,0 +1,80 @@
+{
+  "schema_version": "ozon-kb-v1",
+  "generated_at": "2026-03-25T00:26:20.500Z",
+  "source_platform": "1688",
+  "source_url": "",
+  "source_platform_urls": [],
+  "spu_id": "SPU-20KG-4416D2DC",
+  "sku_id": "SPU-20KG-4416D2DC-DEFAULT",
+  "group_id": "SPU-20KG-4416D2DC",
+  "variant_theme": "",
+  "variant_values": {},
+  "brand": "",
+  "model": "",
+  "vendor_code": "SPU-20KG-4416D2DC-DEFAULT",
+  "barcode": "",
+  "title_cn": "可折叠购物袋（承重20kg，带收纳扣）",
+  "title_en": "",
+  "title_ru": "",
+  "description": "极致轻小，复购率高，可作为赠品或捆绑销售",
+  "bullet_points": [
+    "极致轻小，复购率高，可作为赠品或捆绑销售",
+    "seasonality: stable"
+  ],
+  "price": 6,
+  "old_price": 0,
+  "currency": "CNY",
+  "stock": null,
+  "min_order_qty": 0,
+  "package_quantity": 1,
+  "vat": "",
+  "weight": 0.12,
+  "length": 12,
+  "width": 0,
+  "height": 0,
+  "category_path": "家居/礼品",
+  "category_id_source": "",
+  "ozon_category_id": "",
+  "attributes": {
+    "source_category": "家居/礼品",
+    "seasonality": "stable",
+    "fragility": "low",
+    "competition_level": "high",
+    "content_potential": "low"
+  },
+  "main_image": "",
+  "images": [],
+  "video_url": "",
+  "image_count": 0,
+  "image_hash": "",
+  "white_background": null,
+  "is_adult": false,
+  "is_fragile": false,
+  "dangerous_goods": false,
+  "country_of_origin": "CN",
+  "certificate_files": [],
+  "brand_authorization": "",
+  "customs_code": "",
+  "restricted_category_flag": false,
+  "competitor_offers": [],
+  "comparison_summary": {
+    "compared_at": "2026-03-25T00:26:20.501Z",
+    "candidate_count": 0,
+    "selected_offer_source_url": "",
+    "price_min": 0,
+    "price_max": 0,
+    "price_avg": 0,
+    "notes": [
+      "Less than 3 comparable 1688 offers were captured."
+    ]
+  },
+  "data_quality": {
+    "title_source": "source-analysis",
+    "description_source": "source-analysis",
+    "web_detail_valid": false,
+    "inferred_fields": [
+      "title_cn",
+      "category_path"
+    ]
+  }
+}

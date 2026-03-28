@@ -1,1 +1,51 @@
-[]
+[
+  {
+    "slug": "10kg-15a5c8d3",
+    "name": "可折叠购物袋（承重10kg）",
+    "compareSummaryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\1688-compare.summary.json",
+    "knowledgeBasePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\ozon-knowledge.json",
+    "productJsonPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\10kg-15a5c8d3\\product.json"
+  },
+  {
+    "slug": "item-1-f1ddaf16",
+    "name": "磁性冰箱贴套装（俄罗斯地标图案）",
+    "compareSummaryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-f1ddaf16\\1688-compare.summary.json",
+    "knowledgeBasePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-f1ddaf16\\ozon-knowledge.json",
+    "productJsonPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-f1ddaf16\\product.json"
+  },
+  {
+    "slug": "item-2-2b849d87",
+    "name": "硅胶折叠宠物食碗",
+    "compareSummaryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2b849d87\\1688-compare.summary.json",
+    "knowledgeBasePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2b849d87\\ozon-knowledge.json",
+    "productJsonPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-2-2b849d87\\product.json"
+  },
+  {
+    "slug": "item-3-2a763f31",
+    "name": "汽车空调出风口香薰夹",
+    "compareSummaryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-3-2a763f31\\1688-compare.summary.json",
+    "knowledgeBasePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-3-2a763f31\\ozon-knowledge.json",
+    "productJsonPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-3-2a763f31\\product.json"
+  },
+  {
+    "slug": "item-4-9d1f91aa",
+    "name": "可伸缩桌面收纳盒（带分隔）",
+    "compareSummaryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-9d1f91aa\\1688-compare.summary.json",
+    "knowledgeBasePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-9d1f91aa\\ozon-knowledge.json",
+    "productJsonPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-9d1f91aa\\product.json"
+  },
+  {
+    "slug": "item-5-449f03fe",
+    "name": "迷你冰格模具（动物造型）",
+    "compareSummaryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-449f03fe\\1688-compare.summary.json",
+    "knowledgeBasePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-449f03fe\\ozon-knowledge.json",
+    "productJsonPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-5-449f03fe\\product.json"
+  },
+  {
+    "slug": "item-7-d05a5eef",
+    "name": "车载手机支架（重力感应）",
+    "compareSummaryPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-d05a5eef\\1688-compare.summary.json",
+    "knowledgeBasePath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-d05a5eef\\ozon-knowledge.json",
+    "productJsonPath": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-7-d05a5eef\\product.json"
+  }
+]

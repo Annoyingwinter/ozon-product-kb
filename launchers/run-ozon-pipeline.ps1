@@ -1,9 +1,9 @@
-$ErrorActionPreference = "Stop"
-
 param(
   [int]$TimeoutMs = 180000,
   [switch]$KeepOpen
 )
+
+$ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
 Set-Location $repoRoot

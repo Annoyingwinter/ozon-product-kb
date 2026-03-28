@@ -1,0 +1,160 @@
+[
+  {
+    "attribute_name": "source_category",
+    "values": [
+      "家居",
+      "Pet Cleaning",
+      "Kitchen Storage",
+      "Auto Storage",
+      "Auto Interior Organizer",
+      "宠物",
+      "车品",
+      "收纳"
+    ]
+  },
+  {
+    "attribute_name": "seasonality",
+    "values": [
+      "stable",
+      "seasonal"
+    ]
+  },
+  {
+    "attribute_name": "fragility",
+    "values": [
+      "low",
+      "medium"
+    ]
+  },
+  {
+    "attribute_name": "competition_level",
+    "values": [
+      "high",
+      "medium",
+      "low"
+    ]
+  },
+  {
+    "attribute_name": "content_potential",
+    "values": [
+      "medium",
+      "high"
+    ]
+  },
+  {
+    "attribute_name": "size",
+    "values": [
+      "53*38+26cm底部10cm",
+      "25*16.2*8.5cm",
+      "需要定制请联系客服",
+      "单个opp包装",
+      "无规格",
+      "1个装,2个装,3个装,4个装",
+      "见详情选项",
+      "粉色小狗25*30*10只,米色小狗25*30*10只",
+      "彩盒包装"
+    ]
+  },
+  {
+    "attribute_name": "style",
+    "values": [
+      "时尚",
+      "轻奢",
+      "现代简约",
+      "欧式",
+      "韩式风"
+    ]
+  },
+  {
+    "attribute_name": "material",
+    "values": [
+      "防水牛津格子布",
+      "塑料",
+      "聚丙烯（PP）",
+      "织物",
+      "涤纶+织带",
+      "EVA",
+      "锌合金",
+      "硅胶",
+      "pet",
+      "高压ldpe"
+    ]
+  },
+  {
+    "attribute_name": "color",
+    "values": [
+      "混色,绿色.,蓝色.,酒红.,藏青.,灰色.,黑色.,宝蓝,橘黄,咖啡色",
+      "16cm白金款粘毛器,24cm白金款粘毛器,16cm绿金款粘毛器,24cm绿金款粘毛器,16cm蓝金款粘毛器,24cm蓝金款粘毛器,16cm60撕单卷,16cm60撕袋装,24cm60撕单卷,24cm60撕袋装,绿色长杆一套3根,白色长杆一套3根,蓝色长杆一套3根",
+      "长方形 2800ml",
+      "黑色,灰色",
+      "长(cm)",
+      "尺寸",
+      "孔雀蓝,灰色需定制1000起",
+      "蓝色,灰色",
+      "规格",
+      "白色",
+      "重量(g)"
+    ]
+  },
+  {
+    "attribute_name": "brand",
+    "values": [
+      "否",
+      "其他",
+      "是",
+      "plus+净"
+    ]
+  },
+  {
+    "attribute_name": "country_of_origin",
+    "values": [
+      "浙江金华",
+      "浙江",
+      "广东",
+      "义乌",
+      "金华",
+      "广东汕头",
+      "东莞"
+    ]
+  },
+  {
+    "attribute_name": "vendor_code",
+    "values": [
+      "XKDP002",
+      "长方形2800ml",
+      "23022801",
+      "魔术贴网兜",
+      "1227022",
+      "S680",
+      "YM-40",
+      "zzljd001",
+      "收纳箱",
+      "刮毛器"
+    ]
+  },
+  {
+    "attribute_name": "feature",
+    "values": [
+      "带盖子",
+      "可定制,带提手",
+      "可折叠,透气,防水,抗压,可定制,可拆卸,多功能收纳,多层分隔",
+      "除异味",
+      "可伸缩",
+      "可定制",
+      "抗压",
+      "无"
+    ]
+  },
+  {
+    "attribute_name": "model",
+    "values": [
+      "68B"
+    ]
+  },
+  {
+    "attribute_name": "package_quantity",
+    "values": [
+      "单个opp包装300个"
+    ]
+  }
+]

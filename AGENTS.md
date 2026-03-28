@@ -210,3 +210,35 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
+
+## OpenClaw Turn Discipline
+
+When working through OpenClaw, Codex CLI, or any wrapper that buffers tool output:
+
+- Never batch multiple heavyweight commands in one reply. One major command per turn.
+- Before a major command, give one short sentence saying what you are about to do.
+- After that command finishes, stop and return immediately with a short status update.
+- Do not continue to the next major step in the same turn unless the human explicitly asked for "run everything without stopping".
+- If a command fails, stop on that failure. Report the failing command, the top error line, and the next fix you plan.
+- For long workflows, prefer this rhythm:
+  1. announce the next step
+  2. run one command
+  3. report one short result
+  4. continue only in the next turn
+- Keep progress updates short and concrete. Do not save them up into one big recap paragraph.
+
+## OpenClaw Turn Discipline
+
+When working through OpenClaw, Codex CLI, or any wrapper that buffers tool output:
+
+- Never batch multiple heavyweight commands in one reply. One major command per turn.
+- Before a major command, give one short sentence saying what you are about to do.
+- After that command finishes, stop and return immediately with a short status update.
+- Do not continue to the next major step in the same turn unless the human explicitly asked for "run everything without stopping".
+- If a command fails, stop on that failure. Report the failing command, the top error line, and the next fix you plan.
+- For long workflows, prefer this rhythm:
+  1. announce the next step
+  2. run one command
+  3. report one short result
+  4. continue only in the next turn
+- Keep progress updates short and concrete. Do not save them up into one big recap paragraph.

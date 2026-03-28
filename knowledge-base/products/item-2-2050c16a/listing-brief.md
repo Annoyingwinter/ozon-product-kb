@@ -27,8 +27,8 @@
 ## Source basis
 
 - Human supplier response: no
-- Autonomous approval: yes
-- Autonomous summary path: C:\Users\More\Desktop\ai选品\knowledge-base\products\item-2-2050c16a\autonomous-summary.md
+- Autonomous approval: no
+- Autonomous summary path: none
 
 ## Supplier selection basis
 

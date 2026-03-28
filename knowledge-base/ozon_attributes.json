@@ -1,0 +1,602 @@
+[
+  {
+    "source_category_path": "义乌市羊城箱包有限公司 > 主营：收纳防尘 > 5.0分 > 分 > 准时发货率",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "size",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "style",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "material",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "source_category_path": "Pet Cleaning",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "brand",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "material",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "country_of_origin",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "vendor_code",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "style",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "size",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "package_quantity",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "source_category_path": "Kitchen Storage",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "material",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "feature",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "brand",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "style",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "size",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "country_of_origin",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "vendor_code",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "source_category_path": "Auto Storage",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "material",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "brand",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "feature",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "vendor_code",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "source_category_path": "Auto Interior Organizer",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "brand",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "material",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "model",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "country_of_origin",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "vendor_code",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "feature",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "size",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "source_category_path": "东阳市丽温工艺品有限公司 > 主营：钥匙配饰 > 4.5分 > 分 > 准时发货率",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "material",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "style",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "size",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "source_category_path": "义乌市鼎冠硅胶制品有限公司 > 主营：烘焙用具 > 4.0分 > 分 > 准时发货率",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "material",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "source_category_path": "1688企业采购自营商城 > 主营：书籍、出版物 > 3.5分 > 分 > 准时发货率 > 10+人好评",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "material",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "feature",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "size",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "source_category_path": "1688台州日百选品中心 > 主营：收纳防尘 > 4.0分 > 分 > 准时发货率",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "material",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "feature",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "style",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "size",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "source_category_path": "深圳市一生硅胶模具有限公司 > 主营：烘焙用具 > 4.0分 > 分 > 准时发货率 > 价格",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "material",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "size",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "style",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "source_category_path": "义乌市集辉日用百货有限公司 > 主营：家务清洁用具 > 4.5分 > 分 > 准时发货率 > 30+人好评",
+    "attributes": [
+      {
+        "attribute_name": "source_category",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "seasonality",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "fragility",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "competition_level",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "content_potential",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "feature",
+        "value_type": "string",
+        "required": false
+      },
+      {
+        "attribute_name": "color",
+        "value_type": "string",
+        "required": false
+      }
+    ]
+  }
+]

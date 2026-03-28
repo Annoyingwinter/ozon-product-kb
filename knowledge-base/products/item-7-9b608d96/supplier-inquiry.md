@@ -3,10 +3,10 @@
 ## Product snapshot
 
 - Category: 车品
-- Target price (RUB): 1590
-- Supply price (CNY): 22
-- Weight (kg): 0.3
-- Long edge (cm): 18
+- Target price (RUB): 1390
+- Supply price (CNY): 15
+- Weight (kg): 0.2
+- Long edge (cm): 15
 - Product profile: magnetic-accessories
 - Risk tags: magnet, vehicle
 
@@ -64,7 +64,7 @@
 
 1. 请发细节图、包装图、箱规图。
 2. 请说明打样周期和大货交期。
-3. 如果要做跨境零售价 1590 RUB 左右，你们建议的出厂配置是什么？
+3. 如果要做跨境零售价 1390 RUB 左右，你们建议的出厂配置是什么？
 4. 请发磁性参数、结构图和包装参数。
 5. 请说明不同车型或场景的兼容性边界。
 

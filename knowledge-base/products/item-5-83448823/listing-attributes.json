@@ -1,0 +1,20 @@
+{
+  "marketplace": "Ozon Russia",
+  "slug": "item-5-83448823",
+  "product_name": "汽车座椅缝隙收纳袋",
+  "category": "车品",
+  "profile": "automotive-accessories",
+  "target_price_rub": 1290,
+  "supply_price_cny": 12,
+  "weight_kg": 0.25,
+  "long_edge_cm": 30,
+  "fragility": "low",
+  "certification_risk": "low",
+  "return_risk": "low",
+  "competition_level": "medium",
+  "content_potential": "medium",
+  "risk_tags": [
+    "vehicle"
+  ],
+  "final_decision": "Go"
+}

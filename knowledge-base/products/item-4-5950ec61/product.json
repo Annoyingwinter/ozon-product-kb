@@ -1,0 +1,80 @@
+{
+  "id": "2026-03-22T01-39-37.471Z-item-4-5950ec61",
+  "slug": "item-4-5950ec61",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\alphashop-ozon-2026-03-22T01-39-33.119Z.analysis.json",
+    "imported_at": "2026-03-22T01:39:37.471Z"
+  },
+  "workflow": {
+    "current_stage": "supplier_research_pending",
+    "created_at": "2026-03-22T01:39:37.471Z",
+    "updated_at": "2026-03-22T01:39:37.471Z"
+  },
+  "review": {
+    "status": "pending",
+    "notes": "",
+    "reviewed_at": ""
+  },
+  "research": {
+    "product_profile": "household-tools",
+    "risk_tags": [],
+    "requires_supplier_response": false,
+    "supplier_search_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-5950ec61\\supplier-search-plan.json",
+    "supplier_shortlist_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-5950ec61\\supplier-shortlist.template.json",
+    "supplier_inquiry_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-5950ec61\\supplier-inquiry.md",
+    "supplier_response_template_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-5950ec61\\supplier-response.template.json",
+    "latest_supplier_response_path": "",
+    "supplier_responses": [],
+    "outreach": {
+      "status": "not_contacted",
+      "supplier_name": "",
+      "supplier_im_url": "",
+      "supplier_shop_url": "",
+      "search_summary_path": "",
+      "first_message_sent_at": "",
+      "last_contacted_at": "",
+      "follow_up_sent_count": 0,
+      "nudge_sent_count": 0
+    }
+  },
+  "listing": {
+    "status": "not_ready",
+    "listing_brief_path": ""
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-4-5950ec61\\product.json"
+  },
+  "product": {
+    "name": "万能开瓶器钥匙扣",
+    "category": "小工具",
+    "target_price_rub": 990,
+    "supply_price_cny": 8,
+    "est_weight_kg": 0.08,
+    "package_long_edge_cm": 10,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "low",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "why_it_can_sell": "超轻小、高毛利、礼品属性强，适合节日促销",
+    "risk_notes": [
+      "略低于1000 RUB下限，但可捆绑销售"
+    ],
+    "go_or_no_go": "Go",
+    "score_breakdown": {
+      "price_fit": 95,
+      "margin_potential": 95,
+      "logistics_friendliness": 100,
+      "competition": 92,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 65
+    },
+    "total_score": 93,
+    "source_decision": "Go",
+    "local_decision": "Go",
+    "final_decision": "Go",
+    "issue_summary": []
+  }
+}

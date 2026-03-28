@@ -1,0 +1,1299 @@
+{
+  "id": "2026-03-27T00:46:10.113Z-item-1-8523c65e",
+  "slug": "item-1-8523c65e",
+  "source": {
+    "analysis_path": "C:\\Users\\More\\Desktop\\ai选品\\output\\1688-ozon-selector-2026-03-27T00-46-07.611Z.analysis.json",
+    "imported_at": "2026-03-27T00:46:10.113Z",
+    "chief_input_manifest": "C:\\Users\\More\\Desktop\\ai选品\\output\\1688-ozon-selector-2026-03-27T00-46-07.611Z.json"
+  },
+  "workflow": {
+    "current_stage": "approved_for_listing",
+    "created_at": "2026-03-27T00:46:10.113Z",
+    "updated_at": "2026-03-27T00:46:10.113Z",
+    "pipeline": "direct-1688-selector",
+    "run_id": "oz-chief-2026-03-27T00-46-10.112Z"
+  },
+  "review": {
+    "status": "approved",
+    "notes": "Approved by OZ Chief Listing Officer. Core listing gates passed.",
+    "reviewed_at": "2026-03-27T00:46:10.113Z"
+  },
+  "research": {
+    "source_platform": "1688",
+    "compare_status": "completed",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\1688-competitor-offers.json",
+    "compared_at": "2026-03-27T00:46:10.113Z",
+    "shortlist_count": 5,
+    "last_error": "",
+    "blocked_snapshot_path": "",
+    "chief_review_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\oz-chief-review.json"
+  },
+  "listing": {
+    "status": "approved_for_listing",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\ozon-knowledge.json",
+    "listing_brief_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\listing-brief.md"
+  },
+  "paths": {
+    "product_json": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\product.json",
+    "compare_plan_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\1688-search-plan.json",
+    "compare_summary_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\1688-compare.summary.json",
+    "competitor_offers_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\1688-competitor-offers.json",
+    "knowledge_base_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\ozon-knowledge.json",
+    "chief_review_path": "C:\\Users\\More\\Desktop\\ai选品\\knowledge-base\\products\\item-1-8523c65e\\oz-chief-review.json"
+  },
+  "product": {
+    "name": "汽车后备箱网兜收纳固定神器魔术贴网兜车用置物袋汽车用品收纳网",
+    "category": "Auto Storage",
+    "target_price_rub": 1000,
+    "supply_price_cny": 0.7,
+    "est_weight_kg": 0.025,
+    "package_long_edge_cm": 30,
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "high",
+    "seasonality": "stable",
+    "search_trend": "high",
+    "why_it_can_sell": "Low breakage, broad vehicle use case, simple logistics.; low MOQ; light logistics",
+    "risk_notes": [
+      "dimensions_missing_needs_manual_check"
+    ],
+    "source": "1688",
+    "source_url": "https://detail.1688.com/offer/855384156567.html",
+    "source_platform": "1688",
+    "supplier_name": "义乌市极骏日用品厂",
+    "supplier_url": "http://shop64y78641dr468.1688.com/",
+    "source_signal_score": 77,
+    "source_sales_count": 1942000,
+    "source_min_order_qty": 1,
+    "matched_keywords": [
+      "后备箱收纳网兜"
+    ],
+    "target_users": [
+      "Russian car owners"
+    ],
+    "score_breakdown": {
+      "price_fit": 100,
+      "margin_potential": 95,
+      "logistics_friendliness": 92,
+      "competition": 58,
+      "compliance_risk": 95,
+      "return_risk": 95,
+      "content_potential": 90,
+      "search_trend": 88,
+      "source_signal": 77
+    },
+    "total_score": 87,
+    "final_decision": "Go",
+    "issue_summary": []
+  },
+  "knowledge_base": {
+    "schema_version": "ozon-kb-v1",
+    "generated_at": "2026-03-27T00:46:10.083Z",
+    "source_platform": "1688",
+    "source_url": "https://detail.1688.com/offer/855384156567.html",
+    "source_platform_urls": [
+      "https://detail.1688.com/offer/855384156567.html",
+      "https://detail.1688.com/offer/898593450269.html",
+      "https://detail.1688.com/offer/593546102343.html",
+      "https://detail.1688.com/offer/591720971786.html",
+      "https://detail.1688.com/offer/1031032038455.html"
+    ],
+    "spu_id": "SPU-ITEM-1-8523C65E",
+    "sku_id": "SPU-ITEM-1-8523C65E-DEFAULT",
+    "group_id": "SPU-ITEM-1-8523C65E",
+    "variant_theme": "",
+    "variant_values": {},
+    "brand": "否",
+    "model": "",
+    "vendor_code": "魔术贴网兜",
+    "barcode": "",
+    "title_cn": "汽车后备箱网兜收纳固定神器魔术贴网兜车用置物袋汽车用品收纳网",
+    "title_en": "",
+    "title_ru": "",
+    "description": "义乌市极骏日用品厂 关注 客服 商品 入驻2年 主营：汽车内饰用品 店铺回头率 56% 店铺服务分 4.5分 准时发货率 100% 店铺好评率 99.9% start Play 00:00 00:55 主图视频 汽车后备箱网兜收纳固定神器魔术贴网兜车用置物袋汽车用品收纳网 4700+人好评 商品复购率37.07% 400+人已加购 价格 ¥ 0 .70 起 登录查看更多优惠 满100减5券 满10万元打9.8折 2件混批 浙江金华 送至 北京 预计12小时发货 承诺48小时发货 运费 ¥3.8 起 晚发必赔 颜色 25×30cm 适用毛绒面 库存4986207个 25×40cm 适用毛绒面 库存4975876个 25×50cm 适用毛绒面 库存4998255个 25×60cm 适用毛绒面 库存4993745个 25×80cm 适用毛绒面 库存4998764个 25×30cm加背胶 光滑面和毛绒面均适用 库存4994997个 25×40cm加背胶 光滑面和毛绒面均适用 库存4993734个 25×50cm加背胶 光滑面和毛绒面均适用 库存4996820个 25×60cm加背胶 光滑面和毛绒面均适用 库存4997244个 25×80cm加背胶 光滑面和毛绒面均适用 库存4999308个 配件 通用背胶一对 库存4978147个 登录查看全部规格 密文代发 1件价格 ￥0.7 官方仓退货,晚揽必赔 立即铺货 加铺货单 代发下单 商品评价 商品属性 包装信息 商品详情 热门推荐 搭配组货 商品评价 5.0 4000+条评价 好评率 100% 价格很便宜4 质量很好4 发货很及时2 b**g 1个 该用户觉得商品非常赞，给出了五星好评 c**6 1个 该用户觉得商品不错，给出了四星好评 查看全部评价 商品属性 材质 涤纶+织带 使用位置 后备箱 适用汽车品牌 通用 品牌 极骏 功能 可折叠,透气,防水,抗压,可定制,可拆卸,多功能收纳,多层分隔 置物用品类型 置物袋 使用方式 粘贴式 加工定制 是 容积 25*30 40 50 60 80 颜色 25×30cm 适用毛绒面,25×40cm 适用毛绒面,25×50cm 适用毛绒面,25×60cm 适用毛绒面,25×80cm 适用毛绒面,25×30cm加背胶 光滑面和毛绒面均适用,25×40cm加背胶 光滑面和毛绒面均适用,25×50cm加背胶 光滑面和毛绒面均适用,25×60cm加背胶 光滑面和毛绒面均适用,25×80cm加背胶 光滑面和毛绒面均适用,配件 通用背胶一对 主要下游平台 ebay,亚马逊,wish,速卖通,独立站,LAZADA,其他 货号 魔术贴网兜 主要销售地区 非洲,欧洲,南美,东南亚,北美,东北亚,中东,其他 有可授权的自有品牌 否 是否跨境出口专供货源 是 LOGO印刷 可以 是否专利货源 否 包装",
+    "bullet_points": [
+      "Low breakage, broad vehicle use case, simple logistics.; low MOQ; light logistics",
+      "Auto Storage",
+      "涤纶+织带",
+      "可折叠,透气,防水,抗压,可定制,可拆卸,多功能收纳,多层分隔",
+      "长(cm)"
+    ],
+    "price": 0.7,
+    "old_price": 0,
+    "currency": "CNY",
+    "stock": null,
+    "min_order_qty": 1,
+    "package_quantity": 1,
+    "vat": "",
+    "weight": 0.025,
+    "length": 30,
+    "width": 0,
+    "height": 0,
+    "category_path": "Auto Storage",
+    "category_id_source": "",
+    "ozon_category_id": "",
+    "attributes": {
+      "source_category": "Auto Storage",
+      "seasonality": "stable",
+      "fragility": "low",
+      "competition_level": "medium",
+      "content_potential": "high",
+      "material": "涤纶+织带",
+      "brand": "否",
+      "feature": "可折叠,透气,防水,抗压,可定制,可拆卸,多功能收纳,多层分隔",
+      "color": "长(cm)",
+      "vendor_code": "魔术贴网兜"
+    },
+    "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN0104EvhD21RoLEZoezm_!!2218835966982-0-cib.jpg_460x460q100.jpg_.webp",
+    "images": [
+      "https://cbu01.alicdn.com/img/ibank/O1CN0104EvhD21RoLEZoezm_!!2218835966982-0-cib.jpg_460x460q100.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN0104EvhD21RoLEZoezm_!!2218835966982-0-cib.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01Gnu69K21RoLJ2ljkn_!!2218835966982-0-cib.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01ZSQw1z21RoLGsSpeL_!!2218835966982-0-cib.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01ztIR6y21RoLGHOLVZ_!!2218835966982-0-cib.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01QXZFe821RoLEMUlkm_!!2218835966982-0-cib.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01ek7FX421RoLEZlRMC_!!2218835966982-0-cib.jpg_sum.jpg",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01QsBenS21RoLEMTUh0_!!2218835966982-0-cib.jpg_sum.jpg",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01bJ9EIx2DTtMSl7DQu_!!2211010168611-0-cib.jpg_460x460q100.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01bJ9EIx2DTtMSl7DQu_!!2211010168611-0-cib.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01ngDjo12DTtPnzb2T8_!!2211010168611-0-cib.jpg_.webp",
+      "https://cbu01.alicdn.com/img/ibank/O1CN01so8Wjv2DTtPuiMnF5_!!2211010168611-0-cib.jpg_.webp"
+    ],
+    "video_url": "",
+    "image_count": 12,
+    "image_hash": "981a4ddd08fc74790583d89e1ccf3135c19dcbf1",
+    "white_background": null,
+    "is_adult": false,
+    "is_fragile": false,
+    "dangerous_goods": false,
+    "country_of_origin": "CN",
+    "certificate_files": [],
+    "brand_authorization": "",
+    "customs_code": "",
+    "restricted_category_flag": false,
+    "competitor_offers": [
+      {
+        "source_platform": "1688",
+        "source_url": "https://detail.1688.com/offer/855384156567.html",
+        "offer_id": "855384156567",
+        "offer_title": "汽车后备箱网兜收纳固定神器魔术贴网兜车用置物袋汽车用品收纳网",
+        "shop_name": "义乌市极骏日用品厂",
+        "shop_url": "http://shop64y78641dr468.1688.com/",
+        "price": 0.7,
+        "price_text": "价格¥0.70起登录查看更多优惠",
+        "currency": "CNY",
+        "min_order_qty": 2,
+        "sales_count": 0,
+        "keyword_hits": [
+          "后备箱收纳网兜"
+        ],
+        "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN0104EvhD21RoLEZoezm_!!2218835966982-0-cib.jpg_460x460q100.jpg_.webp",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN0104EvhD21RoLEZoezm_!!2218835966982-0-cib.jpg_460x460q100.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN0104EvhD21RoLEZoezm_!!2218835966982-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01Gnu69K21RoLJ2ljkn_!!2218835966982-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01ZSQw1z21RoLGsSpeL_!!2218835966982-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01ztIR6y21RoLGHOLVZ_!!2218835966982-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01QXZFe821RoLEMUlkm_!!2218835966982-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01ek7FX421RoLEZlRMC_!!2218835966982-0-cib.jpg_sum.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01QsBenS21RoLEMTUh0_!!2218835966982-0-cib.jpg_sum.jpg"
+        ],
+        "image_count": 8,
+        "image_hash": "86493903edffebd2970f1548ca0ef1347f608d02",
+        "category_path": "义乌市极骏日用品厂 > 关注 > 关注 > 客服 > 商品 > 商品 > 入驻2年 > 主营：汽车内饰用品 > 店铺回头率 > 56% > 店铺服务分 > 4.5分 > 分 > 准时发货率 > 100% > 店铺好评率 > 99.9% > Load > start > retry",
+        "description": "义乌市极骏日用品厂 关注 客服 商品 入驻2年 主营：汽车内饰用品 店铺回头率 56% 店铺服务分 4.5分 准时发货率 100% 店铺好评率 99.9% start Play 00:00 00:55 主图视频 汽车后备箱网兜收纳固定神器魔术贴网兜车用置物袋汽车用品收纳网 4700+人好评 商品复购率37.07% 400+人已加购 价格 ¥ 0 .70 起 登录查看更多优惠 满100减5券 满10万元打9.8折 2件混批 浙江金华 送至 北京 预计12小时发货 承诺48小时发货 运费 ¥3.8 起 晚发必赔 颜色 25×30cm 适用毛绒面 库存4986207个 25×40cm 适用毛绒面 库存4975876个 25×50cm 适用毛绒面 库存4998255个 25×60cm 适用毛绒面 库存4993745个 25×80cm 适用毛绒面 库存4998764个 25×30cm加背胶 光滑面和毛绒面均适用 库存4994997个 25×40cm加背胶 光滑面和毛绒面均适用 库存4993734个 25×50cm加背胶 光滑面和毛绒面均适用 库存4996820个 25×60cm加背胶 光滑面和毛绒面均适用 库存4997244个 25×80cm加背胶 光滑面和毛绒面均适用 库存4999308个 配件 通用背胶一对 库存4978147个 登录查看全部规格 密文代发 1件价格 ￥0.7 官方仓退货,晚揽必赔 立即铺货 加铺货单 代发下单 商品评价 商品属性 包装信息 商品详情 热门推荐 搭配组货 商品评价 5.0 4000+条评价 好评率 100% 价格很便宜4 质量很好4 发货很及时2 b**g 1个 该用户觉得商品非常赞，给出了五星好评 c**6 1个 该用户觉得商品不错，给出了四星好评 查看全部评价 商品属性 材质 涤纶+织带 使用位置 后备箱 适用汽车品牌 通用 品牌 极骏 功能 可折叠,透气,防水,抗压,可定制,可拆卸,多功能收纳,多层分隔 置物用品类型 置物袋 使用方式 粘贴式 加工定制 是 容积 25*30 40 50 60 80 颜色 25×30cm 适用毛绒面,25×40cm 适用毛绒面,25×50cm 适用毛绒面,25×60cm 适用毛绒面,25×80cm 适用毛绒面,25×30cm加背胶 光滑面和毛绒面均适用,25×40cm加背胶 光滑面和毛绒面均适用,25×50cm加背胶 光滑面和毛绒面均适用,25×60cm加背胶 光滑面和毛绒面均适用,25×80cm加背胶 光滑面和毛绒面均适用,配件 通用背胶一对 主要下游平台 ebay,亚马逊,wish,速卖通,独立站,LAZADA,其他 货号 魔术贴网兜 主要销售地区 非洲,欧洲,南美,东南亚,北美,东北亚,中东,其他 有可授权的自有品牌 否 是否跨境出口专供货源 是 LOGO印刷 可以 是否专利货源 否 包装",
+        "source_attributes": [
+          {
+            "key": "材质",
+            "value": "涤纶+织带"
+          },
+          {
+            "key": "使用位置",
+            "value": "后备箱"
+          },
+          {
+            "key": "适用汽车品牌",
+            "value": "通用"
+          },
+          {
+            "key": "品牌",
+            "value": "极骏"
+          },
+          {
+            "key": "功能",
+            "value": "可折叠,透气,防水,抗压,可定制,可拆卸,多功能收纳,多层分隔"
+          },
+          {
+            "key": "置物用品类型",
+            "value": "置物袋"
+          },
+          {
+            "key": "使用方式",
+            "value": "粘贴式"
+          },
+          {
+            "key": "加工定制",
+            "value": "是"
+          },
+          {
+            "key": "容积",
+            "value": "25*30 40 50 60 80"
+          },
+          {
+            "key": "颜色",
+            "value": "25×30cm 适用毛绒面,25×40cm 适用毛绒面,25×50cm 适用毛绒面,25×60cm 适用毛绒面,25×80cm 适用毛绒面,25×30cm加背胶 光滑面和毛绒面均适用,25×40cm加背胶 光滑面和毛绒面均适用,25×50cm加背胶 光滑面和毛绒面均适用,25×60cm加背胶 光滑面和毛绒面均适用,25×80cm加背胶 光滑面和毛绒面均适用,配件 通用背胶一对"
+          },
+          {
+            "key": "主要下游平台",
+            "value": "ebay,亚马逊,wish,速卖通,独立站,LAZADA,其他"
+          },
+          {
+            "key": "货号",
+            "value": "魔术贴网兜"
+          },
+          {
+            "key": "主要销售地区",
+            "value": "非洲,欧洲,南美,东南亚,北美,东北亚,中东,其他"
+          },
+          {
+            "key": "有可授权的自有品牌",
+            "value": "否"
+          },
+          {
+            "key": "是否跨境出口专供货源",
+            "value": "是"
+          },
+          {
+            "key": "LOGO印刷",
+            "value": "可以"
+          },
+          {
+            "key": "是否专利货源",
+            "value": "否"
+          },
+          {
+            "key": "颜色",
+            "value": "长(cm)"
+          },
+          {
+            "key": "宽(cm)",
+            "value": "高(cm)"
+          },
+          {
+            "key": "体积(cm³)",
+            "value": "重量(g)"
+          },
+          {
+            "key": "25×30cm 适用毛绒面",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.50"
+          },
+          {
+            "key": "931.500",
+            "value": "56"
+          },
+          {
+            "key": "25×40cm 适用毛绒面",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.50"
+          },
+          {
+            "key": "931.500",
+            "value": "70"
+          },
+          {
+            "key": "25×50cm 适用毛绒面",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.70"
+          },
+          {
+            "key": "1055.700",
+            "value": "80"
+          },
+          {
+            "key": "25×60cm 适用毛绒面",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.50"
+          },
+          {
+            "key": "931.500",
+            "value": "97"
+          },
+          {
+            "key": "25×80cm 适用毛绒面",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.70"
+          },
+          {
+            "key": "1055.700",
+            "value": "116"
+          },
+          {
+            "key": "25×30cm加背胶 光滑面和毛绒面均适用",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.50"
+          },
+          {
+            "key": "931.500",
+            "value": "73"
+          },
+          {
+            "key": "25×40cm加背胶 光滑面和毛绒面均适用",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.50"
+          },
+          {
+            "key": "931.500",
+            "value": "87"
+          },
+          {
+            "key": "25×50cm加背胶 光滑面和毛绒面均适用",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.70"
+          },
+          {
+            "key": "1055.700",
+            "value": "97"
+          },
+          {
+            "key": "25×60cm加背胶 光滑面和毛绒面均适用",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.50"
+          },
+          {
+            "key": "931.500",
+            "value": "114"
+          },
+          {
+            "key": "25×80cm加背胶 光滑面和毛绒面均适用",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.70"
+          },
+          {
+            "key": "1055.700",
+            "value": "133"
+          },
+          {
+            "key": "配件 通用背胶一对",
+            "value": "23"
+          },
+          {
+            "key": "27",
+            "value": "1.50"
+          },
+          {
+            "key": "931.500",
+            "value": "18"
+          }
+        ],
+        "normalizedAttributes": {
+          "material": "涤纶+织带",
+          "brand": "否",
+          "feature": "可折叠,透气,防水,抗压,可定制,可拆卸,多功能收纳,多层分隔",
+          "color": "长(cm)",
+          "vendor_code": "魔术贴网兜"
+        },
+        "package_dimensions_cm": {
+          "length": 0,
+          "width": 0,
+          "height": 0
+        },
+        "weight_kg": 0.025,
+        "page_type": "detail",
+        "title_candidates": [
+          "义乌市极骏日用品厂",
+          "汽车后备箱网兜收纳固定神器魔术贴网兜车用置物袋汽车用品收纳网 - 阿里巴巴"
+        ],
+        "raw_search_title": "义乌市极骏日用品厂",
+        "raw_search_shop_name": "义乌市极骏日用品厂",
+        "raw_card_text": "找相似义乌市极骏日用品厂综合服务验厂报告采购咨询4.0退换体验4.0品质体验4.0采购咨询4.0纠纷解决4.0物流时效3.6汽车后备箱网兜收纳固定神器魔术贴网兜车用置物袋汽车用品收纳网后备箱｜防水¥3.194.2万+件退货包运费回头率56%义乌市极骏日用品厂旺旺在线"
+      },
+      {
+        "source_platform": "1688",
+        "source_url": "https://detail.1688.com/offer/898593450269.html",
+        "offer_id": "898593450269",
+        "offer_title": "汽车后备箱弹力网兜SUV通用型车载收纳储物袋车用行李固定网",
+        "shop_name": "宁波鑫逸达汽车部件有限公司",
+        "shop_url": "http://shop2g420492g1251.1688.com/",
+        "price": 11.49,
+        "price_text": "价格¥11.49起登录查看更多优惠",
+        "currency": "CNY",
+        "min_order_qty": 4,
+        "sales_count": 0,
+        "keyword_hits": [
+          "后备箱收纳网兜"
+        ],
+        "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01bJ9EIx2DTtMSl7DQu_!!2211010168611-0-cib.jpg_460x460q100.jpg_.webp",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN01bJ9EIx2DTtMSl7DQu_!!2211010168611-0-cib.jpg_460x460q100.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01bJ9EIx2DTtMSl7DQu_!!2211010168611-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01ngDjo12DTtPnzb2T8_!!2211010168611-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01so8Wjv2DTtPuiMnF5_!!2211010168611-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01ITFQtE2DTtU4ZkPLW_!!2211010168611-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01vo4G432DTtPnwsOJa_!!2211010168611-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01Ufu10i2DTtPq23Ck3_!!2211010168611-0-cib.jpg_sum.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN015UleWe2DTtPr2UNWw_!!2211010168611-0-cib.jpg_sum.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01QaLyQZ2DTtPsF5oBQ_!!2211010168611-0-cib.jpg_sum.jpg"
+        ],
+        "image_count": 9,
+        "image_hash": "1a8bd893729c5fd5ff5b569b7ed4f998fce26a29",
+        "category_path": "宁波鑫逸达汽车部件有限公司 > 关注 > 关注 > 客服 > 商品 > 商品 > 入驻6年 > 主营：汽车内饰用品 > 店铺回头率 > 58% > 店铺服务分 > 4.5分 > 分 > 准时发货率 > 99% > 店铺好评率 > 99.5% > Load > start > retry",
+        "description": "宁波鑫逸达汽车部件有限公司 关注 客服 商品 入驻6年 主营：汽车内饰用品 店铺回头率 58% 店铺服务分 4.5分 准时发货率 99% 店铺好评率 99.5% start Play 00:00 00:52 主图视频 汽车后备箱弹力网兜SUV通用型车载收纳储物袋车用行李固定网 700+人好评 商品复购率20% 关注的店 价格 ¥ 11 .49 起 登录查看更多优惠 湖南邵阳 送至 选择收货地址 预计9小时发货 承诺48小时发货 运费 ¥3.5 起 7天无理由退货 晚发必赔 颜色 全高弹力双层立网90x30（送配件） 库存8784只 全高弹力双层立网100x40（送配件） 库存8922只 全高弹力单层平网80x40（送配件） 库存7074只 全高弹力单层平网80*60（送配件） 库存9091只 全高弹力单层平网100*60（送配件） 库存9546只 全高弹力双层平网80x40（送配件） 库存9639只 全高弹力双层平网80x60（送配件） 库存9703只 全高弹力双层平网100x60（送配件） 库存9516只 全弹力单层平网80*40（配4个挂钩） 库存9344只 全弹力单层平网80*60（配4个挂钩） 库存9192只 全弹力单层平网100*60（配4个挂钩） 库存9700只 全高弹力双层80x40（带4个挂钩） 库存9896只 全高弹力双层平网80*60（带4个挂钩） 库存9726只 全高弹力平网双层100*60（带4个挂钩） 库存9679只 户外推车单层平网92*76 库存9027只 全高弹力双层立网110x40（送配件） 库存8767只 全弹力立网70*30挂网（送挂钩） 库存8546只 全高弹力单层平网60*40 库存3670只 登录查看全部规格 密文代发 1件价格 ￥11.49 官方仓退货 立即铺货 加铺货单 代发下单 商品评价 商品属性 包装信息 商品详情 热门推荐 商品评价 5.0 700+条评价 好评率 100% 全部700+ 有内容700+ 好评700+ 有图200+ t**7 1件 新买的尼龙弹力汽车后备箱收纳网，收到货了，做工很精细，弹力强，还贴心的配了拉钩方便安装，装上后汽车后备箱可轻松收纳小物件👍 整体评价：好 安装情况：方便 预览 预览 预览 我**6 1件 车内空气好闻，后备厢也稳定了。没安装前，车子一转弯或上下坡，后备厢东西就哗啦啦乱甩。 预览 预览 预览 预览 查看全部评价 商品属性 材质 涤纶 使用位置 后备箱 适用汽车品牌 其他 品牌 通用 功能 可定制 置物用品类型 置物袋 使用方式 悬挂式 加工定制 是 容积 被子 行李箱 书包 颜色 全高弹力双层立网90x30（送配件）,全高弹力双层立网100x40（送配件）,全高弹力单层平网80x40（送配件）,全高弹力单层平网80*60（送配件）,全高弹力单层平网100*60（",
+        "source_attributes": [
+          {
+            "key": "材质",
+            "value": "涤纶"
+          },
+          {
+            "key": "使用位置",
+            "value": "后备箱"
+          },
+          {
+            "key": "适用汽车品牌",
+            "value": "其他"
+          },
+          {
+            "key": "品牌",
+            "value": "通用"
+          },
+          {
+            "key": "功能",
+            "value": "可定制"
+          },
+          {
+            "key": "置物用品类型",
+            "value": "置物袋"
+          },
+          {
+            "key": "使用方式",
+            "value": "悬挂式"
+          },
+          {
+            "key": "加工定制",
+            "value": "是"
+          },
+          {
+            "key": "容积",
+            "value": "被子 行李箱 书包"
+          },
+          {
+            "key": "颜色",
+            "value": "全高弹力双层立网90x30（送配件）,全高弹力双层立网100x40（送配件）,全高弹力单层平网80x40（送配件）,全高弹力单层平网80*60（送配件）,全高弹力单层平网100*60（送配件）,全高弹力双层平网80x40（送配件）,全高弹力双层平网80x60（送配件）,全高弹力双层平网100x60（送配件）,全弹力单层平网80*40（配4个挂钩）,全弹力单层平网80*60（配4个挂钩）,全弹力单层平网100*60（配4个挂钩）,全高弹力双层80x40（带4个挂钩）,全高弹力双层平网80*60（带4个挂钩）,全高弹力平网双层100*60（带4个挂钩）,户外推车单层平网92*76,全高弹力双层立网110x40（送配件）,全弹力立网70*30挂网（送挂钩）,全高弹力单层平网60*40"
+          },
+          {
+            "key": "主要下游平台",
+            "value": "亚马逊,wish,速卖通,独立站,LAZADA"
+          },
+          {
+            "key": "货号",
+            "value": "后备箱行李固定网"
+          },
+          {
+            "key": "主要销售地区",
+            "value": "东北亚,中东,其他"
+          },
+          {
+            "key": "有可授权的自有品牌",
+            "value": "是"
+          },
+          {
+            "key": "是否跨境出口专供货源",
+            "value": "是"
+          },
+          {
+            "key": "LOGO印刷",
+            "value": "不可以"
+          },
+          {
+            "key": "是否专利货源",
+            "value": "否"
+          },
+          {
+            "key": "颜色",
+            "value": "长(cm)"
+          },
+          {
+            "key": "宽(cm)",
+            "value": "高(cm)"
+          },
+          {
+            "key": "体积(cm³)",
+            "value": "重量(g)"
+          },
+          {
+            "key": "全高弹力双层立网90x30（送配件）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "260"
+          },
+          {
+            "key": "全高弹力双层立网100x40（送配件）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "280"
+          },
+          {
+            "key": "全高弹力单层平网80x40（送配件）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "160"
+          },
+          {
+            "key": "全高弹力单层平网80*60（送配件）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "230"
+          },
+          {
+            "key": "全高弹力单层平网100*60（送配件）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "260"
+          },
+          {
+            "key": "全高弹力双层平网80x40（送配件）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "230"
+          },
+          {
+            "key": "全高弹力双层平网80x60（送配件）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "280"
+          },
+          {
+            "key": "全高弹力双层平网100x60（送配件）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "300"
+          },
+          {
+            "key": "全弹力单层平网80*40（配4个挂钩）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "160"
+          },
+          {
+            "key": "全弹力单层平网80*60（配4个挂钩）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "230"
+          },
+          {
+            "key": "全弹力单层平网100*60（配4个挂钩）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "280"
+          },
+          {
+            "key": "全高弹力双层80x40（带4个挂钩）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "160"
+          },
+          {
+            "key": "全高弹力双层平网80*60（带4个挂钩）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "240"
+          },
+          {
+            "key": "全高弹力平网双层100*60（带4个挂钩）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "290"
+          },
+          {
+            "key": "户外推车单层平网92*76",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "225"
+          },
+          {
+            "key": "全高弹力双层立网110x40（送配件）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "320"
+          },
+          {
+            "key": "全弹力立网70*30挂网（送挂钩）",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "280"
+          },
+          {
+            "key": "全高弹力单层平网60*40",
+            "value": "20"
+          },
+          {
+            "key": "25",
+            "value": "3"
+          },
+          {
+            "key": "1500",
+            "value": "180"
+          }
+        ],
+        "normalizedAttributes": {
+          "material": "涤纶",
+          "brand": "是",
+          "feature": "可定制",
+          "color": "长(cm)",
+          "vendor_code": "后备箱行李固定网"
+        },
+        "package_dimensions_cm": {
+          "length": 0,
+          "width": 0,
+          "height": 0
+        },
+        "weight_kg": 0.09,
+        "page_type": "detail",
+        "title_candidates": [
+          "宁波鑫逸达汽车部件有限公司",
+          "汽车后备箱弹力网兜SUV通用型车载收纳储物袋车用行李固定网 - 阿里巴巴"
+        ],
+        "raw_search_title": "汽车后备箱弹力网兜SUV通用型车载收纳储物袋车用行李固定网",
+        "raw_search_shop_name": "宁波鑫逸达汽车部件有限公司",
+        "raw_card_text": "汽车后备箱弹力网兜SUV通用型车载收纳储物袋车用行李固定网后备箱｜涤纶｜悬挂式¥16.09全网1.8万+件退货包运费先采后付回头率58%宁波鑫逸达汽车部件有限公司旺旺在线"
+      },
+      {
+        "source_platform": "1688",
+        "source_url": "https://detail.1688.com/offer/593546102343.html",
+        "offer_id": "593546102343",
+        "offer_title": "工厂店后备箱汽车网兜尾箱杂物收纳储物阻燃网弹力网袋环保大容量",
+        "shop_name": "丹阳市源盛汽车部件有限公司",
+        "shop_url": "http://yuansheng9528.1688.com/?tracelog=p4p",
+        "price": 8.6,
+        "price_text": "价格¥8.60登录查看更多优惠",
+        "currency": "CNY",
+        "min_order_qty": 1001,
+        "sales_count": 0,
+        "keyword_hits": [
+          "后备箱收纳网兜"
+        ],
+        "main_image": "https://cbu01.alicdn.com/img/ibank/11249633445_1274549906.jpg_460x460q100.jpg_.webp",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/11249633445_1274549906.jpg_460x460q100.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/11249633445_1274549906.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/10828961213_1274549906.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/10814241731_1274549906.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/10814238783_1274549906.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/11186145955_1274549906.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/11186145955_1274549906.jpg_sum.jpg",
+          "https://cbu01.alicdn.com/club/upload/pic/user/b/2/b/-/*xC-i2FH0vGHYMFQuvF8yMmkyMFvGvFk4vQTT.tom"
+        ],
+        "image_count": 8,
+        "image_hash": "216af21c015b8b63b232621dea973a789d601eae",
+        "category_path": "丹阳市源盛汽车部件有限公司 > 关注 > 关注 > 客服 > 商品 > 商品 > 入驻7年 > 主营：汽车内饰用品 > 店铺回头率 > 56% > 店铺服务分 > 4.5分 > 分 > 准时发货率 > 77% > 店铺好评率 > 99.9% > Load > start > retry",
+        "description": "丹阳市源盛汽车部件有限公司 关注 客服 商品 入驻7年 主营：汽车内饰用品 店铺回头率 56% 店铺服务分 4.5分 准时发货率 77% 店铺好评率 99.9% start Play 00:00 00:07 主图视频 工厂店后备箱汽车网兜尾箱杂物收纳储物阻燃网弹力网袋环保大容量 价格 ¥ 8 .60 登录查看更多优惠 江苏镇江 送至 北京 1001件以上 承诺6天发货·常发申通快递 包邮 延期必赔 品质保障 破损包赔 退货包运费 7天无理由退货 颜色 黑色钢丝 外观尺寸 305*158 库存993886只 登录查看全部规格 密文代发 ≥3000件 ￥8.6 官方仓退货 立即铺货 加铺货单 代发下单 商品评价 商品属性 商品详情 热门推荐 商品评价 5.0 2条评价 好评率 100% 全部2 好评2 有内容1 z**y 3000只 回头客 很好 h**3 3000 评价方未及时做出评价,系统默认好评! 查看全部评价 商品属性 材质 涤纶 使用位置 后备箱 适用汽车品牌 通用 品牌 源盛 功能 可定制 置物用品类型 置物袋 使用方式 座式 加工定制 是 容积 238 颜色 黑色钢丝 颜色 黑 外观尺寸 305*158 货号 0899 是否跨境出口专供货源 否 LOGO印刷 可以 是否专利货源 否 外观 菱形 产地 江苏 商品详情 登录查看全部 【平台活动下价格】 活动前价格：（1）非分销场景下，指平台活动（不含分销场景的活动）预热期（若无预热期，则为爆发期）前的商品销售价格；（2）分销场景下，专指分销活动预热期（若无预热期，则为爆发期）前的商品销售价格。 前述价格未计算平台发放的各种采购津贴、跨店券、红包等优惠，未计算商家设置的满减优惠、优惠券、店铺返利金、店铺会员折扣以及L会员价、商家设置的指定人群单品优惠活动等各种优惠；该价格会计算其他非平台活动下的各种优惠（包括商家自行设置的非指定人群的单品优惠等，最终以商家的自行设置为准）。前述商品销售价格指商品页面当日展示的标价；若当日商家多次调整销售价格的，取当日最后展示的销售价格。 【非平台活动下价格】 划线价格：指商家自营销活动场景下的商品价格，该价格不包含平台的各种优惠活动。可能是商品的销售指导价或该商品的曾经展示过的销售价等，并非原价，仅供参考。 未划线价格：商品在1688平台上由商家自行设置的销售标价，具体的成交价格根据商家设置的各种优惠活动发生变化，最终以订单结算页价格为准。 【发布价】 指商品在1688平台上由商家自行设置的销售标价并叠加L会员价折扣后的价格，并非原价，仅供参考。 【全网销量】 指同款商品在多个平台（含淘宝、天猫及其他电子商务平台）上的累积销量 同款：指商品名称、外观、规格、成分、颜色、材质、功效、功能等多维度要素具有高度的相似性，但不视为二者具有完全相同的品牌、品质、功效或功能。 *注",
+        "source_attributes": [
+          {
+            "key": "材质",
+            "value": "涤纶"
+          },
+          {
+            "key": "使用位置",
+            "value": "后备箱"
+          },
+          {
+            "key": "适用汽车品牌",
+            "value": "通用"
+          },
+          {
+            "key": "品牌",
+            "value": "源盛"
+          },
+          {
+            "key": "功能",
+            "value": "可定制"
+          },
+          {
+            "key": "置物用品类型",
+            "value": "置物袋"
+          },
+          {
+            "key": "使用方式",
+            "value": "座式"
+          },
+          {
+            "key": "加工定制",
+            "value": "是"
+          },
+          {
+            "key": "容积",
+            "value": "238"
+          },
+          {
+            "key": "颜色",
+            "value": "黑色钢丝"
+          },
+          {
+            "key": "颜色",
+            "value": "黑"
+          },
+          {
+            "key": "外观尺寸",
+            "value": "305*158"
+          },
+          {
+            "key": "货号",
+            "value": "0899"
+          },
+          {
+            "key": "是否跨境出口专供货源",
+            "value": "否"
+          },
+          {
+            "key": "LOGO印刷",
+            "value": "可以"
+          },
+          {
+            "key": "是否专利货源",
+            "value": "否"
+          },
+          {
+            "key": "外观",
+            "value": "菱形"
+          },
+          {
+            "key": "产地",
+            "value": "江苏"
+          }
+        ],
+        "normalizedAttributes": {
+          "material": "涤纶",
+          "brand": "源盛",
+          "feature": "可定制",
+          "color": "黑",
+          "size": "305*158",
+          "vendor_code": "0899",
+          "country_of_origin": "江苏"
+        },
+        "package_dimensions_cm": {
+          "length": 0,
+          "width": 0,
+          "height": 0
+        },
+        "weight_kg": 7,
+        "page_type": "detail",
+        "title_candidates": [
+          "丹阳市源盛汽车部件有限公司",
+          "工厂店后备箱汽车网兜尾箱杂物收纳储物阻燃网弹力网袋环保大容量 - 阿里巴巴"
+        ],
+        "raw_search_title": "3000~4999只",
+        "raw_search_shop_name": "丹阳市源盛汽车部件有限公司",
+        "raw_card_text": "找相似¥8.603000~4999只¥6.605000~89999只¥6.50≥90000只综合服务采购咨询3.0退换体验5.0品质体验5.0采购咨询3.0纠纷解决5.0物流时效2.9工厂店后备箱汽车网兜尾箱杂物收纳储物阻燃网弹力网袋环保大容量后备箱｜涤纶｜座式¥8.6包邮退货包运费先采后付丹阳市源盛汽车部件有限公司旺旺在线"
+      },
+      {
+        "source_platform": "1688",
+        "source_url": "https://detail.1688.com/offer/591720971786.html",
+        "offer_id": "591720971786",
+        "offer_title": "汽车网兜ABS边框耐用V0阻燃后备箱尾箱网兜环保弹性地毯网袋收纳",
+        "shop_name": "丹阳市源盛汽车部件有限公司",
+        "shop_url": "http://yuansheng9528.1688.com/?tracelog=p4p",
+        "price": 25.6,
+        "price_text": "价格¥25.60登录查看更多优惠",
+        "currency": "CNY",
+        "min_order_qty": 100,
+        "sales_count": 0,
+        "keyword_hits": [
+          "后备箱收纳网兜"
+        ],
+        "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01Pyp6ge1ogq5WReTDE_!!2200802825255-0-cib.jpg_460x460q100.jpg_.webp",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN01Pyp6ge1ogq5WReTDE_!!2200802825255-0-cib.jpg_460x460q100.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01Pyp6ge1ogq5WReTDE_!!2200802825255-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/20730869645_1274549906.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN016J6HD71Bs2gbUF9j3_!!0-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01j2ebmR1ogq5V7gayM_!!2200802825255-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN0119al191ogqLMMhqx6_!!2200802825255-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/10763793155_1274549906.jpg_sum.jpg",
+          "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+        ],
+        "image_count": 8,
+        "image_hash": "e8699878f9124389418b529c3babe0a127816746",
+        "category_path": "丹阳市源盛汽车部件有限公司 > 关注 > 关注 > 客服 > 商品 > 商品 > 入驻7年 > 主营：汽车内饰用品 > 店铺回头率 > 56% > 店铺服务分 > 4.5分 > 分 > 准时发货率 > 77% > 店铺好评率 > 99.9% > Load > start > retry",
+        "description": "丹阳市源盛汽车部件有限公司 关注 客服 商品 入驻7年 主营：汽车内饰用品 店铺回头率 56% 店铺服务分 4.5分 准时发货率 77% 店铺好评率 99.9% start Play 00:00 00:07 主图视频 汽车网兜ABS边框耐用V0阻燃后备箱尾箱网兜环保弹性地毯网袋收纳 10+人好评 价格 ¥ 25 .60 登录查看更多优惠 江苏镇江 送至 北京 100件以内 承诺48小时发货·常发申通快递 运费 ¥5 起 7天无理由退货 晚发必赔 颜色 黑色 外观尺寸 60*90 库存996776只 登录查看全部规格 密文代发 ≥100件 ￥25.6 官方仓退货 立即铺货 加铺货单 代发下单 商品评价 商品属性 包装信息 商品详情 热门推荐 搭配组货 商品评价 5.0 10+条评价 好评率 100% 全部10+ 好评10+ PLUS t**3 100 回头客 评价方未及时做出评价,系统默认好评! PLUS s**h 200 回头客 评价方未及时做出评价,系统默认好评! 查看全部评价 商品属性 材质 涤纶 使用位置 后备箱 适用汽车品牌 通用 品牌 源盛 功能 可定制 置物用品类型 置物袋 使用方式 伸缩式 加工定制 是 容积 231 外观图案 菱形 颜色 黑色 外观尺寸 60*90 主要下游平台 ebay,亚马逊,wish,速卖通,独立站,LAZADA 货号 089 主要销售地区 非洲,欧洲,南美,东南亚,北美,东北亚,中东,其他 有可授权的自有品牌 是 是否跨境出口专供货源 是 LOGO印刷 可以 是否专利货源 否 特效 弹力氨纶 款式 弹性 展开全部 包装信息 商品件重尺 颜色 外观尺寸 长(cm) 宽(cm) 高(cm) 体积(cm³) 重量(g) 黑色 60*90 24 12 2 576 110 商品详情 登录查看全部 【平台活动下价格】 活动前价格：（1）非分销场景下，指平台活动（不含分销场景的活动）预热期（若无预热期，则为爆发期）前的商品销售价格；（2）分销场景下，专指分销活动预热期（若无预热期，则为爆发期）前的商品销售价格。 前述价格未计算平台发放的各种采购津贴、跨店券、红包等优惠，未计算商家设置的满减优惠、优惠券、店铺返利金、店铺会员折扣以及L会员价、商家设置的指定人群单品优惠活动等各种优惠；该价格会计算其他非平台活动下的各种优惠（包括商家自行设置的非指定人群的单品优惠等，最终以商家的自行设置为准）。前述商品销售价格指商品页面当日展示的标价；若当日商家多次调整销售价格的，取当日最后展示的销售价格。 【非平台活动下价格】 划线价格：指商家自营销活动场景下的商品价格，该价格不包含平台的各种优惠活动。可能是商品的销售指导价或该商品的曾经展示过的销售价等，并非原价，仅供参考。 未划线价格：商品在1688平台上由商家自行设置的销售标价，具体的成交价格根据",
+        "source_attributes": [
+          {
+            "key": "材质",
+            "value": "涤纶"
+          },
+          {
+            "key": "使用位置",
+            "value": "后备箱"
+          },
+          {
+            "key": "适用汽车品牌",
+            "value": "通用"
+          },
+          {
+            "key": "品牌",
+            "value": "源盛"
+          },
+          {
+            "key": "功能",
+            "value": "可定制"
+          },
+          {
+            "key": "置物用品类型",
+            "value": "置物袋"
+          },
+          {
+            "key": "使用方式",
+            "value": "伸缩式"
+          },
+          {
+            "key": "加工定制",
+            "value": "是"
+          },
+          {
+            "key": "容积",
+            "value": "231"
+          },
+          {
+            "key": "外观图案",
+            "value": "菱形"
+          },
+          {
+            "key": "颜色",
+            "value": "黑色"
+          },
+          {
+            "key": "外观尺寸",
+            "value": "60*90"
+          },
+          {
+            "key": "主要下游平台",
+            "value": "ebay,亚马逊,wish,速卖通,独立站,LAZADA"
+          },
+          {
+            "key": "货号",
+            "value": "089"
+          },
+          {
+            "key": "主要销售地区",
+            "value": "非洲,欧洲,南美,东南亚,北美,东北亚,中东,其他"
+          },
+          {
+            "key": "有可授权的自有品牌",
+            "value": "是"
+          },
+          {
+            "key": "是否跨境出口专供货源",
+            "value": "是"
+          },
+          {
+            "key": "LOGO印刷",
+            "value": "可以"
+          },
+          {
+            "key": "是否专利货源",
+            "value": "否"
+          },
+          {
+            "key": "特效",
+            "value": "弹力氨纶"
+          },
+          {
+            "key": "款式",
+            "value": "弹性"
+          },
+          {
+            "key": "颜色",
+            "value": "外观尺寸"
+          },
+          {
+            "key": "长(cm)",
+            "value": "宽(cm)"
+          },
+          {
+            "key": "高(cm)",
+            "value": "体积(cm³)"
+          },
+          {
+            "key": "黑色",
+            "value": "60*90"
+          },
+          {
+            "key": "24",
+            "value": "12"
+          },
+          {
+            "key": "2",
+            "value": "576"
+          }
+        ],
+        "normalizedAttributes": {
+          "material": "涤纶",
+          "brand": "是",
+          "feature": "可定制",
+          "color": "外观尺寸",
+          "size": "60*90",
+          "vendor_code": "089"
+        },
+        "package_dimensions_cm": {
+          "length": 0,
+          "width": 0,
+          "height": 0
+        },
+        "weight_kg": 0.06,
+        "page_type": "detail",
+        "title_candidates": [
+          "丹阳市源盛汽车部件有限公司",
+          "汽车网兜ABS边框耐用V0阻燃后备箱尾箱网兜环保弹性地毯网袋收纳 - 阿里巴巴"
+        ],
+        "raw_search_title": "100~499只",
+        "raw_search_shop_name": "丹阳市源盛汽车部件有限公司",
+        "raw_card_text": "找相似¥25.60100~499只¥24.90500~8999只¥23.18≥9000只综合服务采购咨询3.0退换体验5.0品质体验5.0采购咨询3.0纠纷解决5.0物流时效2.9汽车网兜ABS边框耐用V0阻燃后备箱尾箱网兜环保弹性地毯网袋收纳后备箱｜涤纶｜伸缩式¥25.61500+件退货包运费先采后付回头率56%丹阳市源盛汽车部件有限公司旺旺在线"
+      },
+      {
+        "source_platform": "1688",
+        "source_url": "https://detail.1688.com/offer/1031032038455.html",
+        "offer_id": "1031032038455",
+        "offer_title": "厂家供应汽车后备箱网兜 通用置物网兜 魔术贴置物袋",
+        "shop_name": "亳州市欧格汽车零部件有限公司",
+        "shop_url": "http://bozhououge253.1688.com/?tracelog=p4p",
+        "price": 5,
+        "price_text": "价格¥5.00登录查看更多优惠",
+        "currency": "CNY",
+        "min_order_qty": 5,
+        "sales_count": 0,
+        "keyword_hits": [
+          "后备箱收纳网兜"
+        ],
+        "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN015HnmT71Swwpe35LBx_!!2215922622312-0-cib.jpg_460x460q100.jpg_.webp",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN015HnmT71Swwpe35LBx_!!2215922622312-0-cib.jpg_460x460q100.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN015HnmT71Swwpe35LBx_!!2215922622312-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01vBTZCq1Swwpdl5ycI_!!2215922622312-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01LOumNe1Swwpez3N9x_!!2215922622312-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN014ZzKRq1SwwpdjwHrV_!!2215922622312-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01YxRKAL1SwwpddC7BD_!!2215922622312-0-cib.jpg_.webp",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01Ky0nUE1Swwpe1QRfD_!!2215922622312-0-cib.jpg_sum.jpg"
+        ],
+        "image_count": 7,
+        "image_hash": "b7ea9edf68226831c532e42acbeb9c31d380aa5a",
+        "category_path": "亳州市欧格汽车零部件有限公司 > 关注 > 关注 > 客服 > 商品 > 商品 > 入驻3年 > 主营：汽车内饰用品 > 店铺回头率 > 60% > 店铺服务分 > 4.5分 > 分 > 准时发货率 > 60% > 店铺好评率 > - % > Load > start > retry",
+        "description": "亳州市欧格汽车零部件有限公司 关注 客服 商品 入驻3年 主营：汽车内饰用品 店铺回头率 60% 店铺服务分 4.5分 准时发货率 60% 店铺好评率 - % start Play 00:00 00:14 主图视频 厂家供应汽车后备箱网兜 通用置物网兜 魔术贴置物袋 价格 ¥ 5 .00 登录查看更多优惠 安徽亳州 送至 北京 承诺48小时发货 运费 ¥3 起 晚发必赔 颜色 黑色 外观尺寸 27cm*12cm 库存1000只 登录查看全部规格 分销代发 ≥5件 ￥5 官方仓退货 立即铺货 加铺货单 代发下单 商品评价 商品属性 包装信息 商品详情 商品评价 暂无有效评价 商品属性 材质 织物 使用位置 后备箱 适用汽车品牌 通用 品牌 OG 功能 多功能收纳 置物用品类型 置物袋 使用方式 悬挂式 加工定制 是 容积 27cm*12cm 颜色 黑色 外观尺寸 27cm*12cm 主要下游平台 亚马逊,速卖通,LAZADA 货号 c00008 主要销售地区 欧洲,东南亚,北美 有可授权的自有品牌 否 是否跨境出口专供货源 是 LOGO印刷 可以 是否专利货源 否 包装信息 商品件重尺 颜色 外观尺寸 长(cm) 宽(cm) 高(cm) 体积(cm³) 重量(g) 黑色 27cm*12cm 18 16 1 288 35 商品详情 登录查看全部 【平台活动下价格】 活动前价格：（1）非分销场景下，指平台活动（不含分销场景的活动）预热期（若无预热期，则为爆发期）前的商品销售价格；（2）分销场景下，专指分销活动预热期（若无预热期，则为爆发期）前的商品销售价格。 前述价格未计算平台发放的各种采购津贴、跨店券、红包等优惠，未计算商家设置的满减优惠、优惠券、店铺返利金、店铺会员折扣以及L会员价、商家设置的指定人群单品优惠活动等各种优惠；该价格会计算其他非平台活动下的各种优惠（包括商家自行设置的非指定人群的单品优惠等，最终以商家的自行设置为准）。前述商品销售价格指商品页面当日展示的标价；若当日商家多次调整销售价格的，取当日最后展示的销售价格。 【非平台活动下价格】 划线价格：指商家自营销活动场景下的商品价格，该价格不包含平台的各种优惠活动。可能是商品的销售指导价或该商品的曾经展示过的销售价等，并非原价，仅供参考。 未划线价格：商品在1688平台上由商家自行设置的销售标价，具体的成交价格根据商家设置的各种优惠活动发生变化，最终以订单结算页价格为准。 【发布价】 指商品在1688平台上由商家自行设置的销售标价并叠加L会员价折扣后的价格，并非原价，仅供参考。 【全网销量】 指同款商品在多个平台（含淘宝、天猫及其他电子商务平台）上的累积销量 同款：指商品名称、外观、规格、成分、颜色、材质、功效、功能等多维度要素具有高度的相似性，但不视为二者具有完全相同的品牌、品质、功效或功能。 *",
+        "source_attributes": [
+          {
+            "key": "材质",
+            "value": "织物"
+          },
+          {
+            "key": "使用位置",
+            "value": "后备箱"
+          },
+          {
+            "key": "适用汽车品牌",
+            "value": "通用"
+          },
+          {
+            "key": "品牌",
+            "value": "OG"
+          },
+          {
+            "key": "功能",
+            "value": "多功能收纳"
+          },
+          {
+            "key": "置物用品类型",
+            "value": "置物袋"
+          },
+          {
+            "key": "使用方式",
+            "value": "悬挂式"
+          },
+          {
+            "key": "加工定制",
+            "value": "是"
+          },
+          {
+            "key": "容积",
+            "value": "27cm*12cm"
+          },
+          {
+            "key": "颜色",
+            "value": "黑色"
+          },
+          {
+            "key": "外观尺寸",
+            "value": "27cm*12cm"
+          },
+          {
+            "key": "主要下游平台",
+            "value": "亚马逊,速卖通,LAZADA"
+          },
+          {
+            "key": "货号",
+            "value": "c00008"
+          },
+          {
+            "key": "主要销售地区",
+            "value": "欧洲,东南亚,北美"
+          },
+          {
+            "key": "有可授权的自有品牌",
+            "value": "否"
+          },
+          {
+            "key": "是否跨境出口专供货源",
+            "value": "是"
+          },
+          {
+            "key": "LOGO印刷",
+            "value": "可以"
+          },
+          {
+            "key": "是否专利货源",
+            "value": "否"
+          },
+          {
+            "key": "颜色",
+            "value": "外观尺寸"
+          },
+          {
+            "key": "长(cm)",
+            "value": "宽(cm)"
+          },
+          {
+            "key": "高(cm)",
+            "value": "体积(cm³)"
+          },
+          {
+            "key": "黑色",
+            "value": "27cm*12cm"
+          },
+          {
+            "key": "18",
+            "value": "16"
+          },
+          {
+            "key": "1",
+            "value": "288"
+          }
+        ],
+        "normalizedAttributes": {
+          "material": "织物",
+          "brand": "否",
+          "feature": "多功能收纳",
+          "color": "外观尺寸",
+          "size": "27cm*12cm",
+          "vendor_code": "c00008"
+        },
+        "package_dimensions_cm": {
+          "length": 0,
+          "width": 0,
+          "height": 0
+        },
+        "weight_kg": 0.027,
+        "page_type": "detail",
+        "title_candidates": [
+          "亳州市欧格汽车零部件有限公司",
+          "厂家供应汽车后备箱网兜 通用置物网兜 魔术贴置物袋 - 阿里巴巴"
+        ],
+        "raw_search_title": "5~499只",
+        "raw_search_shop_name": "亳州市欧格汽车零部件有限公司",
+        "raw_card_text": "找相似¥5.005~499只¥4.00≥500只综合服务采购咨询4.0退换体验5.0品质体验5.0采购咨询4.0纠纷解决5.0物流时效2.9厂家供应汽车后备箱网兜 通用置物网兜 魔术贴置物袋后备箱｜织物｜多功能收纳¥5退货包运费先采后付回头率54%亳州市欧格汽车零部件有限公司旺旺在线"
+      }
+    ],
+    "comparison_summary": {
+      "slug": "item-1-8523c65e",
+      "compared_at": "2026-03-27T00:46:10.079Z",
+      "candidate_count": 5,
+      "selected_offer_source_url": "https://detail.1688.com/offer/855384156567.html",
+      "price_min": 0.7,
+      "price_max": 25.6,
+      "price_avg": 10.28,
+      "shortlist": [
+        {
+          "rank": 1,
+          "source_url": "https://detail.1688.com/offer/855384156567.html",
+          "shop_name": "义乌市极骏日用品厂",
+          "offer_title": "汽车后备箱网兜收纳固定神器魔术贴网兜车用置物袋汽车用品收纳网",
+          "price": 0.7,
+          "min_order_qty": 2
+        },
+        {
+          "rank": 2,
+          "source_url": "https://detail.1688.com/offer/898593450269.html",
+          "shop_name": "宁波鑫逸达汽车部件有限公司",
+          "offer_title": "汽车后备箱弹力网兜SUV通用型车载收纳储物袋车用行李固定网",
+          "price": 11.49,
+          "min_order_qty": 4
+        },
+        {
+          "rank": 3,
+          "source_url": "https://detail.1688.com/offer/593546102343.html",
+          "shop_name": "丹阳市源盛汽车部件有限公司",
+          "offer_title": "工厂店后备箱汽车网兜尾箱杂物收纳储物阻燃网弹力网袋环保大容量",
+          "price": 8.6,
+          "min_order_qty": 1001
+        },
+        {
+          "rank": 4,
+          "source_url": "https://detail.1688.com/offer/591720971786.html",
+          "shop_name": "丹阳市源盛汽车部件有限公司",
+          "offer_title": "汽车网兜ABS边框耐用V0阻燃后备箱尾箱网兜环保弹性地毯网袋收纳",
+          "price": 25.6,
+          "min_order_qty": 100
+        },
+        {
+          "rank": 5,
+          "source_url": "https://detail.1688.com/offer/1031032038455.html",
+          "shop_name": "亳州市欧格汽车零部件有限公司",
+          "offer_title": "厂家供应汽车后备箱网兜 通用置物网兜 魔术贴置物袋",
+          "price": 5,
+          "min_order_qty": 5
+        }
+      ],
+      "notes": [
+        "Shortlist assembled from the same 1688 search cluster for Ozon listing review."
+      ]
+    },
+    "data_quality": {
+      "title_source": "chief-review",
+      "description_source": "1688-detail",
+      "web_detail_valid": true,
+      "inferred_fields": []
+    }
+  }
+}
