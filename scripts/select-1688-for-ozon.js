@@ -14,7 +14,47 @@ import {
   waitForCaptchaClear,
   waitWithHumanPacing,
 } from "./source-1688-lib.js";
+import { execFile } from "node:child_process";
 import { ensureDir, normalize, readJson, repairDeepMojibake, timestamp, writeJson } from "./shared-utils.js";
+import { collect1688ByApi, checkApiAvailability } from "./source-1688-api.js";
+
+// ── 系统通知 & 窗口管理 ──
+
+/** 发送Windows系统通知（验证码提醒） */
+function sendCaptchaNotification(keyword) {
+  const title = "1688 需要验证";
+  const message = `搜索 "${keyword}" 遇到验证码，请在浏览器中拖动滑块完成验证。`;
+
+  // Windows PowerShell toast notification
+  const ps = `
+    [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null;
+    [Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom, ContentType = WindowsRuntime] | Out-Null;
+    $xml = [Windows.Data.Xml.Dom.XmlDocument]::new();
+    $xml.LoadXml('<toast duration="long"><visual><binding template="ToastGeneric"><text>${title}</text><text>${message}</text></binding></visual><audio src="ms-winsoundevent:Notification.Default"/></toast>');
+    $toast = [Windows.UI.Notifications.ToastNotification]::new($xml);
+    [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('1688选品助手').Show($toast);
+  `.replace(/\n/g, " ");
+
+  execFile("powershell", ["-NoProfile", "-Command", ps], { timeout: 5000 }, (err) => {
+    if (err) {
+      // fallback: BurntToast 或简单 beep
+      execFile("powershell", [
+        "-NoProfile", "-Command",
+        `Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('${message}', '${title}', 'OK', 'Information') | Out-Null`,
+      ], { timeout: 120000 }, () => {});
+    }
+  });
+}
+
+/** 将浏览器窗口置顶 */
+async function bringBrowserToFront(page) {
+  try {
+    await page.bringToFront();
+  } catch {}
+}
+
+/** 验证码等待超时时间 — 产品级给足时间 */
+const CAPTCHA_WAIT_TIMEOUT_MS = 120000; // 2分钟
 
 const DEFAULT_OUTPUT_DIR = path.resolve("output");
 const DEFAULT_PLATFORM = "ozon";
@@ -23,8 +63,8 @@ const DEFAULT_LIMIT = 12;
 const DEFAULT_DETAIL_LIMIT = 12;
 const DEFAULT_PER_KEYWORD_LIMIT = 8;
 const DEFAULT_MAX_KEYWORDS = 8;
-const SEARCH_PACING_BASE_MS = 5500;
-const SEARCH_PACING_JITTER_MS = 1500;
+const SEARCH_PACING_BASE_MS = 8000;
+const SEARCH_PACING_JITTER_MS = 5000;
 const DETAIL_PACING_BASE_MS = 3500;
 const DETAIL_PACING_JITTER_MS = 1200;
 const SEARCH_CAPTCHA_WAIT_MS = 15000;
@@ -278,6 +318,8 @@ function parseArgs(argv) {
     maxKeywords: DEFAULT_MAX_KEYWORDS,
     headless: false,
     keepOpen: false,
+    useApi: false,
+    apiProvider: "",
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -337,6 +379,12 @@ function parseArgs(argv) {
       index += 1;
     } else if (current === "--headless") {
       args.headless = true;
+    } else if (current === "--api") {
+      args.useApi = true;
+    } else if (current === "--api-provider" && next) {
+      args.useApi = true;
+      args.apiProvider = next;
+      index += 1;
     } else if (current === "--keep-open") {
       args.keepOpen = true;
     }
@@ -1137,10 +1185,12 @@ async function collect1688Candidates(args, seeds) {
   const searchAttempts = [];
   const rawCards = [];
   const detailIssues = [];
+  const captchaSkippedKeywords = [];
 
   try {
     for (const [seedIndex, seed] of seeds.entries()) {
-      console.log(`[search] ${seedIndex + 1}/${seeds.length} keyword: ${seed.keyword}`);
+      const progress = `[${seedIndex + 1}/${seeds.length}]`;
+      console.log(`${progress} 搜索: ${seed.keyword}`);
 
       if (seedIndex > 0) {
         await waitWithHumanPacing(searchPage, SEARCH_PACING_BASE_MS, SEARCH_PACING_JITTER_MS);
@@ -1150,23 +1200,27 @@ async function collect1688Candidates(args, seeds) {
       await save1688StorageState(context);
 
       if (searchState.page_type === "captcha") {
-        if (args.headless) {
-          throw new Error(`Captcha encountered for keyword "${seed.keyword}" while headless.`);
-        }
-
-        console.log(
-          `[captcha] 1688 search for "${seed.keyword}" requires manual verification. Waiting up to 300s...`,
-        );
+        // ── 产品级验证码处理 ──
+        // 1) 系统通知提醒用户
+        sendCaptchaNotification(seed.keyword);
+        // 2) 浏览器窗口置顶（确保用户看到）
+        await bringBrowserToFront(searchPage).catch(() => {});
+        // 3) 等待用户完成验证（最多120秒）
+        console.log(`[验证码] 搜索 "${seed.keyword}" 需要人工验证，请在浏览器中拖动滑块...`);
         const waitResult = await waitForCaptchaClear(
           searchPage,
           `search:${seed.keyword}`,
-          SEARCH_CAPTCHA_WAIT_MS,
+          CAPTCHA_WAIT_TIMEOUT_MS,
         );
         if (!waitResult.resolved) {
+          console.log(`[验证码] "${seed.keyword}" 等待超时，跳过此关键词 (下次可重试)`);
           detailIssues.push(`search_captcha_timeout:${seed.keyword}`);
-          console.log(`[search] captcha timeout on keyword "${seed.keyword}", skipping this seed.`);
+          captchaSkippedKeywords.push(seed.keyword);
+          // 验证码超时后，后续关键词也大概率被拦，加长冷却期
+          await new Promise((r) => setTimeout(r, 15000 + Math.random() * 10000));
           continue;
         }
+        console.log(`[验证码] "${seed.keyword}" 验证通过!`);
         searchState = waitResult.state;
         await save1688StorageState(context);
       }
@@ -1243,23 +1297,20 @@ async function collect1688Candidates(args, seeds) {
       await save1688StorageState(context);
 
       if (detail.page_type === "captcha") {
-        if (args.headless) {
-          detailIssues.push(`detail_captcha:${candidate.offerUrl}`);
-          continue;
-        }
-
-        console.log(
-          `[captcha] 1688 detail page for "${candidate.title || candidate.offerUrl}" requires manual verification. Waiting up to 300s...`,
-        );
+        sendCaptchaNotification(candidate.title || "商品详情");
+        await bringBrowserToFront(detailPage).catch(() => {});
+        console.log(`[验证码] 商品详情 "${normalize(candidate.title || "").slice(0, 30)}" 需要人工验证...`);
         const waitResult = await waitForCaptchaClear(
           detailPage,
           `detail:${candidate.offerUrl}`,
-          DETAIL_CAPTCHA_WAIT_MS,
+          CAPTCHA_WAIT_TIMEOUT_MS,
         );
         if (!waitResult.resolved) {
+          console.log(`[验证码] 详情页验证超时，跳过`);
           detailIssues.push(`detail_captcha_timeout:${candidate.offerUrl}`);
           continue;
         }
+        console.log(`[验证码] 详情页验证通过!`);
         await save1688StorageState(context);
         detail = await scrapeDetailPage(detailPage, candidate.offerUrl);
       }
@@ -1296,6 +1347,7 @@ async function collect1688Candidates(args, seeds) {
       searchPool,
       offers,
       detailIssues,
+      captchaSkippedKeywords,
       async close() {
         if (!args.keepOpen) {
           await context.close().catch(() => {});
@@ -1350,16 +1402,41 @@ async function main() {
     throw new Error("No seed keywords available.");
   }
 
+  const modeLabel = args.useApi ? " via API" : args.searchSnapshotFile ? " from saved search snapshot" : "";
   console.log(
-    `[selector] Starting 1688 -> ${args.platform} run with ${seeds.length} keywords${args.searchSnapshotFile ? " from saved search snapshot" : ""}.`,
+    `[selector] Starting 1688 -> ${args.platform} run with ${seeds.length} keywords${modeLabel}.`,
   );
   console.log(`[selector] Keywords: ${seeds.map((seed) => seed.keyword).join(", ")}`);
   await ensureDir(args.outputDir);
 
   const startedAt = new Date().toISOString();
-  const collected = args.searchSnapshotFile
-    ? await collectFromSearchSnapshot(args.searchSnapshotFile)
-    : await collect1688Candidates(args, seeds);
+
+  let collected;
+  if (args.useApi) {
+    // API模式：纯HTTP调用，无浏览器，无反爬
+    const apiStatus = await checkApiAvailability();
+    const available = Object.entries(apiStatus).find(([, v]) => v.hasKey);
+    if (!available) {
+      console.error(`[1688-api] 没有可用的API Key。请设置环境变量:`);
+      for (const [, v] of Object.entries(apiStatus)) {
+        console.error(`  ${v.envVar} — ${v.name}`);
+      }
+      console.error(`\n万邦注册: https://open.onebound.cn (免费试用)`);
+      console.error(`订单侠注册: https://www.dingdanxia.com (免费试用)`);
+      process.exit(1);
+    }
+    console.log(`[1688-api] 使用 ${available[1].name} API`);
+    collected = await collect1688ByApi(seeds, {
+      provider: args.apiProvider || available[0],
+      perKeywordLimit: args.perKeywordLimit,
+      detailLimit: args.detailLimit,
+      pacingMs: 1000,
+    });
+  } else if (args.searchSnapshotFile) {
+    collected = await collectFromSearchSnapshot(args.searchSnapshotFile);
+  } else {
+    collected = await collect1688Candidates(args, seeds);
+  }
 
   if (Array.isArray(collected.replayedSeeds) && collected.replayedSeeds.length > 0) {
     seeds = collected.replayedSeeds;
@@ -1407,7 +1484,7 @@ async function main() {
     );
 
     console.log(
-      `[selector] Scraped ${collected.offers.length} detail offers and analyzed ${analyzedProducts.length} product candidates.`,
+      `[完成] 抓取 ${collected.offers.length} 个商品详情，评估 ${analyzedProducts.length} 个候选产品。`,
     );
 
     const runtimeSummary = {
@@ -1487,8 +1564,18 @@ async function main() {
       report,
     });
 
-    console.log(`Saved analysis: ${savedPath}`);
-    console.log(`Processed offers: ${analyzedProducts.length}`);
+    console.log(`[保存] ${savedPath}`);
+    console.log(`[结果] ${analyzedProducts.length} 个产品已评估完成`);
+
+    // 回收被验证码跳过的关键词（从已使用列表中移除，下次还能抽到）
+    if ((collected.captchaSkippedKeywords || []).length > 0) {
+      try {
+        const used = await loadUsedKeywords();
+        for (const kw of collected.captchaSkippedKeywords) used.delete(kw);
+        await saveUsedKeywords(used);
+        console.log(`[seeds] 回收 ${collected.captchaSkippedKeywords.length} 个被验证码跳过的关键词: ${collected.captchaSkippedKeywords.join(", ")}`);
+      } catch {}
+    }
   } finally {
     await collected.close();
   }

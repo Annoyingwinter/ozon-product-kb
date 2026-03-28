@@ -429,9 +429,92 @@ async function isBrowserProfileLocked(browserProfileDir) {
   return false;
 }
 
+/** 注入完整stealth脚本，隐藏headless/自动化特征 */
+async function injectStealthScripts(context) {
+  await context.addInitScript(() => {
+    // 1. 隐藏 webdriver 标记
+    Object.defineProperty(navigator, "webdriver", { configurable: true, get: () => undefined });
+    delete navigator.__proto__.webdriver;
+
+    // 2. 模拟 chrome 对象
+    window.chrome = window.chrome || {};
+    window.chrome.runtime = window.chrome.runtime || { connect: () => {}, sendMessage: () => {} };
+    window.chrome.loadTimes = window.chrome.loadTimes || (() => ({}));
+    window.chrome.csi = window.chrome.csi || (() => ({}));
+
+    // 3. 修改 permissions API（防止 Notification permission 泄露 headless）
+    const origQuery = window.navigator.permissions?.query?.bind(window.navigator.permissions);
+    if (origQuery) {
+      window.navigator.permissions.query = (params) => {
+        if (params?.name === "notifications") {
+          return Promise.resolve({ state: Notification.permission });
+        }
+        return origQuery(params);
+      };
+    }
+
+    // 4. 修改 plugins 和 mimeTypes（headless 通常为空）
+    Object.defineProperty(navigator, "plugins", {
+      get: () => {
+        const fakePlugins = [
+          { name: "Chrome PDF Plugin", filename: "internal-pdf-viewer", description: "Portable Document Format" },
+          { name: "Chrome PDF Viewer", filename: "mhjfbmdgcfjbbpaeojofohoefgiehjai", description: "" },
+          { name: "Native Client", filename: "internal-nacl-plugin", description: "" },
+        ];
+        fakePlugins.length = 3;
+        fakePlugins.item = (i) => fakePlugins[i];
+        fakePlugins.namedItem = (n) => fakePlugins.find((p) => p.name === n);
+        fakePlugins.refresh = () => {};
+        return fakePlugins;
+      },
+    });
+
+    // 5. 修改 languages（headless 可能缺失）
+    Object.defineProperty(navigator, "languages", { get: () => ["zh-CN", "zh", "en-US", "en"] });
+    Object.defineProperty(navigator, "language", { get: () => "zh-CN" });
+
+    // 6. 隐藏 headless 的 connection.rtt（headless 通常为 0）
+    if (navigator.connection) {
+      Object.defineProperty(navigator.connection, "rtt", { get: () => 100 });
+    }
+
+    // 7. 修改 hardwareConcurrency（headless 可能为异常值）
+    Object.defineProperty(navigator, "hardwareConcurrency", { get: () => 8 });
+
+    // 8. WebGL vendor/renderer 伪装
+    const getParamOrig = WebGLRenderingContext.prototype.getParameter;
+    WebGLRenderingContext.prototype.getParameter = function (param) {
+      if (param === 37445) return "Intel Inc.";           // UNMASKED_VENDOR_WEBGL
+      if (param === 37446) return "Intel Iris OpenGL Engine"; // UNMASKED_RENDERER_WEBGL
+      return getParamOrig.call(this, param);
+    };
+
+    // 9. 阻止 iframe contentWindow 检测
+    const origContentWindow = Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype, "contentWindow");
+    if (origContentWindow) {
+      Object.defineProperty(HTMLIFrameElement.prototype, "contentWindow", {
+        get: function () {
+          const win = origContentWindow.get.call(this);
+          if (win) {
+            try { Object.defineProperty(win.navigator, "webdriver", { get: () => undefined }); } catch {}
+          }
+          return win;
+        },
+      });
+    }
+
+    // 10. 修改 toString 防止函数检测
+    const nativeToString = Function.prototype.toString;
+    Function.prototype.toString = function () {
+      if (this === Function.prototype.toString) return "function toString() { [native code] }";
+      return nativeToString.call(this);
+    };
+  });
+}
+
 export async function launch1688Runtime(headless = false) {
   const launchOptions = {
-    headless,
+    headless: false, // 1688能检测headless CDP，始终用有头模式
     args: ["--disable-blink-features=AutomationControlled"],
     ignoreDefaultArgs: ["--enable-automation"],
   };
@@ -455,13 +538,7 @@ export async function launch1688Runtime(headless = false) {
           channel,
         });
 
-        await context.addInitScript(() => {
-          Object.defineProperty(navigator, "webdriver", {
-            configurable: true,
-            get: () => undefined,
-          });
-          window.chrome = window.chrome || { runtime: {} };
-        });
+        await injectStealthScripts(context);
 
         if (storageStateExists) {
           await seedContextFromStorageState(context, bootstrap.state);
@@ -497,13 +574,7 @@ export async function launch1688Runtime(headless = false) {
     storageState: storageStateExists ? bootstrap.state : undefined,
   });
 
-  await context.addInitScript(() => {
-    Object.defineProperty(navigator, "webdriver", {
-      configurable: true,
-      get: () => undefined,
-    });
-    window.chrome = window.chrome || { runtime: {} };
-  });
+  await injectStealthScripts(context);
 
   return {
     browser,
