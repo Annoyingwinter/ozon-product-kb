@@ -11,3 +11,4 @@ smoke-test.log
 .env*
 nul
 memory/
+images/_download-tasks.json
