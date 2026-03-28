@@ -1,0 +1,56 @@
+{
+  "slug": "2023-392bdd67",
+  "status": "已上传",
+  "gaps": [
+    "尺寸为估算值",
+    "价格偏低,已上调至10CNY",
+    "俄文标题为AI翻译"
+  ],
+  "offer_id": "2023-392bdd67",
+  "title_override": "Ролик для удаления шерсти с одежды и мебели",
+  "title_lang": "ru",
+  "description_override": "Ролик для удаления шерсти с одежды и мебели",
+  "price_override": "10.00",
+  "old_price_override": "14.00",
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/2023-392bdd67_0.jpg",
+  "images_override": [
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/2023-392bdd67_0.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/2023-392bdd67_1.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/2023-392bdd67_2.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/2023-392bdd67_3.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/2023-392bdd67_4.jpg"
+  ],
+  "images_validated": true,
+  "weight_override_g": 150,
+  "depth_override_mm": 250,
+  "width_override_mm": 150,
+  "height_override_mm": 80,
+  "dimensions_estimated": true,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "value": "Ролик для удаления шерсти с одежды и мебели"
+      },
+      {
+        "id": 85,
+        "dictionary_value_id": 126745801,
+        "value": "Нет бренда"
+      },
+      {
+        "id": 8229,
+        "dictionary_value_id": 970896147,
+        "value": "Органайзер для хранения вещей"
+      }
+    ]
+  },
+  "images_source": "github-raw",
+  "ozon_product_id": 3926474556,
+  "ozon_task_id": 4047823135,
+  "ozon_import_at": "2026-03-28T14:17:35.826Z"
+}

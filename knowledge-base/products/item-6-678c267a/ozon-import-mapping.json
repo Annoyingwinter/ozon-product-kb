@@ -1,0 +1,55 @@
+{
+  "slug": "item-6-678c267a",
+  "status": "已上传",
+  "gaps": [
+    "俄文标题为AI翻译"
+  ],
+  "offer_id": "item-6-678c267a",
+  "title_override": "Одноразовые мусорные пакеты для автомобиля",
+  "title_lang": "ru",
+  "description_override": "Одноразовые мусорные пакеты для автомобиля",
+  "price_override": "10.00",
+  "old_price_override": "14.00",
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-6-678c267a_0.jpg",
+  "images_override": [
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-6-678c267a_0.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-6-678c267a_1.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-6-678c267a_2.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-6-678c267a_3.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-6-678c267a_4.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-6-678c267a_5.jpg"
+  ],
+  "images_validated": true,
+  "weight_override_g": 77,
+  "depth_override_mm": 300,
+  "width_override_mm": 165,
+  "height_override_mm": 75,
+  "dimensions_estimated": false,
+  "import_fields": {
+    "description_category_id": 82169566,
+    "type_id": 92186,
+    "attributes": [
+      {
+        "id": 9048,
+        "value": "Одноразовые мусорные пакеты для автомобиля"
+      },
+      {
+        "id": 85,
+        "dictionary_value_id": 126745801,
+        "value": "Нет бренда"
+      },
+      {
+        "id": 8229,
+        "dictionary_value_id": 92186,
+        "value": "Сумка-органайзер автомобильная"
+      }
+    ]
+  },
+  "images_source": "github-raw",
+  "ozon_product_id": 3926474400,
+  "ozon_task_id": 4047823135,
+  "ozon_import_at": "2026-03-28T14:17:35.865Z"
+}

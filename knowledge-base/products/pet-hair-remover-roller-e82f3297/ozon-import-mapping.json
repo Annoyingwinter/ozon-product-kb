@@ -1,0 +1,53 @@
+{
+  "slug": "pet-hair-remover-roller-e82f3297",
+  "status": "已上传",
+  "gaps": [],
+  "offer_id": "pet-hair-remover-roller-e82f3297",
+  "title_override": "ролик для удаления шерсти",
+  "title_lang": "ru",
+  "description_override": "ролик для удаления шерсти",
+  "price_override": "45.00",
+  "old_price_override": "61.00",
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/pet-hair-remover-roller-e82f3297_0.jpg",
+  "images_override": [
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/pet-hair-remover-roller-e82f3297_0.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/pet-hair-remover-roller-e82f3297_1.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/pet-hair-remover-roller-e82f3297_2.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/pet-hair-remover-roller-e82f3297_3.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/pet-hair-remover-roller-e82f3297_4.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/pet-hair-remover-roller-e82f3297_5.jpg"
+  ],
+  "images_validated": true,
+  "weight_override_g": 280,
+  "depth_override_mm": 240,
+  "width_override_mm": 132,
+  "height_override_mm": 60,
+  "dimensions_estimated": false,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "value": "ролик для удаления шерсти"
+      },
+      {
+        "id": 85,
+        "dictionary_value_id": 126745801,
+        "value": "Нет бренда"
+      },
+      {
+        "id": 8229,
+        "dictionary_value_id": 970896147,
+        "value": "Органайзер для хранения вещей"
+      }
+    ]
+  },
+  "images_source": "github-raw",
+  "ozon_product_id": 3926474401,
+  "ozon_task_id": 4047823135,
+  "ozon_import_at": "2026-03-28T14:17:35.875Z"
+}
