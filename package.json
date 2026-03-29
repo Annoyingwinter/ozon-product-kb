@@ -24,7 +24,9 @@
     "kb:prepare": "node scripts/prepare-product-kb.js",
     "kb:compare": "node scripts/batch-1688-compare-and-build-kb.js --all",
     "kb:audit": "node scripts/audit-product-kb-health.js",
-    "kb:bootstrap-edge-session": "node scripts/bootstrap-1688-session-from-edge.js"
+    "kb:bootstrap-edge-session": "node scripts/bootstrap-1688-session-from-edge.js",
+    "console": "node scripts/login-server.js",
+    "dev": "node scripts/login-server.js"
   },
   "dependencies": {
     "playwright": "^1.55.0"
