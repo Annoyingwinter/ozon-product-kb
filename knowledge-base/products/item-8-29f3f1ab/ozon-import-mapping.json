@@ -7,7 +7,7 @@
     "俄文标题为AI翻译"
   ],
   "offer_id": "item-8-29f3f1ab",
-  "title_override": "Щётка для удаления шерсти домашних животных",
+  "title_override": "Скребок для удаления шерсти животных с мебели",
   "title_lang": "ru",
   "description_override": "Щётка для удаления шерсти домашних животных",
   "price_override": "35.00",
@@ -30,8 +30,8 @@
   "height_override_mm": 100,
   "dimensions_estimated": true,
   "import_fields": {
-    "description_category_id": 17027937,
-    "type_id": 970896147,
+    "description_category_id": 17028968,
+    "type_id": 95249,
     "attributes": [
       {
         "id": 9048,
@@ -51,6 +51,6 @@
   },
   "images_source": "github-raw",
   "ozon_product_id": 3926474557,
-  "ozon_task_id": 4047823135,
+  "ozon_task_id": 4050225993,
   "ozon_import_at": "2026-03-28T14:17:35.872Z"
 }

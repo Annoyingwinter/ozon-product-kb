@@ -354,13 +354,28 @@ export async function waitForCaptchaClear(page, label, timeoutMs = CAPTCHA_TIMEO
 
   while (Date.now() - startedAt < timeoutMs) {
     await page.waitForTimeout(2000);
-    lastState = await readSearchPageState(page);
+    try {
+      lastState = await readSearchPageState(page);
+    } catch (error) {
+      // 页面导航（验证通过后跳转）会销毁执行上下文，这是正常的
+      if (/context was destroyed|navigation|frame was detached/i.test(String(error))) {
+        await page.waitForTimeout(2000);
+        try {
+          lastState = await readSearchPageState(page);
+        } catch {
+          // 页面仍在加载，继续等
+          continue;
+        }
+      } else {
+        throw error;
+      }
+    }
     if (lastState.page_type !== "captcha") {
       return { resolved: true, state: lastState };
     }
   }
 
-  console.warn(`[captcha] timed out while waiting for manual verification on ${label}`);
+  console.warn(`[验证码] ${label} 等待超时`);
   return { resolved: false, state: lastState };
 }
 

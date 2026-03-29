@@ -17,6 +17,7 @@ import {
 import { execFile } from "node:child_process";
 import { ensureDir, normalize, readJson, repairDeepMojibake, timestamp, writeJson } from "./shared-utils.js";
 import { collect1688ByApi, checkApiAvailability } from "./source-1688-api.js";
+import { collect1688ByMobile } from "./source-1688-mobile.js";
 
 // ── 系统通知 & 窗口管理 ──
 
@@ -1192,6 +1193,7 @@ async function collect1688Candidates(args, seeds) {
       const progress = `[${seedIndex + 1}/${seeds.length}]`;
       console.log(`${progress} 搜索: ${seed.keyword}`);
 
+      try {
       if (seedIndex > 0) {
         await waitWithHumanPacing(searchPage, SEARCH_PACING_BASE_MS, SEARCH_PACING_JITTER_MS);
       }
@@ -1261,6 +1263,11 @@ async function collect1688Candidates(args, seeds) {
 
       console.log(`[search] ${seed.keyword} -> kept ${cards.length} candidates after ranking.`);
       rawCards.push(...cards);
+      } catch (seedError) {
+        console.error(`${progress} "${seed.keyword}" 处理异常: ${seedError.message}`);
+        detailIssues.push(`search_error:${seed.keyword}:${seedError.message.slice(0, 80)}`);
+        captchaSkippedKeywords.push(seed.keyword);
+      }
     }
 
     const searchPool = buildSearchPool(rawCards, seeds)
@@ -1413,7 +1420,7 @@ async function main() {
 
   let collected;
   if (args.useApi) {
-    // API模式：纯HTTP调用，无浏览器，无反爬
+    // API模式（需要万邦/订单侠Key）
     const apiStatus = await checkApiAvailability();
     const available = Object.entries(apiStatus).find(([, v]) => v.hasKey);
     if (!available) {
@@ -1421,8 +1428,6 @@ async function main() {
       for (const [, v] of Object.entries(apiStatus)) {
         console.error(`  ${v.envVar} — ${v.name}`);
       }
-      console.error(`\n万邦注册: https://open.onebound.cn (免费试用)`);
-      console.error(`订单侠注册: https://www.dingdanxia.com (免费试用)`);
       process.exit(1);
     }
     console.log(`[1688-api] 使用 ${available[1].name} API`);
@@ -1434,7 +1439,15 @@ async function main() {
     });
   } else if (args.searchSnapshotFile) {
     collected = await collectFromSearchSnapshot(args.searchSnapshotFile);
+  } else if (args.headless) {
+    // 默认：移动端HTTP模式（无浏览器、无验证码）
+    collected = await collect1688ByMobile(seeds, {
+      perKeywordLimit: args.perKeywordLimit,
+      detailLimit: Math.max(args.detailLimit, args.limit),
+      pacingMs: 3000,
+    });
   } else {
+    // 有头浏览器模式（用于调试或需要完整JS渲染时）
     collected = await collect1688Candidates(args, seeds);
   }
 

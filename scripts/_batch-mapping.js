@@ -117,12 +117,28 @@ async function main() {
     const dims = estimateDims(wg, longMm);
     if (longMm <= 0) gaps.push("尺寸为估算值");
 
-    // Price
+    // Price — 跨境定价公式
+    // 成本 = 采购价 + 国际运费(按重量) + 包装
+    // 售价 = 成本 / (1 - Ozon佣金率) × 利润倍率
     const supply = prod.supply_price_cny || 0;
     const targetRub = prod.target_price_rub || 0;
-    let price = supply > 0 ? Math.ceil(supply * 2.5) : (targetRub > 0 ? Math.ceil(targetRub / 12.5) : 0);
-    if (price < 5) { price = Math.max(price, 10); gaps.push("价格偏低,已上调至" + price + "CNY"); }
-    const oldPrice = Math.ceil(price * 1.35);
+    const SHIPPING_PER_KG = 20;    // 国际运费 ¥20/kg（CEL陆运均价）
+    const PACKAGING_COST = 4;       // 包装成本 ¥4/件
+    const OZON_COMMISSION = 0.18;   // Ozon佣金 18%
+    const PROFIT_MULTIPLIER = 1.5;  // 利润倍率 1.5x（在扣除佣金后）
+    const MIN_PRICE_CNY = 30;       // 最低售价 ¥30 CNY（低于这个不划算）
+
+    const shippingCost = ((prod.est_weight_kg || 0.3) * SHIPPING_PER_KG);
+    const totalCost = supply + shippingCost + PACKAGING_COST;
+    // 售价 = 成本 × 利润倍率 / (1 - 佣金率)
+    let price = supply > 0
+      ? Math.ceil(totalCost * PROFIT_MULTIPLIER / (1 - OZON_COMMISSION))
+      : (targetRub > 0 ? Math.ceil(targetRub / 12.5) : 0);
+    if (price < MIN_PRICE_CNY) {
+      price = MIN_PRICE_CNY;
+      gaps.push("价格已上调至最低¥" + MIN_PRICE_CNY);
+    }
+    const oldPrice = Math.ceil(price * 1.3); // 划线价=售价×1.3
 
     // Russian title
     let titleRu = "";
