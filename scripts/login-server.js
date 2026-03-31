@@ -1647,10 +1647,24 @@ const HTML_PAGE = `<!DOCTYPE html>
         </div>
       </div>
 
-      <!-- pipeline hidden (referenced by JS) -->
-      <div style="display:none;">
-        <button id="pipeline-btn"></button>
-        <div id="log-panel"><div id="log-status"></div><div id="pipeline-log"></div></div>
+      <div class="sec">全自动处理</div>
+      <div class="tile" style="margin-bottom:16px;">
+        <div class="tile-head">
+          <div>
+            <div class="tile-label">选品 → 采集 → 评分 → 生成上架数据</div>
+            <div class="tile-sub">完整流程：AI选品后自动采集1688详情、评分筛选、生成Ozon上架包</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;">
+          <button class="launch" id="pipeline-btn" onclick="runPipeline()">一键全流程</button>
+        </div>
+        <div class="log-wrap" id="log-panel">
+          <div class="log-bar">
+            <span>处理日志</span>
+            <span id="log-status"></span>
+          </div>
+          <div class="log-out" id="pipeline-log"></div>
+        </div>
       </div>
 
       <div class="sec">一键上架</div>
