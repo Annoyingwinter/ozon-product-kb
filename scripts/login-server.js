@@ -75,8 +75,19 @@ async function ozonApi(endpoint, body, cfg) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
+    signal: AbortSignal.timeout(30000),
   });
-  return { status: r.status, ok: r.ok, data: await r.json() };
+  // 安全解析JSON（处理403 HTML/502等非JSON响应）
+  let data;
+  try {
+    data = await r.json();
+  } catch {
+    const text = await r.text().catch(() => "");
+    if (r.status === 403) data = { code: 7, message: "API Key已停用或无效，请重新生成" };
+    else if (r.status === 404) data = { code: 5, message: "API端点不存在: " + endpoint };
+    else data = { code: r.status, message: "Ozon API HTTP " + r.status + ": " + text.slice(0, 100) };
+  }
+  return { status: r.status, ok: r.ok, data };
 }
 
 async function ozonApiRaw(endpoint, body, cfg) {
@@ -2804,7 +2815,14 @@ function createServer(port) {
         try {
           used = JSON.parse(await fs.readFile(usedPath, "utf8"));
         } catch { /* file may not exist */ }
-        const total = 67;
+        // 从词库文件动态计算总数
+        let total = 0;
+        try {
+          const pool = JSON.parse(await fs.readFile(path.join(AI_ROOT, "knowledge-base", "keyword-pool.json"), "utf8"));
+          for (const cat of Object.values(pool.categories || {})) {
+            if (cat.enabled) total += (cat.keywords || []).length;
+          }
+        } catch { total = 0; }
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify({
           used: used.length,
