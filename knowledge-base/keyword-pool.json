@@ -1,0 +1,148 @@
+{
+  "_meta": {
+    "version": 2,
+    "description": "动态关键词池 — 支持手动添加和AI自动扩展",
+    "total_categories": 14,
+    "last_expanded_at": null
+  },
+  "categories": {
+    "auto": {
+      "label": "汽车用品",
+      "enabled": true,
+      "target_users": "Car owners",
+      "keywords": [
+        "车载缝隙收纳盒", "后备箱收纳网兜", "车载手机支架 出风口", "汽车遮阳挡 前挡",
+        "车载垃圾桶 折叠", "方向盘手机支架", "汽车后座挂钩", "车载香薰 出风口夹",
+        "汽车座椅背收纳袋", "车载纸巾盒", "汽车钥匙扣", "车载充电器支架"
+      ]
+    },
+    "pet": {
+      "label": "宠物用品",
+      "enabled": true,
+      "target_users": "Pet owners",
+      "keywords": [
+        "宠物粘毛器", "宠物饮水器 自动循环", "猫砂铲 漏砂", "宠物牵引绳 伸缩",
+        "猫抓板 瓦楞纸", "宠物慢食碗", "狗狗拾便袋", "宠物外出水壶",
+        "猫玩具 逗猫棒", "宠物梳毛手套", "狗狗雨衣", "宠物车载安全座椅"
+      ]
+    },
+    "kitchen": {
+      "label": "厨房用品",
+      "enabled": true,
+      "target_users": "Urban families",
+      "keywords": [
+        "冰箱收纳盒", "厨房调料架 旋转", "锅盖架 台面", "厨房水槽沥水篮",
+        "硅胶保鲜盖 万能", "厨房刀架 壁挂磁吸", "厨房垃圾袋挂架", "食品封口夹 密封",
+        "厨房计时器 磁吸", "硅胶锅垫 隔热", "不锈钢夹子 食品", "厨房置物架 多层"
+      ]
+    },
+    "home_storage": {
+      "label": "家居收纳",
+      "enabled": true,
+      "target_users": "Urban families",
+      "keywords": [
+        "抽屉分隔盒", "浴室收纳架 免打孔", "衣柜收纳分层隔板", "鞋柜收纳鞋架 双层",
+        "墙壁挂钩 免打孔", "衣物压缩袋 真空", "桌面收纳盒 化妆品", "门后挂钩 免钉",
+        "透明收纳箱 可叠放", "衣橱分格收纳", "首饰收纳盒 多层", "遥控器收纳架"
+      ]
+    },
+    "desk": {
+      "label": "办公桌面",
+      "enabled": true,
+      "target_users": "Office workers",
+      "keywords": [
+        "桌面理线器", "显示器增高架", "笔记本电脑支架 折叠", "桌面文件收纳架",
+        "手机支架 桌面 可调节", "鼠标垫 超大", "桌面小台灯 护眼", "笔筒 创意"
+      ]
+    },
+    "travel": {
+      "label": "旅行户外",
+      "enabled": true,
+      "target_users": "Travelers",
+      "keywords": [
+        "旅行鞋袋 收纳", "旅行分装瓶 套装", "行李箱收纳袋 压缩", "折叠水杯 硅胶",
+        "便携式衣架 折叠", "旅行收纳包 数码", "护照包 多功能", "行李牌 创意"
+      ]
+    },
+    "cleaning": {
+      "label": "清洁工具",
+      "enabled": true,
+      "target_users": "Homeowners",
+      "keywords": [
+        "窗户清洁刮水器", "缝隙清洁刷", "马桶刷 硅胶 壁挂", "拖把挤水桶 旋转",
+        "除霉啫喱 防霉", "地漏过滤器 硅胶", "纱窗清洁刷", "鞋刷 多功能"
+      ]
+    },
+    "gadgets": {
+      "label": "生活小工具",
+      "enabled": true,
+      "target_users": "Everyone",
+      "keywords": [
+        "迷你封口机 便携", "自动感应垃圾桶", "LED灯带 遥控", "USB小风扇 桌面",
+        "懒人手机支架 床头", "电动指甲刀 婴儿", "自动搅拌杯 磁力",
+        "温湿度计 电子", "夜灯 人体感应", "开瓶器 创意"
+      ]
+    },
+    "baby": {
+      "label": "母婴用品",
+      "enabled": true,
+      "target_users": "New parents",
+      "keywords": [
+        "婴儿防撞角 硅胶", "儿童餐盘 硅胶吸盘", "婴儿指甲剪套装", "奶瓶沥水架",
+        "婴儿安全锁 柜门", "儿童牙刷 U型", "防走失手环", "婴儿围嘴 硅胶"
+      ]
+    },
+    "fitness": {
+      "label": "运动健身",
+      "enabled": true,
+      "target_users": "Fitness enthusiasts",
+      "keywords": [
+        "瑜伽垫 加厚防滑", "筋膜球 按摩", "跳绳 计数", "握力器 可调节",
+        "运动腰包 跑步", "弹力带 健身", "运动水壶 大容量", "护膝 运动"
+      ]
+    },
+    "stationery": {
+      "label": "文具手工",
+      "enabled": true,
+      "target_users": "Students/crafters",
+      "keywords": [
+        "彩色胶带 和纸胶带", "自粘便签纸 创意", "手账贴纸 套装",
+        "荧光笔 套装", "文件袋 拉链", "尺子 多功能"
+      ]
+    },
+    "clothing": {
+      "label": "服装鞋帽",
+      "enabled": true,
+      "target_users": "Fashion consumers",
+      "keywords": [
+        "男士T恤 纯棉 圆领", "女士打底裤 加绒", "运动袜 男 中筒",
+        "棒球帽 刺绣", "围巾 仿羊绒", "手套 触屏 保暖",
+        "男士内裤 莫代尔", "女士内衣 无钢圈", "儿童连体衣",
+        "男士休闲裤 弹力", "女士瑜伽裤", "拖鞋 家居 防滑",
+        "雪地靴 女", "帆布鞋 男", "运动鞋 轻便 透气",
+        "腰带 男士 自动扣", "领带 商务", "丝巾 女士"
+      ]
+    },
+    "accessories": {
+      "label": "配饰箱包",
+      "enabled": true,
+      "target_users": "Fashion consumers",
+      "keywords": [
+        "手表 石英 简约", "太阳镜 偏光", "手链 钛钢",
+        "耳环 长款 流苏", "项链 锁骨链", "发夹 珍珠",
+        "双肩包 大容量", "斜挎包 男 休闲", "化妆包 便携",
+        "钱包 男 短款", "卡包 多卡位", "腰包 运动"
+      ]
+    },
+    "electronics_light": {
+      "label": "轻电子",
+      "enabled": true,
+      "target_users": "Tech consumers",
+      "keywords": [
+        "蓝牙耳机 入耳式", "数据线 快充 三合一", "充电宝 迷你",
+        "手机壳 硅胶 防摔", "屏幕保护膜 钢化", "USB集线器",
+        "无线鼠标 静音", "键盘 机械 迷你", "摄像头遮挡贴"
+      ]
+    }
+  }
+}

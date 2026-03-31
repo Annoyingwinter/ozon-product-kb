@@ -92,100 +92,31 @@ const PLATFORM_DEFAULTS = {
   },
 };
 
-// ── 大词库：按品类分组，每次运行随机抽取，避免重复 ──
-const KEYWORD_POOL = [
-  // 汽车用品
-  { keyword: "车载缝隙收纳盒", category: "Auto Accessories", target_users: "Car owners", why: "Small, visual, high utility." },
-  { keyword: "后备箱收纳网兜", category: "Auto Storage", target_users: "Car owners", why: "Low breakage, broad vehicle fit." },
-  { keyword: "车载手机支架 出风口", category: "Auto Accessories", target_users: "Car owners", why: "High repeat demand, universal fit." },
-  { keyword: "汽车遮阳挡 前挡", category: "Auto Accessories", target_users: "Car owners", why: "Seasonal demand, lightweight." },
-  { keyword: "车载垃圾桶 折叠", category: "Auto Accessories", target_users: "Car owners", why: "Impulse buy, easy to ship." },
-  { keyword: "方向盘手机支架", category: "Auto Accessories", target_users: "Car owners", why: "Novel design, easy demo." },
-  { keyword: "汽车后座挂钩", category: "Auto Accessories", target_users: "Car owners", why: "Tiny, cheap, high margin." },
-  { keyword: "车载香薰 出风口夹", category: "Auto Accessories", target_users: "Car owners", why: "Repeat consumable, visual appeal." },
-
-  // 宠物用品
-  { keyword: "宠物粘毛器", category: "Pet Cleaning", target_users: "Pet owners", why: "Strong pain point, repeat demand." },
-  { keyword: "宠物饮水器 自动循环", category: "Pet Supplies", target_users: "Pet owners", why: "Trending, high AOV." },
-  { keyword: "猫砂铲 漏砂", category: "Pet Supplies", target_users: "Cat owners", why: "Daily necessity, lightweight." },
-  { keyword: "宠物牵引绳 伸缩", category: "Pet Supplies", target_users: "Dog owners", why: "Universal demand, many variants." },
-  { keyword: "猫抓板 瓦楞纸", category: "Pet Supplies", target_users: "Cat owners", why: "Consumable, repeat purchase." },
-  { keyword: "宠物慢食碗", category: "Pet Supplies", target_users: "Pet owners", why: "Trending, visual selling point." },
-  { keyword: "狗狗拾便袋", category: "Pet Supplies", target_users: "Dog owners", why: "Consumable, multi-pack upsell." },
-  { keyword: "宠物外出水壶", category: "Pet Supplies", target_users: "Dog owners", why: "Portable, good for bundles." },
-
-  // 厨房收纳
-  { keyword: "冰箱收纳盒", category: "Kitchen Storage", target_users: "Urban families", why: "Standardized, visual improvement." },
-  { keyword: "厨房调料架 旋转", category: "Kitchen Storage", target_users: "Urban families", why: "Space-saving, good visuals." },
-  { keyword: "锅盖架 台面", category: "Kitchen Organizer", target_users: "Urban families", why: "Solves common pain point." },
-  { keyword: "厨房水槽沥水篮", category: "Kitchen Accessories", target_users: "Urban families", why: "Universal fit, low return." },
-  { keyword: "硅胶保鲜盖 万能", category: "Kitchen Accessories", target_users: "Urban families", why: "Consumable, multi-size pack." },
-  { keyword: "厨房刀架 壁挂磁吸", category: "Kitchen Organizer", target_users: "Urban families", why: "Premium feel, compact." },
-  { keyword: "厨房垃圾袋挂架", category: "Kitchen Accessories", target_users: "Urban families", why: "Tiny, impulse buy." },
-  { keyword: "食品封口夹 密封", category: "Kitchen Accessories", target_users: "Urban families", why: "Multi-pack, daily use." },
-
-  // 家居收纳
-  { keyword: "抽屉分隔盒", category: "Home Storage", target_users: "Urban families", why: "Lightweight, modular." },
-  { keyword: "浴室收纳架 免打孔", category: "Bathroom Storage", target_users: "Renters", why: "Visual before/after demo." },
-  { keyword: "衣柜收纳分层隔板", category: "Home Storage", target_users: "Urban families", why: "Easy install, space doubling." },
-  { keyword: "鞋柜收纳鞋架 双层", category: "Home Storage", target_users: "Urban families", why: "Space saving, universal." },
-  { keyword: "墙壁挂钩 免打孔", category: "Home Storage", target_users: "Renters", why: "Tiny, high margin." },
-  { keyword: "衣物压缩袋 真空", category: "Home Storage", target_users: "Urban families", why: "Seasonal demand, multi-pack." },
-  { keyword: "桌面收纳盒 化妆品", category: "Home Storage", target_users: "Women", why: "Gift potential, visual appeal." },
-  { keyword: "门后挂钩 免钉", category: "Home Storage", target_users: "Renters", why: "Universal, impulse purchase." },
-
-  // 办公/桌面
-  { keyword: "桌面理线器", category: "Desk Organizer", target_users: "Office workers", why: "Impulse buy, easy to localize." },
-  { keyword: "显示器增高架", category: "Desk Organizer", target_users: "Office workers", why: "Ergonomic trend, good margin." },
-  { keyword: "笔记本电脑支架 折叠", category: "Desk Accessories", target_users: "Remote workers", why: "Trending, aluminum premium." },
-  { keyword: "桌面文件收纳架", category: "Desk Organizer", target_users: "Office workers", why: "Standardized, easy to ship." },
-  { keyword: "手机支架 桌面 可调节", category: "Desk Accessories", target_users: "Everyone", why: "Universal demand, many colors." },
-
-  // 旅行/户外
-  { keyword: "旅行鞋袋 收纳", category: "Travel Organizer", target_users: "Travelers", why: "Low return risk, multi-pack." },
-  { keyword: "旅行分装瓶 套装", category: "Travel Accessories", target_users: "Travelers", why: "Consumable, TSA-friendly." },
-  { keyword: "行李箱收纳袋 压缩", category: "Travel Organizer", target_users: "Travelers", why: "Seasonal + year-round." },
-  { keyword: "折叠水杯 硅胶", category: "Travel Accessories", target_users: "Outdoor enthusiasts", why: "Compact, novelty factor." },
-  { keyword: "便携式衣架 折叠", category: "Travel Accessories", target_users: "Business travelers", why: "Niche but loyal demand." },
-  { keyword: "旅行收纳包 数码", category: "Travel Organizer", target_users: "Tech travelers", why: "Cable mess pain point." },
-
-  // 清洁工具
-  { keyword: "窗户清洁刮水器", category: "Cleaning Tools", target_users: "Homeowners", why: "Seasonal, good before/after demo." },
-  { keyword: "缝隙清洁刷", category: "Cleaning Tools", target_users: "Homeowners", why: "Solves visible pain point." },
-  { keyword: "马桶刷 硅胶 壁挂", category: "Cleaning Tools", target_users: "Homeowners", why: "Upgrade from traditional brush." },
-  { keyword: "拖把挤水桶 旋转", category: "Cleaning Tools", target_users: "Homeowners", why: "High AOV, repeat purchase." },
-  { keyword: "除霉啫喱 防霉", category: "Cleaning Supplies", target_users: "Homeowners", why: "Consumable, strong visual." },
-
-  // 生活小工具
-  { keyword: "迷你封口机 便携", category: "Gadgets", target_users: "Everyone", why: "Novelty, low price impulse buy." },
-  { keyword: "自动感应垃圾桶", category: "Home Gadgets", target_users: "Urban families", why: "Smart home trend, good margin." },
-  { keyword: "LED灯带 遥控", category: "Home Decor", target_users: "Young adults", why: "Trending, many variations." },
-  { keyword: "USB小风扇 桌面", category: "Gadgets", target_users: "Office workers", why: "Seasonal, lightweight." },
-  { keyword: "懒人手机支架 床头", category: "Gadgets", target_users: "Young adults", why: "Relatable pain point." },
-  { keyword: "电动指甲刀 婴儿", category: "Baby Care", target_users: "New parents", why: "Safety concern drives purchase." },
-  { keyword: "自动搅拌杯 磁力", category: "Gadgets", target_users: "Office workers", why: "Novelty gift potential." },
-
-  // 婴幼儿/母婴
-  { keyword: "婴儿防撞角 硅胶", category: "Baby Safety", target_users: "New parents", why: "Safety concern, multi-pack." },
-  { keyword: "儿童餐盘 硅胶吸盘", category: "Baby Feeding", target_users: "Parents", why: "Repeat purchase, colorful." },
-  { keyword: "婴儿指甲剪套装", category: "Baby Care", target_users: "New parents", why: "Gift set potential." },
-  { keyword: "奶瓶沥水架", category: "Baby Care", target_users: "New parents", why: "Standardized, low risk." },
-
-  // 运动健身
-  { keyword: "瑜伽垫 加厚防滑", category: "Fitness", target_users: "Fitness enthusiasts", why: "Trending, stable demand." },
-  { keyword: "筋膜球 按摩", category: "Fitness", target_users: "Fitness enthusiasts", why: "Small, lightweight, high margin." },
-  { keyword: "跳绳 计数", category: "Fitness", target_users: "Fitness enthusiasts", why: "Low price, high volume." },
-  { keyword: "握力器 可调节", category: "Fitness", target_users: "Fitness enthusiasts", why: "Compact, many variants." },
-  { keyword: "运动腰包 跑步", category: "Fitness", target_users: "Runners", why: "Universal fit, lightweight." },
-
-  // 文具/手工
-  { keyword: "彩色胶带 和纸胶带", category: "Stationery", target_users: "Students/crafters", why: "Collectible, multi-pack upsell." },
-  { keyword: "自粘便签纸 创意", category: "Stationery", target_users: "Office workers", why: "Low cost, repeat purchase." },
-  { keyword: "手账贴纸 套装", category: "Stationery", target_users: "Young women", why: "Collectible trend." },
-];
-
-// 已用关键词追踪文件（持久化，避免跨次运行重复）
+// ── 动态词库：从JSON文件加载，支持LLM扩展 ──
+const KEYWORD_POOL_PATH = path.resolve("knowledge-base", "keyword-pool.json");
 const USED_KEYWORDS_PATH = path.resolve("knowledge-base", ".used-keywords.json");
+
+async function loadKeywordPool() {
+  try {
+    const pool = JSON.parse(await fs.readFile(KEYWORD_POOL_PATH, "utf8"));
+    const seeds = [];
+    for (const [catKey, cat] of Object.entries(pool.categories || {})) {
+      if (!cat.enabled) continue;
+      for (const keyword of (cat.keywords || [])) {
+        seeds.push({
+          keyword,
+          category: cat.label || catKey,
+          target_users: cat.target_users || "",
+          why: "",
+        });
+      }
+    }
+    return { seeds, pool };
+  } catch (err) {
+    console.warn("[seeds] 词库文件加载失败:", err.message);
+    return { seeds: [], pool: null };
+  }
+}
 
 async function loadUsedKeywords() {
   try {
@@ -199,26 +130,40 @@ async function saveUsedKeywords(used) {
   await fs.writeFile(USED_KEYWORDS_PATH, JSON.stringify([...used], null, 2), "utf8");
 }
 
-/** 从大词库中随机抽取未用过的关键词 */
-async function pickFreshSeeds(count) {
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/** 从词库中随机抽取未用过的关键词，品类均匀分布 */
+async function pickFreshSeeds(count, categoryFilter = "") {
+  const { seeds: allSeeds, pool } = await loadKeywordPool();
   const used = await loadUsedKeywords();
-  const available = KEYWORD_POOL.filter((s) => !used.has(s.keyword));
+
+  // 按品类过滤
+  let candidates = categoryFilter
+    ? allSeeds.filter(s => s.category.includes(categoryFilter))
+    : allSeeds;
+
+  let available = candidates.filter(s => !used.has(s.keyword));
+  const totalInPool = candidates.length;
 
   if (available.length === 0) {
-    // 所有关键词都用过了，清空重来但打乱顺序
-    console.log(`[seeds] 所有 ${KEYWORD_POOL.length} 个关键词都已使用过，重置词库重新开始。`);
+    console.log(`[seeds] 所有 ${totalInPool} 个关键词都已使用过，重置词库。`);
     await saveUsedKeywords(new Set());
-    return shuffleArray(KEYWORD_POOL).slice(0, count);
+    available = candidates;
   }
 
-  // 从不同品类中均匀抽取
+  // 品类均匀抽取
   const byCategory = new Map();
   for (const s of available) {
     const cat = s.category;
     if (!byCategory.has(cat)) byCategory.set(cat, []);
     byCategory.get(cat).push(s);
   }
-  // 每个品类打乱
   for (const arr of byCategory.values()) shuffleArray(arr);
 
   const picked = [];
@@ -226,28 +171,26 @@ async function pickFreshSeeds(count) {
   let catIndex = 0;
   while (picked.length < count && picked.length < available.length) {
     const cat = categories[catIndex % categories.length];
-    const pool = byCategory.get(cat);
-    if (pool && pool.length > 0) {
-      picked.push(pool.shift());
+    const catPool = byCategory.get(cat);
+    if (catPool && catPool.length > 0) {
+      picked.push(catPool.shift());
     }
     catIndex += 1;
-    // 如果所有品类都空了就停
-    if ([...byCategory.values()].every((arr) => arr.length === 0)) break;
+    if ([...byCategory.values()].every(arr => arr.length === 0)) break;
   }
 
-  // 记录已使用
   for (const s of picked) used.add(s.keyword);
   await saveUsedKeywords(used);
-  console.log(`[seeds] 从词库抽取 ${picked.length} 个新关键词 (剩余 ${available.length - picked.length}/${KEYWORD_POOL.length})`);
-  return picked;
-}
 
-function shuffleArray(arr) {
-  for (let i = arr.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+  const enabledCats = pool ? Object.values(pool.categories).filter(c => c.enabled).length : 0;
+  console.log(`[seeds] 词库: ${totalInPool}个关键词, ${enabledCats}个品类`);
+  console.log(`[seeds] 抽取 ${picked.length} 个 (剩余 ${available.length - picked.length}/${totalInPool})`);
+  if (picked.length > 0) {
+    const catSummary = {};
+    for (const s of picked) catSummary[s.category] = (catSummary[s.category] || 0) + 1;
+    console.log(`[seeds] 品类分布: ${Object.entries(catSummary).map(([k,v]) => k + '×' + v).join(', ')}`);
   }
-  return arr;
+  return picked;
 }
 
 // ── 去重：加载已调研产品名称用于比对 ──
@@ -628,8 +571,9 @@ async function loadSeeds(args) {
     );
   }
 
-  // 没有指定seed文件或关键词时，从大词库动态抽取
-  const fresh = await pickFreshSeeds(args.maxKeywords);
+  // 没有指定seed文件或关键词时，从词库动态抽取
+  const categoryFilter = args.category || "";
+  const fresh = await pickFreshSeeds(args.maxKeywords, categoryFilter);
   return repairDeepMojibake(fresh);
 }
 
