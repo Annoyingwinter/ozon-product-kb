@@ -93,8 +93,15 @@ const PLATFORM_DEFAULTS = {
 };
 
 // ── 动态词库：从JSON文件加载，支持LLM扩展 ──
+// ── 智能词库 v3：评分+淘汰+上限 ──
 const KEYWORD_POOL_PATH = path.resolve("knowledge-base", "keyword-pool.json");
 const USED_KEYWORDS_PATH = path.resolve("knowledge-base", ".used-keywords.json");
+const MAX_PER_CATEGORY = 30;
+const SCORE_MIN = 10;       // 低于此分淘汰
+const SCORE_HIT = 15;       // 搜到商品加分
+const SCORE_MISS = -10;     // 搜不到扣分
+const SCORE_SALE = 25;      // 产品有销量大幅加分
+const SCORE_INIT = 50;      // 新词初始分
 
 async function loadKeywordPool() {
   try {
@@ -102,28 +109,47 @@ async function loadKeywordPool() {
     const seeds = [];
     for (const [catKey, cat] of Object.entries(pool.categories || {})) {
       if (!cat.enabled) continue;
-      for (const keyword of (cat.keywords || [])) {
-        seeds.push({
-          keyword,
-          category: cat.label || catKey,
-          target_users: cat.target_users || "",
-          why: "",
-        });
+      for (const kw of (cat.keywords || [])) {
+        const text = typeof kw === "string" ? kw : kw.text;
+        const score = typeof kw === "object" ? (kw.score || SCORE_INIT) : SCORE_INIT;
+        if (score < SCORE_MIN) continue; // 淘汰低分词
+        seeds.push({ keyword: text, category: cat.label || catKey, target_users: cat.target_users || "", why: "", _score: score });
       }
     }
     return { seeds, pool };
   } catch (err) {
-    console.warn("[seeds] 词库文件加载失败:", err.message);
+    console.warn("[seeds] 词库加载失败:", err.message);
     return { seeds: [], pool: null };
   }
 }
 
-async function loadUsedKeywords() {
+async function savePool(pool) {
+  await fs.writeFile(KEYWORD_POOL_PATH, JSON.stringify(pool, null, 2), "utf8");
+}
+
+/** 选品后反馈：更新关键词评分 */
+export async function feedbackKeyword(keyword, result) {
   try {
-    return new Set(JSON.parse(await fs.readFile(USED_KEYWORDS_PATH, "utf8")));
-  } catch {
-    return new Set();
-  }
+    const pool = JSON.parse(await fs.readFile(KEYWORD_POOL_PATH, "utf8"));
+    for (const cat of Object.values(pool.categories)) {
+      for (const kw of (cat.keywords || [])) {
+        const text = typeof kw === "string" ? kw : kw.text;
+        if (text !== keyword) continue;
+        if (typeof kw === "object") {
+          if (result === "hit") { kw.score = Math.min(100, (kw.score || 50) + SCORE_HIT); kw.hits = (kw.hits || 0) + 1; }
+          else if (result === "miss") { kw.score = Math.max(0, (kw.score || 50) + SCORE_MISS); kw.misses = (kw.misses || 0) + 1; }
+          else if (result === "sale") { kw.score = Math.min(100, (kw.score || 50) + SCORE_SALE); }
+          kw.last_used = new Date().toISOString();
+        }
+      }
+    }
+    await savePool(pool);
+  } catch {}
+}
+
+async function loadUsedKeywords() {
+  try { return new Set(JSON.parse(await fs.readFile(USED_KEYWORDS_PATH, "utf8"))); }
+  catch { return new Set(); }
 }
 
 async function saveUsedKeywords(used) {
@@ -138,12 +164,11 @@ function shuffleArray(arr) {
   return arr;
 }
 
-/** 从词库中随机抽取未用过的关键词，品类均匀分布 */
+/** 智能抽取：高分词优先，品类均匀，已用的跳过 */
 async function pickFreshSeeds(count, categoryFilter = "") {
   const { seeds: allSeeds, pool } = await loadKeywordPool();
   const used = await loadUsedKeywords();
 
-  // 按品类过滤
   let candidates = categoryFilter
     ? allSeeds.filter(s => s.category.includes(categoryFilter))
     : allSeeds;
@@ -152,43 +177,45 @@ async function pickFreshSeeds(count, categoryFilter = "") {
   const totalInPool = candidates.length;
 
   if (available.length === 0) {
-    console.log(`[seeds] 所有 ${totalInPool} 个关键词都已使用过，重置词库。`);
+    // 重置已用列表，但保留评分（低分词不会回来因为loadKeywordPool已过滤）
+    console.log(`[seeds] 所有 ${totalInPool} 个关键词已使用，重置轮次。`);
     await saveUsedKeywords(new Set());
     available = candidates;
   }
 
-  // 品类均匀抽取
+  // 按品类分组，每品类内按分数降序
   const byCategory = new Map();
   for (const s of available) {
-    const cat = s.category;
-    if (!byCategory.has(cat)) byCategory.set(cat, []);
-    byCategory.get(cat).push(s);
+    if (!byCategory.has(s.category)) byCategory.set(s.category, []);
+    byCategory.get(s.category).push(s);
   }
-  for (const arr of byCategory.values()) shuffleArray(arr);
+  // 品类内：高分在前，同分随机
+  for (const arr of byCategory.values()) {
+    arr.sort((a, b) => (b._score || 50) - (a._score || 50) + (Math.random() - 0.5) * 10);
+  }
 
+  // 轮流从每品类取（均匀分布）
   const picked = [];
   const categories = shuffleArray([...byCategory.keys()]);
   let catIndex = 0;
   while (picked.length < count && picked.length < available.length) {
     const cat = categories[catIndex % categories.length];
     const catPool = byCategory.get(cat);
-    if (catPool && catPool.length > 0) {
-      picked.push(catPool.shift());
-    }
-    catIndex += 1;
-    if ([...byCategory.values()].every(arr => arr.length === 0)) break;
+    if (catPool?.length > 0) picked.push(catPool.shift());
+    catIndex++;
+    if ([...byCategory.values()].every(a => a.length === 0)) break;
   }
 
   for (const s of picked) used.add(s.keyword);
   await saveUsedKeywords(used);
 
   const enabledCats = pool ? Object.values(pool.categories).filter(c => c.enabled).length : 0;
-  console.log(`[seeds] 词库: ${totalInPool}个关键词, ${enabledCats}个品类`);
-  console.log(`[seeds] 抽取 ${picked.length} 个 (剩余 ${available.length - picked.length}/${totalInPool})`);
+  const avgScore = picked.length ? Math.round(picked.reduce((s, p) => s + (p._score || 50), 0) / picked.length) : 0;
+  console.log(`[seeds] 词库: ${totalInPool}词 ${enabledCats}品类 | 抽取${picked.length}个 (平均分${avgScore}) | 剩余${available.length - picked.length}`);
   if (picked.length > 0) {
     const catSummary = {};
     for (const s of picked) catSummary[s.category] = (catSummary[s.category] || 0) + 1;
-    console.log(`[seeds] 品类分布: ${Object.entries(catSummary).map(([k,v]) => k + '×' + v).join(', ')}`);
+    console.log(`[seeds] 分布: ${Object.entries(catSummary).map(([k,v]) => k + '×' + v).join(', ')}`);
   }
   return picked;
 }
@@ -1207,10 +1234,17 @@ async function collect1688Candidates(args, seeds) {
 
       console.log(`[search] ${seed.keyword} -> kept ${cards.length} candidates after ranking.`);
       rawCards.push(...cards);
+      // 词库反馈：搜到商品加分，没搜到扣分
+      if (cards.length > 0) {
+        feedbackKeyword(seed.keyword, "hit").catch(() => {});
+      } else {
+        feedbackKeyword(seed.keyword, "miss").catch(() => {});
+      }
       } catch (seedError) {
         console.error(`${progress} "${seed.keyword}" 处理异常: ${seedError.message}`);
         detailIssues.push(`search_error:${seed.keyword}:${seedError.message.slice(0, 80)}`);
         captchaSkippedKeywords.push(seed.keyword);
+        feedbackKeyword(seed.keyword, "miss").catch(() => {});
       }
     }
 

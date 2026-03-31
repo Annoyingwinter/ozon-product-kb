@@ -2,7 +2,7 @@
  * LLM 调用封装
  * 优先级: Claude CLI (零成本) > DeepSeek > 通义千问 > Claude API
  */
-import { execFileSync } from "node:child_process";
+import { execFileSync, execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
@@ -58,20 +58,20 @@ function callClaudeCli(prompt, opts = {}) {
   fs.writeFileSync(tmpFile, fullPrompt, "utf8");
 
   try {
-    // 尝试 claude CLI
-    const result = execFileSync("claude", [
-      "-p", fullPrompt,
-      "--output-format", "text",
-    ], {
+    // 用shell管道传prompt（避免Windows的execFileSync参数限制）
+    const escapedPath = tmpFile.replace(/\//g, "\\");
+    const cmd = process.platform === "win32"
+      ? `type "${escapedPath}" | claude -p - --output-format text`
+      : `cat "${tmpFile}" | claude -p - --output-format text`;
+    const result = execSync(cmd, {
       encoding: "utf8",
       timeout: 120_000,
       maxBuffer: 10 * 1024 * 1024,
       windowsHide: true,
-      stdio: ["pipe", "pipe", "pipe"],
+      shell: true,
     });
     return result.trim();
   } catch (err) {
-    // claude CLI 不可用，抛出让上层 fallback
     throw new Error(`Claude CLI 不可用: ${err.message?.slice(0, 100)}`);
   } finally {
     try { fs.unlinkSync(tmpFile); } catch {}
@@ -80,7 +80,8 @@ function callClaudeCli(prompt, opts = {}) {
 
 function isClaudeCliAvailable() {
   try {
-    execFileSync("claude", ["--version"], {
+    const claudeBin = process.platform === "win32" ? "claude.cmd" : "claude";
+    execFileSync(claudeBin, ["--version"], {
       encoding: "utf8", timeout: 5000, windowsHide: true, stdio: ["pipe", "pipe", "pipe"],
     });
     return true;
@@ -135,7 +136,7 @@ export async function llmChat(prompt, opts = {}) {
  */
 export async function llmJson(prompt, opts = {}) {
   const text = await llmChat(prompt, opts);
-  const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/) || text.match(/(\{[\s\S]*\})/);
+  const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/) || text.match(/(\{[\s\S]*\})/) || text.match(/(\[[\s\S]*\])/);
   if (!jsonMatch) throw new Error(`LLM 返回中未找到 JSON:\n${text.slice(0, 300)}`);
   return JSON.parse(jsonMatch[1]);
 }
