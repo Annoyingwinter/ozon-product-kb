@@ -1618,6 +1618,27 @@ const HTML_PAGE = `<!DOCTYPE html>
 
       <div style="height:28px;"></div>
 
+      <div class="sec">链接导入</div>
+      <div class="tile" style="margin-bottom:16px;">
+        <div class="tile-head">
+          <div>
+            <div class="tile-label">粘贴链接，自动上架</div>
+            <div class="tile-sub">支持 1688 / 拼多多 / 淘宝 / 义乌购 / 速卖通 — 抓不到自动搜平替</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:12px;">
+          <input class="cfg-input" id="import-url" type="text" placeholder="粘贴商品链接 (任意平台)" style="flex:1;" onkeydown="if(event.key==='Enter')runSmartImport()">
+          <button class="act act-go" onclick="runSmartImport()">导入</button>
+        </div>
+        <div class="log-wrap" id="import-log-panel">
+          <div class="log-bar">
+            <span>导入日志</span>
+            <span id="import-log-status"></span>
+          </div>
+          <div class="log-out" id="import-log"></div>
+        </div>
+      </div>
+
       <div class="sec">管道</div>
       <button class="launch" id="pipeline-btn" onclick="runPipeline()">启动采集管道</button>
       <div class="log-wrap" id="log-panel">
@@ -2578,6 +2599,42 @@ const HTML_PAGE = `<!DOCTYPE html>
       setTimeout(checkErrors, 2000);
     }
 
+    /* === Smart Link Import === */
+    async function runSmartImport() {
+      const urlInput = document.getElementById('import-url');
+      const url = urlInput.value.trim();
+      if (!url) { alert('请粘贴商品链接'); return; }
+
+      const panel = document.getElementById('import-log-panel');
+      const logEl = document.getElementById('import-log');
+      const statusEl = document.getElementById('import-log-status');
+      panel.classList.add('open');
+      logEl.textContent = '';
+      statusEl.textContent = 'running';
+
+      try {
+        const res = await fetch('/api/smart-import', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url }),
+        });
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          logEl.textContent += decoder.decode(value);
+          logEl.scrollTop = logEl.scrollHeight;
+        }
+        statusEl.textContent = 'done';
+        urlInput.value = '';
+        refreshStats();
+      } catch (err) {
+        logEl.textContent += '\\n错误: ' + err.message;
+        statusEl.textContent = 'error';
+      }
+    }
+
     /* === Init === */
     refresh();
     refreshStats();
@@ -2739,6 +2796,34 @@ function createServer(port) {
         res.writeHead(500, { "Content-Type": "application/json" });
         res.end(JSON.stringify({ error: err.message }));
       }
+      return;
+    }
+
+    // ─── API: 智能链接导入 (streaming) ───
+    if (url.pathname === "/api/smart-import" && req.method === "POST") {
+      const body = await readBody(req);
+      const targetUrl = body.url;
+      if (!targetUrl) {
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "缺少url参数" }));
+        return;
+      }
+      res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8", "Transfer-Encoding": "chunked" });
+      try {
+        const { smartImport } = await import("./smart-link-import.js");
+        const result = await smartImport(targetUrl, (msg) => {
+          res.write(msg + "\n");
+        });
+        if (result.success) {
+          res.write(`\n✅ 导入完成: ${result.title?.slice(0, 40)} [${result.source}]\n`);
+          res.write(`   slug: ${result.slug}\n`);
+        } else {
+          res.write(`\n❌ 导入失败: ${result.reason}\n`);
+        }
+      } catch (err) {
+        res.write(`\n错误: ${err.message}\n`);
+      }
+      res.end();
       return;
     }
 
