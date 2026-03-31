@@ -1263,9 +1263,46 @@ async function collect1688Candidates(args, seeds) {
       }))
       .sort((left, right) => right.searchScore - left.searchScore);
 
-    const shortlisted = searchPool.slice(0, Math.max(args.detailLimit, args.limit));
+    // ── 品类均匀选取：每个关键词至少保底1个，剩余按分数填 ──
+    const targetCount = Math.max(args.detailLimit, args.limit);
+    const byKeyword = new Map();
+    for (const c of searchPool) {
+      const kw = (c.keywords || [])[0] || "unknown";
+      if (!byKeyword.has(kw)) byKeyword.set(kw, []);
+      byKeyword.get(kw).push(c);
+    }
+    // 每关键词内按分数降序
+    for (const arr of byKeyword.values()) arr.sort((a, b) => (b.searchScore || 0) - (a.searchScore || 0));
+
+    const shortlisted = [];
+    const used = new Set();
+    // Round 1: 每关键词取最高分的1个（保底）
+    for (const [kw, candidates] of byKeyword) {
+      if (candidates.length > 0 && shortlisted.length < targetCount) {
+        const pick = candidates[0];
+        shortlisted.push(pick);
+        used.add(pick.offerUrl || pick.offerId);
+      }
+    }
+    // Round 2: 剩余名额按全局分数填（不重复）
+    for (const c of searchPool) {
+      if (shortlisted.length >= targetCount) break;
+      const key = c.offerUrl || c.offerId;
+      if (used.has(key)) continue;
+      // 同品类已有的不超过2个
+      const kwCount = shortlisted.filter(s => (s.keywords || [])[0] === (c.keywords || [])[0]).length;
+      if (kwCount >= 2) continue;
+      shortlisted.push(c);
+      used.add(key);
+    }
+
+    // 统计品类分布
+    const kwDist = {};
+    for (const s of shortlisted) { const kw = (s.keywords || [])[0] || "?"; kwDist[kw] = (kwDist[kw] || 0) + 1; }
+    console.log(`[detail] 品类分布: ${Object.entries(kwDist).map(([k,v]) => k.slice(0,6) + "×" + v).join(" ")}`);
+
     console.log(
-      `[detail] Preparing ${shortlisted.length} shortlisted offers from ${rawCards.length} ranked search cards.`,
+      `[detail] Preparing ${shortlisted.length} shortlisted offers from ${searchPool.length} ranked search cards.`,
     );
     const offers = [];
 
