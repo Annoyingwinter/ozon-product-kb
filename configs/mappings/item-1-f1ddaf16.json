@@ -1,0 +1,68 @@
+{
+  "slug": "item-1-f1ddaf16",
+  "enabled": true,
+  "offer_id": "KPQ-09",
+  "title_override": "Набор магнитов на холодильник с достопримечательностями России",
+  "description_override": "<ul><li>Декоративный набор магнитов на холодильник с мотивами достопримечательностей России.</li><li>Подходит для подарка, сувенирной выкладки и сезонных продаж.</li><li>Материал: цинковый сплав.</li><li>Компактный формат для кроссбордера: вес около 220 г, длинная сторона упаковки 16 см.</li></ul>",
+  "price_override": 121,
+  "old_price_override": 139,
+  "price_override_rub": 1390.0,
+  "old_price_override_rub": 1598.5,
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "weight_override_g": 220,
+  "depth_override_mm": 160,
+  "width_override_mm": 120,
+  "height_override_mm": 30,
+  "barcode_override": "",
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01qiUz2Q1FEti9ORP00_!!2219574660456-0-cib.jpg_.webp",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01qiUz2Q1FEti9ORP00_!!2219574660456-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Yu4cSO1FEti4jV3Ff_!!2219574660456-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01sPiwoC1FEti6w7KwJ_!!2219574660456-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01G7ehJP1FEti7gqYb1_!!2219574660456-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "import_fields": {
+    "description_category_id": 17028743,
+    "type_id": 93785,
+    "attributes": [
+      {
+        "complex_id": 0,
+        "id": 8229,
+        "values": [
+          {
+            "dictionary_value_id": 93785,
+            "value": "Магнит на холодильник"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 85,
+        "values": [
+          {
+            "value": "Нет бренда"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 9048,
+        "values": [
+          {
+            "value": "Russia Landmarks"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Fill import_fields.description_category_id with the Ozon category ID.",
+    "Fill import_fields.type_id with the Ozon type ID.",
+    "Fill import_fields.attributes with all required Ozon attributes for this category.",
+    "Russian copy is prepared for moderation-safe upload.",
+    "Because this is a magnetic souvenir product, verify category-specific handling and required characteristics before submission.",
+    "Width and height are inferred from the local package profile and should be confirmed against the final packed unit."
+  ]
+}

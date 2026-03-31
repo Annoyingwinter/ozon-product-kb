@@ -1,0 +1,73 @@
+{
+  "slug": "item-3-2a763f31",
+  "enabled": true,
+  "offer_id": "item-3-2a763f31",
+  "title_override": "Автомобильный ароматизатор клипса на дефлектор",
+  "description_override": "<ul><li>Компактный ароматизатор крепится на дефлектор и освежает воздух в салоне автомобиля.</li><li>Клипса быстро устанавливается и подходит для ежедневного использования.</li><li>Помогает уменьшить посторонние запахи и делает поездку комфортнее.</li><li>Материал корпуса: пластик. Вес около 150 г. В комплекте ароматическая пластина.</li></ul>",
+  "price_override": 112,
+  "old_price_override": 129,
+  "price_override_rub": 1290.0,
+  "old_price_override_rub": 1483.5,
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "weight_override_g": 150,
+  "depth_override_mm": 120,
+  "width_override_mm": 80,
+  "height_override_mm": 50,
+  "barcode_override": "",
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01m2crt01Ie2GTt0qsQ_!!2216286150917-0-cib.jpg_.webp",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01m2crt01Ie2GTt0qsQ_!!2216286150917-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Eiz2hy1Ie2GUXtBVL_!!2216286150917-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01G0Eyyf1Ie2GUCOqIh_!!2216286150917-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN019QPhAO1Ie2GTc3naN_!!2216286150917-0-cib.jpg_.webp"
+  ],
+  "import_fields": {
+    "description_category_id": 17028749,
+    "type_id": 92715,
+    "attributes": [
+      {
+        "complex_id": 0,
+        "id": 8229,
+        "values": [
+          {
+            "dictionary_value_id": 92715,
+            "value": "Ароматизатор автомобильный"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 85,
+        "values": [
+          {
+            "value": "Нет бренда"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 9048,
+        "values": [
+          {
+            "value": "B6512 Aroma Clip"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 12776,
+        "values": [
+          {
+            "value": "Океан"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Russian copy prepared for a moderation-safe upload.",
+    "Invalid supplier image URLs and _sum thumbnails were removed.",
+    "Dimensions are inferred from the local package profile and should be verified on the packed unit."
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "slug": "item-7-d05a5eef",
+  "enabled": true,
+  "offer_id": "item-7-d05a5eef",
+  "title_override": "Автомобильный держатель для телефона на дефлектор гравитационный",
+  "description_override": "<ul><li>Гравитационный держатель помогает быстро установить смартфон одной рукой во время поездки.</li><li>Крепление на дефлектор обеспечивает устойчивую фиксацию и удобный угол обзора.</li><li>Подходит для ежедневного использования в автомобиле и не занимает много места.</li><li>Вес около 150 г. Размер упаковки примерно 13 x 9.5 x 11 см.</li></ul>",
+  "price_override": 190,
+  "old_price_override": 219,
+  "price_override_rub": 2190.0,
+  "old_price_override_rub": 2518.5,
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "weight_override_g": 150,
+  "depth_override_mm": 130,
+  "width_override_mm": 95,
+  "height_override_mm": 110,
+  "barcode_override": "",
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01hFnUSS25xePjtW1nz_!!2218359047593-0-cib.jpg_.webp",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01hFnUSS25xePjtW1nz_!!2218359047593-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01nvFV7H25xePksZsqK_!!2218359047593-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01hFnUSS25xePjtW1nz_!!2218359047593-0-cib.jpg_460x460q100.jpg_.webp"
+  ],
+  "import_fields": {
+    "description_category_id": 17028922,
+    "type_id": 98636,
+    "attributes": [
+      {
+        "complex_id": 0,
+        "id": 8229,
+        "values": [
+          {
+            "dictionary_value_id": 98636,
+            "value": "Держатель для телефона"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 85,
+        "values": [
+          {
+            "value": "Нет бренда"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 9048,
+        "values": [
+          {
+            "value": "Gravity Vent Holder 6373"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Russian copy prepared for a moderation-safe upload.",
+    "Broken supplier image URLs were removed and only working images were kept.",
+    "Package dimensions were inferred from the supplier listing and should be verified on the packed unit."
+  ]
+}

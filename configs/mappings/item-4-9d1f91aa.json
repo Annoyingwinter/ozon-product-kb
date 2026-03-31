@@ -1,0 +1,65 @@
+{
+  "slug": "item-4-9d1f91aa",
+  "enabled": true,
+  "offer_id": "item-4-9d1f91aa",
+  "title_override": "Раздвижной настольный органайзер с перегородками",
+  "description_override": "<ul><li>Раздвижной органайзер помогает аккуратно хранить косметику, канцелярские товары, аксессуары и бытовые мелочи.</li><li>Перегородки упрощают сортировку содержимого и поддерживают порядок на рабочем столе.</li><li>Подходит для дома, офиса, спальни и ванной комнаты.</li><li>Материал: PET. Вес около 650 г. Длина упаковки около 32 см.</li></ul>",
+  "price_override": 164,
+  "old_price_override": 189,
+  "price_override_rub": 1890.0,
+  "old_price_override_rub": 2173.5,
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "weight_override_g": 650,
+  "depth_override_mm": 320,
+  "width_override_mm": 150,
+  "height_override_mm": 100,
+  "barcode_override": "",
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01SUYkER2KRn89bZ0gH_!!2217614359554-0-cib.jpg_.webp",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01SUYkER2KRn89bZ0gH_!!2217614359554-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01nWa8ca2KRn6U4Beau_!!2217614359554-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01lFpyyj2KRn6VGyRqO_!!2217614359554-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01uPt99l2KRn7NGeQGv_!!2217614359554-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01oAtyQk2KRn6Uc83Ts_!!2217614359554-0-cib.jpg_.webp"
+  ],
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "complex_id": 0,
+        "id": 8229,
+        "values": [
+          {
+            "dictionary_value_id": 970896147,
+            "value": "Органайзер для хранения вещей"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 85,
+        "values": [
+          {
+            "value": "Нет бренда"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 9048,
+        "values": [
+          {
+            "value": "Expandable Desk Organizer"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Russian copy prepared for a moderation-safe upload.",
+    "Only full-size supplier images were kept; _sum thumbnails were removed.",
+    "Dimensions are inferred from the local package profile and should be verified on the packed unit."
+  ]
+}

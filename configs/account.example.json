@@ -1,0 +1,11 @@
+{
+  "seller_name": "your-ozon-store",
+  "currency_code": "RUB",
+  "vat": "0",
+  "old_price_factor": 1.15,
+  "offer_id_prefix": "KB-",
+  "default_warehouse_id": 0,
+  "default_initial_stock": 100,
+  "default_import_fields": {},
+  "notes": "Copy this file to configs/account.json and adjust values for your store."
+}

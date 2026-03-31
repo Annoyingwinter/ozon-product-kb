@@ -1,0 +1,113 @@
+{
+  "slug": "10kg-15a5c8d3",
+  "enabled": true,
+  "offer_id": "10kg-15a5c8d3",
+  "title_override": "Складная хозяйственная сумка-шоппер для покупок, до 10 кг, 53x38x10 см",
+  "description_override": "Складная хозяйственная сумка-шоппер для повседневных покупок. Легкая, многоразовая и компактная: складывается для хранения, выполнена из водоотталкивающей ткани Oxford/нейлона. Размер сумки 53 x 38 x 10 см, допустимая нагрузка до 10 кг. Цвета в ассортименте.",
+  "price_override": "29.00",
+  "old_price_override": "39.00",
+  "currency_code": "CNY",
+  "vat": "0",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "weight_override_g": 120,
+  "depth_override_mm": 120,
+  "width_override_mm": 100,
+  "height_override_mm": 20,
+  "barcode_override": "",
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01IFpPgG2MHpWpuddaB_!!4172819803-0-cib.jpg_.webp",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01IFpPgG2MHpWpuddaB_!!4172819803-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/19680823007_944059079.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01PTOTWc2MHpNs9EoYZ_!!4172819803-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/19609860077_944059079.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01rnXA6k2MHpTGR9p9k_!!4172819803-0-cib.jpg_.webp"
+  ],
+  "import_fields": {
+    "description_category_id": 17027904,
+    "type_id": 970575517,
+    "attributes": [
+      {
+        "id": 8229,
+        "dictionary_value_id": 970575517,
+        "value": "Сумка"
+      },
+      {
+        "id": 9163,
+        "value": [
+          {
+            "dictionary_value_id": 22880,
+            "value": "Мужской"
+          },
+          {
+            "dictionary_value_id": 22881,
+            "value": "Женский"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "dictionary_value_id": 126745801,
+        "value": "Нет бренда"
+      },
+      {
+        "id": 9048,
+        "value": "Складная сумка-шоппер 10 кг"
+      },
+      {
+        "id": 20259,
+        "value": [
+          {
+            "dictionary_value_id": 971031875,
+            "value": "шоппер"
+          },
+          {
+            "dictionary_value_id": 972848822,
+            "value": "складная"
+          }
+        ]
+      },
+      {
+        "id": 10096,
+        "dictionary_value_id": 369939085,
+        "value": "разноцветный"
+      },
+      {
+        "id": 5309,
+        "dictionary_value_id": 62319,
+        "value": "Оксфорд нейлон"
+      },
+      {
+        "id": 4501,
+        "dictionary_value_id": 29802,
+        "value": "Повседневный"
+      },
+      {
+        "id": 4389,
+        "value": [
+          {
+            "dictionary_value_id": 90296,
+            "value": "Китай"
+          }
+        ]
+      },
+      {
+        "id": 5299,
+        "value": "53"
+      },
+      {
+        "id": 5355,
+        "value": "38"
+      },
+      {
+        "id": 6573,
+        "value": "10"
+      }
+    ]
+  },
+  "notes": [
+    "Uses the working category path Галантерея и аксессуары / Аксессуары / Сумка.",
+    "Removed thumbnail and _sum.jpg image URLs to avoid image moderation warnings.",
+    "Initial stock is pinned to 100."
+  ]
+}

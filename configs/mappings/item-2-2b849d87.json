@@ -1,0 +1,65 @@
+{
+  "slug": "item-2-2b849d87",
+  "enabled": true,
+  "offer_id": "item-2-2b849d87",
+  "title_override": "Складная силиконовая миска для животных дорожная",
+  "description_override": "<ul><li>Складная миска подходит для воды и корма дома, в дороге и на прогулке.</li><li>Гибкий силикон легко складывается и не занимает много места в сумке или автомобиле.</li><li>Подходит для кошек и собак мелких и средних пород.</li><li>Материал: силикон. Вес около 250 г. Длина упаковки около 18 см.</li></ul>",
+  "price_override": 130,
+  "old_price_override": 149,
+  "price_override_rub": 1490.0,
+  "old_price_override_rub": 1713.5,
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "weight_override_g": 250,
+  "depth_override_mm": 180,
+  "width_override_mm": 140,
+  "height_override_mm": 40,
+  "barcode_override": "",
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01cn9Ifc1CNeJ4O5mPn_!!2929490069-0-cib.jpg_.webp",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01cn9Ifc1CNeJ4O5mPn_!!2929490069-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wNPTYQ1CNeGo7AynI_!!2929490069-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01RMYnxH1CNeIUDtTPi_!!2929490069-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01GtaXej1CNeIUDwI77_!!2929490069-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01XcRAM11CNeGndxQHR_!!2929490069-0-cib.jpg_.webp"
+  ],
+  "import_fields": {
+    "description_category_id": 17028673,
+    "type_id": 95189,
+    "attributes": [
+      {
+        "complex_id": 0,
+        "id": 8229,
+        "values": [
+          {
+            "dictionary_value_id": 95189,
+            "value": "Миска для животных"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 85,
+        "values": [
+          {
+            "value": "Нет бренда"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 9048,
+        "values": [
+          {
+            "value": "Foldable Pet Bowl"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Russian copy prepared for a moderation-safe upload.",
+    "Image set keeps only working supplier originals and removes weak thumbnails.",
+    "Dimensions are inferred from the local package profile and should be verified on the packed unit."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "item-8-29f3f1ab",
+  "enabled": true,
+  "offer_id": "pet-scraper-29f3f1ab",
+  "title_override": "Скребок для удаления шерсти животных с мебели",
+  "description_override": "Щётка для удаления шерсти домашних животных",
+  "price_override": "35.00",
+  "old_price_override": "48.00",
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-8-29f3f1ab_0.jpg",
+  "images_override": [
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-8-29f3f1ab_0.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-8-29f3f1ab_1.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-8-29f3f1ab_2.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-8-29f3f1ab_3.jpg",
+    "https://raw.githubusercontent.com/Annoyingwinter/ozon-product-kb/main/images/products/item-8-29f3f1ab_4.jpg"
+  ],
+  "weight_override_g": 200,
+  "depth_override_mm": 300,
+  "width_override_mm": 180,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028968,
+    "type_id": 95249,
+    "attributes": [
+      {
+        "id": 9048,
+        "value": "Щётка для удаления шерсти домашних животных"
+      },
+      {
+        "id": 85,
+        "dictionary_value_id": 126745801,
+        "value": "Нет бренда"
+      },
+      {
+        "id": 8229,
+        "dictionary_value_id": 970896147,
+        "value": "Органайзер для хранения вещей"
+      }
+    ]
+  },
+  "notes": [
+    "Local override binds this slug to the already created offer_id pet-scraper-29f3f1ab.",
+    "The direct offer_id item-8-29f3f1ab produced an Ozon duplicate SPU conflict against the existing product in seller account 3401155.",
+    "Use this local mapping to avoid creating duplicate cards on future submit runs."
+  ]
+}

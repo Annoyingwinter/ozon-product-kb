@@ -1,0 +1,65 @@
+{
+  "slug": "item-5-449f03fe",
+  "enabled": true,
+  "offer_id": "item-5-449f03fe",
+  "title_override": "Силиконовая форма для льда и десертов в виде животных",
+  "description_override": "<ul><li>Форма помогает делать мини кубики льда, шоколад, желе и небольшие десерты в милом дизайне.</li><li>Гибкий силикон облегчает извлечение готовых фигурок без повреждений.</li><li>Подходит для домашней кухни, праздничных напитков и подарочных наборов.</li><li>Материал: силикон. Вес около 180 г. Длина упаковки около 15 см.</li></ul>",
+  "price_override": 86,
+  "old_price_override": 99,
+  "price_override_rub": 990.0,
+  "old_price_override_rub": 1138.5,
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "weight_override_g": 180,
+  "depth_override_mm": 150,
+  "width_override_mm": 110,
+  "height_override_mm": 40,
+  "barcode_override": "",
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN018ZBobq1FGj7lZkecL_!!2217134720460-0-cib.jpg_.webp",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN018ZBobq1FGj7lZkecL_!!2217134720460-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Tw7F7G1FGj7lZl3Xh_!!2217134720460-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Uj767a1FGj7mcrmqE_!!2217134720460-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014p9Bzz1FGj7oQgMZV_!!2217134720460-0-cib.jpg_.webp",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01UUutBC1v0tPGQ2sIE_!!2215406586111-0-cib.jpg_.webp"
+  ],
+  "import_fields": {
+    "description_category_id": 17027907,
+    "type_id": 92424,
+    "attributes": [
+      {
+        "complex_id": 0,
+        "id": 8229,
+        "values": [
+          {
+            "dictionary_value_id": 92424,
+            "value": "Форма для льда и конфет"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 85,
+        "values": [
+          {
+            "value": "Нет бренда"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 9048,
+        "values": [
+          {
+            "value": "Animal Ice Mold"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Russian copy prepared for a moderation-safe upload.",
+    "Only working supplier originals were kept; _sum thumbnails were removed.",
+    "Dimensions are inferred from the local package profile and should be verified on the packed unit."
+  ]
+}

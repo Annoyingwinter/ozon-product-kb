@@ -1,0 +1,65 @@
+{
+  "slug": "item-2-2050c16a",
+  "enabled": true,
+  "offer_id": "item-2-2050c16a",
+  "title_override": "Разделитель для ящика антискользящий, можно обрезать",
+  "description_override": "<ul><li>Помогает разделить пространство в ящике и поддерживать порядок дома.</li><li>Антискользящая поверхность помогает удерживать вещи на месте.</li><li>Можно подрезать под нужный размер.</li><li>Вес около 400 г, длинная сторона 38 см.</li></ul>",
+  "price_override": 104,
+  "old_price_override": 119,
+  "price_override_rub": 1190.0,
+  "old_price_override_rub": 1368.5,
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "weight_override_g": 400,
+  "depth_override_mm": 380,
+  "width_override_mm": 100,
+  "height_override_mm": 20,
+  "barcode_override": "",
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01qSk0GX1HmRa8Yx0Gf_!!2212956860800-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01qSk0GX1HmRa8Yx0Gf_!!2212956860800-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01c4YfF82BK9ceekDvs_!!2213931718319-0-cib.jpg"
+  ],
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "complex_id": 0,
+        "id": 8229,
+        "values": [
+          {
+            "dictionary_value_id": 970896147,
+            "value": "Органайзер для хранения вещей"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 85,
+        "values": [
+          {
+            "value": "Нет бренда"
+          }
+        ]
+      },
+      {
+        "complex_id": 0,
+        "id": 9048,
+        "values": [
+          {
+            "value": "Drawer Divider"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Fill import_fields.description_category_id with the Ozon category ID.",
+    "Fill import_fields.type_id with the Ozon type ID.",
+    "Fill import_fields.attributes with all required Ozon attributes for this category.",
+    "Russian copy is prepared for moderation-safe upload.",
+    "Image URLs were inferred from a public supplier mirror page and should be replaced with the final approved merchant assets if you have original supplier files.",
+    "Dimensions are inferred from the local package profile and should be confirmed against the final packed unit."
+  ]
+}

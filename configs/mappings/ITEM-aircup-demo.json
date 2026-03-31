@@ -1,0 +1,29 @@
+{
+  "slug": "ITEM-aircup-demo",
+  "enabled": true,
+  "offer_id": "AFCUP-M1-BLACK",
+  "title_override": "",
+  "description_override": "",
+  "price_override_rub": null,
+  "old_price_override_rub": 3290.0,
+  "barcode_override": "6971234500018",
+  "primary_image_override": "https://dummyimage.com/1200x1200/111111/ffffff.png&text=AeroFeel+M1+Main",
+  "images_override": [
+    "https://dummyimage.com/1200x1200/111111/ffffff.png&text=AeroFeel+M1+Main",
+    "https://dummyimage.com/1200x1200/1e1e1e/ffffff.png&text=AeroFeel+M1+Angle",
+    "https://dummyimage.com/1200x1200/2b2b2b/ffffff.png&text=AeroFeel+M1+Package",
+    "https://dummyimage.com/1200x1200/3a3a3a/ffffff.png&text=AeroFeel+M1+Detail",
+    "https://dummyimage.com/1200x1200/4a4a4a/ffffff.png&text=AeroFeel+M1+Accessory"
+  ],
+  "import_fields": {
+    "description_category_id": 0,
+    "type_id": 0,
+    "attributes": []
+  },
+  "notes": [
+    "Fill import_fields.description_category_id with the Ozon category ID.",
+    "Fill import_fields.type_id with the Ozon type ID.",
+    "Fill import_fields.attributes with all required Ozon attributes for this category.",
+    "Keep title and description derived from the local knowledge base unless moderation requires changes."
+  ]
+}

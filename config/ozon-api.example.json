@@ -1,0 +1,7 @@
+{
+  "clientId": "YOUR_OZON_CLIENT_ID",
+  "apiKey": "YOUR_OZON_API_KEY",
+  "currency": "CNY",
+  "warehouseId": 1020005009633310,
+  "warehouseName": "CEL陆运"
+}
