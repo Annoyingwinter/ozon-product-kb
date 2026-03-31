@@ -1603,10 +1603,17 @@ const HTML_PAGE = `<!DOCTYPE html>
       <div class="sec">数据源</div>
       <div id="platforms"></div>
 
-      <div class="sec">智能选品</div>
-      <div style="display:flex;gap:12px;align-items:center;margin-bottom:8px;">
-        <button class="launch launch-info" id="select-btn" onclick="runSelect()" style="flex:1;">启动选品</button>
-      </div>
+      <div class="sec">AI 自动选品</div>
+      <div class="tile" style="margin-bottom:16px;">
+        <div class="tile-head">
+          <div>
+            <div class="tile-label">一键发现新商品</div>
+            <div class="tile-sub">AI从1688/义乌购自动搜索、筛选、评分，找到适合Ozon的商品</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:12px;">
+          <button class="launch launch-info" id="select-btn" onclick="runSelect()" style="flex:1;">开始选品</button>
+        </div>
       <div class="select-meta" id="select-meta"></div>
       <div class="log-wrap" id="select-log-panel">
         <div class="log-bar">
@@ -1614,6 +1621,7 @@ const HTML_PAGE = `<!DOCTYPE html>
           <span id="select-log-status"></span>
         </div>
         <div class="log-out" id="select-log"></div>
+      </div>
       </div>
 
       <div style="height:28px;"></div>
@@ -1639,17 +1647,11 @@ const HTML_PAGE = `<!DOCTYPE html>
         </div>
       </div>
 
-      <div class="sec">管道</div>
-      <button class="launch" id="pipeline-btn" onclick="runPipeline()">启动采集管道</button>
-      <div class="log-wrap" id="log-panel">
-        <div class="log-bar">
-          <span>输出</span>
-          <span id="log-status"></span>
-        </div>
-        <div class="log-out" id="pipeline-log"></div>
+      <!-- pipeline hidden (referenced by JS) -->
+      <div style="display:none;">
+        <button id="pipeline-btn"></button>
+        <div id="log-panel"><div id="log-status"></div><div id="pipeline-log"></div></div>
       </div>
-
-      <div style="height:28px;"></div>
 
       <div class="sec">一键上架</div>
       <div class="tile" style="margin-bottom:12px;">
