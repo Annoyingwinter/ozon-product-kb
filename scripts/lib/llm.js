@@ -99,35 +99,49 @@ function autoDetect() {
   return null;
 }
 
+async function callApi(provider, apiKey, prompt, opts) {
+  const res = await fetch(provider.url, {
+    method: "POST",
+    headers: provider.headers(apiKey),
+    body: JSON.stringify(provider.body(prompt, opts)),
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`LLM API ${res.status}: ${text.slice(0, 500)}`);
+  }
+  return provider.extract(await res.json());
+}
+
 /**
  * 调用 LLM 返回文本
  */
 export async function llmChat(prompt, opts = {}) {
-  // 1. 如果指定了 provider + key，直接用API
-  const detected = autoDetect();
-  if (opts.apiKey || detected) {
-    const providerName = opts.provider || detected?.provider || "claude";
-    const apiKey = opts.apiKey || detected?.key;
+  // 优先级: 1.指定API Key → 2.Claude CLI(零成本) → 3.环境变量API Key
+  if (opts.apiKey) {
+    const providerName = opts.provider || "claude";
     const provider = PROVIDERS[providerName];
-    if (!provider) throw new Error(`不支持的 LLM provider: ${providerName}`);
-
-    const res = await fetch(provider.url, {
-      method: "POST",
-      headers: provider.headers(apiKey),
-      body: JSON.stringify(provider.body(prompt, opts)),
-    });
-
-    if (!res.ok) {
-      const text = await res.text().catch(() => "");
-      throw new Error(`LLM API ${res.status}: ${text.slice(0, 500)}`);
-    }
-
-    const json = await res.json();
-    return provider.extract(json);
+    if (provider) return callApi(provider, opts.apiKey, prompt, opts);
   }
 
-  // 2. Fallback: Claude CLI
-  console.log("  [llm] 无 API Key，使用 Claude CLI...");
+  // Claude CLI优先（零成本）
+  if (!opts.forceApi && isClaudeCliAvailable()) {
+    try {
+      console.log("  [llm] 使用 Claude CLI (零成本)...");
+      return callClaudeCli(prompt, opts);
+    } catch {
+      // CLI失败，fallback到API
+    }
+  }
+
+  // 环境变量API Key
+  const detected = autoDetect();
+  if (detected) {
+    const provider = PROVIDERS[detected.provider];
+    if (provider) return callApi(provider, detected.key, prompt, opts);
+  }
+
+  // 最后再试Claude CLI
+  console.log("  [llm] 无 API Key，尝试 Claude CLI...");
   return callClaudeCli(prompt, opts);
 }
 
@@ -136,7 +150,15 @@ export async function llmChat(prompt, opts = {}) {
  */
 export async function llmJson(prompt, opts = {}) {
   const text = await llmChat(prompt, opts);
-  const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/) || text.match(/(\{[\s\S]*\})/) || text.match(/(\[[\s\S]*\])/);
+  // 提取JSON：先试代码块，再试找平衡的JSON（非贪婪+parse验证）
+  let jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (!jsonMatch) {
+    // 找第一个有效JSON（尝试parse验证）
+    for (const re of [/(\{[\s\S]*?\})\s*$/, /(\[[\s\S]*?\])\s*$/, /(\{[\s\S]*\})/, /(\[[\s\S]*\])/]) {
+      const m = text.match(re);
+      if (m) { try { JSON.parse(m[1]); jsonMatch = m; break; } catch {} }
+    }
+  }
   if (!jsonMatch) throw new Error(`LLM 返回中未找到 JSON:\n${text.slice(0, 300)}`);
   return JSON.parse(jsonMatch[1]);
 }

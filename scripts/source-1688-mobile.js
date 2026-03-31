@@ -180,8 +180,8 @@ function parseDetailHtml(html, offerId) {
 
   // 销量
   const salesMatch =
-    html.match(/quantitySumMonth[\"']\s*:\s*[\"']?(\d+)/) ||
-    html.match(/gmvSumMonth|soldQuantity|saleCount[\"']\s*:\s*[\"']?(\d+)/);
+    html.match(/quantitySumMonth["']\s*:\s*["']?(\d+)/) ||
+    html.match(/(?:gmvSumMonth|soldQuantity|saleCount)["']\s*:\s*["']?(\d+)/);
 
   return {
     page_type: "detail",

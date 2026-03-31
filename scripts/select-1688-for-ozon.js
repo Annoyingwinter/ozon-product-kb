@@ -81,14 +81,15 @@ const PLATFORM_DEFAULTS = {
     maxWeightKg: 1.2,
     maxLongEdgeCm: 45,
     exchangeRateRubPerCny: 12.5,
-    logisticsWeight: 18,
-    marginWeight: 22,
-    competitionWeight: 14,
-    complianceWeight: 14,
-    returnWeight: 12,
+    priceWeight: 12,
+    logisticsWeight: 16,
+    marginWeight: 20,
+    competitionWeight: 12,
+    complianceWeight: 12,
+    returnWeight: 10,
     contentWeight: 8,
-    trendWeight: 6,
-    sourceWeight: 6,
+    trendWeight: 5,
+    sourceWeight: 5,
   },
 };
 
@@ -132,15 +133,19 @@ export async function feedbackKeyword(keyword, result) {
   try {
     const pool = JSON.parse(await fs.readFile(KEYWORD_POOL_PATH, "utf8"));
     for (const cat of Object.values(pool.categories)) {
-      for (const kw of (cat.keywords || [])) {
+      for (let i = 0; i < (cat.keywords || []).length; i++) {
+        let kw = cat.keywords[i];
         const text = typeof kw === "string" ? kw : kw.text;
         if (text !== keyword) continue;
-        if (typeof kw === "object") {
-          if (result === "hit") { kw.score = Math.min(100, (kw.score || 50) + SCORE_HIT); kw.hits = (kw.hits || 0) + 1; }
-          else if (result === "miss") { kw.score = Math.max(0, (kw.score || 50) + SCORE_MISS); kw.misses = (kw.misses || 0) + 1; }
-          else if (result === "sale") { kw.score = Math.min(100, (kw.score || 50) + SCORE_SALE); }
-          kw.last_used = new Date().toISOString();
+        // 自动升级字符串格式为对象格式
+        if (typeof kw === "string") {
+          kw = { text: kw, score: SCORE_INIT, hits: 0, misses: 0, last_used: null };
+          cat.keywords[i] = kw;
         }
+        if (result === "hit") { kw.score = Math.min(100, (kw.score || 50) + SCORE_HIT); kw.hits = (kw.hits || 0) + 1; }
+        else if (result === "miss") { kw.score = Math.max(0, (kw.score || 50) + SCORE_MISS); kw.misses = (kw.misses || 0) + 1; }
+        else if (result === "sale") { kw.score = Math.min(100, (kw.score || 50) + SCORE_SALE); }
+        kw.last_used = new Date().toISOString();
       }
     }
     await savePool(pool);
@@ -982,7 +987,8 @@ function analyzeProducts(products, rules) {
     };
 
     const totalScore = Math.round(
-      (scoreBreakdown.logistics_friendliness * rules.logisticsWeight +
+      (scoreBreakdown.price_fit * rules.priceWeight +
+        scoreBreakdown.logistics_friendliness * rules.logisticsWeight +
         scoreBreakdown.margin_potential * rules.marginWeight +
         scoreBreakdown.competition * rules.competitionWeight +
         scoreBreakdown.compliance_risk * rules.complianceWeight +
@@ -990,7 +996,8 @@ function analyzeProducts(products, rules) {
         scoreBreakdown.content_potential * rules.contentWeight +
         scoreBreakdown.search_trend * rules.trendWeight +
         scoreBreakdown.source_signal * rules.sourceWeight) /
-        (rules.logisticsWeight +
+        (rules.priceWeight +
+          rules.logisticsWeight +
           rules.marginWeight +
           rules.competitionWeight +
           rules.complianceWeight +

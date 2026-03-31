@@ -1960,7 +1960,11 @@ const HTML_PAGE = `<!DOCTYPE html>
       html += buildTile('ozon', sOzon, eOzon, ozonCfg);
       html += '</div>';
 
-      container.innerHTML = html;
+      // 只在内容变化时更新DOM（避免闪烁）
+      if (container._lastHtml !== html) {
+        container.innerHTML = html;
+        container._lastHtml = html;
+      }
       document.getElementById('pipeline-btn').disabled = !s1688.valid;
     }
 
@@ -2658,9 +2662,9 @@ const HTML_PAGE = `<!DOCTYPE html>
     loadOzonConfig();
     refreshUploadReady();
     refreshOrders();
-    setInterval(refresh, 5000);
-    setInterval(refreshStats, 15000);
-    setInterval(refreshOrders, 60000);
+    setInterval(refresh, 30000);      // 平台状态: 30秒刷新（减少闪烁）
+    setInterval(refreshStats, 30000);  // 统计: 30秒
+    setInterval(refreshOrders, 60000); // 订单: 60秒
     // Update orders "last updated" display
     setInterval(() => {
       if (!ordersLastRefresh) return;
@@ -3277,49 +3281,6 @@ function createServer(port) {
     if (url.pathname === "/api/ozon/debug-test") {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ ok: true, msg: "debug route works" }));
-      return;
-    }
-
-    // ─── GET /api/ozon/errors ─── check all product errors from Ozon
-    if (url.pathname === "/api/ozon/errors" && req.method === "GET") {
-      try {
-        const cfg = await loadOzonCfg();
-        if (!cfg.clientId || !cfg.apiKey) {
-          res.writeHead(200, { "Content-Type": "application/json" });
-          res.end(JSON.stringify({ error: "未配置 Ozon API" }));
-          return;
-        }
-        // Get all task_ids from mappings
-        const mappings = await readAllMappings();
-        const taskIds = [...new Set(mappings.map(m => m.ozon_task_id).filter(Boolean))];
-        const productErrors = [];
-        let totalSevere = 0, totalWarn = 0;
-
-        for (const tid of taskIds) {
-          const r = await ozonApi("/v1/product/import/info", { task_id: tid }, cfg);
-          if (!r.ok || !r.data.result) continue;
-          for (const si of (r.data.result.items || [])) {
-            const errs = si.errors || [];
-            if (errs.length === 0) continue;
-            const severe = errs.filter(e => e.level === "error");
-            const warn = errs.filter(e => e.level !== "error");
-            totalSevere += severe.length;
-            totalWarn += warn.length;
-            productErrors.push({
-              offer_id: si.offer_id,
-              product_id: si.product_id,
-              status: si.status,
-              severe: severe.map(e => ({ code: e.code, attr_id: e.attribute_id, attr_name: e.attribute_name, desc: (e.description || "").slice(0, 120) })),
-              warnings: warn.map(e => ({ code: e.code, attr_id: e.attribute_id, attr_name: e.attribute_name, desc: (e.description || "").slice(0, 120) })),
-            });
-          }
-        }
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({ totalProducts: mappings.filter(m => m.ozon_product_id).length, totalSevere, totalWarn, products: productErrors }));
-      } catch (err) {
-        res.writeHead(500, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({ error: err.message }));
-      }
       return;
     }
 
