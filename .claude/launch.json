@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ozon-pilot-console",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/login-server.js", "--port", "0"],
+      "port": 3456,
+      "autoPort": true
+    }
+  ]
+}

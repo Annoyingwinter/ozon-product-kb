@@ -2490,6 +2490,17 @@ const HTML_PAGE = `<!DOCTYPE html>
       const updateEl = document.getElementById('orders-last-update');
       if (updateEl) updateEl.textContent = '刷新中...';
       try {
+        // 加载1688溯源映射（offer_id → source_url）
+        let orderSourceMap = {};
+        try {
+          const prods = await api('/products');
+          for (const p of prods) {
+            const slug = p.slug || '';
+            const srcUrl = p.source?.detail_url || p.research?.outreach?.supplier_product_url || '';
+            if (slug && srcUrl) orderSourceMap[slug] = srcUrl;
+          }
+        } catch {}
+
         const res = await fetch('/api/ozon/orders?status=' + encodeURIComponent(statusFilter));
         const r = await res.json();
         if (updateEl) updateEl.textContent = '最后更新: 刚刚';
@@ -2533,6 +2544,14 @@ const HTML_PAGE = `<!DOCTYPE html>
           html += '</div>';
           html += '<div class="order-detail">' + items.slice(0, 80) + (items.length > 80 ? '...' : '') + ' (' + qty + '件)</div>';
           html += '<div class="order-detail">' + created + '</div>';
+          // 1688溯源链接
+          const offerIds = (o.products || []).map(p => p.offer_id).filter(Boolean);
+          for (const oid of offerIds) {
+            const sourceUrl = orderSourceMap[oid];
+            if (sourceUrl) {
+              html += '<div class="order-detail"><a href="' + sourceUrl + '" target="_blank" style="color:var(--accent);font-size:11px;">🔗 1688货源</a></div>';
+            }
+          }
           html += '</div>';
           html += '<div style="display:flex;align-items:center;gap:16px;">';
           if (totalPrice > 0) {
@@ -3779,4 +3798,5 @@ function createServer(port) {
 }
 
 const args = parseCliArgs(process.argv.slice(2), { port: "3456" });
-createServer(parseInt(args.port));
+const port = parseInt(process.env.PORT || args.port || "3456");
+createServer(port);
