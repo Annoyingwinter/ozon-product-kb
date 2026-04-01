@@ -199,7 +199,7 @@ function parseDetailHtml(html, offerId) {
     attr_count: attrPairs.length,
     sku_list: [],
     raw_card_text: rawTitle,
-    sales_count: parseInt(salesMatch?.[1] || salesMatch?.[2] || "0", 10),
+    sales_count: parseInt(salesMatch?.[1] || "0", 10),
   };
 }
 

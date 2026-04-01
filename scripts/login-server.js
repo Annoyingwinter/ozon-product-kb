@@ -2316,8 +2316,12 @@ const HTML_PAGE = `<!DOCTYPE html>
           btn.disabled = true;
           btn.textContent = '无可上架产品';
         }
+        // 只在有已上架产品且API已配置时显示库存按钮
         if (r.apiConfigured && r.uploaded > 0) {
           stockBtn.style.display = 'inline-flex';
+          stockBtn.textContent = '设置库存 (' + r.uploaded + ' 个已上架)';
+        } else {
+          stockBtn.style.display = 'none';
         }
       } catch {
         document.getElementById('upload-ready-pill').innerHTML = '<i></i>检查失败';
@@ -2855,6 +2859,81 @@ function createServer(port) {
         if (result.success) {
           res.write(`\n✅ 导入完成: ${result.title?.slice(0, 40)} [${result.source}]\n`);
           res.write(`   slug: ${result.slug}\n`);
+
+          // ── 自动生成mapping并上架 ──
+          const cfg = await loadOzonCfg();
+          if (cfg.clientId && cfg.apiKey) {
+            res.write(`\n[自动上架] 生成mapping...\n`);
+            try {
+              // 读取刚保存的product.json，生成简单mapping
+              const productDir = path.join(KB_PRODUCTS, result.slug);
+              const pdata = result.data;
+              const seed = pdata.seed || {};
+              const best = (pdata.candidates || [])[0] || {};
+              const images = (best.images || []).slice(0, 6);
+              const supply = seed.supply_price_cny || 0;
+              const weightKg = seed.est_weight_kg || 0.3;
+              const SHIP = 20, PKG = 4, COMM = 0.18, PROFIT = 1.5, MIN = 30;
+              const cost = supply + weightKg * SHIP + PKG;
+              let price = supply > 0 ? Math.ceil(cost * PROFIT / (1 - COMM)) : MIN;
+              if (price < MIN) price = MIN;
+              const NO_BRAND = 126745801;
+              // 简单类目匹配（默认家居收纳）
+              const catId = 17027937;
+              const typeId = 970896147;
+              const typeName = "Органайзер для хранения вещей";
+              const model = result.slug.replace(/[^a-zA-Z0-9]/g, "-").slice(0, 20) + "-" + Date.now().toString(36).slice(-4);
+
+              const mapping = {
+                slug: result.slug, status: "可提交", offer_id: result.slug,
+                title_override: result.title || "Product", title_lang: "zh",
+                price_override: price + ".00", old_price_override: Math.ceil(price * 1.3) + ".00",
+                currency_code: cfg.currency || "CNY", initial_stock: 100,
+                warehouse_id: cfg.warehouseId || 1020005009633310,
+                primary_image_override: images[0] || "", images_override: images,
+                weight_override_g: Math.round(weightKg * 1000),
+                depth_override_mm: 300, width_override_mm: 200, height_override_mm: 100,
+                import_fields: {
+                  description_category_id: catId, type_id: typeId,
+                  attributes: [
+                    { id: 9048, complex_id: 0, values: [{ dictionary_value_id: 0, value: model }] },
+                    { id: 85, complex_id: 0, values: [{ dictionary_value_id: NO_BRAND, value: "Нет бренда" }] },
+                    { id: 8229, complex_id: 0, values: [{ dictionary_value_id: typeId, value: typeName }] },
+                  ],
+                },
+              };
+              await fs.writeFile(path.join(productDir, "ozon-import-mapping.json"), JSON.stringify(mapping, null, 2), "utf8");
+              res.write(`[自动上架] mapping已生成: ¥${price} CNY\n`);
+
+              // 提交到Ozon
+              res.write(`[自动上架] 提交到Ozon...\n`);
+              const item = {
+                description_category_id: catId, type_id: typeId,
+                name: mapping.title_override, offer_id: mapping.offer_id,
+                barcode: "", price: mapping.price_override, old_price: mapping.old_price_override,
+                currency_code: mapping.currency_code, vat: "0",
+                depth: mapping.depth_override_mm, width: mapping.width_override_mm, height: mapping.height_override_mm,
+                dimension_unit: "mm", weight: mapping.weight_override_g, weight_unit: "g",
+                primary_image: images[0] || "", images: images.slice(1),
+                attributes: mapping.import_fields.attributes,
+              };
+              const ir = await ozonApi("/v3/product/import", { items: [item] }, cfg);
+              if (ir.ok && ir.data.result) {
+                const taskId = ir.data.result.task_id;
+                res.write(`[自动上架] 提交成功 task_id=${taskId}\n`);
+                mapping.ozon_task_id = taskId;
+                mapping.status = "已上传";
+                await fs.writeFile(path.join(productDir, "ozon-import-mapping.json"), JSON.stringify(mapping, null, 2), "utf8");
+                res.write(`\n🚀 上架完成! 从粘贴链接到上架Ozon，全自动。\n`);
+              } else {
+                res.write(`[自动上架] 提交失败: ${ir.data?.message || JSON.stringify(ir.data).slice(0, 100)}\n`);
+              }
+            } catch (uploadErr) {
+              res.write(`[自动上架] 异常: ${uploadErr.message}\n`);
+            }
+          } else {
+            res.write(`\n提示: 配置Ozon API后可自动上架\n`);
+          }
         } else {
           res.write(`\n❌ 导入失败: ${result.reason}\n`);
         }
@@ -3371,9 +3450,10 @@ function createServer(port) {
         const fixItems = [];
         let modelCounter = Date.now() % 10000;
         const NO_BRAND_ID = 126745801;
+        const allMappingsCache = await readAllMappings(); // 缓存一次，不在循环内反复读磁盘
 
         for (const prod of errorProducts) {
-          const mapping = (await readAllMappings()).find(m => m.offer_id === prod.offer_id);
+          const mapping = allMappingsCache.find(m => m.offer_id === prod.offer_id);
           const fixes = [];
           let newTypeId = prod.type_id;
           let newName = prod.name;
@@ -3497,7 +3577,7 @@ function createServer(port) {
 
             // 更新mapping的task_id
             for (const fi of fixItems) {
-              const mapping = (await readAllMappings()).find(m => m.offer_id === fi.offer_id);
+              const mapping = allMappingsCache.find(m => m.offer_id === fi.offer_id);
               if (mapping?._dir) {
                 try {
                   const mjsonPath = path.join(KB_PRODUCTS, mapping._dir, "ozon-import-mapping.json");

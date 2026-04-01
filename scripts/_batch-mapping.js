@@ -2,8 +2,12 @@ import fs from "node:fs/promises";
 import fss from "node:fs";
 import path from "node:path";
 
-const WAREHOUSE_ID = 1020005009633310;
-const CURRENCY = "CNY";
+// 从config加载，fallback到默认值
+const CONFIG_PATH = path.resolve("config", "ozon-api.json");
+let _cfg = {};
+try { _cfg = JSON.parse(fss.readFileSync(CONFIG_PATH, "utf8")); } catch {}
+const WAREHOUSE_ID = _cfg.warehouseId || 1020005009633310;
+const CURRENCY = _cfg.currency || "CNY";
 const NO_BRAND_ID = 126745801;
 const INITIAL_STOCK = 100;
 const KB = path.resolve("knowledge-base/products");
