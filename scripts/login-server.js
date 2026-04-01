@@ -1840,12 +1840,27 @@ const HTML_PAGE = `<!DOCTYPE html>
       return '<span class="pill pill-off"><i></i>离线</span>';
     }
 
+    const STAGE_CN = {
+      'approved_for_listing': '可上架',
+      'supplier_contacted_waiting_reply': '等待回复',
+      'human_review_pending': '待审核',
+      'supplier_compare_blocked': '比价受阻',
+      'supplier_research_pending': '待调研',
+      'knowledge_base_ready': '数据就绪',
+      'supplier_compare_pending': '比价中',
+      'draft_generated': '草稿已生成',
+      'listed': '已上架',
+      'scraped': '已采集',
+      'inferred': '已推理',
+      'draft_ready': '草稿就绪',
+    };
     function stagePill(stage) {
       if (!stage) return '<span class="stage-pill stage-other">未知</span>';
-      if (stage.includes('approved') || stage.includes('listing')) return '<span class="stage-pill stage-approved">' + stage + '</span>';
-      if (stage.includes('draft')) return '<span class="stage-pill stage-draft">' + stage + '</span>';
-      if (stage.includes('evaluat')) return '<span class="stage-pill stage-evaluated">' + stage + '</span>';
-      return '<span class="stage-pill stage-other">' + stage + '</span>';
+      const label = STAGE_CN[stage] || stage.replace(/_/g, ' ');
+      if (stage.includes('approved') || stage.includes('listing') || stage.includes('listed')) return '<span class="stage-pill stage-approved">' + label + '</span>';
+      if (stage.includes('draft') || stage.includes('ready')) return '<span class="stage-pill stage-draft">' + label + '</span>';
+      if (stage.includes('evaluat') || stage.includes('inferred')) return '<span class="stage-pill stage-evaluated">' + label + '</span>';
+      return '<span class="stage-pill stage-other">' + label + '</span>';
     }
 
     function scoreClass(s) {
