@@ -2544,22 +2544,33 @@ const HTML_PAGE = `<!DOCTYPE html>
           html += '</div>';
           html += '<div class="order-detail">' + items.slice(0, 80) + (items.length > 80 ? '...' : '') + ' (' + qty + '件)</div>';
           html += '<div class="order-detail">' + created + '</div>';
-          // 1688溯源链接
+          // 采购按钮：每个商品显示货源链接
           const offerIds = (o.products || []).map(p => p.offer_id).filter(Boolean);
           for (const oid of offerIds) {
+            const name = (o.products || []).find(p => p.offer_id === oid)?.name || oid;
             const sourceUrl = orderSourceMap[oid];
+            // 1688直达链接
             if (sourceUrl) {
-              html += '<div class="order-detail"><a href="' + sourceUrl + '" target="_blank" style="color:var(--accent);font-size:11px;">🔗 1688货源</a></div>';
+              html += '<div class="order-detail"><a href="' + sourceUrl + '" target="_blank" style="color:var(--accent);font-size:12px;font-weight:500;">🛒 去1688采购</a></div>';
             }
+            // 搜索备选链接
+            const searchName = encodeURIComponent(name.slice(0, 30));
+            html += '<div class="order-detail" style="display:flex;gap:8px;">';
+            if (!sourceUrl) {
+              html += '<a href="https://s.1688.com/selloffer/offer_search.htm?keywords=' + searchName + '" target="_blank" style="color:var(--accent);font-size:11px;">1688搜索</a>';
+            }
+            html += '<a href="https://en.yiwugo.com/product/list.html?keyword=' + searchName + '" target="_blank" style="color:#f472b6;font-size:11px;">义乌购搜索</a>';
+            html += '<button class="act" style="font-size:10px;padding:2px 8px;" onclick="goSource(\\'' + oid + '\\')">查货源</button>';
+            html += '</div>';
           }
           html += '</div>';
-          html += '<div style="display:flex;align-items:center;gap:16px;">';
+          html += '<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">';
           if (totalPrice > 0) {
             html += '<div class="order-total">' + totalPrice.toFixed(2) + '</div>';
           }
           html += '<div class="order-actions">';
           if (st === 'awaiting_packaging' || st === 'awaiting_deliver') {
-            html += '<button class="act act-dl" onclick="downloadLabel(\\'' + pn + '\\')">面单</button>';
+            html += '<button class="act act-dl" onclick="downloadLabel(\\'' + pn + '\\')">📄 面单</button>';
           }
           html += '</div>';
           html += '</div>';
@@ -2569,6 +2580,22 @@ const HTML_PAGE = `<!DOCTYPE html>
       } catch (e) {
         document.getElementById('orders-count-tab').textContent = '--';
         document.getElementById('orders-list-tab').innerHTML = '<div style="font-size:13px;color:var(--t2);">加载失败: ' + e.message + '</div>';
+      }
+    }
+
+    async function goSource(offerId) {
+      try {
+        const res = await fetch('/api/source/' + encodeURIComponent(offerId));
+        const r = await res.json();
+        if (r.source_url) {
+          window.open(r.source_url, '_blank');
+        } else if (r.search_url) {
+          window.open(r.search_url, '_blank');
+        } else {
+          alert('未找到货源链接: ' + offerId);
+        }
+      } catch (e) {
+        alert('查询失败: ' + e.message);
       }
     }
 
@@ -3704,6 +3731,53 @@ function createServer(port) {
       } catch (err) {
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify({ error: err.message, orders: [] }));
+      }
+      return;
+    }
+
+    // ─── GET /api/source/:offer_id ─── 查询商品的1688/义乌购货源链接
+    if (url.pathname.startsWith("/api/source/") && req.method === "GET") {
+      const offerId = decodeURIComponent(url.pathname.split("/api/source/")[1]);
+      try {
+        // 在知识库中查找
+        const entries = await fs.readdir(KB_PRODUCTS).catch(() => []);
+        let sourceUrl = "";
+        let sourcePlatform = "";
+        let productName = "";
+
+        for (const dir of entries) {
+          const mapPath = path.join(KB_PRODUCTS, dir, "ozon-import-mapping.json");
+          try {
+            const m = JSON.parse(await fs.readFile(mapPath, "utf8"));
+            if (m.offer_id === offerId || dir === offerId) {
+              // 找到了，读product.json拿source_url
+              const pPath = path.join(KB_PRODUCTS, dir, "product.json");
+              const p = JSON.parse(await fs.readFile(pPath, "utf8"));
+              const best = (p.candidates || [])[0] || {};
+              sourceUrl = best.source_url || p.source_url || "";
+              sourcePlatform = p.source_platform || p.import_source?.split("-")[0] || "1688";
+              productName = best.title || p.keyword || m.title_override || dir;
+              break;
+            }
+          } catch {}
+        }
+
+        // 如果没有直接链接，生成1688搜索链接
+        const searchUrl = sourceUrl || (productName
+          ? `https://s.1688.com/selloffer/offer_search.htm?keywords=${encodeURIComponent(productName)}`
+          : "");
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({
+          offer_id: offerId,
+          source_url: sourceUrl,
+          search_url: searchUrl,
+          platform: sourcePlatform || "1688",
+          product_name: productName,
+        }));
+      } catch (err) {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ offer_id: offerId, source_url: "", search_url: "", error: err.message }));
       }
       return;
     }
