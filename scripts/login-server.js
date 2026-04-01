@@ -1658,16 +1658,16 @@ const HTML_PAGE = `<!DOCTYPE html>
         </div>
       </div>
 
-      <div class="sec">全自动处理</div>
+      <div class="sec">全自动选品上架</div>
       <div class="tile" style="margin-bottom:16px;">
         <div class="tile-head">
           <div>
-            <div class="tile-label">选品 → 采集 → 评分 → 生成上架数据</div>
-            <div class="tile-sub">完整流程：AI选品后自动采集1688详情、评分筛选、生成Ozon上架包</div>
+            <div class="tile-label">选品 → 采集 → 评分 → 生成数据 → 自动上架</div>
+            <div class="tile-sub">一键完成：AI选品、1688采集、评分筛选、生成Ozon上架包、自动提交到Ozon</div>
           </div>
         </div>
         <div style="margin-top:12px;">
-          <button class="launch" id="pipeline-btn" onclick="runPipeline()">一键全流程</button>
+          <button class="launch" id="pipeline-btn" onclick="runPipeline()">一键选品+上架</button>
         </div>
         <div class="log-wrap" id="log-panel">
           <div class="log-bar">
@@ -2018,9 +2018,38 @@ const HTML_PAGE = `<!DOCTYPE html>
         statusEl.textContent = 'error';
       }
 
+      // 全流程完成后自动上架
+      logEl.textContent += '\\n\\n=== 自动上架 ===\\n';
+      statusEl.innerHTML = '<span class="spinner"></span>上架中...';
+      try {
+        const upRes = await fetch('/api/ozon/upload', { method: 'POST' });
+        const upReader = upRes.body.getReader();
+        const upDecoder = new TextDecoder();
+        while (true) {
+          const { done, value } = await upReader.read();
+          if (done) break;
+          const chunk = upDecoder.decode(value, { stream: true });
+          for (const line of chunk.split('\\n')) {
+            if (!line.trim()) continue;
+            try {
+              const msg = JSON.parse(line.trim());
+              if (msg.type === 'log') logEl.textContent += msg.message + '\\n';
+              else if (msg.type === 'progress') logEl.textContent += '上传: ' + (msg.offer_id || '') + '\\n';
+              else if (msg.type === 'done') logEl.textContent += '\\n上架完成: 成功' + msg.success + ' 失败' + msg.failed + '\\n';
+              else if (msg.type === 'error') logEl.textContent += '错误: ' + msg.message + '\\n';
+            } catch { logEl.textContent += line.trim() + '\\n'; }
+            logEl.scrollTop = logEl.scrollHeight;
+          }
+        }
+      } catch (upErr) {
+        logEl.textContent += '上架异常: ' + upErr.message + '\\n';
+      }
+
+      statusEl.textContent = 'done';
       document.getElementById('pipeline-btn').disabled = false;
       refresh();
       refreshStats();
+      refreshUploadReady();
     }
 
     /* === Select (选品) === */
