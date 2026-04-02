@@ -206,6 +206,30 @@ async function main() {
     results,
   });
   console.log(`  输出: ${outputPath}`);
+
+  // 在 --kb 模式下，给 No-Go 产品写 _skip 标记，Go/Watch 的清除标记
+  if (args.kb) {
+    const productsDir = path.join(KB_ROOT, "products");
+    for (const r of results) {
+      const slug = r.raw?.spu_id || r.raw?.slug;
+      if (!slug) continue;
+      const pPath = path.join(productsDir, slug, "product.json");
+      try {
+        const pj = await readJson(pPath, null);
+        if (!pj) continue;
+        if (r.decision === "No-Go") {
+          pj._skip = true;
+          pj._score = r.score;
+        } else {
+          delete pj._skip;
+          pj._score = r.score;
+          pj._decision = r.decision;
+        }
+        await writeJson(pPath, pj);
+      } catch (e) { if (e?.message) console.warn("  warn:", e.message.slice(0, 60)); }
+    }
+    console.log(`  已标记: ${results.filter(r => r.decision === "No-Go").length} 个 No-Go 跳过后续阶段`);
+  }
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

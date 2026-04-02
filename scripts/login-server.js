@@ -2155,7 +2155,7 @@ setInterval(backgroundMonitor, MONITOR_INTERVAL);
 console.log(`  后台监测: 每30分钟 (订单+库存预警)`);
 
 /* ─── 自动选品上架循环 (每6小时) ─── */
-const AUTO_CYCLE_INTERVAL = 6 * 3600_000; // 6小时
+const AUTO_CYCLE_INTERVAL = 3 * 3600_000; // 3小时
 let autoCycleRunning = false;
 
 async function autoCycle() {
@@ -2186,4 +2186,4 @@ async function autoCycle() {
 // 启动后5分钟跑第一轮，之后每6小时
 setTimeout(autoCycle, 5 * 60_000);
 setInterval(autoCycle, AUTO_CYCLE_INTERVAL);
-console.log(`  自动循环: 每6小时 (选品上架+淘汰低效)`);
+console.log(`  自动循环: 每3小时 (20件选品上架+淘汰低效)`);

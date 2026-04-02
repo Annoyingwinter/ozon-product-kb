@@ -364,6 +364,7 @@ Ozon上最近热门品类: ${hotCats}
       const inferred = await readJson(path.join(dir, "inferred.json"), null);
       const existing = await readJson(path.join(dir, "ozon-import-mapping.json"), null);
       if (!listing || !product?.candidates?.length) continue;
+      if (product._skip) continue; // 评分 No-Go 的跳过
       if (existing?.status === "已上传" || existing?.ozon_product_id) continue;
 
       // 从采集数据提取价格

@@ -14,8 +14,8 @@ import { proxyFetch, getProxyDispatcherAsync } from "./lib/proxy.js";
 
 const PRUNE_THRESHOLD = 1;   // 浏览占比低于1%的下架
 const PRUNE_DAYS = 7;        // 看最近7天的数据
-const PIPELINE_LIMIT = 5;    // 每轮选5个新品
-const LOOP_INTERVAL_H = 12;  // 循环间隔（小时）
+const PIPELINE_LIMIT = 20;   // 每轮选20个新品
+const LOOP_INTERVAL_H = 3;   // 循环间隔（3小时）
 
 function run(script, args = []) {
   console.log(`\n  ▶ ${script} ${args.join(" ")}`);
