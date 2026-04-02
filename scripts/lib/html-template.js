@@ -1349,11 +1349,11 @@ export const HTML_PAGE = `<!DOCTYPE html>
           </div>
           <div class="cfg-row">
             <span class="cfg-label">Client-Id</span>
-            <input class="cfg-input" id="ozon-client-id" type="text" placeholder="输入 Ozon Client-Id" autocomplete="off">
+            <input class="cfg-input" id="ozon-client-id" type="text" placeholder="输入 Ozon Client-Id (纯数字)" autocomplete="new-password" data-lpignore="true" data-form-type="other">
           </div>
           <div class="cfg-row">
             <span class="cfg-label">Api-Key</span>
-            <input class="cfg-input" id="ozon-api-key" type="password" placeholder="输入 Ozon Api-Key" autocomplete="off">
+            <input class="cfg-input" id="ozon-api-key" type="text" placeholder="输入 Ozon Api-Key" autocomplete="new-password" data-lpignore="true" data-form-type="other">
           </div>
           <div class="cfg-btn-row">
             <button class="act act-go" onclick="saveOzonConfig()">保存</button>

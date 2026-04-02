@@ -55,9 +55,6 @@ export function getDb() {
       created_at TEXT DEFAULT (datetime('now'))
     )
   `);
-  // 首个用户自动成为管理员
-  const count = _db.prepare("SELECT COUNT(*) as c FROM users").get().c;
-  if (count === 0) _db.autoFirstAdmin = true;
   return _db;
 }
 
@@ -82,8 +79,9 @@ export function createUser(email, passwordHash, inviteCode) {
     db.prepare("UPDATE invite_codes SET used_count = used_count + 1 WHERE code = ?").run(inviteCode);
   }
 
-  const isAdmin = db.autoFirstAdmin ? 1 : 0;
-  db.autoFirstAdmin = false;
+  // 管理员邮箱列表（环境变量或硬编码）
+  const adminEmails = (process.env.ADMIN_EMAILS || "3274834195@qq.com").split(",").map(s => s.trim().toLowerCase());
+  const isAdmin = adminEmails.includes(email.toLowerCase()) ? 1 : 0;
   const info = db.prepare("INSERT INTO users (email, password_hash, plan, product_quota, is_admin, invite_code) VALUES (?, ?, ?, ?, ?, ?)").run(email, passwordHash, plan, quota, isAdmin, inviteCode || null);
   return db.prepare("SELECT * FROM users WHERE id = ?").get(info.lastInsertRowid);
 }
