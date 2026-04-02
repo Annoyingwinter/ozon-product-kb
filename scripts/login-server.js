@@ -593,7 +593,7 @@ function createServer(port) {
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify({
           token,
-          user: { id: user.id, email: user.email, plan: user.plan },
+          user: { id: user.id, email: user.email, plan: user.plan, is_admin: !!user.is_admin },
         }));
       } catch (err) {
         res.writeHead(500, { "Content-Type": "application/json" });
@@ -630,7 +630,7 @@ function createServer(port) {
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify({
           token,
-          user: { id: user.id, email: user.email, plan: user.plan },
+          user: { id: user.id, email: user.email, plan: user.plan, is_admin: !!user.is_admin },
         }));
       } catch (err) {
         res.writeHead(500, { "Content-Type": "application/json" });

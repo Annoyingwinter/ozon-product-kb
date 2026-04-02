@@ -1258,6 +1258,11 @@ export const HTML_PAGE = `<!DOCTYPE html>
         localStorage.setItem('oz_token', data.token);
         localStorage.setItem('oz_user', JSON.stringify(data.user));
         document.getElementById('auth-overlay').style.display = 'none';
+        // 管理员显示管理tab
+        if (data.user?.is_admin) {
+          const adminBtn = document.getElementById('admin-tab-btn');
+          if (adminBtn) adminBtn.style.display = '';
+        }
         if (typeof initApp === 'function') initApp();
       } catch (e) {
         errEl.textContent = '网络错误: ' + e.message;
