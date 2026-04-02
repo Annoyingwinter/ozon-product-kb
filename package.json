@@ -27,6 +27,9 @@
     "kb:bootstrap-edge-session": "node scripts/bootstrap-1688-session-from-edge.js",
     "trends": "node scripts/discover-trends.js",
     "trends:dry": "node scripts/discover-trends.js --dry-run",
+    "cycle": "node scripts/auto-cycle.js",
+    "cycle:loop": "node scripts/auto-cycle.js --loop",
+    "cycle:prune": "node scripts/auto-cycle.js --prune-only",
     "console": "node scripts/login-server.js",
     "dev": "node scripts/login-server.js"
   },

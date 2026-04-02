@@ -10,6 +10,15 @@
  *
  * 用法: node scripts/login-server.js [--port 3456]
  */
+// 加载 .env 环境变量（无依赖）
+import { readFileSync } from "node:fs";
+try {
+  for (const line of readFileSync(".env", "utf8").split("\n")) {
+    const m = line.match(/^\s*([^#=]+?)\s*=\s*(.*?)\s*$/);
+    if (m && !process.env[m[1]]) process.env[m[1]] = m[2];
+  }
+} catch {}
+
 import http from "node:http";
 import path from "node:path";
 import fs from "node:fs/promises";
@@ -2144,3 +2153,37 @@ async function backgroundMonitor() {
 setTimeout(backgroundMonitor, 30_000);
 setInterval(backgroundMonitor, MONITOR_INTERVAL);
 console.log(`  后台监测: 每30分钟 (订单+库存预警)`);
+
+/* ─── 自动选品上架循环 (每6小时) ─── */
+const AUTO_CYCLE_INTERVAL = 6 * 3600_000; // 6小时
+let autoCycleRunning = false;
+
+async function autoCycle() {
+  if (autoCycleRunning) return;
+  autoCycleRunning = true;
+  const ts = new Date().toLocaleTimeString();
+  console.log(`\n[${ts}] 自动循环: 选品上架 + 淘汰低效...`);
+  try {
+    const { execFile } = await import("node:child_process");
+    await new Promise((resolve, reject) => {
+      const child = execFile("node", [
+        path.resolve("scripts", "auto-cycle.js"),
+      ], { cwd: path.resolve(""), timeout: 900_000, env: process.env });
+      child.stdout?.on("data", (chunk) => process.stdout.write(chunk));
+      child.stderr?.on("data", (chunk) => process.stderr.write(chunk));
+      child.on("close", (code) => {
+        console.log(`[${new Date().toLocaleTimeString()}] 自动循环完成 (exit: ${code})`);
+        resolve();
+      });
+      child.on("error", reject);
+    });
+  } catch (e) {
+    console.log(`[auto-cycle] 异常: ${e.message?.slice(0, 60)}`);
+  }
+  autoCycleRunning = false;
+}
+
+// 启动后5分钟跑第一轮，之后每6小时
+setTimeout(autoCycle, 5 * 60_000);
+setInterval(autoCycle, AUTO_CYCLE_INTERVAL);
+console.log(`  自动循环: 每6小时 (选品上架+淘汰低效)`);
