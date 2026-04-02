@@ -1389,7 +1389,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
         <div class="tile-head">
           <div>
             <div class="tile-label">粘贴链接，自动上架</div>
-            <div class="tile-sub">支持 1688 / 拼多多 / 淘宝 / 义乌购 / 速卖通 — 抓不到自动搜平替</div>
+            <div class="tile-sub">支持 1688 / 淘宝 / 速卖通链接 — 自动抓取并上架到 Ozon</div>
           </div>
         </div>
         <div style="display:flex;gap:10px;margin-top:12px;">
@@ -1543,10 +1543,10 @@ export const HTML_PAGE = `<!DOCTYPE html>
 
   <script>
     /* === State === */
-    const platforms = ['1688', 'yiwugo', 'pdd', 'ozon'];
-    const NAMES = { '1688': '1688', 'yiwugo': '义乌购', 'pdd': '拼多多', 'ozon': 'Ozon Seller' };
-    const SUBS = { '1688': '阿里巴巴批发平台 · 采购', 'yiwugo': '义乌小商品 · 采购 · 免登录', 'pdd': '趋势发现 · 选品参考', 'ozon': '卖家后台 · 自动获取API' };
-    const WATERMARKS = { '1688': '&#127981;', 'yiwugo': '&#127978;', 'pdd': '&#128200;', 'ozon': '&#127759;' };
+    const platforms = ['1688', 'pdd'];
+    const NAMES = { '1688': '1688', 'pdd': '拼多多' };
+    const SUBS = { '1688': '阿里巴巴批发平台 · 采集货源', 'pdd': '趋势发现 · 选品参考' };
+    const WATERMARKS = { '1688': '&#127981;', 'pdd': '&#128200;' };
     let allProducts = [];
     let expandedSlug = null;
     let lastOrderCount = 0;
@@ -1676,7 +1676,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
     }
 
     /* === Platform refresh === */
-    const NO_LOGIN_PLATFORMS = new Set(['yiwugo']);
+    const NO_LOGIN_PLATFORMS = new Set([]);
 
     function buildTile(p, status, session, ozonCfg) {
       const isNoLogin = NO_LOGIN_PLATFORMS.has(p);
