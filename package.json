@@ -31,6 +31,7 @@
     "dev": "node scripts/login-server.js"
   },
   "dependencies": {
+    "better-sqlite3": "^12.8.0",
     "playwright": "^1.55.0",
     "undici": "^7.24.7"
   }

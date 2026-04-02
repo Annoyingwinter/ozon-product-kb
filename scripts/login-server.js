@@ -18,6 +18,8 @@ import { chromium } from "playwright";
 import { readJson, writeJson, ensureDir, parseCliArgs } from "./lib/shared.js";
 import { launchBrowser, saveSession, closeBrowser, detectPageType } from "./lib/browser.js";
 import { HTML_PAGE } from "./lib/html-template.js";
+import { hashPassword, verifyPassword, signToken, authMiddleware } from "./lib/auth.js";
+import { getDb, createUser, getUserByEmail, getUserById, incrementProductsUsed } from "./lib/db.js";
 
 /* ─── Proxy for Ozon API (GFW) ─── */
 const PROXY_URL = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || process.env.https_proxy || process.env.http_proxy || "";
@@ -38,6 +40,73 @@ const AI_ROOT = path.resolve(".");
 const KB_PRODUCTS = path.join(AI_ROOT, "knowledge-base", "products");
 const OZON_CONFIG_DIR = path.join(AI_ROOT, "config");
 const OZON_CONFIG_PATH = path.join(OZON_CONFIG_DIR, "ozon-api.json");
+
+/* ─── Per-user data directories ─── */
+function getUserDir(userId) {
+  const dir = path.join(AI_ROOT, "data", String(userId));
+  return dir;
+}
+
+function getUserProductsDir(userId) {
+  return path.join(getUserDir(userId), "products");
+}
+
+function getUserConfigDir(userId) {
+  return path.join(getUserDir(userId), "config");
+}
+
+function getUserOzonConfigPath(userId) {
+  return path.join(getUserConfigDir(userId), "ozon-api.json");
+}
+
+/** Ensure per-user directory tree exists */
+async function ensureUserDirs(userId) {
+  await ensureDir(getUserProductsDir(userId));
+  await ensureDir(getUserConfigDir(userId));
+}
+
+/**
+ * Migrate legacy data for the first registered user (id=1).
+ * Copies existing knowledge-base/products → data/1/products
+ * and config/ozon-api.json → data/1/config/ozon-api.json
+ */
+async function migrateDataForFirstUser(userId) {
+  if (userId !== 1) return;
+  const userProducts = getUserProductsDir(userId);
+  const userCfgPath = getUserOzonConfigPath(userId);
+
+  // Check if migration already done
+  try {
+    const entries = await fs.readdir(userProducts);
+    if (entries.length > 0) return; // already has data
+  } catch { /* dir doesn't exist yet, will create */ }
+
+  await ensureUserDirs(userId);
+
+  // Copy products
+  const legacyProducts = path.join(AI_ROOT, "knowledge-base", "products");
+  try {
+    const entries = await fs.readdir(legacyProducts, { withFileTypes: true });
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue;
+      const src = path.join(legacyProducts, entry.name);
+      const dst = path.join(userProducts, entry.name);
+      await fs.cp(src, dst, { recursive: true }).catch(() => {});
+    }
+    console.log(`[auth] 已迁移 ${entries.length} 个产品目录到用户 ${userId}`);
+  } catch (e) {
+    console.log(`[auth] 产品目录迁移跳过: ${e.message?.slice(0, 60)}`);
+  }
+
+  // Copy ozon config
+  try {
+    const raw = await fs.readFile(OZON_CONFIG_PATH, "utf8");
+    await fs.writeFile(userCfgPath, raw, "utf8");
+    console.log(`[auth] 已迁移 Ozon 配置到用户 ${userId}`);
+  } catch {
+    // No legacy config, fine
+  }
+}
 
 const PLATFORMS = {
   "1688": {
@@ -486,14 +555,166 @@ function safePath(seg) {
 }
 
 function createServer(port) {
+  // Initialize DB on startup
+  getDb();
+
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://localhost:${port}`);
+
+    // ─── Auth API endpoints (no token required) ───
+    if (url.pathname === "/api/auth/register" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        const { email, password } = body;
+        if (!email || !password) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "邮箱和密码不能为空" }));
+          return;
+        }
+        if (password.length < 6) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "密码至少6位" }));
+          return;
+        }
+        const existing = getUserByEmail(email);
+        if (existing) {
+          res.writeHead(409, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "该邮箱已注册" }));
+          return;
+        }
+        const hash = hashPassword(password);
+        const user = createUser(email, hash);
+        const token = signToken({ userId: user.id, email: user.email });
+
+        // Ensure user data dirs exist + migrate for first user
+        await ensureUserDirs(user.id);
+        await migrateDataForFirstUser(user.id);
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({
+          token,
+          user: { id: user.id, email: user.email, plan: user.plan },
+        }));
+      } catch (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+      return;
+    }
+
+    if (url.pathname === "/api/auth/login" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        const { email, password } = body;
+        if (!email || !password) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "邮箱和密码不能为空" }));
+          return;
+        }
+        const user = getUserByEmail(email);
+        if (!user) {
+          res.writeHead(401, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "邮箱或密码错误" }));
+          return;
+        }
+        if (!verifyPassword(password, user.password_hash)) {
+          res.writeHead(401, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "邮箱或密码错误" }));
+          return;
+        }
+        const token = signToken({ userId: user.id, email: user.email });
+
+        // Ensure user data dirs exist
+        await ensureUserDirs(user.id);
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({
+          token,
+          user: { id: user.id, email: user.email, plan: user.plan },
+        }));
+      } catch (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+      return;
+    }
+
+    if (url.pathname === "/api/auth/me" && req.method === "GET") {
+      const auth = authMiddleware(req);
+      if (!auth) {
+        res.writeHead(401, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "未登录" }));
+        return;
+      }
+      const user = getUserById(auth.userId);
+      if (!user) {
+        res.writeHead(401, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "用户不存在" }));
+        return;
+      }
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({
+        user: {
+          id: user.id,
+          email: user.email,
+          plan: user.plan,
+          products_used: user.products_used,
+          product_quota: user.product_quota,
+        },
+      }));
+      return;
+    }
 
     // ─── 前端页面 ───
     if (url.pathname === "/" || url.pathname === "/index.html") {
       res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
       res.end(HTML_PAGE);
       return;
+    }
+
+    // ─── Auth guard for all other /api/* endpoints ───
+    let userId = null;
+    if (url.pathname.startsWith("/api/")) {
+      const auth = authMiddleware(req);
+      if (!auth) {
+        res.writeHead(401, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "未登录" }));
+        return;
+      }
+      userId = auth.userId;
+      await ensureUserDirs(userId);
+    }
+
+    // ─── Per-user paths (computed once per request) ───
+    const USER_PRODUCTS = userId ? getUserProductsDir(userId) : KB_PRODUCTS;
+    const USER_OZON_CONFIG_DIR = userId ? getUserConfigDir(userId) : OZON_CONFIG_DIR;
+    const USER_OZON_CONFIG_PATH = userId ? getUserOzonConfigPath(userId) : OZON_CONFIG_PATH;
+
+    // Per-user Ozon config loader
+    async function loadUserOzonCfg() {
+      try {
+        const raw = await fs.readFile(USER_OZON_CONFIG_PATH, "utf8");
+        return JSON.parse(raw);
+      } catch {
+        return {};
+      }
+    }
+
+    // Per-user readAllMappings
+    async function readUserMappings() {
+      const entries = await fs.readdir(USER_PRODUCTS, { withFileTypes: true }).catch(() => []);
+      const mappings = [];
+      for (const entry of entries) {
+        if (!entry.isDirectory()) continue;
+        try {
+          const mjson = path.join(USER_PRODUCTS, entry.name, "ozon-import-mapping.json");
+          const raw = await fs.readFile(mjson, "utf8");
+          const m = JSON.parse(raw);
+          m._dir = entry.name;
+          mappings.push(m);
+        } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
+      }
+      return mappings;
     }
 
     // ─── API: 检查cookie状态 ───
@@ -549,14 +770,14 @@ function createServer(port) {
     // ─── API: 产品列表 ───
     if (url.pathname === "/api/products" && req.method === "GET") {
       try {
-        const entries = await fs.readdir(KB_PRODUCTS, { withFileTypes: true }).catch(() => []);
+        const entries = await fs.readdir(USER_PRODUCTS, { withFileTypes: true }).catch(() => []);
         const products = [];
         for (const entry of entries) {
           if (!entry.isDirectory()) continue;
           const slug = entry.name;
-          const pjson = path.join(KB_PRODUCTS, slug, "product.json");
-          const mapping = await readJson(path.join(KB_PRODUCTS, slug, "ozon-import-mapping.json"), null);
-          const inferred = await readJson(path.join(KB_PRODUCTS, slug, "inferred.json"), null);
+          const pjson = path.join(USER_PRODUCTS, slug, "product.json");
+          const mapping = await readJson(path.join(USER_PRODUCTS, slug, "ozon-import-mapping.json"), null);
+          const inferred = await readJson(path.join(USER_PRODUCTS, slug, "inferred.json"), null);
           try {
             const raw = await fs.readFile(pjson, "utf8");
             const data = JSON.parse(raw);
@@ -604,7 +825,7 @@ function createServer(port) {
       const slug = safePath(url.pathname.split("/").pop());
       if (!slug) { res.writeHead(400); res.end("invalid slug"); return; }
       try {
-        const pjson = path.join(KB_PRODUCTS, slug, "product.json");
+        const pjson = path.join(USER_PRODUCTS, slug, "product.json");
         const raw = await fs.readFile(pjson, "utf8");
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(raw);
@@ -665,12 +886,12 @@ function createServer(port) {
           res.write(`   slug: ${result.slug}\n`);
 
           // ── 自动生成mapping并上架 ──
-          const cfg = await loadOzonCfg();
+          const cfg = await loadUserOzonCfg();
           if (cfg.clientId && cfg.apiKey) {
             res.write(`\n[自动上架] 生成mapping...\n`);
             try {
               // 读取刚保存的product.json，生成简单mapping
-              const productDir = path.join(KB_PRODUCTS, result.slug);
+              const productDir = path.join(USER_PRODUCTS, result.slug);
               const pdata = result.data;
               const seed = pdata.seed || {};
               const best = (pdata.candidates || [])[0] || {};
@@ -756,7 +977,7 @@ function createServer(port) {
     // ─── GET /api/ozon/config ───
     if (url.pathname === "/api/ozon/config" && req.method === "GET") {
       try {
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         const masked = cfg.apiKey ? cfg.apiKey.slice(0, 4) + "****" + cfg.apiKey.slice(-4) : "";
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify({
@@ -777,12 +998,12 @@ function createServer(port) {
     if (url.pathname === "/api/ozon/config" && req.method === "POST") {
       try {
         const body = await readBody(req);
-        await ensureDir(OZON_CONFIG_DIR);
-        let existing = await loadOzonCfg();
+        await ensureDir(USER_OZON_CONFIG_DIR);
+        let existing = await loadUserOzonCfg();
         if (body.clientId) existing.clientId = body.clientId;
         if (body.apiKey) existing.apiKey = body.apiKey;
         if (!existing.currency) existing.currency = "CNY";
-        await fs.writeFile(OZON_CONFIG_PATH, JSON.stringify(existing, null, 2), "utf8");
+        await fs.writeFile(USER_OZON_CONFIG_PATH, JSON.stringify(existing, null, 2), "utf8");
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify({ ok: true }));
       } catch (err) {
@@ -795,7 +1016,7 @@ function createServer(port) {
     // ─── GET /api/ozon/check ─── validate key + return warehouse info
     if (url.pathname === "/api/ozon/check" && req.method === "GET") {
       try {
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) {
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(JSON.stringify({ ok: false, error: "未配置 API 凭据" }));
@@ -808,8 +1029,8 @@ function createServer(port) {
           cfg.warehouseId = wh?.warehouse_id;
           cfg.warehouseName = wh?.name;
           cfg.currency = "CNY";
-          await ensureDir(OZON_CONFIG_DIR);
-          await fs.writeFile(OZON_CONFIG_PATH, JSON.stringify(cfg, null, 2), "utf8");
+          await ensureDir(USER_OZON_CONFIG_DIR);
+          await fs.writeFile(USER_OZON_CONFIG_PATH, JSON.stringify(cfg, null, 2), "utf8");
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(JSON.stringify({
             ok: true,
@@ -832,10 +1053,10 @@ function createServer(port) {
     // ─── GET /api/ozon/upload-ready ─── count submittable products
     if (url.pathname === "/api/ozon/upload-ready" && req.method === "GET") {
       try {
-        const mappings = await readAllMappings();
+        const mappings = await readUserMappings();
         const readyCount = mappings.filter(m => m.status === "可提交").length;
         const uploadedCount = mappings.filter(m => m.status === "已上传" || m.ozon_product_id).length;
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         const apiConfigured = !!(cfg.clientId && cfg.apiKey);
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify({ count: readyCount, uploaded: uploadedCount, apiConfigured }));
@@ -857,14 +1078,14 @@ function createServer(port) {
       const write = (obj) => res.write(JSON.stringify(obj) + "\n");
 
       try {
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) {
           write({ type: "error", message: "未配置 Ozon API 凭据" });
           res.end();
           return;
         }
 
-        const mappings = await readAllMappings();
+        const mappings = await readUserMappings();
         const ready = mappings.filter(m => m.status === "可提交");
 
         if (ready.length === 0) {
@@ -985,7 +1206,7 @@ function createServer(port) {
                   // Update mapping file status
                   const mapping = batch.find(b => b.item.offer_id === offerId)?.mapping;
                   if (mapping && mapping._dir) {
-                    const mjsonPath = path.join(KB_PRODUCTS, mapping._dir, "ozon-import-mapping.json");
+                    const mjsonPath = path.join(USER_PRODUCTS, mapping._dir, "ozon-import-mapping.json");
                     try {
                       const mRaw = await fs.readFile(mjsonPath, "utf8");
                       const mData = JSON.parse(mRaw);
@@ -1063,7 +1284,7 @@ function createServer(port) {
     // ─── GET /api/ozon/errors ─── 实时查询所有产品错误（不依赖旧task_id）
     if (url.pathname === "/api/ozon/errors") {
       try {
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) { res.writeHead(200, {"Content-Type":"application/json"}); res.end(JSON.stringify({error:"未配置API"})); return; }
 
         // 用v3实时查
@@ -1106,14 +1327,14 @@ function createServer(port) {
     // ─── POST /api/ozon/stock ─── set stock=100 for all imported products
     if (url.pathname === "/api/ozon/stock" && req.method === "POST") {
       try {
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) {
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(JSON.stringify({ ok: false, error: "未配置 Ozon API" }));
           return;
         }
 
-        const mappings = await readAllMappings();
+        const mappings = await readUserMappings();
         const imported = mappings.filter(m => m.status === "已上传" || m.ozon_product_id);
 
         if (imported.length === 0) {
@@ -1170,7 +1391,7 @@ function createServer(port) {
       const write = (obj) => res.write(JSON.stringify(obj) + "\n");
 
       try {
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) { write({ type: "error", message: "未配置 Ozon API" }); res.end(); return; }
 
         // ── 1. 用v3/product/info/list获取实时错误（不依赖旧task_id）──
@@ -1233,7 +1454,7 @@ function createServer(port) {
         const fixItems = [];
         let modelCounter = Date.now() % 10000;
         const NO_BRAND_ID = 126745801;
-        const allMappingsCache = await readAllMappings(); // 缓存一次，不在循环内反复读磁盘
+        const allMappingsCache = await readUserMappings(); // 缓存一次，不在循环内反复读磁盘
 
         for (const prod of errorProducts) {
           const mapping = allMappingsCache.find(m => m.offer_id === prod.offer_id);
@@ -1340,7 +1561,7 @@ function createServer(port) {
           // 更新mapping文件
           if (mapping?._dir) {
             try {
-              const mjsonPath = path.join(KB_PRODUCTS, mapping._dir, "ozon-import-mapping.json");
+              const mjsonPath = path.join(USER_PRODUCTS, mapping._dir, "ozon-import-mapping.json");
               const mData = JSON.parse(await fs.readFile(mjsonPath, "utf8"));
               mData.import_fields = mData.import_fields || {};
               mData.import_fields.type_id = typeId;
@@ -1363,7 +1584,7 @@ function createServer(port) {
               const mapping = allMappingsCache.find(m => m.offer_id === fi.offer_id);
               if (mapping?._dir) {
                 try {
-                  const mjsonPath = path.join(KB_PRODUCTS, mapping._dir, "ozon-import-mapping.json");
+                  const mjsonPath = path.join(USER_PRODUCTS, mapping._dir, "ozon-import-mapping.json");
                   const mData = JSON.parse(await fs.readFile(mjsonPath, "utf8"));
                   mData.ozon_task_id = taskId;
                   await fs.writeFile(mjsonPath, JSON.stringify(mData, null, 2), "utf8");
@@ -1407,7 +1628,7 @@ function createServer(port) {
     // ─── GET /api/ozon/orders ─── fetch recent orders
     if (url.pathname === "/api/ozon/orders" && req.method === "GET") {
       try {
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) {
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(JSON.stringify({ error: "未配置 Ozon API", orders: [] }));
@@ -1449,18 +1670,18 @@ function createServer(port) {
       if (!offerId) { res.writeHead(400); res.end(JSON.stringify({ error: "invalid offer_id" })); return; }
       try {
         // 在知识库中查找
-        const entries = await fs.readdir(KB_PRODUCTS).catch(() => []);
+        const entries = await fs.readdir(USER_PRODUCTS).catch(() => []);
         let sourceUrl = "";
         let sourcePlatform = "";
         let productName = "";
 
         for (const dir of entries) {
-          const mapPath = path.join(KB_PRODUCTS, dir, "ozon-import-mapping.json");
+          const mapPath = path.join(USER_PRODUCTS, dir, "ozon-import-mapping.json");
           try {
             const m = JSON.parse(await fs.readFile(mapPath, "utf8"));
             if (m.offer_id === offerId || dir === offerId) {
               // 找到了，读product.json拿source_url
-              const pPath = path.join(KB_PRODUCTS, dir, "product.json");
+              const pPath = path.join(USER_PRODUCTS, dir, "product.json");
               const p = JSON.parse(await fs.readFile(pPath, "utf8"));
               const best = (p.candidates || [])[0] || {};
               sourceUrl = best.source_url || p.source_url || "";
@@ -1496,7 +1717,7 @@ function createServer(port) {
       try {
         const postingNumber = safePath(decodeURIComponent(url.pathname.split("/api/ozon/label/")[1]));
         if (!postingNumber) { res.writeHead(400); res.end(JSON.stringify({ error: "invalid posting_number" })); return; }
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) {
           res.writeHead(400, { "Content-Type": "application/json" });
           res.end(JSON.stringify({ error: "未配置 Ozon API" }));
@@ -1530,7 +1751,7 @@ function createServer(port) {
     if (url.pathname === "/api/ozon/ship" && req.method === "POST") {
       try {
         const body = await readBody(req);
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) { res.writeHead(400); res.end(JSON.stringify({ error: "未配置API" })); return; }
 
         const { posting_number, tracking_number, shipping_provider } = body;
@@ -1567,7 +1788,7 @@ function createServer(port) {
     if (url.pathname === "/api/ozon/deliver" && req.method === "POST") {
       try {
         const body = await readBody(req);
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         const dr = await ozonApi("/v2/fbs/posting/last-mile", {
           posting_number: [body.posting_number],
         }, cfg);
@@ -1583,7 +1804,7 @@ function createServer(port) {
     // ─── GET /api/ozon/analytics ─── 商品浏览率分析（过去30天）
     if (url.pathname === "/api/ozon/analytics" && req.method === "GET") {
       try {
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) { res.writeHead(400); res.end(JSON.stringify({ error: "未配置API" })); return; }
 
         const days = parseInt(url.searchParams?.get("days") || "30") || 30;
@@ -1636,7 +1857,7 @@ function createServer(port) {
     if (url.pathname === "/api/ozon/prune" && req.method === "POST") {
       try {
         const body = await readBody(req);
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) { res.writeHead(400); res.end(JSON.stringify({ error: "未配置API" })); return; }
 
         const threshold = parseFloat(body.threshold || "3"); // 默认3%
@@ -1714,7 +1935,7 @@ function createServer(port) {
     // ─── GET /api/ozon/stock-alert ─── 库存预警（低于阈值的商品）
     if (url.pathname === "/api/ozon/stock-alert" && req.method === "GET") {
       try {
-        const cfg = await loadOzonCfg();
+        const cfg = await loadUserOzonCfg();
         if (!cfg.clientId || !cfg.apiKey) { res.writeHead(400); res.end(JSON.stringify({ error: "未配置API" })); return; }
         const threshold = parseInt(url.searchParams?.get("threshold") || "10") || 10;
 

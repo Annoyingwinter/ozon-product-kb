@@ -53,16 +53,29 @@ async function findLatestFile(dir, prefix) {
 async function main() {
   const args = parseCliArgs(process.argv.slice(2), {
     input: "",
+    userDir: "",     // per-user data directory (e.g. data/5/)
     skipSeeds: false,
     skipScrape: false,
     skipInfer: false,
-    only: "",        // "1688" | "pdd" | ""(both)
+    only: "",
     limit: "5",
     category: "",
     count: "12",
     headless: true,
     dryRun: false,
   });
+
+  // 如果指定了 --user-dir，覆盖全局路径
+  let USER_KB_ROOT = KB_ROOT;
+  let USER_OUTPUT_ROOT = OUTPUT_ROOT;
+  if (args.userDir) {
+    const userBase = path.resolve(args.userDir);
+    USER_KB_ROOT = path.join(userBase, "knowledge-base");
+    USER_OUTPUT_ROOT = path.join(userBase, "output");
+    await ensureDir(path.join(USER_KB_ROOT, "products"));
+    await ensureDir(USER_OUTPUT_ROOT);
+    console.log(`  用户目录: ${userBase}`);
+  }
 
   const startTime = Date.now();
   console.log(`\n  Ozon Pilot Pipeline — ${new Date().toLocaleString()}`);
@@ -76,8 +89,8 @@ async function main() {
     if (args.dryRun) {
       console.log("  [dry-run] 跳过选词");
     } else {
-      const poolPath = path.join(KB_ROOT, "keyword-pool.json");
-      const usedPath = path.join(KB_ROOT, ".used-keywords.json");
+      const poolPath = path.join(USER_KB_ROOT, "keyword-pool.json");
+      const usedPath = path.join(USER_KB_ROOT, ".used-keywords.json");
       const pool = await readJson(poolPath, null);
       const used = new Set(await readJson(usedPath, []) || []);
       const limit = parseInt(args.limit) || 5;
@@ -85,7 +98,7 @@ async function main() {
       // === 来源1: Ozon 卖家分析数据（最有价值：看哪些品类有浏览量）===
       let ozonTrendWords = [];
       try {
-        const ozonCfgPath = path.join(KB_ROOT, "..", "config", "ozon-api.json");
+        const ozonCfgPath = path.join(USER_KB_ROOT, "..", "config", "ozon-api.json");
         const ozonCfg = await readJson(ozonCfgPath, null);
         if (ozonCfg?.clientId && ozonCfg?.apiKey) {
           let dispatcher;
@@ -196,8 +209,8 @@ Ozon上最近热门品类: ${hotCats}
 
       if (!selected.length) { console.error("无法获取关键词"); process.exit(1); }
 
-      await ensureDir(OUTPUT_ROOT);
-      seedsPath = path.join(OUTPUT_ROOT, `seeds-${timestamp()}.json`);
+      await ensureDir(USER_OUTPUT_ROOT);
+      seedsPath = path.join(USER_OUTPUT_ROOT, `seeds-${timestamp()}.json`);
       await fs.writeFile(seedsPath, JSON.stringify({ seeds: selected }, null, 2));
 
       for (const s of selected) used.add(s.keyword);
@@ -256,14 +269,14 @@ Ozon上最近热门品类: ${hotCats}
   // ─── Stage 6: 自动生成 Ozon import mapping ───
   if (!args.dryRun) {
     console.log("\n[Stage 6] 生成 Ozon 上架 mapping...");
-    const OZON_CONFIG_PATH = path.join(KB_ROOT, "..", "config", "ozon-api.json");
+    const OZON_CONFIG_PATH = path.join(USER_KB_ROOT, "..", "config", "ozon-api.json");
     const ozonCfg = await readJson(OZON_CONFIG_PATH, {});
-    const productsDir = path.join(KB_ROOT, "products");
+    const productsDir = path.join(USER_KB_ROOT, "products");
     const allDirs = await fs.readdir(productsDir).catch(() => []);
     let mappingCount = 0;
 
     // 加载类目树缓存（用于智能匹配）
-    const catFlatPath = path.join(KB_ROOT, "ozon-category-flat.json");
+    const catFlatPath = path.join(USER_KB_ROOT, "ozon-category-flat.json");
     let catFlat = await readJson(catFlatPath, null);
     if (!catFlat && ozonCfg.clientId && ozonCfg.apiKey) {
       // 动态获取并缓存
@@ -417,13 +430,13 @@ Ozon上最近热门品类: ${hotCats}
 
   // ─── Stage 7: 自动提交到 Ozon ───
   if (!args.dryRun) {
-    const OZON_CONFIG_PATH2 = path.join(KB_ROOT, "..", "config", "ozon-api.json");
+    const OZON_CONFIG_PATH2 = path.join(USER_KB_ROOT, "..", "config", "ozon-api.json");
     const ozonCfg2 = await readJson(OZON_CONFIG_PATH2, {});
     if (ozonCfg2.clientId && ozonCfg2.apiKey) {
       console.log("\n[Stage 7] 自动提交到 Ozon...");
 
       // 读取所有可提交的mapping
-      const productsDir2 = path.join(KB_ROOT, "products");
+      const productsDir2 = path.join(USER_KB_ROOT, "products");
       const allDirs2 = await fs.readdir(productsDir2).catch(() => []);
       const readyMappings = [];
       for (const slug of allDirs2) {
@@ -560,12 +573,12 @@ Ozon上最近热门品类: ${hotCats}
 
   // ─── 汇总 ───
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
-  const productDirs = await fs.readdir(path.join(KB_ROOT, "products")).catch(() => []);
+  const productDirs = await fs.readdir(path.join(USER_KB_ROOT, "products")).catch(() => []);
   let listings = 0;
   let uploaded = 0;
   for (const d of productDirs) {
-    if (await readJson(path.join(KB_ROOT, "products", d, "listing.json"), null)) listings++;
-    const m = await readJson(path.join(KB_ROOT, "products", d, "ozon-import-mapping.json"), null);
+    if (await readJson(path.join(USER_KB_ROOT, "products", d, "listing.json"), null)) listings++;
+    const m = await readJson(path.join(USER_KB_ROOT, "products", d, "ozon-import-mapping.json"), null);
     if (m?.status === "已上传" || m?.ozon_product_id) uploaded++;
   }
 
