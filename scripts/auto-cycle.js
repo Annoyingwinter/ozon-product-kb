@@ -14,8 +14,8 @@ import { proxyFetch, getProxyDispatcherAsync } from "./lib/proxy.js";
 
 const PRUNE_THRESHOLD = 1;   // 浏览占比低于1%的下架
 const PRUNE_DAYS = 7;        // 看最近7天的数据
-const PIPELINE_LIMIT = 20;   // 每轮选20个新品
-const LOOP_INTERVAL_H = 3;   // 循环间隔（3小时）
+const PIPELINE_LIMIT = 50;   // 每轮选50个新品
+const LOOP_INTERVAL_H = 2;   // 循环间隔（2小时）
 
 function run(script, args = []) {
   console.log(`\n  ▶ ${script} ${args.join(" ")}`);
@@ -112,7 +112,26 @@ async function runCycle() {
   // Step 1: 淘汰低效产品
   await pruneByAnalytics();
 
-  // Step 2: 选品 + 采集 + 推理 + 上架
+  // Step 2: 词库不够时自动扩展
+  try {
+    const poolPath = path.join(KB_ROOT, "..", "knowledge-base", "keyword-pool.json");
+    const usedPath = path.join(KB_ROOT, "..", "knowledge-base", ".used-keywords.json");
+    const pool = await readJson(poolPath, null);
+    const used = new Set(await readJson(usedPath, []) || []);
+    let remaining = 0;
+    if (pool?.categories) {
+      for (const cat of Object.values(pool.categories)) {
+        remaining += (cat.keywords || []).filter(kw => !used.has(kw)).length;
+      }
+    }
+    console.log(`\n[词库] 剩余: ${remaining} 个未使用关键词`);
+    if (remaining < PIPELINE_LIMIT * 2) {
+      console.log(`[词库] 不足，AI自动扩展中...`);
+      run("expand-keyword-pool.js", ["--count", "30"]);
+    }
+  } catch (e) { if (e?.message) console.warn("  warn:", e.message.slice(0, 60)); }
+
+  // Step 3: 选品 + 采集 + 推理 + 上架
   console.log("\n[选品上架] 启动 Pipeline...");
   run("run-pipeline.js", ["--limit", String(PIPELINE_LIMIT), "--headless"]);
 
