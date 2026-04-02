@@ -583,7 +583,7 @@ function createServer(port) {
           return;
         }
         const hash = hashPassword(password);
-        const user = createUser(email, hash);
+        const user = createUser(email, hash, body.inviteCode);
         const token = signToken({ userId: user.id, email: user.email });
 
         // Ensure user data dirs exist + migrate for first user
@@ -663,6 +663,63 @@ function createServer(port) {
         },
       }));
       return;
+    }
+
+    // ─── 管理后台 API（需要 admin） ───
+    if (url.pathname.startsWith("/api/admin/")) {
+      const auth = authMiddleware(req);
+      if (!auth) { res.writeHead(401); res.end(JSON.stringify({ error: "未登录" })); return; }
+      const adminUser = getUserById(auth.userId);
+      if (!adminUser?.is_admin) { res.writeHead(403); res.end(JSON.stringify({ error: "无管理权限" })); return; }
+
+      // GET /api/admin/users — 用户列表 + 用量
+      if (url.pathname === "/api/admin/users" && req.method === "GET") {
+        const { listAllUsers, getUsageStats } = await import("./lib/db.js");
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ users: listAllUsers(), stats: getUsageStats() }));
+        return;
+      }
+
+      // POST /api/admin/user/plan — 修改用户套餐
+      if (url.pathname === "/api/admin/user/plan" && req.method === "POST") {
+        const { updateUserPlan } = await import("./lib/db.js");
+        const body = await readBody(req);
+        updateUserPlan(body.userId, body.plan, body.quota);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ ok: true }));
+        return;
+      }
+
+      // POST /api/admin/invite — 创建邀请码
+      if (url.pathname === "/api/admin/invite" && req.method === "POST") {
+        const { createInviteCode } = await import("./lib/db.js");
+        const body = await readBody(req);
+        const code = body.code || Math.random().toString(36).slice(2, 10).toUpperCase();
+        createInviteCode(code, body.plan || "basic", body.quota || 100, body.maxUses || 10, auth.userId);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ code, plan: body.plan || "basic", quota: body.quota || 100 }));
+        return;
+      }
+
+      // GET /api/admin/invites — 邀请码列表
+      if (url.pathname === "/api/admin/invites" && req.method === "GET") {
+        const { listInviteCodes } = await import("./lib/db.js");
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ codes: listInviteCodes() }));
+        return;
+      }
+
+      // GET /api/admin/usage/:userId — 用户用量明细
+      if (url.pathname.startsWith("/api/admin/usage/") && req.method === "GET") {
+        const { getUserUsage } = await import("./lib/db.js");
+        const targetId = parseInt(safePath(url.pathname.split("/").pop()));
+        if (!targetId) { res.writeHead(400); res.end("invalid user id"); return; }
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ usage: getUserUsage(targetId) }));
+        return;
+      }
+
+      res.writeHead(404); res.end("not found"); return;
     }
 
     // ─── 前端页面 ───
