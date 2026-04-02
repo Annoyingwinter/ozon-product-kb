@@ -300,63 +300,48 @@ Ozon上最近热门品类: ${hotCats}
     }
 
     // 智能类目匹配: 从inferred的类目信息搜索类目树
-    function matchCategory(suggestion, typeName) {
-      if (!catFlat?.length) return null;
+    function matchCategory(suggestion) {
+      if (!catFlat?.length || !suggestion) return null;
 
-      // 策略0: 用 ozon_type_name 精确匹配（最可靠）
-      if (typeName) {
-        const exact = catFlat.find(c => c.name?.toLowerCase() === typeName.toLowerCase());
-        if (exact) return exact;
+      // 提取最后一段作为 type_name（"Спорт > Защита > Защита колена" → "Защита колена"）
+      const parts = suggestion.split(/[>\/]/).map(s => s.trim()).filter(Boolean);
+      const typeName = parts[parts.length - 1] || "";
+      const parentName = parts.length >= 2 ? parts[parts.length - 2] : "";
+
+      // 策略1: 精确匹配 type_name
+      const exact = catFlat.find(c => (c.name || "").toLowerCase() === typeName.toLowerCase());
+      if (exact) return exact;
+
+      // 策略2: type_name 包含匹配（处理复数/格变化）
+      const tnLow = typeName.toLowerCase();
+      const containsMatches = catFlat.filter(c => {
+        const n = (c.name || "").toLowerCase();
+        return n.includes(tnLow) || tnLow.includes(n);
+      });
+      // 如果有多个包含匹配，用 parent 路径过滤
+      if (containsMatches.length === 1) return containsMatches[0];
+      if (containsMatches.length > 1 && parentName) {
+        const pLow = parentName.toLowerCase();
+        const refined = containsMatches.find(c => (c.path || "").toLowerCase().includes(pLow));
+        if (refined) return refined;
+        return containsMatches[0]; // 取第一个
       }
 
-      if (!suggestion) return null;
-      // 支持 > 和 / 分隔符
-      const parts = suggestion.split(/[>\/]/).map(s => s.trim()).filter(Boolean);
-
-      // 策略1: 用最后一段直接匹配 type_name
-      const lastPart = parts[parts.length - 1]?.toLowerCase() || "";
-      const directMatch = catFlat.find(c => c.name?.toLowerCase() === lastPart);
-      if (directMatch) return directMatch;
-
-      // 策略2: 用最后一段的词根模糊匹配 type_name
-      // 如 "Крючки и вешалки" 匹配 "Крючок" (词根)
-      const lastWords = lastPart.split(/\s+/).filter(w => w.length >= 3);
+      // 策略3: 词根匹配（取前5字符）+ 路径权重
+      const lastWords = tnLow.split(/\s+/).filter(w => w.length >= 3);
       let bestMatch = null, bestScore = 0;
       for (const cat of catFlat) {
         const nameLow = (cat.name || "").toLowerCase();
         const pathLow = (cat.path || "").toLowerCase();
         let score = 0;
-
-        // type_name 完全包含最后一段的任何词
         for (const w of lastWords) {
-          // 词根匹配（去掉俄语词尾变化，取前4-5个字符）
-          const stem = w.slice(0, Math.min(w.length, 5));
+          const stem = w.slice(0, 5);
           if (nameLow.includes(stem)) score += 10;
         }
-
-        // 路径包含倒数第二段的关键词（品类层级）
-        if (parts.length >= 2) {
-          const parentPart = parts[parts.length - 2]?.toLowerCase() || "";
-          const parentWords = parentPart.split(/\s+/).filter(w => w.length >= 3);
-          for (const pw of parentWords) {
-            const stem = pw.slice(0, Math.min(pw.length, 5));
-            if (pathLow.includes(stem)) score += 5;
-          }
-        }
-
-        // 路径包含第一段（大品类）
-        if (parts.length >= 3) {
-          const rootPart = parts[0]?.toLowerCase() || "";
-          const rootWords = rootPart.split(/\s+/).filter(w => w.length >= 3);
-          for (const rw of rootWords) {
-            const stem = rw.slice(0, Math.min(rw.length, 5));
-            if (pathLow.includes(stem)) score += 2;
-          }
-        }
-
+        if (parentName && pathLow.includes(parentName.toLowerCase().slice(0, 6))) score += 5;
         if (score > bestScore) { bestScore = score; bestMatch = cat; }
       }
-      return bestScore >= 10 ? bestMatch : null; // 至少type_name要匹配到一个词
+      return bestScore >= 10 ? bestMatch : null;
     }
 
     for (const slug of allDirs) {
@@ -392,7 +377,7 @@ Ozon上最近热门品类: ${hotCats}
       const finalOldPrice = Math.round(finalPrice * 1.3 * 100) / 100;
 
       // 智能类目匹配
-      const matchedCat = matchCategory(inferred?.ozon_category_suggestion, inferred?.ozon_type_name);
+      const matchedCat = matchCategory(inferred?.ozon_category_suggestion);
 
       const mapping = {
         slug,
