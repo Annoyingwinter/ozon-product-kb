@@ -1755,14 +1755,10 @@ export const HTML_PAGE = `<!DOCTYPE html>
       let ozonCfg = null;
       try { ozonCfg = await api('/ozon/config'); } catch {}
 
-      // 2×2 grid: 采购源 + 销售端
+      // 数据源: 只显示1688和拼多多
       let html = '<div class="row">';
       html += buildTile('1688', s1688, e1688);
-      html += buildTile('yiwugo', sYiwugo, eYiwugo);
-      html += '</div>';
-      html += '<div class="row">';
       html += buildTile('pdd', sPdd, ePdd);
-      html += buildTile('ozon', sOzon, eOzon, ozonCfg);
       html += '</div>';
 
       // 只在内容变化时更新DOM（避免闪烁）
