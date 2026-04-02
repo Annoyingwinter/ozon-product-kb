@@ -24,9 +24,16 @@ async function loadCookieString() {
     const now = Date.now() / 1000;
     const cookies = (state.cookies || [])
       .filter((c) => String(c.domain || "").includes(MARKETPLACE_DOMAIN))
-      .filter((c) => !c.expires || c.expires > now);
-    if (cookies.length < 3) {
-      throw new Error("cookie不足或已过期，请先运行 node scripts/refresh-1688-session.js 登录");
+      .filter((c) => c.expires && c.expires > 100 && c.expires > now);
+
+    // 检查关键cookie是否存在（不只看数量）
+    const KEY_NAMES = ["cookie2", "_tb_token_", "sgcookie"];
+    const keyCookies = cookies.filter((c) => KEY_NAMES.some((k) => c.name?.includes(k)));
+    if (keyCookies.length < 2) {
+      const msg = cookies.length === 0
+        ? "1688 cookie已全部过期"
+        : `1688关键cookie不足(${keyCookies.length}/2)，有效cookie${cookies.length}个但缺少${KEY_NAMES.filter(k => !cookies.some(c => c.name?.includes(k))).join("/")}`;
+      throw new Error(`${msg}。请在控制台点击"扫码登录"重新授权1688。`);
     }
     return cookies.map((c) => `${c.name}=${c.value}`).join("; ");
   } catch (error) {

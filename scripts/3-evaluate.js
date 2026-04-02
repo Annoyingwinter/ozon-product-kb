@@ -12,8 +12,8 @@ import fs from "node:fs/promises";
 import { parseCliArgs, readJson, writeJson, normalize, parseNumber, timestamp, KB_ROOT, OUTPUT_ROOT } from "./lib/shared.js";
 
 const RULES = {
-  priceMinRub: 1000,
-  priceMaxRub: 4000,
+  priceMinRub: 300,
+  priceMaxRub: 5000,
   maxWeightKg: 1.2,
   maxLongEdgeCm: 45,
   exchangeRateRubPerCny: 12.5,
@@ -78,7 +78,59 @@ function scoreLevel(level) {
   return 55;
 }
 
-function evaluate(product) {
+// 从知识库product.json提取评分所需的扁平化数据
+function flattenProduct(product) {
+  // 如果已经是扁平的种子格式，直接返回
+  if (product.target_price_rub || product.supply_price_cny) return product;
+
+  // 从candidates提取真实采集数据
+  // 找第一个标题有效的candidate（过滤掉抓到首页/登录页的脏数据）
+  const junkTitle = /阿里1688|1688首页|登录|密码|公司|有限|商行|经营部|厂$/;
+  const best = product.candidates?.find(c => c.title && !junkTitle.test(c.title)) || product.candidates?.[0];
+  if (!best) return product.seed || product;
+
+  // 从1688价格提取供应价（取最低数字价格）
+  const priceNums = (best.prices || [])
+    .map(p => parseFloat(String(p).replace(/[¥￥,]/g, "")))
+    .filter(n => n > 0 && n < 9999);
+  // 取中位数（最低价通常是大批量价，不代表真实采购成本）
+  const sorted = priceNums.sort((a, b) => a - b);
+  const supplyCny = sorted.length ? sorted[Math.floor(sorted.length / 2)] : 0;
+
+  // 从属性提取重量
+  const attrs = best.attributes || {};
+  const rawAttrs = best.raw_attributes || [];
+  const weightAttr = rawAttrs.find(a => /重量|weight/i.test(a.key));
+  const weightKg = weightAttr ? parseFloat(weightAttr.value) || 0.3 : 0.3;
+
+  // 估算Ozon售价 (供应价 * 汇率 * 8倍加价: 含运费、关税、Ozon佣金、利润)
+  const targetRub = supplyCny ? Math.round(supplyCny * RULES.exchangeRateRubPerCny * 8) : 0;
+
+  // 判断是否易碎/认证风险
+  const category = product.seed?.category || "";
+  const isCrossBorder = rawAttrs.some(a => /跨境|出口/i.test(a.value));
+  const hasImages = (best.images?.length || 0) >= 3;
+
+  return {
+    name: best.title || product.keyword || product.seed?.keyword || "",
+    keyword: product.keyword || product.seed?.keyword || "",
+    target_price_rub: targetRub,
+    supply_price_cny: supplyCny,
+    est_weight_kg: weightKg,
+    package_long_edge_cm: 0,
+    competition_level: "medium",
+    certification_risk: /电子|电池|食品|化妆|药|toy/i.test(category) ? "high" : "low",
+    return_risk: /服装|鞋|衣/i.test(category) ? "high" : "low",
+    content_potential: hasImages ? "high" : "medium",
+    fragility: /玻璃|陶瓷|ceramic|glass/i.test(category) ? "high" : "low",
+    _is_cross_border: isCrossBorder,
+    _candidate_count: product.candidates?.length || 0,
+    _image_count: best.images?.length || 0,
+  };
+}
+
+function evaluate(rawProduct) {
+  const product = flattenProduct(rawProduct);
   const s_price = scorePrice(product);
   const s_margin = scoreMargin(product);
   const s_logistics = scoreLogistics(product);
@@ -114,16 +166,16 @@ async function main() {
 
   let products = [];
   if (args.kb) {
-    // 扫描知识库
+    // 扫描知识库，传入完整product数据（含candidates）
     const productsDir = path.join(KB_ROOT, "products");
     const dirs = await fs.readdir(productsDir).catch(() => []);
     for (const dir of dirs) {
       const pj = await readJson(path.join(productsDir, dir, "product.json"), null);
-      if (pj?.seed) products.push(pj.seed);
+      if (pj?.candidates?.length) products.push(pj); // 只评有采集数据的产品
     }
   } else if (args.input) {
     const data = await readJson(path.resolve(args.input));
-    products = data?.products || data || [];
+    products = data?.products || data?.seeds || (Array.isArray(data) ? data : []);
   } else {
     throw new Error("需要 --input <seeds.json> 或 --kb");
   }

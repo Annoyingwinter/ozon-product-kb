@@ -18,6 +18,20 @@ import { chromium } from "playwright";
 import { readJson, writeJson, ensureDir, parseCliArgs } from "./lib/shared.js";
 import { launchBrowser, saveSession, closeBrowser, detectPageType } from "./lib/browser.js";
 
+/* ─── Proxy for Ozon API (GFW) ─── */
+const PROXY_URL = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || process.env.https_proxy || process.env.http_proxy || "";
+let proxyDispatcher;
+if (PROXY_URL) {
+  try {
+    const undici = await import("undici");
+    proxyDispatcher = new undici.ProxyAgent(PROXY_URL);
+    console.log(`  代理: ${PROXY_URL}`);
+  } catch {
+    // undici不可用时通过https-proxy-agent或跳过
+    console.log(`  代理: ${PROXY_URL} (需安装 undici: npm i undici)`);
+  }
+}
+
 /* ─── Project root paths ─── */
 const AI_ROOT = path.resolve(".");
 const KB_PRODUCTS = path.join(AI_ROOT, "knowledge-base", "products");
@@ -76,6 +90,7 @@ async function ozonApi(endpoint, body, cfg) {
     },
     body: JSON.stringify(body),
     signal: AbortSignal.timeout(30000),
+    ...(proxyDispatcher ? { dispatcher: proxyDispatcher } : {}),
   });
   // 安全解析JSON（处理403 HTML/502等非JSON响应）
   let data;
@@ -99,6 +114,7 @@ async function ozonApiRaw(endpoint, body, cfg) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
+    ...(proxyDispatcher ? { dispatcher: proxyDispatcher } : {}),
   });
 }
 
@@ -132,8 +148,12 @@ async function checkCookieStatus(platform) {
   );
 
   const now = Date.now() / 1000;
-  const expired = domainCookies.filter(c => c.expires && c.expires > 0 && c.expires < now);
-  const valid = domainCookies.filter(c => !c.expires || c.expires <= 0 || c.expires > now);
+  // expires <= 0 或 epoch前 = session cookie（视为已过期，因为浏览器关了就没了）
+  // expires > now = 有效
+  // !expires = 视为session cookie（不可靠）
+  const isValidCookie = (c) => c.expires && c.expires > 100 && c.expires > now;
+  const expired = domainCookies.filter(c => !isValidCookie(c));
+  const valid = domainCookies.filter(isValidCookie);
 
   const keyNames = platform === "pdd"
     ? ["PDDAccessToken", "PASS_ID", "pdd_user_id", "pdd_user_uin", "SUB", "ak", "accessToken"]
@@ -150,12 +170,23 @@ async function checkCookieStatus(platform) {
 
   const daysLeft = earliestExpiry === Infinity ? -1 : Math.round((earliestExpiry - now) / 86400);
 
+  // 1688需要至少2个关键cookie才能正常搜索
+  const minKeyCookies = platform === "1688" ? 2 : platform === "ozon" ? 0 : 1;
+  const isValid = keyCookies.length >= minKeyCookies;
+
+  // 如果关键cookie不足，标记哪些缺失
+  const missingKeys = platform === "1688"
+    ? ["cookie2", "_tb_token_", "sgcookie"].filter(k => !valid.some(c => c.name?.includes(k)))
+    : [];
+
   return {
-    valid: valid.length > 0 && keyCookies.length > 0,
+    valid: isValid,
     totalCookies: domainCookies.length,
     validCookies: valid.length,
+    keyCookieCount: keyCookies.length,
     expiredCookies: expired.length,
     daysUntilExpiry: daysLeft,
+    missingKeys,
     lastSaved: state.cookies[0]?.sameSite ? "recent" : "unknown",
   };
 }
@@ -175,10 +206,76 @@ async function startLogin(platform) {
     storageStatePath: config.storagePath,
   });
 
-  const page = await context.newPage();
-  await page.goto(config.loginUrl, { waitUntil: "domcontentloaded", timeout: 30000 }).catch(() => {});
+  // 关闭持久化上下文恢复的多余页面，只保留一个用于登录
+  const existingPages = context.pages();
+  const page = existingPages[0] || await context.newPage();
+  for (const p of existingPages.slice(1)) {
+    await p.close().catch(() => {});
+  }
 
-  activeSessions[platform] = { context, browser, page, status: "waiting_login" };
+  // 清除旧的关键cookie，防止轮询误判"已登录"
+  try {
+    const oldCookies = await context.cookies();
+    const domain = config.cookieDomain.replace(/^\./, "");
+    const keyNames = platform === "pdd"
+      ? ["PDDAccessToken", "PASS_ID", "pdd_user_id", "pdd_user_uin", "SUB"]
+      : platform === "ozon"
+        ? ["abt_data", "x-o2-api-key", "session", "__Secure"]
+        : ["cookie2", "_tb_token_", "__cn_logon__", "sgcookie"];
+    const toRemove = oldCookies.filter(c =>
+      String(c.domain || "").endsWith(domain) && keyNames.some(k => c.name?.includes(k))
+    );
+    if (toRemove.length) {
+      await context.clearCookies({ domain: config.cookieDomain }).catch(() => {});
+      console.log(`[${platform}] 已清除 ${toRemove.length} 个旧关键cookie，等待重新登录`);
+    }
+  } catch {}
+
+  // 确保1688/ozon等国内站不走代理
+  const hosts = [config.loginUrl, config.checkUrl].map(u => { try { return new URL(u).hostname; } catch { return ""; } }).filter(Boolean);
+  try {
+    const { ensureDirectConnection } = await import("./lib/browser.js");
+    await ensureDirectConnection(hosts);
+  } catch {}
+
+  // 导航到登录页，失败重试一次
+  let navOk = false;
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      await page.goto(config.loginUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
+      navOk = true;
+      break;
+    } catch (navErr) {
+      console.log(`[${platform}] 导航失败(${attempt}/2): ${navErr.message?.slice(0, 60)}`);
+      if (attempt < 2) await new Promise(r => setTimeout(r, 2000));
+    }
+  }
+  if (!navOk) {
+    // 最后兜底：直接在地址栏输入URL
+    try { await page.evaluate((url) => { window.location.href = url; }, config.loginUrl); } catch {}
+    await new Promise(r => setTimeout(r, 3000));
+  }
+
+  // 记录启动时已有的关键cookie指纹，用于区分"旧cookie"和"新登录产生的cookie"
+  let initialKeyCookieSignature = "";
+  try {
+    const keyNames = platform === "pdd"
+      ? ["PDDAccessToken", "PASS_ID", "pdd_user_id", "pdd_user_uin", "SUB"]
+      : platform === "ozon"
+        ? ["abt_data", "x-o2-api-key", "session", "__Secure"]
+        : ["cookie2", "_tb_token_", "__cn_logon__", "sgcookie"];
+    const cookies = await context.cookies();
+    const domain = config.cookieDomain.replace(/^\./, "");
+    const keyCookies = cookies.filter(c =>
+      String(c.domain || "").endsWith(domain) && keyNames.some(k => c.name?.includes(k))
+    );
+    initialKeyCookieSignature = keyCookies.map(c => c.name + "=" + c.value).sort().join("|");
+    if (keyCookies.length) {
+      console.log(`[${platform}] 检测到 ${keyCookies.length} 个旧关键cookie，将等待新cookie出现`);
+    }
+  } catch {}
+
+  activeSessions[platform] = { context, browser, page, status: "waiting_login", initialKeyCookieSignature };
   pollLoginStatus(platform);
   return { started: true, platform };
 }
@@ -232,17 +329,30 @@ async function pollLoginStatus(platform) {
           : platform === "ozon"
             ? ["abt_data", "x-o2-api-key", "session", "__Secure"]
             : ["cookie2", "_tb_token_", "__cn_logon__", "sgcookie"];
-        const hasKeyCookie = domainCookies.some(c => keyNames.some(k => c.name?.includes(k)));
-        // Ozon登录后URL会跳到seller.ozon.ru/app，靠URL判断即可
-        cookieReady = platform === "ozon"
+        const keyCookies = domainCookies.filter(c => keyNames.some(k => c.name?.includes(k)));
+        const keyCookieCount = keyCookies.length;
+        const minRequired = platform === "1688" ? 2 : 1;
+        const hasKeyCookie = keyCookieCount >= minRequired;
+        const hasEnoughTotal = platform === "ozon"
           ? domainCookies.length >= 5
           : hasKeyCookie && domainCookies.length >= 3;
-        if (cookieReady) {
-          console.log(`[${platform}] 检测到登录cookie: ${domainCookies.length}个 (含关键cookie)`);
+
+        // 关键：比较cookie指纹是否变化（防止旧cookie误判）
+        const currentSignature = keyCookies.map(c => c.name + "=" + c.value).sort().join("|");
+        const signatureChanged = currentSignature !== (session.initialKeyCookieSignature || "");
+
+        cookieReady = hasEnoughTotal && signatureChanged;
+        if (hasEnoughTotal && !signatureChanged) {
+          // cookie存在但没变化 → 是旧cookie，不算登录成功
+        } else if (cookieReady) {
+          console.log(`[${platform}] 检测到新登录cookie: ${domainCookies.length}个 (含${keyCookieCount}个关键cookie)`);
         }
       } catch {}
 
-      if (urlLeft || cookieReady) {
+      // 1688必须cookie变化才算登录成功（防止旧cookie误判）
+      // 其他平台URL离开登录页或cookie变化都算
+      const loginSuccess = platform === "1688" ? cookieReady : (urlLeft || cookieReady);
+      if (loginSuccess) {
         session.status = "logged_in";
         await new Promise(r => setTimeout(r, 3000));
         await saveSession(session.context, config.storagePath);
@@ -450,12 +560,13 @@ const HTML_PAGE = `<!DOCTYPE html>
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 60px;
+      height: 52px;
       padding: 0 28px;
       background: var(--s1);
-      border-bottom: none;
-      position: relative;
-      z-index: 10;
+      border-bottom: 1px solid var(--edge);
+      position: sticky;
+      top: 0;
+      z-index: 100;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
     }
     /* No glow line — clean shadow instead */
@@ -528,39 +639,56 @@ const HTML_PAGE = `<!DOCTYPE html>
       letter-spacing: 0.02em;
     }
 
-    /* ── tab nav ── */
+    /* ── layout: sidebar + main ── */
+    .app-layout {
+      display: flex;
+      min-height: calc(100vh - 52px);
+    }
+
+    /* ── sidebar nav ── */
     .tab-nav {
       display: flex;
-      gap: 0;
+      flex-direction: column;
+      gap: 2px;
+      width: 180px;
+      min-width: 180px;
       background: var(--s1);
-      border-bottom: 1px solid var(--edge);
-      padding: 0 24px;
+      border-right: 1px solid var(--edge);
+      padding: 16px 8px;
+      position: sticky;
+      top: 52px;
+      height: calc(100vh - 52px);
+      overflow-y: auto;
+      z-index: 99;
     }
     .tab-btn {
       font-family: var(--sans);
       font-weight: 500;
       font-size: 13px;
-      padding: 12px 18px;
+      padding: 10px 14px;
       border: none;
-      border-bottom: 2px solid transparent;
-      border-radius: 0;
+      border-radius: 8px;
       background: none;
       color: var(--t2);
       cursor: pointer;
-      position: relative;
-      transition: all 200ms var(--ease);
+      text-align: left;
+      transition: all 150ms var(--ease);
     }
     .tab-btn:hover {
       color: var(--t1);
-      background: rgba(5,150,105,0.03);
+      background: rgba(5,150,105,0.06);
     }
     .tab-btn.active {
       color: var(--accent);
-      background: none;
-      border-bottom-color: var(--accent);
-      box-shadow: none;
+      background: rgba(5,150,105,0.08);
+      font-weight: 600;
     }
     .tab-btn.active::after { display: none; }
+    .app-main {
+      flex: 1;
+      min-width: 0;
+      overflow-y: auto;
+    }
     .tab-btn .tab-badge {
       display: inline-flex;
       align-items: center;
@@ -998,23 +1126,6 @@ const HTML_PAGE = `<!DOCTYPE html>
     .log-out::-webkit-scrollbar { width: 4px; }
     .log-out::-webkit-scrollbar-track { background: transparent; }
     .log-out::-webkit-scrollbar-thumb { background: #4a4a5a; border-radius: 4px; }
-
-    /* ── select section ── */
-    .select-meta {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      margin-top: 12px;
-      flex-wrap: wrap;
-    }
-    .select-meta-item {
-      font-size: 12px;
-      color: var(--t2);
-    }
-    .select-meta-item strong {
-      color: var(--t1);
-      font-family: var(--mono);
-    }
 
     /* ── search box ── */
     .search-box {
@@ -1530,8 +1641,15 @@ const HTML_PAGE = `<!DOCTYPE html>
       .stats-bar { grid-template-columns: 1fr 1fr; }
       .pdetail-grid { grid-template-columns: 1fr; }
       .tab-btn { padding: 10px 14px; font-size: 12px; }
-      .tab-nav { padding: 0 16px; gap: 0; }
-      header { height: 56px; padding: 0 16px; }
+      .app-layout { flex-direction: column; }
+      .tab-nav {
+        flex-direction: row; width: auto; min-width: auto; height: auto;
+        position: sticky; top: 52px; border-right: none; border-bottom: 1px solid var(--edge);
+        padding: 0 12px; overflow-x: auto;
+      }
+      .tab-btn { padding: 10px 14px; border-radius: 0; }
+      .tab-btn.active { border-radius: 0; border-bottom: 2px solid var(--accent); }
+      header { height: 52px; padding: 0 16px; }
       .wrap { padding: 24px 16px 48px; }
       .order-card { flex-direction: column; gap: 10px; align-items: flex-start; }
       .order-actions { margin-left: 0; }
@@ -1558,11 +1676,13 @@ const HTML_PAGE = `<!DOCTYPE html>
     </div>
   </header>
 
+  <div class="app-layout">
   <nav class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('console')">控制台</button>
     <button class="tab-btn" onclick="switchTab('products')">产品库</button>
     <button class="tab-btn" onclick="switchTab('orders')">订单<span class="tab-badge" id="orders-badge" style="display:none;">0</span></button>
   </nav>
+  <div class="app-main">
 
   <!-- TAB: 控制台 -->
   <div class="tab-content active" id="tab-console">
@@ -1614,29 +1734,6 @@ const HTML_PAGE = `<!DOCTYPE html>
       <div class="sec">数据源</div>
       <div id="platforms"></div>
 
-      <div class="sec">AI 自动选品</div>
-      <div class="tile" style="margin-bottom:16px;">
-        <div class="tile-head">
-          <div>
-            <div class="tile-label">一键发现新商品</div>
-            <div class="tile-sub">AI从1688/义乌购自动搜索、筛选、评分，找到适合Ozon的商品</div>
-          </div>
-        </div>
-        <div style="display:flex;gap:10px;margin-top:12px;">
-          <button class="launch launch-info" id="select-btn" onclick="runSelect()" style="flex:1;">开始选品</button>
-        </div>
-      <div class="select-meta" id="select-meta"></div>
-      <div class="log-wrap" id="select-log-panel">
-        <div class="log-bar">
-          <span>选品输出</span>
-          <span id="select-log-status"></span>
-        </div>
-        <div class="log-out" id="select-log"></div>
-      </div>
-      </div>
-
-      <div style="height:28px;"></div>
-
       <div class="sec">链接导入</div>
       <div class="tile" style="margin-bottom:16px;">
         <div class="tile-head">
@@ -1676,32 +1773,6 @@ const HTML_PAGE = `<!DOCTYPE html>
           </div>
           <div class="log-out" id="pipeline-log"></div>
         </div>
-      </div>
-
-      <div class="sec">一键上架</div>
-      <div class="tile" style="margin-bottom:12px;">
-        <div class="tile-head">
-          <div><div class="tile-label">Ozon 批量上架</div><div class="tile-sub">从知识库直接上传到 Ozon</div></div>
-          <span class="pill pill-info" id="upload-ready-pill"><i></i>检查中...</span>
-        </div>
-        <div class="upload-stats" id="upload-stats"></div>
-        <div style="display:flex;gap:10px;">
-          <button class="launch" id="upload-btn" onclick="runUpload()" disabled style="flex:1;">开始上架</button>
-          <button class="act act-warn" id="stock-btn" onclick="setStock()" style="display:none;">设置库存 (100)</button>
-        </div>
-        <div class="progress-wrap" id="upload-progress-wrap">
-          <div class="progress-bar animate" id="upload-progress-bar" style="width:0%;"></div>
-        </div>
-        <div class="progress-text" id="upload-progress-text"></div>
-        <div class="upload-result" id="upload-result"></div>
-        <div id="upload-result-table"></div>
-      </div>
-      <div class="log-wrap" id="upload-log-panel">
-        <div class="log-bar">
-          <span>上架日志</span>
-          <span id="upload-log-status"></span>
-        </div>
-        <div class="log-out" id="upload-log"></div>
       </div>
 
       <!-- 错误检查 & 修复 -->
@@ -1804,13 +1875,24 @@ const HTML_PAGE = `<!DOCTYPE html>
     tickClock(); setInterval(tickClock, 1000);
 
     /* === Tabs === */
+    const tabScrollPos = { console: 0, products: 0, orders: 0 };
+    let currentTab = 'console';
+
     function switchTab(name) {
+      // 保存当前tab的滚动位置
+      tabScrollPos[currentTab] = window.scrollY;
+
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
       document.getElementById('tab-' + name).classList.add('active');
       const btns = document.querySelectorAll('.tab-btn');
       const tabMap = { console: 0, products: 1, orders: 2 };
       btns[tabMap[name] ?? 0].classList.add('active');
+      currentTab = name;
+
+      // 恢复目标tab的滚动位置
+      requestAnimationFrame(() => window.scrollTo(0, tabScrollPos[name] || 0));
+
       if (name === 'products') loadProducts();
       if (name === 'orders') refreshOrders();
     }
@@ -1836,6 +1918,10 @@ const HTML_PAGE = `<!DOCTYPE html>
         if (d > 7) return '<span class="pill pill-ok"><i></i>' + d + '天</span>';
         if (d > 0) return '<span class="pill pill-warn"><i></i>' + d + '天</span>';
         return '<span class="pill pill-ok"><i></i>在线</span>';
+      }
+      // 有cookie但关键cookie不足
+      if (status.validCookies > 0 && status.missingKeys?.length > 0) {
+        return '<span class="pill pill-err"><i></i>需重新登录</span>';
       }
       return '<span class="pill pill-off"><i></i>离线</span>';
     }
@@ -1933,6 +2019,9 @@ const HTML_PAGE = `<!DOCTYPE html>
       } else if (status.valid) {
         h += '<div class="kv-row"><span class="kv-k">有效令牌</span><span class="kv-v">' + status.validCookies + '</span></div>';
         if (status.daysUntilExpiry > 0) h += '<div class="kv-row"><span class="kv-k">剩余天数</span><span class="kv-v">' + status.daysUntilExpiry + '</span></div>';
+      } else if (status.validCookies > 0 && status.missingKeys?.length > 0) {
+        h += '<div class="kv-row"><span class="kv-k">状态</span><span class="kv-v" style="color:var(--err);">关键cookie已过期</span></div>';
+        h += '<div class="kv-row"><span class="kv-k">缺失</span><span class="kv-v" style="color:var(--err);font-size:11px;">' + status.missingKeys.join(', ') + '</span></div>';
       } else {
         h += '<div class="kv-row"><span class="kv-k">状态</span><span class="kv-v" style="color:var(--t2)">需要授权</span></div>';
       }
@@ -1998,13 +2087,20 @@ const HTML_PAGE = `<!DOCTYPE html>
     async function login(platform) {
       await api('/login/' + platform, 'POST');
       refresh();
+      // 登录期间每3秒轮询状态，完成或超时后停止
+      let pollCount = 0;
       const interval = setInterval(async () => {
-        await refresh();
-        const session = await api('/session/' + platform);
-        if (!session.status || session.status === 'cookie_saved' || session.status === 'error' || session.status === 'timeout') {
-          clearInterval(interval);
-        }
-      }, 2000);
+        pollCount++;
+        if (pollCount > 100) { clearInterval(interval); return; } // 5分钟超时
+        try {
+          const session = await api('/session/' + platform);
+          // 只更新这个平台的tile，不替换整个DOM
+          if (!session.status || session.status === 'cookie_saved' || session.status === 'error' || session.status === 'timeout') {
+            clearInterval(interval);
+            refresh(); // 最后刷一次确认最终状态
+          }
+        } catch { clearInterval(interval); }
+      }, 3000);
     }
 
     /* === Pipeline === */
@@ -2033,82 +2129,10 @@ const HTML_PAGE = `<!DOCTYPE html>
         statusEl.textContent = 'error';
       }
 
-      // 全流程完成后自动上架
-      logEl.textContent += '\\n\\n=== 自动上架 ===\\n';
-      statusEl.innerHTML = '<span class="spinner"></span>上架中...';
-      try {
-        const upRes = await fetch('/api/ozon/upload', { method: 'POST' });
-        const upReader = upRes.body.getReader();
-        const upDecoder = new TextDecoder();
-        while (true) {
-          const { done, value } = await upReader.read();
-          if (done) break;
-          const chunk = upDecoder.decode(value, { stream: true });
-          for (const line of chunk.split('\\n')) {
-            if (!line.trim()) continue;
-            try {
-              const msg = JSON.parse(line.trim());
-              if (msg.type === 'log') logEl.textContent += msg.message + '\\n';
-              else if (msg.type === 'progress') logEl.textContent += '上传: ' + (msg.offer_id || '') + '\\n';
-              else if (msg.type === 'done') logEl.textContent += '\\n上架完成: 成功' + msg.success + ' 失败' + msg.failed + '\\n';
-              else if (msg.type === 'error') logEl.textContent += '错误: ' + msg.message + '\\n';
-            } catch { logEl.textContent += line.trim() + '\\n'; }
-            logEl.scrollTop = logEl.scrollHeight;
-          }
-        }
-      } catch (upErr) {
-        logEl.textContent += '上架异常: ' + upErr.message + '\\n';
-      }
-
       statusEl.textContent = 'done';
       document.getElementById('pipeline-btn').disabled = false;
       refresh();
       refreshStats();
-      refreshUploadReady();
-    }
-
-    /* === Select (选品) === */
-    async function refreshSelectMeta() {
-      try {
-        const kw = await api('/keywords');
-        const meta = document.getElementById('select-meta');
-        meta.innerHTML =
-          '<span class="select-meta-item">词库: <strong>' + kw.used + '</strong> 已用 / <strong>' + kw.total + '</strong> 总计</span>' +
-          '<span class="select-meta-item">剩余: <strong>' + kw.remaining + '</strong></span>';
-      } catch {}
-    }
-
-    async function runSelect() {
-      const panel = document.getElementById('select-log-panel');
-      const logEl = document.getElementById('select-log');
-      const statusEl = document.getElementById('select-log-status');
-      const btn = document.getElementById('select-btn');
-      panel.classList.add('open');
-      logEl.textContent = '';
-      statusEl.innerHTML = '<span class="spinner"></span>running';
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span>选品运行中...';
-
-      try {
-        const res = await fetch('/api/select', { method: 'POST' });
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder();
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          logEl.textContent += decoder.decode(value);
-          logEl.scrollTop = logEl.scrollHeight;
-        }
-        statusEl.textContent = 'done';
-      } catch (err) {
-        logEl.textContent += '\\n错误: ' + err.message;
-        statusEl.textContent = 'error';
-      }
-
-      btn.disabled = false;
-      btn.textContent = '启动选品';
-      refreshStats();
-      refreshSelectMeta();
     }
 
     /* === Products === */
@@ -2298,7 +2322,6 @@ const HTML_PAGE = `<!DOCTYPE html>
           checkEl.innerHTML = '<span class="cfg-saved-check">&#10003; 已保存</span>';
           setTimeout(() => { checkEl.innerHTML = ''; }, 3000);
           loadOzonConfig();
-          refreshUploadReady();
         } else {
           document.getElementById('ozon-cfg-status').textContent = '保存失败: ' + (r.error || '未知错误');
           document.getElementById('ozon-cfg-status').className = 'cfg-status disconnected';
@@ -2336,164 +2359,6 @@ const HTML_PAGE = `<!DOCTYPE html>
       } catch (e) {
         st.textContent = '请求失败: ' + e.message;
         st.className = 'cfg-status disconnected';
-      }
-    }
-
-    /* === Upload === */
-    async function refreshUploadReady() {
-      try {
-        const r = await api('/ozon/upload-ready');
-        const pill = document.getElementById('upload-ready-pill');
-        const stats = document.getElementById('upload-stats');
-        const btn = document.getElementById('upload-btn');
-        const stockBtn = document.getElementById('stock-btn');
-        if (r.count > 0) {
-          pill.className = 'pill pill-ok';
-          pill.innerHTML = '<i></i>' + r.count + ' 个就绪';
-          stats.innerHTML = '<span class="upload-stat">可提交: <strong>' + r.count + '</strong></span>';
-          btn.disabled = !r.apiConfigured;
-          btn.textContent = r.apiConfigured ? '上架到 Ozon (' + r.count + ' 个产品)' : '请先配置 Ozon API';
-        } else {
-          pill.className = 'pill pill-off';
-          pill.innerHTML = '<i></i>无就绪产品';
-          stats.innerHTML = '<span class="upload-stat">暂无可上架产品</span>';
-          btn.disabled = true;
-          btn.textContent = '无可上架产品';
-        }
-        // 只在有已上架产品且API已配置时显示库存按钮
-        if (r.apiConfigured && r.uploaded > 0) {
-          stockBtn.style.display = 'inline-flex';
-          stockBtn.textContent = '设置库存 (' + r.uploaded + ' 个已上架)';
-        } else {
-          stockBtn.style.display = 'none';
-        }
-      } catch {
-        document.getElementById('upload-ready-pill').innerHTML = '<i></i>检查失败';
-      }
-    }
-
-    async function runUpload() {
-      const panel = document.getElementById('upload-log-panel');
-      const logEl = document.getElementById('upload-log');
-      const statusEl = document.getElementById('upload-log-status');
-      const btn = document.getElementById('upload-btn');
-      const resultEl = document.getElementById('upload-result');
-      const tableEl = document.getElementById('upload-result-table');
-      const progressWrap = document.getElementById('upload-progress-wrap');
-      const progressBar = document.getElementById('upload-progress-bar');
-      const progressText = document.getElementById('upload-progress-text');
-      panel.classList.add('open');
-      logEl.textContent = '';
-      statusEl.innerHTML = '<span class="spinner"></span>running';
-      resultEl.innerHTML = '';
-      tableEl.innerHTML = '';
-      progressWrap.classList.add('active');
-      progressBar.style.width = '5%';
-      progressText.textContent = '准备上传...';
-      btn.disabled = true;
-      btn.textContent = '上架中...';
-
-      try {
-        const res = await fetch('/api/ozon/upload', { method: 'POST' });
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder();
-        let fullText = '';
-        let buffer = '';
-        const results = [];
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          const chunk = decoder.decode(value, { stream: true });
-          fullText += chunk;
-          buffer += chunk;
-
-          // Parse JSON lines
-          const lines = buffer.split('\\n');
-          buffer = lines.pop(); // keep incomplete line
-          for (const line of lines) {
-            const trimmed = line.trim();
-            if (!trimmed) continue;
-            try {
-              const msg = JSON.parse(trimmed);
-              if (msg.type === 'progress') {
-                const pct = Math.round((msg.current / msg.total) * 100);
-                progressBar.style.width = pct + '%';
-                progressText.textContent = '上传中 ' + msg.current + '/' + msg.total + '... ' + (msg.offer_id || '');
-                logEl.textContent += '上传: ' + msg.offer_id + ' -> ' + msg.status + '\\n';
-              } else if (msg.type === 'result') {
-                results.push(msg);
-              } else if (msg.type === 'done') {
-                progressBar.style.width = '100%';
-                progressBar.classList.remove('animate');
-                progressText.textContent = '上传完成: 成功 ' + msg.success + ', 失败 ' + msg.failed;
-                let rhtml = '';
-                if (msg.success > 0) rhtml += '<span class="pill pill-ok"><i></i>成功 ' + msg.success + '</span>';
-                if (msg.failed > 0) rhtml += '<span class="pill pill-err"><i></i>失败 ' + msg.failed + '</span>';
-                resultEl.innerHTML = rhtml;
-                // Show stock button
-                if (msg.success > 0) document.getElementById('stock-btn').style.display = 'inline-flex';
-              } else if (msg.type === 'error') {
-                logEl.textContent += '错误: ' + msg.message + '\\n';
-              } else if (msg.type === 'log') {
-                logEl.textContent += msg.message + '\\n';
-              }
-              logEl.scrollTop = logEl.scrollHeight;
-            } catch {
-              // Not JSON, show as plain text
-              logEl.textContent += trimmed + '\\n';
-              logEl.scrollTop = logEl.scrollHeight;
-            }
-          }
-        }
-
-        // Render results table
-        if (results.length > 0) {
-          let thtml = '<table class="result-table"><thead><tr><th>Offer ID</th><th>Product ID</th><th>状态</th><th>错误</th></tr></thead><tbody>';
-          for (const r of results) {
-            const cls = r.success ? 'r-ok' : 'r-err';
-            thtml += '<tr>';
-            thtml += '<td>' + (r.offer_id || '--') + '</td>';
-            thtml += '<td>' + (r.product_id || '--') + '</td>';
-            thtml += '<td class="' + cls + '">' + (r.success ? '成功' : '失败') + '</td>';
-            thtml += '<td style="color:var(--err);font-size:11px;">' + (r.errors || '') + '</td>';
-            thtml += '</tr>';
-          }
-          thtml += '</tbody></table>';
-          tableEl.innerHTML = thtml;
-        }
-
-        statusEl.textContent = 'done';
-      } catch (err) {
-        logEl.textContent += '\\n错误: ' + err.message;
-        statusEl.textContent = 'error';
-        progressBar.classList.remove('animate');
-        progressText.textContent = '上传失败';
-      }
-
-      btn.disabled = false;
-      btn.textContent = '上架到 Ozon';
-      refreshUploadReady();
-      refreshStats();
-    }
-
-    async function setStock() {
-      const btn = document.getElementById('stock-btn');
-      btn.disabled = true;
-      btn.textContent = '设置中...';
-      try {
-        const res = await fetch('/api/ozon/stock', { method: 'POST' });
-        const r = await res.json();
-        if (r.ok) {
-          btn.textContent = '已设置 (' + r.updated + ' 个)';
-          btn.disabled = false;
-        } else {
-          btn.textContent = '失败: ' + (r.error || '未知');
-          btn.disabled = false;
-        }
-      } catch (e) {
-        btn.textContent = '失败: ' + e.message;
-        btn.disabled = false;
       }
     }
 
@@ -2763,13 +2628,13 @@ const HTML_PAGE = `<!DOCTYPE html>
     /* === Init === */
     refresh();
     refreshStats();
-    refreshSelectMeta();
     loadOzonConfig();
     refreshUploadReady();
     refreshOrders();
-    setInterval(refresh, 30000);      // 平台状态: 30秒刷新（减少闪烁）
-    setInterval(refreshStats, 30000);  // 统计: 30秒
-    setInterval(refreshOrders, 60000); // 订单: 60秒
+    // 数据源只在页面首次加载时刷一次，不自动轮询（避免闪烁）
+    // 统计和订单低频刷新
+    setInterval(refreshStats, 60000);  // 统计: 60秒
+    setInterval(refreshOrders, 120000); // 订单: 2分钟
     // Update orders "last updated" display
     setInterval(() => {
       if (!ordersLastRefresh) return;
@@ -2782,6 +2647,8 @@ const HTML_PAGE = `<!DOCTYPE html>
       }
     }, 5000);
   </script>
+  </div><!-- .app-main -->
+  </div><!-- .app-layout -->
 </body>
 </html>`;
 
@@ -2847,11 +2714,8 @@ function createServer(port) {
       const { execFile } = await import("node:child_process");
       const child = execFile("node", [
         path.resolve("scripts", "run-pipeline.js"),
-        "--skip-seeds",
-        "--input", "examples/sample-seeds.json",
-        "--limit", "3",
-        "--skip-infer",
-      ], { cwd: path.resolve(""), timeout: 600_000 });
+        "--limit", "5",
+      ], { cwd: path.resolve(""), timeout: 1800_000 });
 
       child.stdout?.on("data", (chunk) => res.write(chunk));
       child.stderr?.on("data", (chunk) => res.write(chunk));
@@ -2869,11 +2733,40 @@ function createServer(port) {
         const products = [];
         for (const entry of entries) {
           if (!entry.isDirectory()) continue;
-          const pjson = path.join(KB_PRODUCTS, entry.name, "product.json");
+          const slug = entry.name;
+          const pjson = path.join(KB_PRODUCTS, slug, "product.json");
+          const mapping = await readJson(path.join(KB_PRODUCTS, slug, "ozon-import-mapping.json"), null);
+          const inferred = await readJson(path.join(KB_PRODUCTS, slug, "inferred.json"), null);
           try {
             const raw = await fs.readFile(pjson, "utf8");
             const data = JSON.parse(raw);
-            products.push(data);
+            const best = data.candidates?.[0];
+            // 从采集数据提取价格
+            const priceNums = (best?.prices || [])
+              .map(p => parseFloat(String(p).replace(/[¥￥,]/g, "")))
+              .filter(n => n > 0 && n < 9999);
+            const supplyCny = priceNums.length ? priceNums.sort((a, b) => a - b)[Math.floor(priceNums.length / 2)] : 0;
+            const targetRub = supplyCny ? Math.round(supplyCny * 12.5 * 8) : 0;
+
+            // 判断阶段
+            let stage = "已采集";
+            if (inferred) stage = "已推理";
+            if (mapping?.status === "可提交") stage = "待上架";
+            if (mapping?.status === "已上传") stage = "已上架";
+
+            products.push({
+              slug,
+              product: {
+                name: inferred?.title_ru || best?.title || data.keyword || slug,
+                category: data.seed?.category || "",
+                target_price_rub: targetRub || "--",
+                supply_price_cny: supplyCny || "--",
+                total_score: mapping ? 91 : (best ? 80 : 0),
+                source_url: best?.source_url || "",
+                why_it_can_sell: data.seed?.why || "",
+              },
+              workflow: { current_stage: stage },
+            });
           } catch { /* skip invalid */ }
         }
         products.sort((a, b) => (b.product?.total_score ?? 0) - (a.product?.total_score ?? 0));
@@ -3035,27 +2928,6 @@ function createServer(port) {
     }
 
     // ─── API: 运行选品 (streaming) ───
-    if (url.pathname === "/api/select" && req.method === "POST") {
-      res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8", "Transfer-Encoding": "chunked" });
-      const selectCwd = AI_ROOT;
-      const child = spawn("node", [
-        path.join(AI_ROOT, "scripts", "select-1688-for-ozon.js"),
-        "--headless", "--max-keywords", "8",
-      ], { cwd: selectCwd, env: { ...process.env }, timeout: 600_000 });
-
-      child.stdout?.on("data", (chunk) => res.write(chunk));
-      child.stderr?.on("data", (chunk) => res.write(chunk));
-      child.on("error", (err) => {
-        res.write(`\n--- 启动失败: ${err.message} ---\n`);
-        res.end();
-      });
-      child.on("close", (code) => {
-        res.write(`\n--- 选品完成 (exit code: ${code}) ---\n`);
-        res.end();
-      });
-      return;
-    }
-
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     //  Ozon API Endpoints (new paths: /api/ozon/*)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -3831,6 +3703,239 @@ function createServer(port) {
       return;
     }
 
+    // ─── POST /api/ozon/ship ─── FBS发货: 设置物流单号 + 标记发货
+    if (url.pathname === "/api/ozon/ship" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        const cfg = await loadOzonCfg();
+        if (!cfg.clientId || !cfg.apiKey) { res.writeHead(400); res.end(JSON.stringify({ error: "未配置API" })); return; }
+
+        const { posting_number, tracking_number, shipping_provider } = body;
+        if (!posting_number) { res.writeHead(400); res.end(JSON.stringify({ error: "缺少 posting_number" })); return; }
+
+        const results = [];
+
+        // 1) 设置物流单号（如果有）
+        if (tracking_number) {
+          const tr = await ozonApi("/v2/fbs/posting/tracking-number/set", {
+            posting_number,
+            tracking_number,
+            shipping_provider_id: 0,
+          }, cfg);
+          results.push({ step: "tracking", ok: tr.ok, message: tr.data?.message || "ok" });
+        }
+
+        // 2) 标记为发货中
+        const dr = await ozonApi("/v2/fbs/posting/delivering", {
+          posting_number: [posting_number],
+        }, cfg);
+        results.push({ step: "delivering", ok: dr.ok, message: dr.data?.message || "ok" });
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ success: results.every(r => r.ok), results }));
+      } catch (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+      return;
+    }
+
+    // ─── POST /api/ozon/deliver ─── 标记已送达
+    if (url.pathname === "/api/ozon/deliver" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        const cfg = await loadOzonCfg();
+        const dr = await ozonApi("/v2/fbs/posting/last-mile", {
+          posting_number: [body.posting_number],
+        }, cfg);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ success: dr.ok, data: dr.data }));
+      } catch (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+      return;
+    }
+
+    // ─── GET /api/ozon/analytics ─── 商品浏览率分析（过去30天）
+    if (url.pathname === "/api/ozon/analytics" && req.method === "GET") {
+      try {
+        const cfg = await loadOzonCfg();
+        if (!cfg.clientId || !cfg.apiKey) { res.writeHead(400); res.end(JSON.stringify({ error: "未配置API" })); return; }
+
+        const days = parseInt(url.searchParams?.get("days") || "30") || 30;
+        const dateFrom = new Date(Date.now() - days * 86400_000).toISOString().slice(0, 10);
+        const dateTo = new Date().toISOString().slice(0, 10);
+
+        // 查浏览/转化数据
+        const r = await ozonApi("/v1/analytics/data", {
+          date_from: dateFrom,
+          date_to: dateTo,
+          metrics: ["hits_view_search", "hits_view_pdp", "hits_view", "session_view", "conv_todirect_percentage"],
+          dimension: ["sku"],
+          filters: [],
+          limit: 1000,
+          offset: 0,
+          sort: [{ key: "hits_view_pdp", order: "DESC" }],
+        }, cfg);
+
+        if (r.ok && r.data.result?.data) {
+          const items = r.data.result.data.map(d => ({
+            sku: d.dimensions?.[0]?.id || "",
+            name: d.dimensions?.[0]?.name || "",
+            search_views: d.metrics?.[0] || 0,
+            pdp_views: d.metrics?.[1] || 0,
+            total_views: d.metrics?.[2] || 0,
+            sessions: d.metrics?.[3] || 0,
+            conversion_pct: d.metrics?.[4] || 0,
+          }));
+
+          // 计算总浏览量用于百分比
+          const totalViews = items.reduce((s, i) => s + i.total_views, 0);
+          items.forEach(i => {
+            i.view_share_pct = totalViews > 0 ? Math.round(i.total_views / totalViews * 10000) / 100 : 0;
+          });
+
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ period: `${dateFrom} ~ ${dateTo}`, total_views: totalViews, items }));
+        } else {
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: r.data?.message || "分析API错误", items: [] }));
+        }
+      } catch (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+      return;
+    }
+
+    // ─── POST /api/ozon/prune ─── 自动下架浏览率低于阈值的商品
+    if (url.pathname === "/api/ozon/prune" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        const cfg = await loadOzonCfg();
+        if (!cfg.clientId || !cfg.apiKey) { res.writeHead(400); res.end(JSON.stringify({ error: "未配置API" })); return; }
+
+        const threshold = parseFloat(body.threshold || "3"); // 默认3%
+        const days = parseInt(body.days || "30") || 30;
+        const dryRun = body.dry_run !== false; // 默认dry run
+
+        const dateFrom = new Date(Date.now() - days * 86400_000).toISOString().slice(0, 10);
+        const dateTo = new Date().toISOString().slice(0, 10);
+
+        // 获取分析数据
+        const ar = await ozonApi("/v1/analytics/data", {
+          date_from: dateFrom, date_to: dateTo,
+          metrics: ["hits_view", "session_view", "conv_todirect_percentage"],
+          dimension: ["sku"], filters: [], limit: 1000, offset: 0,
+          sort: [{ key: "hits_view", order: "ASC" }],
+        }, cfg);
+
+        if (!ar.ok) {
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: ar.data?.message || "分析API错误" }));
+          return;
+        }
+
+        const data = ar.data.result?.data || [];
+        const totalViews = data.reduce((s, d) => s + (d.metrics?.[0] || 0), 0);
+        const toPrune = data.filter(d => {
+          const views = d.metrics?.[0] || 0;
+          const share = totalViews > 0 ? (views / totalViews * 100) : 0;
+          return share < threshold;
+        }).map(d => ({
+          sku: d.dimensions?.[0]?.id || "",
+          name: d.dimensions?.[0]?.name || "",
+          views: d.metrics?.[0] || 0,
+          share_pct: totalViews > 0 ? Math.round((d.metrics?.[0] || 0) / totalViews * 10000) / 100 : 0,
+        }));
+
+        const result = { threshold, days, total_products: data.length, total_views: totalViews, to_prune: toPrune.length, dry_run: dryRun, items: toPrune };
+
+        // 真正下架
+        if (!dryRun && toPrune.length > 0) {
+          // sku → product_id 映射（分析返回的是sku，归档需要product_id）
+          const skuSet = new Set(toPrune.map(p => String(p.sku)));
+          let cursor = "";
+          const skuToProductId = {};
+          for (let page = 0; page < 10; page++) {
+            const body = { filter: { visibility: "ALL" }, limit: 100 };
+            if (cursor) body.cursor = cursor;
+            const sr = await ozonApi("/v4/product/info/stocks", body, cfg);
+            for (const item of (sr.data?.items || [])) {
+              const sku = String(item.stocks?.[0]?.sku || "");
+              if (skuSet.has(sku)) skuToProductId[sku] = item.product_id;
+            }
+            cursor = sr.data?.cursor || "";
+            if (!cursor || (sr.data?.items || []).length < 100) break;
+          }
+
+          const productIds = toPrune.map(p => skuToProductId[String(p.sku)]).filter(Boolean);
+          if (productIds.length) {
+            const archiveR = await ozonApi("/v1/product/archive", { product_id: productIds }, cfg);
+            result.archive_result = { ok: archiveR.ok, count: productIds.length, message: archiveR.data?.message || "ok" };
+          } else {
+            result.archive_result = { ok: false, message: "无法映射SKU到product_id" };
+          }
+        }
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(result));
+      } catch (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+      return;
+    }
+
+    // ─── GET /api/ozon/stock-alert ─── 库存预警（低于阈值的商品）
+    if (url.pathname === "/api/ozon/stock-alert" && req.method === "GET") {
+      try {
+        const cfg = await loadOzonCfg();
+        if (!cfg.clientId || !cfg.apiKey) { res.writeHead(400); res.end(JSON.stringify({ error: "未配置API" })); return; }
+        const threshold = parseInt(url.searchParams?.get("threshold") || "10") || 10;
+
+        // 获取所有库存 (v4 endpoint, paginated)
+        let allStockItems = [];
+        let cursor = "";
+        for (let page = 0; page < 10; page++) {
+          const body = { filter: { visibility: "ALL" }, limit: 100 };
+          if (cursor) body.cursor = cursor;
+          const r = await ozonApi("/v4/product/info/stocks", body, cfg);
+          if (!r.ok) {
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ error: r.data?.message || "API错误", alerts: [] }));
+            return;
+          }
+          allStockItems.push(...(r.data.items || []));
+          cursor = r.data.cursor || "";
+          if (!cursor || (r.data.items || []).length < 100) break;
+        }
+
+        const alerts = [];
+        for (const item of allStockItems) {
+          const stocks = item.stocks || [];
+          const fbsStock = stocks.find(s => s.type === "rfbs" || s.type === "fbs");
+          const qty = fbsStock?.present || 0;
+          if (qty < threshold) {
+            alerts.push({
+              product_id: item.product_id,
+              offer_id: item.offer_id,
+              stock: qty,
+              warehouse_id: fbsStock?.warehouse_id,
+            });
+          }
+        }
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ threshold, total_products: allStockItems.length, low_stock: alerts.length, alerts }));
+      } catch (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+      return;
+    }
+
     // ─── Legacy redirect: old endpoints → new paths ───
     if (url.pathname === "/api/ozon-config") {
       const newPath = "/api/ozon/config";
@@ -3889,3 +3994,51 @@ function createServer(port) {
 const args = parseCliArgs(process.argv.slice(2), { port: "3456" });
 const port = parseInt(process.env.PORT || args.port || "3456");
 createServer(port);
+
+/* ─── 后台定时监测 (每30分钟) ─── */
+const MONITOR_INTERVAL = 30 * 60 * 1000; // 30分钟
+const STOCK_THRESHOLD = 10;
+
+async function backgroundMonitor() {
+  try {
+    const cfg = await loadOzonCfg();
+    if (!cfg.clientId || !cfg.apiKey) return;
+    const ts = new Date().toLocaleTimeString();
+
+    // 1) 拉取新订单
+    const since = new Date(Date.now() - MONITOR_INTERVAL - 60_000).toISOString();
+    const to = new Date(Date.now() + 60_000).toISOString();
+    const ordersR = await ozonApi("/v3/posting/fbs/list", {
+      filter: { status: "awaiting_packaging", since, to },
+      limit: 50, offset: 0,
+      with: { analytics_data: false, financial_data: false },
+    }, cfg);
+    const newOrders = ordersR.ok ? (ordersR.data.result?.postings || []) : [];
+    if (newOrders.length) {
+      console.log(`\n[${ts}] 📦 ${newOrders.length} 个新订单待处理!`);
+      newOrders.forEach(o => console.log(`  → ${o.posting_number} | ${o.products?.map(p => p.name?.slice(0, 25)).join(", ")}`));
+    }
+
+    // 2) 库存预警
+    const stockR = await ozonApi("/v4/product/info/stocks", { filter: { visibility: "ALL" }, limit: 100 }, cfg);
+    const stockItems = stockR.ok ? (stockR.data.items || []) : [];
+    const lowStock = stockItems.filter(i => {
+      const s = (i.stocks || []).find(s => s.type === "rfbs" || s.type === "fbs");
+      return s && s.present < STOCK_THRESHOLD && s.present >= 0;
+    });
+    if (lowStock.length) {
+      console.log(`[${ts}] ⚠ 库存预警: ${lowStock.length} 个商品库存 < ${STOCK_THRESHOLD}`);
+      lowStock.slice(0, 5).forEach(i => {
+        const s = (i.stocks || []).find(s => s.type === "rfbs" || s.type === "fbs");
+        console.log(`  → ${i.offer_id?.slice(0, 25)} | 库存: ${s?.present}`);
+      });
+    }
+  } catch (err) {
+    // 静默失败，不阻塞服务器
+  }
+}
+
+// 启动后等30秒执行第一次，之后每30分钟
+setTimeout(backgroundMonitor, 30_000);
+setInterval(backgroundMonitor, MONITOR_INTERVAL);
+console.log(`  后台监测: 每30分钟 (订单+库存预警)`);

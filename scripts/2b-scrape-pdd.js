@@ -121,7 +121,7 @@ async function main() {
   if (!args.input) throw new Error("需要 --input <seeds.json>");
 
   const seeds = await readJson(path.resolve(args.input));
-  const products = (seeds?.products || seeds || [])
+  const products = (seeds?.products || seeds?.seeds || seeds || [])
     .filter(p => (p.go_or_no_go || "Go") !== "No-Go");
   const limit = parseInt(args.limit) || 5;
   const topN = parseInt(args.topN) || 3;

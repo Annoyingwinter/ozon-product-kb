@@ -25,10 +25,13 @@
     "kb:compare": "node scripts/batch-1688-compare-and-build-kb.js --all",
     "kb:audit": "node scripts/audit-product-kb-health.js",
     "kb:bootstrap-edge-session": "node scripts/bootstrap-1688-session-from-edge.js",
+    "trends": "node scripts/discover-trends.js",
+    "trends:dry": "node scripts/discover-trends.js --dry-run",
     "console": "node scripts/login-server.js",
     "dev": "node scripts/login-server.js"
   },
   "dependencies": {
-    "playwright": "^1.55.0"
+    "playwright": "^1.55.0",
+    "undici": "^7.24.7"
   }
 }

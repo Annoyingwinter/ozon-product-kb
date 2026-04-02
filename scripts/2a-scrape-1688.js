@@ -156,16 +156,18 @@ async function scrapeDetail(page, url) {
       if (match) attrs.push({ key: match[1], value: match[2] });
     }
 
-    // ─── 图片: 过滤更严格 ───
+    // ─── 图片: 获取高清原图 ───
     const images = Array.from(new Set(
       Array.from(document.querySelectorAll("img"))
         .map(img => img.getAttribute("data-lazy-src") || img.getAttribute("data-src") || img.src || "")
         .filter(url => /^https?:/i.test(url))
-        .filter(url => !/svg|avatar|icon|logo|sprite|\.gif|55-tps|gw\.alicdn/i.test(url))
-        .filter(url => {
-          const w = parseInt(img?.getAttribute("width") || "0");
-          return w === 0 || w >= 100; // 过滤小图标
-        })
+        .filter(url => !/svg|avatar|icon|logo|sprite|\.gif|gw\.alicdn/i.test(url))
+        // 过滤tps小图标 (32x32, 72x72等)
+        .filter(url => !/tps-\d+-\d+\.(png|jpg)/i.test(url))
+        // 转换cbu01缩略图为原图 (去掉_284x284q90等后缀)
+        .map(url => url.replace(/_\d+x\d+q?\d*\.(\w+)$/, '.$1'))
+        // 过滤明显的小图
+        .filter(url => !/\b(32|48|64|72|96)x\1\b/.test(url))
     )).slice(0, 15);
 
     // ─── 起批量 ───
@@ -219,7 +221,7 @@ async function main() {
   if (!args.input) throw new Error("需要 --input <seeds.json>");
 
   const seeds = await readJson(path.resolve(args.input));
-  const products = (seeds?.products || seeds || [])
+  const products = (seeds?.products || seeds?.seeds || seeds || [])
     .filter(p => (p.go_or_no_go || "Go") !== "No-Go");
   const limit = parseInt(args.limit) || 5;
   const topN = parseInt(args.topN) || TOP_N;

@@ -80,8 +80,7 @@ function callClaudeCli(prompt, opts = {}) {
 
 function isClaudeCliAvailable() {
   try {
-    const claudeBin = process.platform === "win32" ? "claude.cmd" : "claude";
-    execFileSync(claudeBin, ["--version"], {
+    execSync("claude --version", {
       encoding: "utf8", timeout: 5000, windowsHide: true, stdio: ["pipe", "pipe", "pipe"],
     });
     return true;
@@ -123,26 +122,27 @@ export async function llmChat(prompt, opts = {}) {
     if (provider) return callApi(provider, opts.apiKey, prompt, opts);
   }
 
-  // Claude CLI优先（零成本）
-  if (!opts.forceApi && isClaudeCliAvailable()) {
+  // 优先用 API（速度快，适合并发），CLI作为兜底
+  const detected = autoDetect();
+  if (detected) {
     try {
-      console.log("  [llm] 使用 Claude CLI (零成本)...");
-      return callClaudeCli(prompt, opts);
-    } catch {
-      // CLI失败，fallback到API
+      return await callApi(PROVIDERS[detected.provider], detected.key, prompt, opts);
+    } catch (apiErr) {
+      console.log(`  [llm] ${detected.provider} API 失败: ${apiErr.message?.slice(0, 60)}, 回退 CLI`);
     }
   }
 
-  // 环境变量API Key
-  const detected = autoDetect();
-  if (detected) {
-    const provider = PROVIDERS[detected.provider];
-    if (provider) return callApi(provider, detected.key, prompt, opts);
+  // API不可用时用 Claude CLI（慢但免费）
+  if (!opts.forceApi && isClaudeCliAvailable()) {
+    try {
+      console.log("  [llm] 无 API Key，尝试 Claude CLI...");
+      return callClaudeCli(prompt, opts);
+    } catch {
+      // CLI也失败
+    }
   }
 
-  // 最后再试Claude CLI
-  console.log("  [llm] 无 API Key，尝试 Claude CLI...");
-  return callClaudeCli(prompt, opts);
+  throw new Error("无可用 LLM (设置 DEEPSEEK_API_KEY 或 DASHSCOPE_API_KEY 可大幅加速)");
 }
 
 /**
