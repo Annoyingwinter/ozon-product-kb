@@ -1282,6 +1282,11 @@ export const HTML_PAGE = `<!DOCTYPE html>
         const data = await res.json();
         localStorage.setItem('oz_user', JSON.stringify(data.user));
         overlay.style.display = 'none';
+        // 管理员显示管理tab
+        if (data.user?.is_admin) {
+          const adminBtn = document.getElementById('admin-tab-btn');
+          if (adminBtn) adminBtn.style.display = '';
+        }
       } catch {
         overlay.style.display = 'flex';
       }
@@ -1320,6 +1325,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
     <button class="tab-btn active" onclick="switchTab('console')"><span class="tab-icon">&#9881;</span><span class="tab-text">控制台</span></button>
     <button class="tab-btn" onclick="switchTab('products')"><span class="tab-icon">&#128230;</span><span class="tab-text">产品库</span></button>
     <button class="tab-btn" onclick="switchTab('orders')"><span class="tab-icon">&#128666;</span><span class="tab-text">订单</span><span class="tab-badge" id="orders-badge" style="display:none;">0</span></button>
+    <button class="tab-btn" onclick="switchTab('admin')" id="admin-tab-btn" style="display:none;"><span class="tab-icon">&#128272;</span><span class="tab-text">管理</span></button>
   </nav>
   <div class="app-main">
 
@@ -1491,6 +1497,45 @@ export const HTML_PAGE = `<!DOCTYPE html>
     </div>
   </div>
 
+  <!-- TAB: 管理后台 (仅管理员可见) -->
+  <div class="tab-content" id="tab-admin">
+    <div class="wrap">
+      <div class="sec">管理后台</div>
+
+      <!-- 统计概览 -->
+      <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;" id="admin-stats"></div>
+
+      <!-- 邀请码管理 -->
+      <div class="tile" style="margin-bottom:20px;">
+        <div class="tile-head"><div><div class="tile-label">邀请码管理</div><div class="tile-sub">创建邀请码给内测用户</div></div></div>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+          <select id="invite-plan" class="cfg-input" style="width:120px;">
+            <option value="basic">基础版 (100)</option>
+            <option value="pro">专业版 (500)</option>
+            <option value="vip">VIP (无限)</option>
+          </select>
+          <input id="invite-max" class="cfg-input" type="number" value="10" min="1" style="width:80px;" placeholder="次数">
+          <button class="act act-go" onclick="createInvite()">生成邀请码</button>
+        </div>
+        <div id="invite-result" style="margin-top:10px;font-family:var(--mono);font-size:13px;"></div>
+        <div id="invite-list" style="margin-top:12px;"></div>
+      </div>
+
+      <!-- 用户列表 -->
+      <div class="tile">
+        <div class="tile-head"><div><div class="tile-label">用户列表</div><div class="tile-sub">查看所有账号的用量和配额</div></div></div>
+        <table class="product-table" style="margin-top:12px;">
+          <thead><tr>
+            <th>ID</th><th>邮箱</th><th>套餐</th><th>配额</th><th>已用</th><th>API调用</th><th>LLM Token</th><th>注册时间</th><th>操作</th>
+          </tr></thead>
+          <tbody id="admin-users-tbody"></tbody>
+        </table>
+      </div>
+
+      <footer><span class="footer-brand">Ozon Pilot v1.0</span> &middot; 管理后台</footer>
+    </div>
+  </div>
+
   <script>
     /* === State === */
     const platforms = ['1688', 'yiwugo', 'pdd', 'ozon'];
@@ -1534,6 +1579,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
 
       if (name === 'products') loadProducts();
       if (name === 'orders') refreshOrders();
+      if (name === 'admin') loadAdminPanel();
     }
 
     /* === Collapse === */
@@ -2264,11 +2310,90 @@ export const HTML_PAGE = `<!DOCTYPE html>
       }
     }
 
+    /* === Admin Panel === */
+    async function loadAdminPanel() {
+      try {
+        const r = await api('/admin/users');
+        if (r.error) return;
+
+        // 统计卡片
+        const s = r.stats || {};
+        document.getElementById('admin-stats').innerHTML = [
+          ['用户总数', s.total_users, '#059669'],
+          ['API调用', s.total_api_calls, '#3b82f6'],
+          ['LLM Token', s.total_llm_tokens, '#8b5cf6'],
+          ['今日活跃', s.active_today, '#f59e0b'],
+        ].map(([label, val, color]) =>
+          '<div class="stat-card" style="flex:1;min-width:120px;border-left:3px solid ' + color + '"><div class="stat-val">' + (val || 0) + '</div><div class="stat-label">' + label + '</div></div>'
+        ).join('');
+
+        // 用户表格
+        const tbody = document.getElementById('admin-users-tbody');
+        tbody.innerHTML = (r.users || []).map(u =>
+          '<tr>' +
+          '<td>' + u.id + '</td>' +
+          '<td>' + u.email + (u.is_admin ? ' <span style="color:var(--accent);font-size:11px;">(管理员)</span>' : '') + '</td>' +
+          '<td>' + u.plan + '</td>' +
+          '<td>' + u.product_quota + '</td>' +
+          '<td>' + u.products_used + '</td>' +
+          '<td style="font-family:var(--mono);">' + (u.api_calls || 0) + '</td>' +
+          '<td style="font-family:var(--mono);">' + (u.llm_tokens || 0) + '</td>' +
+          '<td style="font-size:11px;color:var(--t3);">' + (u.created_at || '').slice(0, 10) + '</td>' +
+          '<td><select onchange="changeUserPlan(' + u.id + ', this.value)" style="font-size:12px;padding:2px 4px;">' +
+            '<option value="free:10"' + (u.plan === 'free' ? ' selected' : '') + '>free(10)</option>' +
+            '<option value="basic:100"' + (u.plan === 'basic' ? ' selected' : '') + '>basic(100)</option>' +
+            '<option value="pro:500"' + (u.plan === 'pro' ? ' selected' : '') + '>pro(500)</option>' +
+            '<option value="vip:9999"' + (u.plan === 'vip' ? ' selected' : '') + '>vip(无限)</option>' +
+          '</select></td>' +
+          '</tr>'
+        ).join('');
+
+        // 邀请码列表
+        const invR = await api('/admin/invites');
+        if (invR.codes?.length) {
+          document.getElementById('invite-list').innerHTML =
+            '<div style="font-size:12px;color:var(--t3);margin-bottom:6px;">已有邀请码:</div>' +
+            invR.codes.map(c =>
+              '<div style="display:flex;gap:8px;align-items:center;margin:4px 0;font-size:12px;">' +
+              '<code style="background:var(--s2);padding:2px 8px;border-radius:4px;font-family:var(--mono);">' + c.code + '</code>' +
+              '<span>' + c.plan + '(' + c.quota + ')</span>' +
+              '<span style="color:var(--t3);">用' + c.used_count + '/' + c.max_uses + '</span>' +
+              '</div>'
+            ).join('');
+        }
+      } catch (e) { console.warn('admin load fail:', e); }
+    }
+
+    async function createInvite() {
+      const planMap = { basic: 100, pro: 500, vip: 9999 };
+      const plan = document.getElementById('invite-plan').value;
+      const maxUses = parseInt(document.getElementById('invite-max').value) || 10;
+      const r = await fetch('/api/admin/invite', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan, quota: planMap[plan] || 100, maxUses }),
+      }).then(r => r.json());
+      if (r.code) {
+        document.getElementById('invite-result').innerHTML =
+          '<span style="color:var(--accent);">邀请码: <strong>' + r.code + '</strong> (' + r.plan + ', ' + r.quota + '配额, ' + maxUses + '次)</span>';
+        loadAdminPanel(); // 刷新列表
+      }
+    }
+
+    async function changeUserPlan(userId, val) {
+      const [plan, quota] = val.split(':');
+      await fetch('/api/admin/user/plan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, plan, quota: parseInt(quota) }),
+      });
+      loadAdminPanel();
+    }
+
     /* === Init === */
     refresh();
     refreshStats();
     loadOzonConfig();
-    refreshUploadReady();
     refreshOrders();
     // 数据源只在页面首次加载时刷一次，不自动轮询（避免闪烁）
     // 统计和订单低频刷新

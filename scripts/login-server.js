@@ -660,6 +660,7 @@ function createServer(port) {
           plan: user.plan,
           products_used: user.products_used,
           product_quota: user.product_quota,
+          is_admin: !!user.is_admin,
         },
       }));
       return;
