@@ -1,0 +1,36 @@
+{
+  "_doc": "业务规则统一配置 — 所有脚本共用，修改一处全局生效",
+  "pricing": {
+    "markup": 3.5,
+    "min_price_cny": 15,
+    "exchange_rate_rub_per_cny": 12.5
+  },
+  "scoring": {
+    "price_min_rub": 300,
+    "price_max_rub": 5000,
+    "max_weight_kg": 1.2,
+    "max_long_edge_cm": 45,
+    "markup_for_rub_estimate": 8,
+    "weights": {
+      "logistics": 20,
+      "margin": 25,
+      "competition": 15,
+      "compliance": 15,
+      "return_risk": 15,
+      "content": 10
+    }
+  },
+  "ozon_defaults": {
+    "category_id": 17027937,
+    "type_id": 970896147,
+    "no_brand_id": 126745801,
+    "initial_stock": 100,
+    "dimension_mm": { "depth": 300, "width": 200, "height": 100 }
+  },
+  "pipeline": {
+    "limit": 5,
+    "infer_concurrency": 3,
+    "infer_timeout_ms": 90000,
+    "scrape_timeout_ms": 1200000
+  }
+}

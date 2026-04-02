@@ -16,6 +16,9 @@ import { execFileSync } from "node:child_process";
 import path from "node:path";
 import fs from "node:fs/promises";
 import { parseCliArgs, readJson, timestamp, OUTPUT_ROOT, KB_ROOT, ensureDir } from "./lib/shared.js";
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
+const BIZ = require("../config/business-rules.json");
 
 function run(script, args = [], opts = {}) {
   const scriptPath = path.resolve("scripts", script);
@@ -90,7 +93,7 @@ async function main() {
             const { ProxyAgent } = await import("undici");
             const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || "";
             if (proxyUrl) dispatcher = new ProxyAgent({ uri: proxyUrl, connections: 1, pipelining: 0 });
-          } catch {}
+          } catch (e) { if (e?.message) console.warn("  warn:", e.message.slice(0, 80)); }
           const dateFrom = new Date(Date.now() - 30 * 86400_000).toISOString().slice(0, 10);
           const dateTo = new Date().toISOString().slice(0, 10);
           const r = await fetch("https://api-seller.ozon.ru/v1/analytics/data", {
@@ -114,7 +117,7 @@ async function main() {
           if (cats.length) console.log(`  Ozon热门品类: ${cats.slice(0, 5).join(", ")}`);
           ozonTrendWords = cats;
         }
-      } catch {}
+      } catch (e) { if (e?.message) console.warn("  warn:", e.message.slice(0, 80)); }
 
       // === 来源2: 词库（品类均衡采样）===
       const byCategory = {};
@@ -270,7 +273,7 @@ Ozon上最近热门品类: ${hotCats}
           const { ProxyAgent } = await import("undici");
           const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || "";
           if (proxyUrl) dispatcher = new ProxyAgent({ uri: proxyUrl, connections: 1, pipelining: 0 });
-        } catch {}
+        } catch (e) { if (e?.message) console.warn("  warn:", e.message.slice(0, 80)); }
         const r = await fetch("https://api-seller.ozon.ru/v1/description-category/tree", {
           method: "POST",
           headers: { "Client-Id": String(ozonCfg.clientId), "Api-Key": ozonCfg.apiKey, "Content-Type": "application/json" },
@@ -293,7 +296,7 @@ Ozon上最近热门品类: ${hotCats}
         catFlat = flattenTree(tree.result || [], "", null);
         await fs.writeFile(catFlatPath, JSON.stringify(catFlat));
         console.log(`  类目树已缓存: ${catFlat.length} 个类型`);
-      } catch {}
+      } catch (e) { if (e?.message) console.warn("  warn:", e.message.slice(0, 80)); }
     }
 
     // 智能类目匹配: 从inferred的类目信息搜索类目树
@@ -383,9 +386,9 @@ Ozon上最近热门品类: ${hotCats}
       const model = slug.replace(/[^a-zA-Z0-9]/g, "-").slice(0, 20) + "-" + Date.now().toString(36).slice(-4);
 
       // 定价: 供货价加价覆盖运费关税佣金利润 (合同货币CNY)
-      const MARKUP = 3.5; // 3.5倍加价 (CNY合同，Ozon自动转卢布展示)
+      const MARKUP = BIZ.pricing?.markup || 3.5;
       const priceCny = Math.round(supplyCny * MARKUP * 100) / 100;
-      const finalPrice = Math.max(priceCny, 15); // 最低15元
+      const finalPrice = Math.max(priceCny, BIZ.pricing?.min_price_cny || 15);
       const finalOldPrice = Math.round(finalPrice * 1.3 * 100) / 100;
 
       // 智能类目匹配
@@ -401,7 +404,7 @@ Ozon上最近热门品类: ${hotCats}
         old_price_override: finalOldPrice.toFixed(2),
         supply_price_cny: supplyCny,
         currency_code: ozonCfg.currency || "CNY",
-        initial_stock: 100,
+        initial_stock: BIZ.ozon_defaults?.initial_stock || 100,
         warehouse_id: ozonCfg.warehouseId || "",
         primary_image_override: images[0] || "",
         images_override: images,
@@ -410,11 +413,11 @@ Ozon上最近热门品类: ${hotCats}
         width_override_mm: 200,
         height_override_mm: 100,
         import_fields: {
-          description_category_id: matchedCat?.catId || listing.ozon_category_id || 17027937,
-          type_id: matchedCat?.typeId || listing.ozon_type_id || 970896147,
+          description_category_id: matchedCat?.catId || listing.ozon_category_id || BIZ.ozon_defaults?.category_id || 17027937,
+          type_id: matchedCat?.typeId || listing.ozon_type_id || BIZ.ozon_defaults?.type_id || 970896147,
           attributes: [
             { id: 9048, complex_id: 0, values: [{ dictionary_value_id: 0, value: model }] },
-            { id: 85, complex_id: 0, values: [{ dictionary_value_id: 126745801, value: "Нет бренда" }] },
+            { id: 85, complex_id: 0, values: [{ dictionary_value_id: BIZ.ozon_defaults?.no_brand_id || 126745801, value: "Нет бренда" }] },
           ],
         },
       };
@@ -454,7 +457,7 @@ Ozon上最近热门品类: ${hotCats}
           const { ProxyAgent } = await import("undici");
           const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || "";
           if (proxyUrl) dispatcher = new ProxyAgent({ uri: proxyUrl, connections: 1, pipelining: 0 });
-        } catch {}
+        } catch (e) { if (e?.message) console.warn("  warn:", e.message.slice(0, 80)); }
 
         // 查询已存在的offer_id（已存在的不能改类目）
         let existingOfferIds = new Set();
@@ -468,10 +471,10 @@ Ozon上最近热门品类: ${hotCats}
           const listD = await listR.json();
           existingOfferIds = new Set((listD.result?.items || []).map(i => i.offer_id));
           console.log(`  已存在产品: ${existingOfferIds.size} 个`);
-        } catch {}
+        } catch (e) { if (e?.message) console.warn("  warn:", e.message.slice(0, 80)); }
 
-        const DEFAULT_CAT = 17027937;
-        const DEFAULT_TYPE = 970896147;
+        const DEFAULT_CAT = BIZ.ozon_defaults?.category_id || 17027937;
+        const DEFAULT_TYPE = BIZ.ozon_defaults?.type_id || 970896147;
 
         // 构建import payload
         const items = readyMappings.map(m => {

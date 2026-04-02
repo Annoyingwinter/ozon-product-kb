@@ -11,19 +11,21 @@ import path from "node:path";
 import fs from "node:fs/promises";
 import { parseCliArgs, readJson, writeJson, normalize, parseNumber, timestamp, KB_ROOT, OUTPUT_ROOT } from "./lib/shared.js";
 
+const BIZ = JSON.parse(fs.readFileSync ? await fs.readFile(path.resolve("config", "business-rules.json"), "utf8") : "{}");
+const s = BIZ.scoring || {};
+const w = s.weights || {};
 const RULES = {
-  priceMinRub: 300,
-  priceMaxRub: 5000,
-  maxWeightKg: 1.2,
-  maxLongEdgeCm: 45,
-  exchangeRateRubPerCny: 12.5,
-  // 权重 (总和100)
-  w_logistics: 20,
-  w_margin: 25,
-  w_competition: 15,
-  w_compliance: 15,
-  w_return: 15,
-  w_content: 10,
+  priceMinRub: s.price_min_rub || 300,
+  priceMaxRub: s.price_max_rub || 5000,
+  maxWeightKg: s.max_weight_kg || 1.2,
+  maxLongEdgeCm: s.max_long_edge_cm || 45,
+  exchangeRateRubPerCny: BIZ.pricing?.exchange_rate_rub_per_cny || 12.5,
+  w_logistics: w.logistics || 20,
+  w_margin: w.margin || 25,
+  w_competition: w.competition || 15,
+  w_compliance: w.compliance || 15,
+  w_return: w.return_risk || 15,
+  w_content: w.content || 10,
 };
 
 function parseLevel(v) {
@@ -104,7 +106,8 @@ function flattenProduct(product) {
   const weightKg = weightAttr ? parseFloat(weightAttr.value) || 0.3 : 0.3;
 
   // 估算Ozon售价 (供应价 * 汇率 * 8倍加价: 含运费、关税、Ozon佣金、利润)
-  const targetRub = supplyCny ? Math.round(supplyCny * RULES.exchangeRateRubPerCny * 8) : 0;
+  const markupForEstimate = s.markup_for_rub_estimate || 8;
+  const targetRub = supplyCny ? Math.round(supplyCny * RULES.exchangeRateRubPerCny * markupForEstimate) : 0;
 
   // 判断是否易碎/认证风险
   const category = product.seed?.category || "";

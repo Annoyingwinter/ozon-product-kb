@@ -131,7 +131,7 @@ async function readAllMappings() {
       const m = JSON.parse(raw);
       m._dir = entry.name;
       mappings.push(m);
-    } catch {}
+    } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
   }
   return mappings;
 }
@@ -230,14 +230,14 @@ async function startLogin(platform) {
       await context.clearCookies({ domain: config.cookieDomain }).catch(() => {});
       console.log(`[${platform}] 已清除 ${toRemove.length} 个旧关键cookie，等待重新登录`);
     }
-  } catch {}
+  } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
 
   // 确保1688/ozon等国内站不走代理
   const hosts = [config.loginUrl, config.checkUrl].map(u => { try { return new URL(u).hostname; } catch { return ""; } }).filter(Boolean);
   try {
     const { ensureDirectConnection } = await import("./lib/browser.js");
     await ensureDirectConnection(hosts);
-  } catch {}
+  } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
 
   // 导航到登录页，失败重试一次
   let navOk = false;
@@ -253,7 +253,7 @@ async function startLogin(platform) {
   }
   if (!navOk) {
     // 最后兜底：直接在地址栏输入URL
-    try { await page.evaluate((url) => { window.location.href = url; }, config.loginUrl); } catch {}
+    try { await page.evaluate((url) => { window.location.href = url; }, config.loginUrl); } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
     await new Promise(r => setTimeout(r, 3000));
   }
 
@@ -274,7 +274,7 @@ async function startLogin(platform) {
     if (keyCookies.length) {
       console.log(`[${platform}] 检测到 ${keyCookies.length} 个旧关键cookie，将等待新cookie出现`);
     }
-  } catch {}
+  } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
 
   activeSessions[platform] = { context, browser, page, status: "waiting_login", initialKeyCookieSignature };
   pollLoginStatus(platform);
@@ -348,7 +348,7 @@ async function pollLoginStatus(platform) {
         } else if (cookieReady) {
           console.log(`[${platform}] 检测到新登录cookie: ${domainCookies.length}个 (含${keyCookieCount}个关键cookie)`);
         }
-      } catch {}
+      } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
 
       // 1688必须cookie变化才算登录成功（防止旧cookie误判）
       // 其他平台URL离开登录页或cookie变化都算
@@ -451,7 +451,7 @@ async function extractOzonApiKeySilent(storagePath) {
           await fs.writeFile(OZON_CONFIG_PATH, JSON.stringify(cfg, null, 2), "utf8");
           console.log("[ozon] 仓库信息已获取:", cfg.warehouseName);
         }
-      } catch {}
+      } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
     }
   } else {
     console.log("[ozon] 未能从页面提取API信息，可能需要在Ozon后台先生成API Key");
@@ -998,7 +998,7 @@ function createServer(port) {
                       }
                       mData.ozon_import_at = new Date().toISOString();
                       await fs.writeFile(mjsonPath, JSON.stringify(mData, null, 2), "utf8");
-                    } catch {}
+                    } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
                   }
                 }
               } else {
@@ -1346,7 +1346,7 @@ function createServer(port) {
               mData.import_fields.type_id = typeId;
               mData.title_override = newName;
               await fs.writeFile(mjsonPath, JSON.stringify(mData, null, 2), "utf8");
-            } catch {}
+            } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
           }
         }
 
@@ -1367,7 +1367,7 @@ function createServer(port) {
                   const mData = JSON.parse(await fs.readFile(mjsonPath, "utf8"));
                   mData.ozon_task_id = taskId;
                   await fs.writeFile(mjsonPath, JSON.stringify(mData, null, 2), "utf8");
-                } catch {}
+                } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
               }
             }
 
@@ -1468,7 +1468,7 @@ function createServer(port) {
               productName = best.title || p.keyword || m.title_override || dir;
               break;
             }
-          } catch {}
+          } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
         }
 
         // 如果没有直接链接，生成1688搜索链接
