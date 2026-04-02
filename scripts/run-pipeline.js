@@ -65,116 +65,143 @@ async function main() {
   console.log(`\n  Ozon Pilot Pipeline — ${new Date().toLocaleString()}`);
   console.log(`  模式: ${args.dryRun ? "DRY RUN" : "正式执行"}`);
 
-  // ─── Stage 1: PDD 趋势选词（直接从拼多多热销提取关键词）───
+  // ─── Stage 1: 智能选词（Ozon数据驱动 + 词库 + AI扩展）───
   let seedsPath = args.input ? path.resolve(args.input) : null;
 
   if (!seedsPath) {
-    console.log("\n[Stage 1] PDD 趋势选词...");
+    console.log("\n[Stage 1] 智能选词...");
     if (args.dryRun) {
       console.log("  [dry-run] 跳过选词");
     } else {
+      const poolPath = path.join(KB_ROOT, "keyword-pool.json");
       const usedPath = path.join(KB_ROOT, ".used-keywords.json");
+      const pool = await readJson(poolPath, null);
       const used = new Set(await readJson(usedPath, []) || []);
       const limit = parseInt(args.limit) || 5;
 
-      // 搜索词: 用宽泛品类词搜PDD
-      const searchQueries = [
-        "家居收纳", "厨房神器", "汽车用品", "宠物用品", "运动护具",
-        "办公文具", "手机配件", "清洁工具", "母婴好物", "户外装备",
-        "美妆工具", "派对装饰", "园艺工具", "生活小物", "箱包配件",
-      ];
-      // 随机选几个搜索词
-      for (let i = searchQueries.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [searchQueries[i], searchQueries[j]] = [searchQueries[j], searchQueries[i]];
-      }
-      const queries = searchQueries.slice(0, Math.max(3, Math.ceil(limit / 2)));
-
-      // 启动浏览器搜PDD
-      const { launchBrowser: lb, gotoSafe: gs, closeBrowser: cb } = await import("./lib/browser.js");
-      const pddProfile = path.resolve(".profiles", "pdd", "browser-user-data");
-      const pddStorage = path.resolve(".profiles", "pdd", "storage-state.json");
-      let pddKeywords = [];
-
+      // === 来源1: Ozon 卖家分析数据（最有价值：看哪些品类有浏览量）===
+      let ozonTrendWords = [];
       try {
-        const { context, browser } = await lb(pddProfile, { headless: true, storageStatePath: pddStorage });
-        const page = context.pages()[0] || await context.newPage();
-
-        for (const q of queries) {
+        const ozonCfgPath = path.join(KB_ROOT, "..", "config", "ozon-api.json");
+        const ozonCfg = await readJson(ozonCfgPath, null);
+        if (ozonCfg?.clientId && ozonCfg?.apiKey) {
+          let dispatcher;
           try {
-            await gs(page, `https://mobile.yangkeduo.com/search_result.html?search_key=${encodeURIComponent(q)}`, { wait: 4000 });
-            const titles = await page.evaluate(() => {
-              const cards = document.querySelectorAll('[class*="goodsList"] a, [class*="goods-list"] a, [class*="search-result"] a, [class*="SearchResult"] a');
-              return Array.from(cards).slice(0, 15).map(c => {
-                const el = c.querySelector('[class*="title"], [class*="name"], p, span');
-                return (el?.textContent || "").replace(/\s+/g, " ").trim();
-              }).filter(t => t.length >= 4);
-            });
-            console.log(`  PDD "${q}" → ${titles.length} 个标题`);
-
-            // 从标题提取产品关键词
-            for (const title of titles) {
-              const cleaned = title
-                .replace(/【.*?】/g, "").replace(/\d+[件个只套包组条]?装?/g, "")
-                .replace(/[a-zA-Z\d]+/g, " ").replace(/[^\u4e00-\u9fff\s]/g, " ").trim();
-              const segs = cleaned.split(/\s+/).filter(s => s.length >= 2 && s.length <= 8);
-              for (const seg of segs) {
-                if (/^(新款|爆款|热卖|包邮|批发|厂家|直销|现货|特价|同款|热销|推荐|正品)/.test(seg)) continue;
-                if (!used.has(seg) && !pddKeywords.some(k => k.keyword === seg)) {
-                  pddKeywords.push({ keyword: seg, category: q });
-                }
-              }
-            }
+            const { ProxyAgent } = await import("undici");
+            const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || "";
+            if (proxyUrl) dispatcher = new ProxyAgent({ uri: proxyUrl, connections: 1, pipelining: 0 });
           } catch {}
-          await new Promise(r => setTimeout(r, 1500));
+          const dateFrom = new Date(Date.now() - 30 * 86400_000).toISOString().slice(0, 10);
+          const dateTo = new Date().toISOString().slice(0, 10);
+          const r = await fetch("https://api-seller.ozon.ru/v1/analytics/data", {
+            method: "POST",
+            headers: { "Client-Id": String(ozonCfg.clientId), "Api-Key": ozonCfg.apiKey, "Content-Type": "application/json" },
+            body: JSON.stringify({
+              date_from: dateFrom, date_to: dateTo,
+              metrics: ["hits_view", "ordered_units"],
+              dimension: ["category2"], filters: [], limit: 50, offset: 0,
+              sort: [{ key: "hits_view", order: "DESC" }],
+            }),
+            ...(dispatcher ? { dispatcher } : {}),
+            signal: AbortSignal.timeout(15000),
+          });
+          const d = await r.json();
+          // 获取有浏览量的品类名
+          const cats = (d.result?.data || [])
+            .filter(d => (d.metrics?.[0] || 0) > 0)
+            .map(d => d.dimensions?.[0]?.name || "")
+            .filter(Boolean);
+          if (cats.length) console.log(`  Ozon热门品类: ${cats.slice(0, 5).join(", ")}`);
+          ozonTrendWords = cats;
         }
-        await cb({ context, browser }).catch(() => {});
-      } catch (pddErr) {
-        console.log(`  PDD浏览器启动失败: ${pddErr.message?.slice(0, 40)}`);
+      } catch {}
+
+      // === 来源2: 词库（品类均衡采样）===
+      const byCategory = {};
+      if (pool?.categories) {
+        for (const [catId, cat] of Object.entries(pool.categories)) {
+          if (!cat.enabled) continue;
+          const unused = (cat.keywords || []).filter(kw => !used.has(kw));
+          if (unused.length) byCategory[catId] = { label: cat.label, keywords: unused };
+        }
       }
 
-      // 去重 + 选取
-      // 优先选长关键词（更精准）
-      pddKeywords.sort((a, b) => b.keyword.length - a.keyword.length);
-      const selected = pddKeywords.slice(0, limit).map(k => ({ keyword: k.keyword, category: k.category }));
+      // === 来源3: AI 根据 Ozon 趋势生成新词（词库快耗尽时触发）===
+      const totalRemaining = Object.values(byCategory).reduce((s, c) => s + c.keywords.length, 0);
+      if (totalRemaining < limit * 3 && ozonTrendWords.length > 0) {
+        console.log(`  词库剩余 ${totalRemaining} 个，触发 AI 扩词...`);
+        try {
+          const { llmJson } = await import("./lib/llm.js");
+          const hotCats = ozonTrendWords.slice(0, 5).join("、");
+          const existing = Object.values(byCategory).flatMap(c => c.keywords).slice(0, 20).join("、");
+          const aiWords = await Promise.race([
+            llmJson(`你是跨境电商选品专家（中国→俄罗斯Ozon）。
 
-      // 如果PDD没搜到足够的词，从词库补充
-      if (selected.length < limit) {
-        const poolPath = path.join(KB_ROOT, "keyword-pool.json");
-        const pool = await readJson(poolPath, null);
-        if (pool?.categories) {
-          const available = [];
-          for (const cat of Object.values(pool.categories)) {
-            if (!cat.enabled) continue;
-            for (const kw of (cat.keywords || [])) {
-              if (!used.has(kw) && !selected.some(s => s.keyword === kw)) {
-                available.push({ keyword: kw, category: cat.label });
+Ozon上最近热门品类: ${hotCats}
+已有关键词（不要重复）: ${existing}
+
+请生成 ${limit * 3} 个新的1688搜索关键词，要求：
+1. 适合在Ozon俄罗斯站销售（轻小件、低退货、易物流）
+2. 不要重复已有词
+3. 格式: 2-6个中文词组合
+4. 参考Ozon热门品类方向
+
+只输出JSON数组: ["关键词1", "关键词2", ...]`, { system: "只输出JSON数组" }),
+            new Promise((_, rej) => setTimeout(() => rej(new Error("AI超时")), 60000)),
+          ]);
+          if (Array.isArray(aiWords)) {
+            for (const kw of aiWords) {
+              if (!used.has(kw) && typeof kw === "string" && kw.length >= 2) {
+                // 加到词库的 gadgets 品类
+                if (!byCategory.ai_generated) byCategory.ai_generated = { label: "AI生成", keywords: [] };
+                byCategory.ai_generated.keywords.push(kw);
               }
             }
+            console.log(`  AI 生成 ${aiWords.length} 个新词`);
+            // 同步写回词库
+            if (pool?.categories && aiWords.length) {
+              if (!pool.categories.ai_generated) pool.categories.ai_generated = { label: "AI生成", enabled: true, keywords: [] };
+              for (const kw of aiWords) {
+                if (!pool.categories.ai_generated.keywords.includes(kw)) pool.categories.ai_generated.keywords.push(kw);
+              }
+              pool._meta.last_expanded_at = new Date().toISOString();
+              await fs.writeFile(poolPath, JSON.stringify(pool, null, 2));
+            }
           }
-          for (let i = available.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [available[i], available[j]] = [available[j], available[i]];
-          }
-          selected.push(...available.slice(0, limit - selected.length));
+        } catch (e) {
+          console.log(`  AI 扩词失败: ${e.message?.slice(0, 40)}`);
         }
       }
 
-      if (!selected.length) {
-        console.error("无法获取关键词（PDD搜索失败且词库为空）");
-        process.exit(1);
+      // === 选词：品类均衡轮流取 ===
+      const catIds = Object.keys(byCategory);
+      if (!catIds.length) { console.error("词库已耗尽"); process.exit(1); }
+
+      const selected = [];
+      let round = 0;
+      while (selected.length < limit) {
+        const catId = catIds[round % catIds.length];
+        const cat = byCategory[catId];
+        if (cat.keywords.length) {
+          const idx = Math.floor(Math.random() * cat.keywords.length);
+          const kw = cat.keywords.splice(idx, 1)[0];
+          selected.push({ keyword: kw, category: cat.label });
+        }
+        round++;
+        if (round > limit * 3) break;
       }
 
-      // 写入种子文件
+      if (!selected.length) { console.error("无法获取关键词"); process.exit(1); }
+
       await ensureDir(OUTPUT_ROOT);
       seedsPath = path.join(OUTPUT_ROOT, `seeds-${timestamp()}.json`);
       await fs.writeFile(seedsPath, JSON.stringify({ seeds: selected }, null, 2));
 
-      // 标记已使用
       for (const s of selected) used.add(s.keyword);
       await fs.writeFile(usedPath, JSON.stringify([...used], null, 2));
 
-      console.log(`  选取 ${selected.length} 个关键词 (PDD: ${pddKeywords.length > limit ? limit : Math.min(pddKeywords.length, selected.length)}, 词库补充: ${Math.max(0, selected.length - Math.min(pddKeywords.length, limit))}):`);
+      const remaining = Object.values(byCategory).reduce((s, c) => s + c.keywords.length, 0);
+      console.log(`  选取 ${selected.length} 个关键词 (剩余 ${remaining}):`);
       selected.forEach(s => console.log(`    - ${s.keyword} (${s.category})`));
     }
   }
@@ -269,13 +296,21 @@ async function main() {
       } catch {}
     }
 
-    // 智能类目匹配: 从inferred.ozon_category_suggestion搜索类目树
-    function matchCategory(suggestion) {
-      if (!catFlat?.length || !suggestion) return null;
+    // 智能类目匹配: 从inferred的类目信息搜索类目树
+    function matchCategory(suggestion, typeName) {
+      if (!catFlat?.length) return null;
+
+      // 策略0: 用 ozon_type_name 精确匹配（最可靠）
+      if (typeName) {
+        const exact = catFlat.find(c => c.name?.toLowerCase() === typeName.toLowerCase());
+        if (exact) return exact;
+      }
+
+      if (!suggestion) return null;
       // 支持 > 和 / 分隔符
       const parts = suggestion.split(/[>\/]/).map(s => s.trim()).filter(Boolean);
 
-      // 策略1: 用最后一段（最具体的类型名）直接匹配 type_name
+      // 策略1: 用最后一段直接匹配 type_name
       const lastPart = parts[parts.length - 1]?.toLowerCase() || "";
       const directMatch = catFlat.find(c => c.name?.toLowerCase() === lastPart);
       if (directMatch) return directMatch;
@@ -354,7 +389,7 @@ async function main() {
       const finalOldPrice = Math.round(finalPrice * 1.3 * 100) / 100;
 
       // 智能类目匹配
-      const matchedCat = matchCategory(inferred?.ozon_category_suggestion);
+      const matchedCat = matchCategory(inferred?.ozon_category_suggestion, inferred?.ozon_type_name);
 
       const mapping = {
         slug,
@@ -413,6 +448,14 @@ async function main() {
       } else {
         console.log(`  找到 ${readyMappings.length} 个可提交产品`);
 
+        // 初始化代理（提前声明，后续所有 fetch 调用都用）
+        let dispatcher;
+        try {
+          const { ProxyAgent } = await import("undici");
+          const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || "";
+          if (proxyUrl) dispatcher = new ProxyAgent({ uri: proxyUrl, connections: 1, pipelining: 0 });
+        } catch {}
+
         // 查询已存在的offer_id（已存在的不能改类目）
         let existingOfferIds = new Set();
         try {
@@ -457,14 +500,6 @@ async function main() {
         });
 
         // 提交（批次20）
-        let { ProxyAgent } = {};
-        let dispatcher;
-        try {
-          ({ ProxyAgent } = await import("undici"));
-          const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || "";
-          if (proxyUrl) dispatcher = new ProxyAgent({ uri: proxyUrl, connections: 1, pipelining: 0 });
-        } catch {}
-
         let successCount = 0, failCount = 0;
         const results = [];
         for (let i = 0; i < items.length; i += 20) {
