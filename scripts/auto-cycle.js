@@ -14,8 +14,8 @@ import { proxyFetch, getProxyDispatcherAsync } from "./lib/proxy.js";
 
 const PRUNE_THRESHOLD = 1;   // 浏览占比低于1%的下架
 const PRUNE_DAYS = 7;        // 看最近7天的数据
-const PIPELINE_LIMIT = 50;   // 每轮选50个新品
-const LOOP_INTERVAL_H = 2;   // 循环间隔（2小时）
+const PIPELINE_LIMIT = 8;    // 每轮8个（不触发反爬）
+const LOOP_INTERVAL_M = 30;  // 每30分钟一轮（日产约384个）
 
 function run(script, args = []) {
   console.log(`\n  ▶ ${script} ${args.join(" ")}`);
@@ -109,11 +109,15 @@ async function runCycle() {
   console.log(`  自动循环 — ${ts}`);
   console.log("=".repeat(60));
 
-  // Step 1: 淘汰低效产品
-  await pruneByAnalytics();
+  // Step 1: 淘汰低效产品（每6轮跑一次，约3小时）
+  if (!runCycle._count) runCycle._count = 0;
+  runCycle._count++;
+  if (runCycle._count % 6 === 1) {
+    await pruneByAnalytics();
+  }
 
-  // Step 2: 词库不够时自动扩展
-  try {
+  // Step 2: 词库不够时自动扩展（每12轮检查一次，约6小时）
+  if (runCycle._count % 12 === 1) try {
     const poolPath = path.join(KB_ROOT, "..", "knowledge-base", "keyword-pool.json");
     const usedPath = path.join(KB_ROOT, "..", "knowledge-base", ".used-keywords.json");
     const pool = await readJson(poolPath, null);
@@ -161,8 +165,8 @@ async function main() {
   await runCycle();
 
   if (args.loop) {
-    console.log(`\n  下一轮: ${LOOP_INTERVAL_H} 小时后`);
-    setInterval(runCycle, LOOP_INTERVAL_H * 3600_000);
+    console.log(`\n  下一轮: ${LOOP_INTERVAL_M} 分钟后`);
+    setInterval(runCycle, LOOP_INTERVAL_M * 60_000);
     // 保持进程运行
     await new Promise(() => {});
   }
