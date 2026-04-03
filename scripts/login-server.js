@@ -1004,9 +1004,21 @@ function createServer(port) {
               },
               workflow: { current_stage: stage },
               errors: ozonErr,
+              financials: null, // 会在下面填充
             });
           } catch {}
         }
+        // 填充财务数据
+        try {
+          const { getFinancials } = await import("./lib/db.js");
+          const fins = getFinancials(userId);
+          const finMap = {};
+          for (const f of fins) finMap[f.offer_id] = f;
+          for (const p of products) {
+            if (finMap[p.slug]) p.financials = finMap[p.slug];
+          }
+        } catch {}
+
         products.sort((a, b) => (b.product?.total_score ?? 0) - (a.product?.total_score ?? 0));
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify(products));

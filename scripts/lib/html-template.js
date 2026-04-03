@@ -1328,9 +1328,25 @@ export const HTML_PAGE = `<!DOCTYPE html>
       <!-- stats bar -->
       <div class="stats-bar" id="stats-bar">
         <div class="stat-card"><span class="stat-icon">&#128230;</span><div class="stat-val" id="stat-products">--</div><div class="stat-label">产品总数</div></div>
-        <div class="stat-card"><span class="stat-icon">&#9989;</span><div class="stat-val ok" id="stat-approved">--</div><div class="stat-label">已审核</div></div>
-        <div class="stat-card"><span class="stat-icon">&#128640;</span><div class="stat-val info" id="stat-ready">--</div><div class="stat-label">就绪</div></div>
+        <div class="stat-card"><span class="stat-icon">&#128176;</span><div class="stat-val" id="stat-revenue" style="color:var(--accent);">--</div><div class="stat-label">销售额(₽)</div></div>
+        <div class="stat-card"><span class="stat-icon">&#128200;</span><div class="stat-val" id="stat-profit" style="color:var(--ok);">--</div><div class="stat-label">利润(₽)</div></div>
         <div class="stat-card"><span class="stat-icon">&#128273;</span><div class="stat-val warn" id="stat-keywords">--</div><div class="stat-label">词库</div></div>
+      </div>
+
+      <!-- 利润概览 -->
+      <div id="profit-overview" style="display:none;margin-bottom:20px;">
+        <div class="sec">利润概览</div>
+        <div class="tile" style="padding:16px;">
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px;">
+            <div style="flex:1;min-width:120px;"><span style="font-size:11px;color:var(--t3);">平均利润率</span><div id="profit-avg-margin" style="font-size:20px;font-weight:600;">--%</div></div>
+            <div style="flex:1;min-width:120px;"><span style="font-size:11px;color:var(--t3);">盈利产品</span><div id="profit-positive" style="font-size:20px;font-weight:600;color:var(--ok);">0</div></div>
+            <div style="flex:1;min-width:120px;"><span style="font-size:11px;color:var(--t3);">亏损产品</span><div id="profit-negative" style="font-size:20px;font-weight:600;color:var(--err);">0</div></div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="act act-go" onclick="syncFinance()">同步财务数据</button>
+            <span id="finance-sync-status" style="font-size:12px;color:var(--t3);line-height:32px;"></span>
+          </div>
+        </div>
       </div>
 
       <!-- Ozon API Config (collapsible) -->
@@ -1481,6 +1497,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
               <th class="sortable" onclick="sortProducts('category')">品类 <span class="sort-arrow">&#9650;</span></th>
               <th class="sortable" onclick="sortProducts('price_rub')">售价 (RUB) <span class="sort-arrow">&#9650;</span></th>
               <th class="sortable" onclick="sortProducts('price_cny')">供货价 (CNY) <span class="sort-arrow">&#9650;</span></th>
+              <th class="sortable" onclick="sortProducts('profit')">利润 <span class="sort-arrow">&#9660;</span></th>
               <th class="sortable sort-active" onclick="sortProducts('score')">评分 <span class="sort-arrow">&#9660;</span></th>
               <th>阶段</th>
             </tr>
@@ -1674,20 +1691,45 @@ export const HTML_PAGE = `<!DOCTYPE html>
     /* === Stats === */
     async function refreshStats() {
       try {
-        const [prods, kw, ready] = await Promise.all([api('/products'), api('/keywords'), api('/ozon/upload-ready')]);
+        const [prods, kw, profit] = await Promise.all([api('/products'), api('/keywords'), api('/ozon/profit').catch(() => null)]);
         document.getElementById('stat-products').textContent = prods.length;
-        const approved = prods.filter(p => (p.workflow?.current_stage || '').includes('approved')).length;
-        document.getElementById('stat-approved').textContent = approved;
-        const readyEl = document.getElementById('stat-ready');
-        const readyCount = ready.count || 0;
-        readyEl.textContent = readyCount;
-        if (readyCount > 0) {
-          readyEl.classList.add('pulse-ready');
+
+        // 利润数据
+        if (profit && profit.total_revenue > 0) {
+          document.getElementById('stat-revenue').textContent = profit.total_revenue.toLocaleString();
+          const profitEl = document.getElementById('stat-profit');
+          profitEl.textContent = profit.total_profit.toLocaleString();
+          profitEl.style.color = profit.total_profit >= 0 ? 'var(--ok)' : 'var(--err)';
+
+          // 利润概览
+          document.getElementById('profit-overview').style.display = '';
+          document.getElementById('profit-avg-margin').textContent = profit.avg_margin + '%';
+          document.getElementById('profit-avg-margin').style.color = profit.avg_margin >= 20 ? 'var(--ok)' : profit.avg_margin >= 0 ? 'var(--warn)' : 'var(--err)';
+          const pos = (profit.products || []).filter(p => p.actual_profit_rub > 0).length;
+          const neg = (profit.products || []).filter(p => p.actual_profit_rub < 0).length;
+          document.getElementById('profit-positive').textContent = pos;
+          document.getElementById('profit-negative').textContent = neg;
         } else {
-          readyEl.classList.remove('pulse-ready');
+          document.getElementById('stat-revenue').textContent = '--';
+          document.getElementById('stat-profit').textContent = '--';
         }
+
         document.getElementById('stat-keywords').textContent = kw.remaining + '/' + kw.total;
-      } catch {}
+      } catch (e) { console.warn('stats:', e.message); }
+    }
+
+    async function syncFinance() {
+      const statusEl = document.getElementById('finance-sync-status');
+      statusEl.textContent = '同步中...';
+      try {
+        const r = await fetch('/api/ozon/sync-finance', { method: 'POST' });
+        const d = await r.json();
+        if (d.error) { statusEl.textContent = '失败: ' + d.error; return; }
+        statusEl.textContent = '已同步 ' + d.synced + ' 个产品 (' + d.orders + ' 笔订单)';
+        refreshStats();
+      } catch (e) {
+        statusEl.textContent = '失败: ' + e.message;
+      }
     }
 
     /* === Platform refresh === */
@@ -1961,7 +2003,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
       const tbody = document.getElementById('products-tbody');
       document.getElementById('products-count').textContent = list.length + ' 件产品';
       if (list.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><span class="empty-state-icon">&#128230;</span>暂无产品数据<br><span style="font-size:12px;color:var(--t3);">运行选品后产品将显示在这里</span></div></td></tr>';
+        tbody.innerHTML = '<tr><td colspan="7"><div class="empty-state"><span class="empty-state-icon">&#128230;</span>暂无产品数据<br><span style="font-size:12px;color:var(--t3);">运行选品后产品将显示在这里</span></div></td></tr>';
         return;
       }
       let html = '';
@@ -1978,6 +2020,9 @@ export const HTML_PAGE = `<!DOCTYPE html>
         html += '<td>' + (prod.category || '--') + '</td>';
         html += '<td style="font-family:var(--mono);">' + (prod.target_price_rub ?? '--') + '</td>';
         html += '<td style="font-family:var(--mono);">' + (prod.supply_price_cny ?? '--') + '</td>';
+        const profitVal = item.financials?.actual_profit_rub;
+        const profitColor = profitVal > 0 ? 'var(--ok)' : profitVal < 0 ? 'var(--err)' : 'var(--t3)';
+        html += '<td style="font-family:var(--mono);color:' + profitColor + ';">' + (profitVal != null ? Math.round(profitVal) + '₽' : '--') + '</td>';
         const dotCls = typeof score === 'number' ? (score >= 70 ? 'score-dot-hi' : score >= 50 ? 'score-dot-mid' : 'score-dot-lo') : '';
         html += '<td class="pscore ' + sc + '">' + (dotCls ? '<span class="score-dot ' + dotCls + '"></span>' : '') + score + '</td>';
         html += '<td>' + stagePill(stage, item.errors) + '</td>';
@@ -1985,14 +2030,14 @@ export const HTML_PAGE = `<!DOCTYPE html>
 
         // 错误详情行
         if (item.errors && (item.errors.severe?.length || item.errors.warn?.length)) {
-          html += '<tr style="background:' + (item.errors.severe?.length ? 'var(--err-bg)' : 'var(--warn-bg)') + ';"><td colspan="6" style="padding:4px 12px;font-size:11px;">';
+          html += '<tr style="background:' + (item.errors.severe?.length ? 'var(--err-bg)' : 'var(--warn-bg)') + ';"><td colspan="7" style="padding:4px 12px;font-size:11px;">';
           if (item.errors.severe?.length) html += '<span style="color:var(--err);">严重: ' + item.errors.severe.join(', ') + '</span> ';
           if (item.errors.warn?.length) html += '<span style="color:var(--warn);">警告: ' + item.errors.warn.join(', ') + '</span>';
           html += '</td></tr>';
         }
 
         if (isExpanded) {
-          html += '<tr class="pdetail-row"><td colspan="6"><div class="pdetail">';
+          html += '<tr class="pdetail-row"><td colspan="7"><div class="pdetail">';
           html += '<div class="pdetail-grid">';
 
           html += '<div>';
