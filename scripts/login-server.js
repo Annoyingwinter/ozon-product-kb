@@ -865,6 +865,31 @@ function createServer(port) {
       try {
         const entries = await fs.readdir(USER_PRODUCTS, { withFileTypes: true }).catch(() => []);
         const products = [];
+
+        // 查 Ozon 实际错误（如果有API Key）
+        let ozonErrors = {}; // offer_id → { severe: [...], warn: [...] }
+        try {
+          const cfg = await loadUserOzonCfg();
+          if (cfg.clientId && cfg.apiKey) {
+            const allItems = [];
+            const lr = await ozonApi("/v3/product/list", { filter: { visibility: "ALL" }, limit: 1000 }, cfg);
+            if (lr.ok) allItems.push(...(lr.data.result?.items || []));
+            const offerIds = allItems.map(i => i.offer_id);
+            for (let i = 0; i < offerIds.length; i += 20) {
+              const batch = offerIds.slice(i, i + 20);
+              try {
+                const ir = await ozonApi("/v3/product/info/list", { offer_id: batch }, cfg);
+                for (const p of (ir.data?.result?.items || ir.data?.items || [])) {
+                  const errs = p.errors || [];
+                  const severe = errs.filter(e => e.level === "ERROR_LEVEL_ERROR").map(e => e.code);
+                  const warn = errs.filter(e => e.level !== "ERROR_LEVEL_ERROR").map(e => e.code);
+                  if (severe.length || warn.length) ozonErrors[p.offer_id] = { severe, warn };
+                }
+              } catch {}
+            }
+          }
+        } catch {}
+
         for (const entry of entries) {
           if (!entry.isDirectory()) continue;
           const slug = entry.name;
@@ -875,18 +900,21 @@ function createServer(port) {
             const raw = await fs.readFile(pjson, "utf8");
             const data = JSON.parse(raw);
             const best = data.candidates?.[0];
-            // 从采集数据提取价格
             const priceNums = (best?.prices || [])
               .map(p => parseFloat(String(p).replace(/[¥￥,]/g, "")))
               .filter(n => n > 0 && n < 9999);
             const supplyCny = priceNums.length ? priceNums.sort((a, b) => a - b)[Math.floor(priceNums.length / 2)] : 0;
             const targetRub = supplyCny ? Math.round(supplyCny * 12.5 * 8) : 0;
 
-            // 判断阶段
+            // 阶段 + Ozon 错误
             let stage = "已采集";
             if (inferred) stage = "已推理";
             if (mapping?.status === "可提交") stage = "待上架";
             if (mapping?.status === "已上传") stage = "已上架";
+
+            const ozonErr = ozonErrors[slug] || null;
+            if (ozonErr?.severe?.length) stage = "有错误";
+            else if (ozonErr?.warn?.length) stage = "有警告";
 
             products.push({
               slug,
@@ -895,13 +923,13 @@ function createServer(port) {
                 category: data.seed?.category || "",
                 target_price_rub: targetRub || "--",
                 supply_price_cny: supplyCny || "--",
-                total_score: mapping ? 91 : (best ? 80 : 0),
+                total_score: data._score || (mapping ? 91 : (best ? 80 : 0)),
                 source_url: best?.source_url || "",
-                why_it_can_sell: data.seed?.why || "",
               },
               workflow: { current_stage: stage },
+              errors: ozonErr,
             });
-          } catch { /* skip invalid */ }
+          } catch {}
         }
         products.sort((a, b) => (b.product?.total_score ?? 0) - (a.product?.total_score ?? 0));
         res.writeHead(200, { "Content-Type": "application/json" });

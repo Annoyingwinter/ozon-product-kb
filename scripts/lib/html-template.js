@@ -1625,12 +1625,14 @@ export const HTML_PAGE = `<!DOCTYPE html>
       'inferred': '已推理',
       'draft_ready': '草稿就绪',
     };
-    function stagePill(stage) {
+    function stagePill(stage, errors) {
       if (!stage) return '<span class="stage-pill stage-other">未知</span>';
+      if (stage === '有错误') return '<span class="stage-pill" style="background:var(--err-bg);color:var(--err);border:1px solid var(--err-ring);">有错误</span>';
+      if (stage === '有警告') return '<span class="stage-pill" style="background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-ring);">有警告</span>';
       const label = STAGE_CN[stage] || stage.replace(/_/g, ' ');
-      if (stage.includes('approved') || stage.includes('listing') || stage.includes('listed')) return '<span class="stage-pill stage-approved">' + label + '</span>';
-      if (stage.includes('draft') || stage.includes('ready')) return '<span class="stage-pill stage-draft">' + label + '</span>';
-      if (stage.includes('evaluat') || stage.includes('inferred')) return '<span class="stage-pill stage-evaluated">' + label + '</span>';
+      if (stage === '已上架') return '<span class="stage-pill stage-approved">' + label + '</span>';
+      if (stage === '待上架' || stage === '已推理') return '<span class="stage-pill stage-draft">' + label + '</span>';
+      if (stage === '已采集') return '<span class="stage-pill stage-evaluated">' + label + '</span>';
       return '<span class="stage-pill stage-other">' + label + '</span>';
     }
 
@@ -1956,8 +1958,16 @@ export const HTML_PAGE = `<!DOCTYPE html>
         html += '<td style="font-family:var(--mono);">' + (prod.supply_price_cny ?? '--') + '</td>';
         const dotCls = typeof score === 'number' ? (score >= 70 ? 'score-dot-hi' : score >= 50 ? 'score-dot-mid' : 'score-dot-lo') : '';
         html += '<td class="pscore ' + sc + '">' + (dotCls ? '<span class="score-dot ' + dotCls + '"></span>' : '') + score + '</td>';
-        html += '<td>' + stagePill(stage) + '</td>';
+        html += '<td>' + stagePill(stage, item.errors) + '</td>';
         html += '</tr>';
+
+        // 错误详情行
+        if (item.errors && (item.errors.severe?.length || item.errors.warn?.length)) {
+          html += '<tr style="background:' + (item.errors.severe?.length ? 'var(--err-bg)' : 'var(--warn-bg)') + ';"><td colspan="6" style="padding:4px 12px;font-size:11px;">';
+          if (item.errors.severe?.length) html += '<span style="color:var(--err);">严重: ' + item.errors.severe.join(', ') + '</span> ';
+          if (item.errors.warn?.length) html += '<span style="color:var(--warn);">警告: ' + item.errors.warn.join(', ') + '</span>';
+          html += '</td></tr>';
+        }
 
         if (isExpanded) {
           html += '<tr class="pdetail-row"><td colspan="6"><div class="pdetail">';
