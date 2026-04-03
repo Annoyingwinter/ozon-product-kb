@@ -142,6 +142,57 @@ async function main() {
         }
       }
 
+      // === 来源2.5: 1688跨境榜单发现（悟空选品思路）===
+      let trendProducts = [];
+      try {
+        const { launchBrowser: lb, gotoSafe: gs, closeBrowser: cb } = await import("./lib/browser.js");
+        const profile = path.resolve(".profiles", "1688", "browser-user-data");
+        const storage = path.resolve(".profiles", "1688", "storage-state.json");
+        const { context, browser } = await lb(profile, { headless: true, storageStatePath: storage });
+        const page = context.pages()[0] || await context.newPage();
+
+        // 抓1688跨境专区热销商品标题
+        await gs(page, "https://kj.1688.com/", { wait: 5000 });
+        const kjItems = await page.evaluate(() => {
+          return Array.from(document.querySelectorAll('a[href*="detail.1688"], a[href*="offer"]')).slice(0, 15).map(a => {
+            const el = a.querySelector('[class*="title"], [class*="name"], h3, h4, p');
+            return (el?.textContent || a.textContent || "").replace(/\s+/g, " ").trim();
+          }).filter(t => t.length >= 4 && t.length <= 40);
+        });
+
+        // 也抓热销榜的品类趋势词
+        await gs(page, "https://top.1688.com/", { wait: 4000 });
+        const topWords = await page.evaluate(() => {
+          return Array.from(document.querySelectorAll("a")).slice(0, 30)
+            .map(a => (a.textContent || "").replace(/\s+/g, " ").trim())
+            .filter(t => t.length >= 2 && t.length <= 10 && /[\u4e00-\u9fff]/.test(t));
+        });
+
+        await cb({ context, browser }).catch(() => {});
+
+        // 从标题中提取关键词
+        for (const title of kjItems) {
+          const cleaned = title.replace(/[a-zA-Z\d]+/g, " ").replace(/[^\u4e00-\u9fff\s]/g, " ").trim();
+          const segs = cleaned.split(/\s+/).filter(s => s.length >= 2 && s.length <= 8);
+          for (const seg of segs) {
+            if (/批发|厂家|现货|新款|跨境|外贸/.test(seg)) continue;
+            if (!used.has(seg) && !trendProducts.some(k => k === seg)) trendProducts.push(seg);
+          }
+        }
+        // 加入热销榜的品类词
+        for (const w of topWords) {
+          if (!used.has(w) && !trendProducts.includes(w) && !/排行|热销|查看/.test(w)) trendProducts.push(w);
+        }
+
+        if (trendProducts.length) console.log(`  1688榜单发现: ${trendProducts.length} 个趋势词 (${trendProducts.slice(0, 5).join(", ")})`);
+      } catch (e) { if (e?.message) console.warn("  1688榜单:", e.message.slice(0, 40)); }
+
+      // 把榜单词加入选词池
+      if (trendProducts.length) {
+        if (!byCategory.trending) byCategory.trending = { label: "1688榜单", keywords: [] };
+        byCategory.trending.keywords.push(...trendProducts);
+      }
+
       // === 来源3: AI 根据 Ozon 趋势生成新词（词库快耗尽时触发）===
       const totalRemaining = Object.values(byCategory).reduce((s, c) => s + c.keywords.length, 0);
       if (totalRemaining < limit * 3 && ozonTrendWords.length > 0) {
