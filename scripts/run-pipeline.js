@@ -389,16 +389,29 @@ Ozon上最近热门品类: ${hotCats}
         })
         .filter(u => /\.(jpg|jpeg|png)$/i.test(u))
         .slice(0, 10);
-      // 图片预检: 验证能访问且是图片格式
+      // 图片预检: 下载验证 + sharp放大到 ≥1000px + 保存本地
       const validImages = [];
-      for (const img of images) {
-        try {
-          const r = await fetch(img, { method: "HEAD", signal: AbortSignal.timeout(5000) });
-          if (r.ok && /image\/(jpeg|png)/i.test(r.headers.get("content-type") || "")) {
-            validImages.push(img);
+      try {
+        const { processAndSave, localPathToUrl } = await import("./lib/image-process.js");
+        for (const img of images) {
+          const localPath = await processAndSave(img, slug);
+          if (localPath) {
+            // 本地开发: 还是用原始URL（Ozon能直接下载1688图片）
+            // 但如果有公网baseUrl就用代理URL
+            const PUBLIC_BASE = process.env.PUBLIC_URL || ""; // 部署后设置，如 https://ozon-pilot.com
+            validImages.push(PUBLIC_BASE ? localPathToUrl(localPath, PUBLIC_BASE) : img);
           }
-        } catch {}
-        if (validImages.length >= 8) break; // 最多8张有效图片够了
+          if (validImages.length >= 6) break;
+        }
+      } catch (e) {
+        // sharp不可用时降级为HEAD检查
+        for (const img of images) {
+          try {
+            const r = await fetch(img, { method: "HEAD", signal: AbortSignal.timeout(5000) });
+            if (r.ok && /image\/(jpeg|png|webp)/i.test(r.headers.get("content-type") || "")) validImages.push(img);
+          } catch {}
+          if (validImages.length >= 6) break;
+        }
       }
       if (!validImages.length) {
         console.log(`  跳过 ${slug}: 无有效图片`);

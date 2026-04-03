@@ -2047,6 +2047,21 @@ function createServer(port) {
       return;
     }
 
+    // ─── GET /images/* ─── 图片代理（本地处理后的图片给Ozon下载）───
+    if (url.pathname.startsWith("/images/") && req.method === "GET") {
+      const imgPath = path.resolve("." + url.pathname);
+      // 安全检查
+      if (!imgPath.startsWith(path.resolve("images"))) { res.writeHead(403); res.end(); return; }
+      try {
+        const data = await fs.readFile(imgPath);
+        res.writeHead(200, { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=31536000" });
+        res.end(data);
+      } catch {
+        res.writeHead(404); res.end();
+      }
+      return;
+    }
+
     // ─── Legacy redirect: old endpoints → new paths ───
     if (url.pathname === "/api/ozon-config") {
       const newPath = "/api/ozon/config";
