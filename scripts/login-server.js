@@ -675,6 +675,32 @@ function createServer(port) {
       return;
     }
 
+    // ─── 循环控制 API ───
+    if (url.pathname === "/api/cycle/start" && req.method === "POST") {
+      startCycleLoop();
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ ok: true, status: "running" }));
+      return;
+    }
+    if (url.pathname === "/api/cycle/stop" && req.method === "POST") {
+      stopCycleLoop();
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ ok: true, status: "stopped" }));
+      return;
+    }
+    if (url.pathname === "/api/cycle/status" && req.method === "GET") {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({
+        enabled: autoCycleEnabled,
+        running: autoCycleRunning,
+        count: autoCycleCount,
+        interval_min: AUTO_CYCLE_INTERVAL / 60000,
+        last_run: autoCycleLastRun,
+        log: autoCycleLog.slice(-30),
+      }));
+      return;
+    }
+
     // ─── 管理后台 API（需要 admin） ───
     if (url.pathname.startsWith("/api/admin/")) {
       const auth = authMiddleware(req);
@@ -2169,36 +2195,62 @@ setTimeout(backgroundMonitor, 30_000);
 setInterval(backgroundMonitor, MONITOR_INTERVAL);
 console.log(`  后台监测: 每30分钟 (订单+库存预警)`);
 
-/* ─── 自动选品上架循环 (每6小时) ─── */
-const AUTO_CYCLE_INTERVAL = 20 * 60_000; // 20分钟
+/* ─── 自动选品上架循环（可控）─── */
+const AUTO_CYCLE_INTERVAL = 20 * 60_000;
 let autoCycleRunning = false;
+let autoCycleEnabled = false;
+let autoCycleTimer = null;
+let autoCycleCount = 0;
+let autoCycleLastRun = null;
+let autoCycleLog = [];
+
+function cycleLog(msg) {
+  const ts = new Date().toLocaleTimeString();
+  const line = `[${ts}] ${msg}`;
+  console.log(line);
+  autoCycleLog.push(line);
+  if (autoCycleLog.length > 200) autoCycleLog.shift();
+}
 
 async function autoCycle() {
-  if (autoCycleRunning) return;
+  if (autoCycleRunning || !autoCycleEnabled) return;
   autoCycleRunning = true;
-  const ts = new Date().toLocaleTimeString();
-  console.log(`\n[${ts}] 自动循环: 选品上架 + 淘汰低效...`);
+  autoCycleCount++;
+  cycleLog("自动循环 #" + autoCycleCount + " 开始...");
   try {
     const { execFile } = await import("node:child_process");
     await new Promise((resolve, reject) => {
       const child = execFile("node", [
         path.resolve("scripts", "auto-cycle.js"),
       ], { cwd: path.resolve(""), timeout: 900_000, env: process.env });
-      child.stdout?.on("data", (chunk) => process.stdout.write(chunk));
+      child.stdout?.on("data", (chunk) => { process.stdout.write(chunk); autoCycleLog.push(chunk.toString().trim()); });
       child.stderr?.on("data", (chunk) => process.stderr.write(chunk));
       child.on("close", (code) => {
-        console.log(`[${new Date().toLocaleTimeString()}] 自动循环完成 (exit: ${code})`);
+        cycleLog("循环 #" + autoCycleCount + " 完成 (exit:" + code + ")");
         resolve();
       });
       child.on("error", reject);
     });
   } catch (e) {
-    console.log(`[auto-cycle] 异常: ${e.message?.slice(0, 60)}`);
+    cycleLog("循环异常: " + (e.message || "").slice(0, 60));
   }
   autoCycleRunning = false;
+  autoCycleLastRun = new Date().toISOString();
 }
 
-// 启动后5分钟跑第一轮，之后每6小时
-setTimeout(autoCycle, 5 * 60_000);
-setInterval(autoCycle, AUTO_CYCLE_INTERVAL);
-console.log(`  自动循环: 每20分钟/4件 (约288件/天)`);
+function startCycleLoop() {
+  if (autoCycleEnabled) return;
+  autoCycleEnabled = true;
+  autoCycleLog = [];
+  cycleLog("自动循环已启动 (每" + (AUTO_CYCLE_INTERVAL / 60000) + "分钟)");
+  autoCycle(); // 立即跑第一轮
+  autoCycleTimer = setInterval(autoCycle, AUTO_CYCLE_INTERVAL);
+}
+
+function stopCycleLoop() {
+  autoCycleEnabled = false;
+  if (autoCycleTimer) { clearInterval(autoCycleTimer); autoCycleTimer = null; }
+  cycleLog("自动循环已停止");
+}
+
+console.log(`  自动循环: 待命 (通过前端启动)`);

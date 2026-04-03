@@ -1405,20 +1405,43 @@ export const HTML_PAGE = `<!DOCTYPE html>
         </div>
       </div>
 
-      <div class="sec">全自动选品上架</div>
+      <div class="sec">自动选品上架</div>
       <div class="tile" style="margin-bottom:16px;">
         <div class="tile-head">
           <div>
-            <div class="tile-label">选品 → 采集 → 评分 → 生成数据 → 自动上架</div>
-            <div class="tile-sub">一键完成：AI选品、1688采集、评分筛选、生成Ozon上架包、自动提交到Ozon</div>
+            <div class="tile-label">自动循环：选词 → 采集 → 评分 → AI推理 → 上架 → 淘汰低效</div>
+            <div class="tile-sub">每20分钟一轮，每轮4件，自动运行</div>
           </div>
+          <span class="pill pill-off" id="cycle-pill"><i></i>待命</span>
         </div>
-        <div style="margin-top:12px;">
-          <button class="launch" id="pipeline-btn" onclick="runPipeline()">一键选品+上架</button>
+
+        <!-- 循环控制 -->
+        <div style="display:flex;gap:10px;margin-top:12px;align-items:center;">
+          <button class="act act-go" id="cycle-start-btn" onclick="cycleStart()">启动循环</button>
+          <button class="act act-warn" id="cycle-stop-btn" onclick="cycleStop()" style="display:none;">停止循环</button>
+          <button class="act act-info" onclick="cycleRefresh()">刷新状态</button>
+          <span id="cycle-info" style="font-size:12px;color:var(--t3);margin-left:8px;"></span>
+        </div>
+
+        <!-- 循环状态 -->
+        <div id="cycle-stats" style="margin-top:12px;font-size:12px;"></div>
+
+        <!-- 实时日志 -->
+        <div class="log-wrap" id="cycle-log-panel" style="margin-top:8px;">
+          <div class="log-bar">
+            <span>循环日志</span>
+            <span id="cycle-log-status"></span>
+          </div>
+          <div class="log-out" id="cycle-log" style="max-height:300px;"></div>
+        </div>
+
+        <!-- 单次手动运行 -->
+        <div style="margin-top:12px;border-top:1px solid var(--edge);padding-top:12px;">
+          <button class="launch" id="pipeline-btn" onclick="runPipeline()" style="font-size:12px;padding:8px 16px;">手动跑一轮</button>
         </div>
         <div class="log-wrap" id="log-panel">
           <div class="log-bar">
-            <span>处理日志</span>
+            <span>手动运行日志</span>
             <span id="log-status"></span>
           </div>
           <div class="log-out" id="pipeline-log"></div>
@@ -1788,6 +1811,64 @@ export const HTML_PAGE = `<!DOCTYPE html>
         } catch { clearInterval(interval); }
       }, 3000);
     }
+
+    /* === 循环控制 === */
+    let cycleRefreshTimer = null;
+
+    async function cycleStart() {
+      await fetch('/api/cycle/start', { method: 'POST' });
+      cycleRefresh();
+      // 自动刷新状态
+      if (!cycleRefreshTimer) cycleRefreshTimer = setInterval(cycleRefresh, 10000);
+    }
+
+    async function cycleStop() {
+      await fetch('/api/cycle/stop', { method: 'POST' });
+      cycleRefresh();
+      if (cycleRefreshTimer) { clearInterval(cycleRefreshTimer); cycleRefreshTimer = null; }
+    }
+
+    async function cycleRefresh() {
+      try {
+        const r = await fetch('/api/cycle/status');
+        const d = await r.json();
+        const pill = document.getElementById('cycle-pill');
+        const startBtn = document.getElementById('cycle-start-btn');
+        const stopBtn = document.getElementById('cycle-stop-btn');
+        const info = document.getElementById('cycle-info');
+        const stats = document.getElementById('cycle-stats');
+        const logEl = document.getElementById('cycle-log');
+
+        if (d.enabled) {
+          pill.className = 'pill pill-ok';
+          pill.innerHTML = '<i></i>' + (d.running ? '运行中' : '等待下轮');
+          startBtn.style.display = 'none';
+          stopBtn.style.display = '';
+          if (!cycleRefreshTimer) cycleRefreshTimer = setInterval(cycleRefresh, 10000);
+        } else {
+          pill.className = 'pill pill-off';
+          pill.innerHTML = '<i></i>已停止';
+          startBtn.style.display = '';
+          stopBtn.style.display = 'none';
+        }
+
+        info.textContent = '已完成 ' + d.count + ' 轮 | 间隔 ' + d.interval_min + '分钟';
+        if (d.last_run) {
+          const ago = Math.round((Date.now() - new Date(d.last_run).getTime()) / 60000);
+          info.textContent += ' | 上轮 ' + ago + '分钟前';
+        }
+
+        // 日志
+        if (d.log?.length) {
+          logEl.textContent = d.log.join('\n');
+          logEl.scrollTop = logEl.scrollHeight;
+          logEl.parentElement.classList.add('open');
+        }
+      } catch {}
+    }
+
+    // 页面加载时检查循环状态
+    cycleRefresh();
 
     /* === Pipeline === */
     async function runPipeline() {
