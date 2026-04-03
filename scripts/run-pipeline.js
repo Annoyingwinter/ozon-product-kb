@@ -464,6 +464,71 @@ Ozon上最近热门品类: ${hotCats}
       if (/[\u4e00-\u9fff]/.test(titleRu)) { console.log(`  跳过 ${slug}: 标题含中文`); continue; }
       if (/undefined|null|NaN|error/i.test(titleRu)) { console.log(`  跳过 ${slug}: 标题异常`); continue; }
 
+      // ─── 智能分类: LLM建议 → 类目树搜索 → 属性预检 → 确定类目 ───
+      const DEFAULT_CAT_ID = BIZ.ozon_defaults?.category_id || 17027937;
+      const DEFAULT_TYPE_ID = BIZ.ozon_defaults?.type_id || 970896147;
+      let selectedCatId = DEFAULT_CAT_ID;
+      let selectedTypeId = DEFAULT_TYPE_ID;
+
+      if (catFlat?.length && titleRu) {
+        // 从 inferred 的类目建议提取最后一段作为搜索词
+        const suggestion = inferred?.ozon_category_suggestion || "";
+        const parts = suggestion.split(/[>\/]/).map(s => s.trim()).filter(Boolean);
+        const typeName = parts[parts.length - 1] || "";
+
+        if (typeName) {
+          // 精确匹配
+          const exact = catFlat.find(c => (c.name || "").toLowerCase() === typeName.toLowerCase());
+          if (exact) {
+            selectedCatId = exact.catId;
+            selectedTypeId = exact.typeId;
+          } else {
+            // 包含匹配 + 父级验证
+            const candidates = catFlat
+              .filter(c => {
+                const n = (c.name || "").toLowerCase();
+                const tn = typeName.toLowerCase();
+                return n.includes(tn) || tn.includes(n);
+              })
+              .slice(0, 3);
+            if (candidates.length) {
+              // 用父路径过滤
+              const parentName = parts.length >= 2 ? parts[parts.length - 2].toLowerCase() : "";
+              const best = parentName
+                ? (candidates.find(c => (c.path || "").toLowerCase().includes(parentName)) || candidates[0])
+                : candidates[0];
+              selectedCatId = best.catId;
+              selectedTypeId = best.typeId;
+            }
+          }
+        }
+
+        // 属性预检: 查目标类目必填属性数量，超过5个说明类目太特殊，退回默认
+        if (selectedCatId !== DEFAULT_CAT_ID && ozonCfg.clientId) {
+          try {
+            let dispatcher;
+            try { const { ProxyAgent } = await import("undici"); const pu = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || ""; if (pu) dispatcher = new ProxyAgent({ uri: pu, connections: 1, pipelining: 0 }); } catch {}
+            const ar = await fetch("https://api-seller.ozon.ru/v1/description-category/attribute", {
+              method: "POST",
+              headers: { "Client-Id": String(ozonCfg.clientId), "Api-Key": ozonCfg.apiKey, "Content-Type": "application/json" },
+              body: JSON.stringify({ description_category_id: selectedCatId, type_id: selectedTypeId, language: "DEFAULT" }),
+              signal: AbortSignal.timeout(10000),
+              ...(dispatcher ? { dispatcher } : {}),
+            });
+            const ad = await ar.json();
+            const required = (ad.result || []).filter(a => a.is_required);
+            if (required.length > 5) {
+              // 类目要求太多属性，退回默认
+              selectedCatId = DEFAULT_CAT_ID;
+              selectedTypeId = DEFAULT_TYPE_ID;
+            }
+          } catch {
+            selectedCatId = DEFAULT_CAT_ID;
+            selectedTypeId = DEFAULT_TYPE_ID;
+          }
+        }
+      }
+
       const mapping = {
         slug,
         status: "可提交",
@@ -484,9 +549,8 @@ Ozon上最近热门品类: ${hotCats}
         width_override_mm: 200,
         height_override_mm: 100,
         import_fields: {
-          // 统一用默认类目（避免错误类目导致必填属性缺失）
-          description_category_id: BIZ.ozon_defaults?.category_id || 17027937,
-          type_id: BIZ.ozon_defaults?.type_id || 970896147,
+          description_category_id: selectedCatId,
+          type_id: selectedTypeId,
           attributes: [
             { id: 9048, complex_id: 0, values: [{ dictionary_value_id: 0, value: model }] },
             { id: 85, complex_id: 0, values: [{ dictionary_value_id: BIZ.ozon_defaults?.no_brand_id || 126745801, value: "Нет бренда" }] },
