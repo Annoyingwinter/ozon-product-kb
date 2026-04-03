@@ -643,18 +643,30 @@ Ozon上最近热门品类: ${hotCats}
           console.log(`  ${icon} ${r.offer_id} → ${r.status}${r.errors ? " (" + r.errors + ")" : ""}`);
         }
 
-        // ─── 上架后验证：等10秒查Ozon实际错误 ───
+        // ─── 上架后验证 + 自动归档有错误的 ───
         console.log(`\n  ─── 上架后验证 ───`);
         await new Promise(r => setTimeout(r, 10000));
-        const submittedOfferIds = readyMappings.map(m => m.offer_id);
+
+        // 先拿 product_id 映射
+        const ozonHeaders = { "Client-Id": String(ozonCfg2.clientId), "Api-Key": ozonCfg2.apiKey, "Content-Type": "application/json" };
+        let offerToPid = {};
+        try {
+          const lr = await fetch("https://api-seller.ozon.ru/v3/product/list", {
+            method: "POST", headers: ozonHeaders, body: JSON.stringify({ filter: { visibility: "ALL" }, limit: 1000 }),
+            ...(dispatcher ? { dispatcher } : {}),
+          });
+          const ld = await lr.json();
+          for (const item of (ld.result?.items || [])) offerToPid[item.offer_id] = item.product_id;
+        } catch (e) { console.warn("  产品列表查询失败:", e.message?.slice(0, 40)); }
+
         let realErrors = 0, realOk = 0;
+        const errorPids = [];
+        const submittedOfferIds = readyMappings.map(m => m.offer_id);
         for (let vi = 0; vi < submittedOfferIds.length; vi += 20) {
           const vBatch = submittedOfferIds.slice(vi, vi + 20);
           try {
             const vr = await fetch("https://api-seller.ozon.ru/v3/product/info/list", {
-              method: "POST",
-              headers: { "Client-Id": String(ozonCfg2.clientId), "Api-Key": ozonCfg2.apiKey, "Content-Type": "application/json" },
-              body: JSON.stringify({ offer_id: vBatch }),
+              method: "POST", headers: ozonHeaders, body: JSON.stringify({ offer_id: vBatch }),
               ...(dispatcher ? { dispatcher } : {}),
             });
             const vd = await vr.json();
@@ -662,6 +674,8 @@ Ozon上最近热门品类: ${hotCats}
               const errs = (p.errors || []).filter(e => e.level === "ERROR_LEVEL_ERROR");
               if (errs.length) {
                 realErrors++;
+                const pid = offerToPid[p.offer_id];
+                if (pid) errorPids.push(pid);
                 console.log(`  ✗ ${(p.offer_id || "").slice(0, 25)} — ${errs.map(e => e.code).join(", ")}`);
               } else {
                 realOk++;
@@ -671,45 +685,15 @@ Ozon上最近热门品类: ${hotCats}
         }
         console.log(`  验证结果: ${realOk} 正常 | ${realErrors} 有错误`);
 
-        // 自动归档有严重错误的产品（不让坏产品留在店铺）
-        if (realErrors > 0) {
-          const errorPids = [];
-          const productList = await fetch("https://api-seller.ozon.ru/v3/product/list", {
-            method: "POST",
-            headers: { "Client-Id": String(ozonCfg2.clientId), "Api-Key": ozonCfg2.apiKey, "Content-Type": "application/json" },
-            body: JSON.stringify({ filter: { visibility: "ALL" }, limit: 1000 }),
-            ...(dispatcher ? { dispatcher } : {}),
-          }).then(r => r.json());
-
-          for (let vi = 0; vi < submittedOfferIds.length; vi += 20) {
-            const vBatch = submittedOfferIds.slice(vi, vi + 20);
-            try {
-              const vr2 = await fetch("https://api-seller.ozon.ru/v3/product/info/list", {
-                method: "POST",
-                headers: { "Client-Id": String(ozonCfg2.clientId), "Api-Key": ozonCfg2.apiKey, "Content-Type": "application/json" },
-                body: JSON.stringify({ offer_id: vBatch }),
-                ...(dispatcher ? { dispatcher } : {}),
-              });
-              const vd2 = await vr2.json();
-              for (const p of (vd2.result?.items || vd2.items || [])) {
-                const errs = (p.errors || []).filter(e => e.level === "ERROR_LEVEL_ERROR");
-                if (errs.length) {
-                  const pid = (productList.result?.items || []).find(x => x.offer_id === p.offer_id)?.product_id;
-                  if (pid) errorPids.push(pid);
-                }
-              }
-            } catch (e) { if (e?.message) console.warn("  warn:", e.message.slice(0, 60)); }
-          }
-
-          if (errorPids.length) {
+        // 自动归档有错误的产品
+        if (errorPids.length) {
+          try {
             await fetch("https://api-seller.ozon.ru/v1/product/archive", {
-              method: "POST",
-              headers: { "Client-Id": String(ozonCfg2.clientId), "Api-Key": ozonCfg2.apiKey, "Content-Type": "application/json" },
-              body: JSON.stringify({ product_id: errorPids }),
+              method: "POST", headers: ozonHeaders, body: JSON.stringify({ product_id: errorPids }),
               ...(dispatcher ? { dispatcher } : {}),
             });
             console.log(`  已自动归档 ${errorPids.length} 个有错误的产品`);
-          }
+          } catch (e) { console.warn("  归档失败:", e.message?.slice(0, 40)); }
         }
       }
     } else {
