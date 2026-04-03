@@ -162,12 +162,12 @@ async function scrapeDetail(page, url) {
         .map(img => img.getAttribute("data-lazy-src") || img.getAttribute("data-src") || img.src || "")
         .filter(url => /^https?:/i.test(url))
         .filter(url => !/svg|avatar|icon|logo|sprite|\.gif|gw\.alicdn/i.test(url))
-        // 过滤tps小图标 (32x32, 72x72等)
-        .filter(url => !/tps-\d+-\d+\.(png|jpg)/i.test(url))
-        // 转换cbu01缩略图为原图 (去掉_284x284q90等后缀)
-        .map(url => url.replace(/_\d+x\d+q?\d*\.(\w+)$/, '.$1'))
-        // 过滤明显的小图
-        .filter(url => !/\b(32|48|64|72|96)x\1\b/.test(url))
+        .filter(url => !/tps-\d+-\d+/i.test(url))
+        // webp→jpg: .jpg_.webp → .jpg
+        .map(url => url.replace(/\.(jpg|jpeg|png)_\.webp$/i, '.$1'))
+        // 缩略图→原图: _284x284q90.jpg → .jpg
+        .map(url => url.replace(/_\d+x\d+q?\d*\.(jpg|jpeg|png)$/i, '.$1'))
+        .filter(url => !/\b(32|48|64|72)x\1\b/.test(url))
     )).slice(0, 15);
 
     // ─── 起批量 ───

@@ -376,10 +376,13 @@ Ozon上最近热门品类: ${hotCats}
       if (!supplyCny) continue;
 
       const rawImages = (best?.images || listing.images || []).filter(u => /^https?:/i.test(u));
-      // 过滤小图标，转换为原图URL
       const images = rawImages
         .filter(u => !/tps-\d+-\d+|32x32|48x48|64x64|72x72/i.test(u))
-        .map(u => u.replace(/_\d+x\d+q?\d*\.(\w+)$/, ".$1"))
+        // 1688 webp→jpg: .jpg_.webp → .jpg (Ozon不支持webp)
+        .map(u => u.replace(/\.(jpg|jpeg|png)_\.webp$/i, ".$1"))
+        // 缩略图→原图: _284x284q90.jpg → .jpg
+        .map(u => u.replace(/_\d+x\d+q?\d*\.(jpg|jpeg|png)$/i, ".$1"))
+        .filter(u => /\.(jpg|jpeg|png)$/i.test(u)) // 只保留jpg/png
         .slice(0, 10);
       const weightKg = listing.weight || 0.3;
       const model = slug.replace(/[^a-zA-Z0-9]/g, "-").slice(0, 20) + "-" + Date.now().toString(36).slice(-4);
@@ -391,7 +394,46 @@ Ozon上最近热门品类: ${hotCats}
       const finalOldPrice = Math.round(finalPrice * 1.3 * 100) / 100;
 
       // 智能类目匹配
-      const matchedCat = matchCategory(inferred?.ozon_category_suggestion);
+      // 类目匹配：先搜候选，再用LLM选最准的
+      let matchedCat = matchCategory(inferred?.ozon_category_suggestion);
+      // 如果搜到了但不太确定（非精确匹配），用LLM二次确认
+      if (matchedCat && catFlat?.length) {
+        const suggestion = inferred?.ozon_category_suggestion || "";
+        const parts = suggestion.split(/[>\/]/).map(s => s.trim()).filter(Boolean);
+        const typeName = parts[parts.length - 1] || "";
+        const isExact = (matchedCat.name || "").toLowerCase() === typeName.toLowerCase();
+        if (!isExact) {
+          // 搜出 top 5 候选让 LLM 选
+          const tnLow = typeName.toLowerCase();
+          const candidates = catFlat
+            .map(c => {
+              const n = (c.name || "").toLowerCase();
+              let score = 0;
+              for (const w of tnLow.split(/\s+/).filter(w => w.length >= 3)) {
+                if (n.includes(w.slice(0, 4))) score += 5;
+              }
+              if ((c.path || "").toLowerCase().includes((parts[0] || "").toLowerCase().slice(0, 5))) score += 2;
+              return { ...c, score };
+            })
+            .filter(c => c.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 8);
+
+          if (candidates.length >= 2) {
+            try {
+              const { llmChat } = await import("./lib/llm.js");
+              const productName = best?.title || product.keyword || slug;
+              const catList = candidates.map((c, i) => `${i + 1}. ${c.name} (${c.path})`).join("\n");
+              const answer = await Promise.race([
+                llmChat(`商品: "${productName}"\n\n以下是Ozon平台的候选品类，选一个最匹配的（只回复数字）:\n${catList}`),
+                new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), 15000)),
+              ]);
+              const num = parseInt(answer?.match(/\d+/)?.[0]) - 1;
+              if (num >= 0 && num < candidates.length) matchedCat = candidates[num];
+            } catch (e) { if (e?.message) console.warn("    类目LLM:", e.message.slice(0, 40)); }
+          }
+        }
+      }
 
       const mapping = {
         slug,
@@ -566,6 +608,34 @@ Ozon上最近热门品类: ${hotCats}
           const icon = r.status === "imported" && !r.errors ? "✓" : "✗";
           console.log(`  ${icon} ${r.offer_id} → ${r.status}${r.errors ? " (" + r.errors + ")" : ""}`);
         }
+
+        // ─── 上架后验证：等10秒查Ozon实际错误 ───
+        console.log(`\n  ─── 上架后验证 ───`);
+        await new Promise(r => setTimeout(r, 10000));
+        const submittedOfferIds = readyMappings.map(m => m.offer_id);
+        let realErrors = 0, realOk = 0;
+        for (let vi = 0; vi < submittedOfferIds.length; vi += 20) {
+          const vBatch = submittedOfferIds.slice(vi, vi + 20);
+          try {
+            const vr = await fetch("https://api-seller.ozon.ru/v3/product/info/list", {
+              method: "POST",
+              headers: { "Client-Id": String(ozonCfg2.clientId), "Api-Key": ozonCfg2.apiKey, "Content-Type": "application/json" },
+              body: JSON.stringify({ offer_id: vBatch }),
+              ...(dispatcher ? { dispatcher } : {}),
+            });
+            const vd = await vr.json();
+            for (const p of (vd.result?.items || vd.items || [])) {
+              const errs = (p.errors || []).filter(e => e.level === "ERROR_LEVEL_ERROR");
+              if (errs.length) {
+                realErrors++;
+                console.log(`  ✗ ${(p.offer_id || "").slice(0, 25)} — ${errs.map(e => e.code).join(", ")}`);
+              } else {
+                realOk++;
+              }
+            }
+          } catch (e) { console.warn("  验证查询失败:", e.message?.slice(0, 40)); }
+        }
+        console.log(`  验证结果: ${realOk} 正常 | ${realErrors} 有错误`);
       }
     } else {
       console.log("\n[Stage 7] 跳过自动上架 (未配置 Ozon API)");
