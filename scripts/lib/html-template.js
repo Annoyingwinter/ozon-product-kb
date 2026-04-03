@@ -6,27 +6,33 @@ export const HTML_PAGE = `<!DOCTYPE html>
   <title>Ozon Pilot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Surfaces — warm ivory palette */
-      --s0: #FAFAF7;
+      /* Surfaces — cool neutral palette */
+      --s0: #F8F9FA;
       --s1: #FFFFFF;
-      --s2: #F5F5F0;
-      --s3: #EEEDE8;
-      --s4: #E5E4DF;
-      --glass: rgba(255,255,255,0.85);
+      --s2: #F1F3F5;
+      --s3: #E9ECEF;
+      --s4: #DEE2E6;
+      --glass: rgba(255,255,255,0.88);
+
+      /* Sidebar */
+      --nav-bg: #1E293B;
+      --nav-hover: #334155;
+      --nav-text: #94A3B8;
+      --nav-active: #FFFFFF;
 
       /* Edges */
-      --edge: rgba(0,0,0,0.06);
-      --edge-hi: rgba(0,0,0,0.12);
+      --edge: #E5E7EB;
+      --edge-hi: #D1D5DB;
       --edge-glow: rgba(5,150,105,0.08);
 
       /* Text — deep navy hierarchy */
-      --t0: #1a1a2e;
-      --t1: #4a4a5a;
-      --t2: #8a8a9a;
-      --t3: #b0b0ba;
+      --t0: #111827;
+      --t1: #4B5563;
+      --t2: #9CA3AF;
+      --t3: #D1D5DB;
 
       /* Accents */
       --accent: #059669;
@@ -40,25 +46,25 @@ export const HTML_PAGE = `<!DOCTYPE html>
       --warn: #d97706;
       --warn-bg: #fffbeb;
       --warn-ring: rgba(217,119,6,0.2);
-      --info: #4f46e5;
-      --info-bg: #eef2ff;
-      --info-ring: rgba(79,70,229,0.2);
+      --info: #6366f1;
+      --info-bg: #EEF2FF;
+      --info-ring: rgba(99,102,241,0.2);
       --err: #dc2626;
       --err-bg: #fef2f2;
       --err-ring: rgba(220,38,38,0.2);
       --off: #94a3b8;
 
       /* System */
-      --sans: 'DM Sans', system-ui, sans-serif;
-      --display: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+      --display: 'DM Sans', system-ui, -apple-system, sans-serif;
       --mono: 'JetBrains Mono', 'Consolas', monospace;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
       --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
       --r: 12px;
       --r-lg: 16px;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.04);
-      --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.04);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+      --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.09);
       --shadow-glow: 0 0 0 3px var(--accent-ring);
     }
 
@@ -72,16 +78,6 @@ export const HTML_PAGE = `<!DOCTYPE html>
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       line-height: 1.55;
-      /* Subtle diagonal line texture */
-      background-image:
-        repeating-linear-gradient(
-          135deg,
-          rgba(0,0,0,0.012) 0px,
-          rgba(0,0,0,0.012) 1px,
-          transparent 1px,
-          transparent 12px
-        );
-      background-attachment: fixed;
     }
 
     /* ── Staggered section load animation ── */
@@ -100,14 +96,13 @@ export const HTML_PAGE = `<!DOCTYPE html>
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 52px;
-      padding: 0 28px;
+      height: 48px;
+      padding: 0 24px;
       background: var(--s1);
       border-bottom: 1px solid var(--edge);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
     }
     /* No glow line — clean shadow instead */
     header::after {
@@ -121,19 +116,18 @@ export const HTML_PAGE = `<!DOCTYPE html>
     }
     .hdr-left { display: flex; align-items: center; gap: 14px; }
     .hdr-logo {
-      width: 36px; height: 36px;
+      width: 30px; height: 30px;
       background: var(--accent);
-      border-radius: 10px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--display);
-      font-size: 15px;
+      font-family: var(--sans);
+      font-size: 12px;
       font-weight: 700;
       color: #fff;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.02em;
       flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(5,150,105,0.2);
     }
     .hdr-dot {
       width: 8px; height: 8px;
@@ -147,9 +141,9 @@ export const HTML_PAGE = `<!DOCTYPE html>
       50% { opacity: 1; box-shadow: 0 0 12px var(--ok-ring); }
     }
     .hdr-name {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 17px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 15px;
       letter-spacing: -0.01em;
       color: var(--t0);
     }
@@ -181,18 +175,18 @@ export const HTML_PAGE = `<!DOCTYPE html>
 
     /* ── layout: sidebar + main ── */
     .app-layout {
-      min-height: calc(100vh - 52px);
+      min-height: calc(100vh - 48px);
     }
 
     /* ── floating nav ── */
     .tab-nav {
       position: fixed;
       left: 0;
-      top: 52px;
+      top: 48px;
       width: 44px;
-      height: calc(100vh - 52px);
-      background: var(--s1);
-      border-right: 1px solid var(--edge);
+      height: calc(100vh - 48px);
+      background: var(--nav-bg);
+      border-right: none;
       display: flex;
       flex-direction: column;
       gap: 2px;
@@ -201,7 +195,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
       transition: width 200ms ease;
       overflow: hidden;
     }
-    .tab-nav:hover { width: 170px; box-shadow: 4px 0 16px rgba(0,0,0,0.08); }
+    .tab-nav:hover { width: 170px; box-shadow: 4px 0 20px rgba(0,0,0,0.15); }
     .tab-btn {
       font-family: var(--sans);
       font-weight: 500;
@@ -210,16 +204,18 @@ export const HTML_PAGE = `<!DOCTYPE html>
       border: none;
       border-radius: 8px;
       background: none;
-      color: var(--t2);
+      color: var(--nav-text);
       cursor: pointer;
       text-align: left;
       white-space: nowrap;
       transition: all 150ms var(--ease);
+      border-left: 2px solid transparent;
+      border-radius: 0 8px 8px 0;
     }
-    .tab-btn:hover { color: var(--t1); background: rgba(5,150,105,0.06); }
-    .tab-btn.active { color: var(--accent); background: rgba(5,150,105,0.08); font-weight: 600; }
+    .tab-btn:hover { color: var(--nav-active); background: rgba(255,255,255,0.06); }
+    .tab-btn.active { color: var(--nav-active); background: rgba(255,255,255,0.08); font-weight: 600; border-left-color: var(--accent); }
     .tab-btn.active::after { display: none; }
-    .tab-btn .tab-icon { display: inline-block; width: 22px; text-align: center; flex-shrink: 0; }
+    .tab-btn .tab-icon { display: inline-block; width: 24px; text-align: center; flex-shrink: 0; font-size: 15px; }
     .tab-btn .tab-text { margin-left: 6px; }
     .app-main {
       margin-left: 44px;
@@ -275,27 +271,9 @@ export const HTML_PAGE = `<!DOCTYPE html>
       position: relative;
       transition: all 300ms var(--ease);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
     }
-    /* Left accent border per card */
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 8px;
-      bottom: 8px;
-      width: 3px;
-      border-radius: 0 3px 3px 0;
-      background: var(--t3);
-      transition: background 300ms var(--ease);
-    }
-    .stat-card:nth-child(1)::before { background: var(--info); }
-    .stat-card:nth-child(2)::before { background: var(--ok); }
-    .stat-card:nth-child(3)::before { background: var(--accent); }
-    .stat-card:nth-child(4)::before { background: var(--warn); }
     .stat-card:hover {
       border-color: var(--edge-hi);
-      transform: translateY(-1px);
       box-shadow: var(--shadow-md);
     }
     .stat-icon {
@@ -308,13 +286,13 @@ export const HTML_PAGE = `<!DOCTYPE html>
       height: 36px;
       margin-left: auto;
       margin-right: auto;
-      background: var(--s2);
-      border-radius: 50%;
+      background: var(--s0);
+      border-radius: 10px;
       opacity: 0.9;
     }
     .stat-val {
-      font-family: var(--display);
-      font-size: 32px;
+      font-family: var(--sans);
+      font-size: 28px;
       font-weight: 700;
       color: var(--t0);
       line-height: 1.2;
@@ -342,17 +320,16 @@ export const HTML_PAGE = `<!DOCTYPE html>
 
     /* ── section titles ── */
     .sec {
-      font-family: var(--display);
-      font-style: italic;
-      font-size: 13px;
-      font-weight: 600;
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 11px;
+      font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--t2);
       margin-bottom: 16px;
-      padding-left: 14px;
-      border-left: 3px solid var(--accent);
-      border-radius: 0 1px 1px 0;
+      padding-left: 0;
+      border-left: none;
     }
 
     /* ── collapsible section ── */
@@ -396,34 +373,26 @@ export const HTML_PAGE = `<!DOCTYPE html>
       position: relative;
       transition: all 200ms var(--ease);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
     }
     .tile:hover {
       border-color: var(--edge-hi);
-      transform: translateY(-1px);
       box-shadow: var(--shadow-md);
     }
-    /* Top accent solid line — 3px, NOT gradient */
+    /* No top accent strip — clean flat cards */
     .tile::after {
       content: '';
       position: absolute;
       inset: -1px -1px auto -1px;
-      height: 3px;
-      border-radius: 12px 12px 0 0;
-      background: var(--off);
-      transition: background 400ms var(--ease), opacity 400ms var(--ease);
+      height: 0;
+      background: transparent;
     }
-    .tile.live::after { background: var(--ok); }
-    .tile.expiring::after { background: var(--warn); }
-    /* platform-specific accent lines — solid colors */
-    .tile.plat-1688::after { background: #f97316; }
-    .tile.plat-1688.live::after { background: #f97316; }
-    .tile.plat-pdd::after { background: #8b5cf6; }
-    .tile.plat-pdd.live::after { background: #8b5cf6; }
-    .tile.plat-yiwugo::after { background: #ec4899; }
-    .tile.plat-yiwugo.live::after { background: #ec4899; }
-    .tile.plat-ozon::after { background: #3b82f6; }
-    .tile.plat-ozon.live::after { background: #3b82f6; }
+    .tile.live::after, .tile.expiring::after,
+    .tile.plat-1688::after, .tile.plat-1688.live::after,
+    .tile.plat-pdd::after, .tile.plat-pdd.live::after,
+    .tile.plat-yiwugo::after, .tile.plat-yiwugo.live::after,
+    .tile.plat-ozon::after, .tile.plat-ozon.live::after {
+      background: transparent; height: 0;
+    }
     /* platform watermark */
     .tile .tile-watermark {
       position: absolute;
@@ -443,9 +412,9 @@ export const HTML_PAGE = `<!DOCTYPE html>
       margin-bottom: 16px;
     }
     .tile-label {
-      font-family: var(--display);
+      font-family: var(--sans);
       font-weight: 600;
-      font-size: 15px;
+      font-size: 14px;
       letter-spacing: -0.01em;
       color: var(--t0);
     }
@@ -459,8 +428,8 @@ export const HTML_PAGE = `<!DOCTYPE html>
     .pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
+      gap: 5px;
+      padding: 4px 10px;
       border-radius: 99px;
       font-family: var(--mono);
       font-size: 11px;
@@ -504,21 +473,23 @@ export const HTML_PAGE = `<!DOCTYPE html>
       font-family: var(--sans);
       font-weight: 500;
       font-size: 13px;
-      padding: 10px 20px;
-      border-radius: 10px;
+      padding: 8px 18px;
+      border-radius: 8px;
       border: none;
       cursor: pointer;
       transition: all 200ms ease;
-      letter-spacing: 0.01em;
+      letter-spacing: 0;
     }
     .act-go {
       background: var(--accent);
       color: #fff;
       border: none;
+      border-radius: 99px;
+      padding: 7px 16px;
     }
     .act-go:hover {
       background: #047857;
-      box-shadow: var(--shadow-glow), var(--shadow-sm);
+      box-shadow: var(--shadow-sm);
     }
     .act-info {
       background: var(--info);
@@ -560,53 +531,53 @@ export const HTML_PAGE = `<!DOCTYPE html>
     /* ── launch buttons ── */
     .launch {
       width: 100%;
-      padding: 18px;
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: -0.01em;
-      border: 1px solid var(--edge);
-      border-radius: var(--r);
-      background: var(--s1);
-      color: var(--accent);
+      padding: 14px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
       cursor: pointer;
       transition: all 200ms ease;
       position: relative;
       overflow: hidden;
+      box-shadow: var(--shadow-sm);
     }
     .launch::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(5,150,105,0.03), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
       transform: translateX(-100%);
       transition: transform 600ms var(--ease);
     }
     .launch:hover:not(:disabled)::before { transform: translateX(100%); }
     .launch:hover:not(:disabled) {
-      border-color: var(--accent);
-      box-shadow: var(--shadow-glow), var(--shadow-sm);
-      transform: translateY(-1px);
+      background: #047857;
+      box-shadow: var(--shadow-md);
     }
     .launch:active:not(:disabled) { transform: translateY(0); }
     .launch:disabled {
-      border-color: var(--edge);
-      background: var(--s2);
+      background: var(--s3);
       color: var(--t3);
       cursor: not-allowed;
       box-shadow: none;
     }
     .launch-info {
-      border-color: var(--edge);
       background: var(--s1);
       color: var(--info);
+      border: 1px solid var(--edge);
     }
     .launch-info::before {
-      background: linear-gradient(90deg, transparent, rgba(79,70,229,0.03), transparent);
+      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.04), transparent);
     }
     .launch-info:hover:not(:disabled) {
+      background: var(--info-bg);
       border-color: var(--info);
-      box-shadow: 0 0 0 3px var(--info-ring), var(--shadow-sm);
+      box-shadow: none;
     }
 
     /* ── log — DARK terminal contrast ── */
@@ -631,10 +602,10 @@ export const HTML_PAGE = `<!DOCTYPE html>
       justify-content: space-between;
       align-items: center;
       padding: 10px 16px;
-      background: #2a2a3a;
+      background: #161B22;
       border-bottom: 1px solid rgba(255,255,255,0.06);
       font-size: 11px;
-      color: #8a8a9a;
+      color: #8B949E;
     }
     /* macOS-style dots */
     .log-bar::before {
@@ -649,11 +620,11 @@ export const HTML_PAGE = `<!DOCTYPE html>
     }
     .log-out {
       padding: 16px 18px;
-      background: #1e1e2e;
+      background: #0D1117;
       font-family: var(--mono);
       font-size: 12px;
       line-height: 1.85;
-      color: #a0e0a0;
+      color: #7EE787;
       max-height: 340px;
       overflow-y: auto;
       white-space: pre-wrap;
@@ -661,7 +632,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
     }
     .log-out::-webkit-scrollbar { width: 4px; }
     .log-out::-webkit-scrollbar-track { background: transparent; }
-    .log-out::-webkit-scrollbar-thumb { background: #4a4a5a; border-radius: 4px; }
+    .log-out::-webkit-scrollbar-thumb { background: #30363D; border-radius: 4px; }
 
     /* ── search box ── */
     .search-box {
@@ -691,36 +662,34 @@ export const HTML_PAGE = `<!DOCTYPE html>
     }
     .ptable th {
       text-align: left;
-      padding: 11px 14px;
+      padding: 10px 14px;
       font-family: var(--sans);
       font-size: 11px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--t2);
-      border-bottom: 1px solid var(--edge-hi);
-      background: var(--s2);
+      border-bottom: 1px solid var(--edge);
+      background: var(--s0);
       position: sticky;
       top: 0;
       z-index: 1;
     }
     .ptable td {
-      padding: 11px 14px;
-      border-bottom: 1px solid var(--edge);
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--s2);
       color: var(--t1);
       vertical-align: top;
     }
-    .ptable tbody tr:nth-child(even):not(.pdetail-row) { background: rgba(0,0,0,0.01); }
+    .ptable tbody tr:nth-child(even):not(.pdetail-row) { background: #F9FAFB; }
     .ptable tr.prow {
       cursor: pointer;
       transition: all 180ms var(--ease);
-      border-left: 3px solid transparent;
     }
     .ptable tr.prow:hover {
       background: var(--s2);
-      border-left-color: var(--accent-ring);
     }
-    .ptable tr.prow.expanded { background: var(--s2); border-left-color: var(--accent); }
+    .ptable tr.prow.expanded { background: var(--s2); }
     .ptable .pname {
       color: var(--t0);
       font-weight: 500;
@@ -1032,12 +1001,12 @@ export const HTML_PAGE = `<!DOCTYPE html>
       padding: 9px 12px;
       font-family: var(--sans);
       font-size: 10px;
-      font-weight: 600;
+      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--t2);
       border-bottom: 1px solid var(--edge);
-      background: var(--s2);
+      background: var(--s0);
     }
     .result-table td {
       padding: 10px 12px;
@@ -1045,7 +1014,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
       color: var(--t1);
       font-family: var(--mono);
     }
-    .result-table tbody tr:nth-child(even) { background: rgba(0,0,0,0.01); }
+    .result-table tbody tr:nth-child(even) { background: #F9FAFB; }
     .result-table tbody tr:hover { background: var(--s2); }
     .result-table .r-ok { color: var(--ok); }
     .result-table .r-err { color: var(--err); }
@@ -1054,7 +1023,6 @@ export const HTML_PAGE = `<!DOCTYPE html>
     .order-card {
       background: var(--s1);
       border: 1px solid var(--edge);
-      border-left: 3px solid var(--off);
       border-radius: 12px;
       padding: 18px 22px;
       margin-bottom: 10px;
@@ -1062,11 +1030,9 @@ export const HTML_PAGE = `<!DOCTYPE html>
       justify-content: space-between;
       align-items: center;
       transition: all 200ms var(--ease);
-      box-shadow: var(--shadow-sm);
     }
     .order-card:hover {
       border-color: var(--edge-hi);
-      transform: translateY(-1px);
       box-shadow: var(--shadow-md);
     }
     .order-card + .order-card { border-top: none; }
@@ -1136,10 +1102,10 @@ export const HTML_PAGE = `<!DOCTYPE html>
       border-top: none;
     }
     footer .footer-brand {
-      font-family: var(--display);
-      font-style: italic;
+      font-family: var(--sans);
+      font-style: normal;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
       color: var(--t2);
       -webkit-background-clip: unset;
       -webkit-text-fill-color: unset;
@@ -1167,10 +1133,10 @@ export const HTML_PAGE = `<!DOCTYPE html>
     }
 
     /* ── Smooth scrollbar everywhere ── */
-    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: var(--s4); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--t3); }
+    ::-webkit-scrollbar-thumb { background: var(--s4); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--t2); }
 
     @media (max-width: 600px) {
       .row { grid-template-columns: 1fr; }
@@ -1181,13 +1147,14 @@ export const HTML_PAGE = `<!DOCTYPE html>
       .tab-nav {
         position: fixed; bottom: 0; top: auto; left: 0; right: 0;
         width: 100%; height: 48px; flex-direction: row; justify-content: center;
-        border-right: none; border-top: 1px solid var(--edge); padding: 0;
+        border-right: none; border-top: 1px solid rgba(255,255,255,0.08); padding: 0;
       }
       .tab-nav:hover { width: 100%; box-shadow: none; }
+      .tab-btn { border-left: none; border-radius: 8px; }
       .tab-btn .tab-text { display: none; }
       .tab-btn { padding: 8px 16px; }
       .app-main { margin-left: 0; margin-bottom: 48px; }
-      header { height: 52px; padding: 0 16px; }
+      header { height: 48px; padding: 0 16px; }
       .wrap { padding: 24px 16px 48px; }
       .order-card { flex-direction: column; gap: 10px; align-items: flex-start; }
       .order-actions { margin-left: 0; }
@@ -1203,11 +1170,11 @@ export const HTML_PAGE = `<!DOCTYPE html>
 </head>
 <body>
   <!-- ─── Auth Overlay ─── -->
-  <div id="auth-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:var(--s0); align-items:center; justify-content:center;">
-    <div style="background:var(--s1); border-radius:var(--r-lg); padding:40px; box-shadow:var(--shadow-lg); width:380px; max-width:90vw;">
+  <div id="auth-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(15,23,42,0.5); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); align-items:center; justify-content:center;">
+    <div style="background:var(--s1); border-radius:16px; padding:40px; box-shadow:0 20px 60px rgba(0,0,0,0.15); width:380px; max-width:90vw;">
       <div style="text-align:center; margin-bottom:24px;">
-        <div style="display:inline-flex; align-items:center; gap:8px; font-family:var(--display); font-size:24px; font-weight:700; color:var(--t0);">
-          <span style="background:var(--accent); color:#fff; width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-size:14px; font-weight:700;">OP</span>
+        <div style="display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-size:22px; font-weight:700; color:var(--t0);">
+          <span style="background:var(--accent); color:#fff; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-size:12px; font-weight:700;">OP</span>
           Ozon Pilot
         </div>
       </div>
@@ -1215,8 +1182,8 @@ export const HTML_PAGE = `<!DOCTYPE html>
       <div style="display:flex; flex-direction:column; gap:12px;">
         <input id="auth-email" type="email" placeholder="邮箱" style="padding:10px 14px; border:1px solid var(--edge-hi); border-radius:8px; font-size:14px; font-family:var(--sans); outline:none; transition:border 200ms;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--edge-hi)'" />
         <input id="auth-pass" type="password" placeholder="密码" style="padding:10px 14px; border:1px solid var(--edge-hi); border-radius:8px; font-size:14px; font-family:var(--sans); outline:none; transition:border 200ms;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--edge-hi)'" />
-        <button id="auth-login-btn" onclick="doAuth('login')" style="padding:10px; background:var(--accent); color:#fff; border:none; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; font-family:var(--sans);">登录</button>
-        <button id="auth-reg-btn" onclick="doAuth('register')" style="padding:10px; background:var(--s2); color:var(--t1); border:1px solid var(--edge); border-radius:8px; font-size:14px; font-weight:500; cursor:pointer; font-family:var(--sans);">注册新账号</button>
+        <button id="auth-login-btn" onclick="doAuth('login')" style="padding:10px; background:var(--accent); color:#fff; border:none; border-radius:10px; font-size:14px; font-weight:600; cursor:pointer; font-family:var(--sans);">登录</button>
+        <button id="auth-reg-btn" onclick="doAuth('register')" style="padding:10px; background:var(--s1); color:var(--t1); border:1px solid var(--edge); border-radius:10px; font-size:14px; font-weight:500; cursor:pointer; font-family:var(--sans);">注册新账号</button>
       </div>
       <div style="text-align:center; margin-top:16px; font-size:12px; color:var(--t2);">首次使用请先注册</div>
     </div>
