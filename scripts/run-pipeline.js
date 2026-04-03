@@ -378,12 +378,33 @@ Ozon上最近热门品类: ${hotCats}
       const rawImages = (best?.images || listing.images || []).filter(u => /^https?:/i.test(u));
       const images = rawImages
         .filter(u => !/tps-\d+-\d+|32x32|48x48|64x64|72x72/i.test(u))
-        // 1688 webp→jpg: .jpg_.webp → .jpg (Ozon不支持webp)
-        .map(u => u.replace(/\.(jpg|jpeg|png)_\.webp$/i, ".$1"))
-        // 缩略图→原图: _284x284q90.jpg → .jpg
-        .map(u => u.replace(/_\d+x\d+q?\d*\.(jpg|jpeg|png)$/i, ".$1"))
-        .filter(u => /\.(jpg|jpeg|png)$/i.test(u)) // 只保留jpg/png
+        .map(u => {
+          // 1688 webp→jpg: .jpg_.webp → .jpg
+          u = u.replace(/\.(jpg|jpeg|png)_\.webp$/i, ".$1");
+          // 缩略图→原图: _284x284q90.jpg → .jpg
+          u = u.replace(/_\d+x\d+q?\d*\.(jpg|jpeg|png)$/i, ".$1");
+          // 防止双后缀: .jpg.jpg → .jpg
+          u = u.replace(/\.(jpg|jpeg|png)\.\1$/i, ".$1");
+          return u;
+        })
+        .filter(u => /\.(jpg|jpeg|png)$/i.test(u))
         .slice(0, 10);
+      // 图片预检: 验证能访问且是图片格式
+      const validImages = [];
+      for (const img of images) {
+        try {
+          const r = await fetch(img, { method: "HEAD", signal: AbortSignal.timeout(5000) });
+          if (r.ok && /image\/(jpeg|png)/i.test(r.headers.get("content-type") || "")) {
+            validImages.push(img);
+          }
+        } catch {}
+        if (validImages.length >= 8) break; // 最多8张有效图片够了
+      }
+      if (!validImages.length) {
+        console.log(`  跳过 ${slug}: 无有效图片`);
+        continue;
+      }
+
       const weightKg = listing.weight || 0.3;
       const model = slug.replace(/[^a-zA-Z0-9]/g, "-").slice(0, 20) + "-" + Date.now().toString(36).slice(-4);
 
@@ -447,8 +468,8 @@ Ozon上最近热门品类: ${hotCats}
         currency_code: ozonCfg.currency || "CNY",
         initial_stock: BIZ.ozon_defaults?.initial_stock || 100,
         warehouse_id: ozonCfg.warehouseId || "",
-        primary_image_override: images[0] || "",
-        images_override: images,
+        primary_image_override: validImages[0] || "",
+        images_override: validImages,
         weight_override_g: Math.round(weightKg * 1000),
         depth_override_mm: 300,
         width_override_mm: 200,
@@ -636,6 +657,47 @@ Ozon上最近热门品类: ${hotCats}
           } catch (e) { console.warn("  验证查询失败:", e.message?.slice(0, 40)); }
         }
         console.log(`  验证结果: ${realOk} 正常 | ${realErrors} 有错误`);
+
+        // 自动归档有严重错误的产品（不让坏产品留在店铺）
+        if (realErrors > 0) {
+          const errorPids = [];
+          const productList = await fetch("https://api-seller.ozon.ru/v3/product/list", {
+            method: "POST",
+            headers: { "Client-Id": String(ozonCfg2.clientId), "Api-Key": ozonCfg2.apiKey, "Content-Type": "application/json" },
+            body: JSON.stringify({ filter: { visibility: "ALL" }, limit: 1000 }),
+            ...(dispatcher ? { dispatcher } : {}),
+          }).then(r => r.json());
+
+          for (let vi = 0; vi < submittedOfferIds.length; vi += 20) {
+            const vBatch = submittedOfferIds.slice(vi, vi + 20);
+            try {
+              const vr2 = await fetch("https://api-seller.ozon.ru/v3/product/info/list", {
+                method: "POST",
+                headers: { "Client-Id": String(ozonCfg2.clientId), "Api-Key": ozonCfg2.apiKey, "Content-Type": "application/json" },
+                body: JSON.stringify({ offer_id: vBatch }),
+                ...(dispatcher ? { dispatcher } : {}),
+              });
+              const vd2 = await vr2.json();
+              for (const p of (vd2.result?.items || vd2.items || [])) {
+                const errs = (p.errors || []).filter(e => e.level === "ERROR_LEVEL_ERROR");
+                if (errs.length) {
+                  const pid = (productList.result?.items || []).find(x => x.offer_id === p.offer_id)?.product_id;
+                  if (pid) errorPids.push(pid);
+                }
+              }
+            } catch (e) { if (e?.message) console.warn("  warn:", e.message.slice(0, 60)); }
+          }
+
+          if (errorPids.length) {
+            await fetch("https://api-seller.ozon.ru/v1/product/archive", {
+              method: "POST",
+              headers: { "Client-Id": String(ozonCfg2.clientId), "Api-Key": ozonCfg2.apiKey, "Content-Type": "application/json" },
+              body: JSON.stringify({ product_id: errorPids }),
+              ...(dispatcher ? { dispatcher } : {}),
+            });
+            console.log(`  已自动归档 ${errorPids.length} 个有错误的产品`);
+          }
+        }
       }
     } else {
       console.log("\n[Stage 7] 跳过自动上架 (未配置 Ozon API)");
