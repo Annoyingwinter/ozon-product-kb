@@ -675,6 +675,82 @@ function createServer(port) {
       return;
     }
 
+    // ─── 财务/利润 API ───
+    if (url.pathname === "/api/ozon/sync-finance" && req.method === "POST") {
+      try {
+        const cfg = await loadUserOzonCfg();
+        if (!cfg.clientId) { res.writeHead(400); res.end(JSON.stringify({ error: "未配置Ozon API" })); return; }
+        const { fetchOrders, fetchTransactions, aggregateByProduct } = await import("./lib/ozon-finance.js");
+        const { upsertFinancials } = await import("./lib/db.js");
+        const dateFrom = new Date(Date.now() - 30 * 86400_000).toISOString();
+        const dateTo = new Date().toISOString();
+        const orders = await fetchOrders(cfg, dateFrom, dateTo);
+        const txns = await fetchTransactions(cfg, dateFrom, dateTo);
+        const byProduct = aggregateByProduct(orders, txns);
+        const products = Object.values(byProduct).map(p => ({ ...p, period_from: dateFrom.slice(0, 10), period_to: dateTo.slice(0, 10) }));
+        if (products.length) upsertFinancials(userId, products);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ synced: products.length, orders: orders.length, transactions: txns.length }));
+      } catch (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+      return;
+    }
+
+    if (url.pathname === "/api/ozon/profit" && req.method === "GET") {
+      try {
+        const { getFinancials } = await import("./lib/db.js");
+        const data = getFinancials(userId);
+        const totalRev = data.reduce((s, p) => s + (p.revenue_rub || 0), 0);
+        const totalProfit = data.reduce((s, p) => s + (p.actual_profit_rub || 0), 0);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({
+          total_revenue: Math.round(totalRev),
+          total_profit: Math.round(totalProfit),
+          avg_margin: totalRev > 0 ? Math.round(totalProfit / totalRev * 100) : 0,
+          products: data,
+        }));
+      } catch (err) {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ total_revenue: 0, total_profit: 0, products: [] }));
+      }
+      return;
+    }
+
+    if (url.pathname.startsWith("/api/ozon/profit/") && req.method === "GET") {
+      const offerId = safePath(decodeURIComponent(url.pathname.split("/api/ozon/profit/")[1]));
+      if (!offerId) { res.writeHead(400); res.end("invalid offer_id"); return; }
+      const { getProductProfit, getPurchaseLog: getPL } = await import("./lib/db.js");
+      const fin = getProductProfit(userId, offerId);
+      const purchases = getPL(userId, offerId);
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ financials: fin, purchases }));
+      return;
+    }
+
+    if (url.pathname === "/api/purchase-log" && req.method === "POST") {
+      try {
+        const body = await readBody(req);
+        const { addPurchaseLog } = await import("./lib/db.js");
+        addPurchaseLog(userId, body);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ ok: true }));
+      } catch (err) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+      return;
+    }
+
+    if (url.pathname === "/api/purchase-log" && req.method === "GET") {
+      const { getPurchaseLog: getPL } = await import("./lib/db.js");
+      const offerId = url.searchParams?.get("offer_id") || "";
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ purchases: getPL(userId, offerId || undefined) }));
+      return;
+    }
+
     // ─── 循环控制 API ───
     if (url.pathname === "/api/cycle/start" && req.method === "POST") {
       startCycleLoop();

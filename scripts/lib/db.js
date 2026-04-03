@@ -55,6 +55,36 @@ export function getDb() {
       created_at TEXT DEFAULT (datetime('now'))
     )
   `);
+  _db.exec(`
+    CREATE TABLE IF NOT EXISTS product_financials (
+      id          INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id     INTEGER NOT NULL,
+      offer_id    TEXT NOT NULL,
+      units_sold  INTEGER DEFAULT 0,
+      revenue_rub REAL DEFAULT 0,
+      commission_rub REAL DEFAULT 0,
+      shipping_rub REAL DEFAULT 0,
+      refund_rub  REAL DEFAULT 0,
+      actual_profit_rub REAL DEFAULT 0,
+      actual_margin_pct REAL DEFAULT 0,
+      period_from TEXT,
+      period_to   TEXT,
+      synced_at   TEXT DEFAULT (datetime('now'))
+    )
+  `);
+  _db.exec(`
+    CREATE TABLE IF NOT EXISTS purchase_log (
+      id          INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id     INTEGER NOT NULL,
+      offer_id    TEXT NOT NULL,
+      supplier_url TEXT,
+      cost_cny    REAL DEFAULT 0,
+      qty         INTEGER DEFAULT 1,
+      shipping_cny REAL DEFAULT 0,
+      note        TEXT,
+      created_at  TEXT DEFAULT (datetime('now'))
+    )
+  `);
   return _db;
 }
 
@@ -163,4 +193,52 @@ export function createInviteCode(code, plan, quota, maxUses, createdBy) {
 /** 列出所有邀请码 */
 export function listInviteCodes() {
   return getDb().prepare("SELECT * FROM invite_codes ORDER BY created_at DESC").all();
+}
+
+// ─── 财务数据 ───
+
+/** 更新/插入产品财务数据 */
+export function upsertFinancials(userId, data) {
+  const db = getDb();
+  const stmt = db.prepare(`
+    INSERT OR REPLACE INTO product_financials
+      (user_id, offer_id, units_sold, revenue_rub, commission_rub, shipping_rub, refund_rub, actual_profit_rub, actual_margin_pct, period_from, period_to, synced_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+  `);
+  const tx = db.transaction((items) => {
+    for (const p of items) {
+      stmt.run(userId, p.offer_id, p.units_sold, p.revenue, p.commission, p.shipping, p.refund, p.actual_profit, p.actual_margin_pct, p.period_from || "", p.period_to || "");
+    }
+  });
+  tx(Array.isArray(data) ? data : [data]);
+}
+
+/** 查询所有产品财务汇总 */
+export function getFinancials(userId) {
+  return getDb().prepare("SELECT * FROM product_financials WHERE user_id = ? ORDER BY actual_profit_rub DESC").all(userId);
+}
+
+/** 查询单品利润 */
+export function getProductProfit(userId, offerId) {
+  return getDb().prepare("SELECT * FROM product_financials WHERE user_id = ? AND offer_id = ?").get(userId, offerId) || null;
+}
+
+// ─── 采购记录 ───
+
+/** 添加采购记录 */
+export function addPurchaseLog(userId, data) {
+  return getDb().prepare(
+    "INSERT INTO purchase_log (user_id, offer_id, supplier_url, cost_cny, qty, shipping_cny, note) VALUES (?, ?, ?, ?, ?, ?, ?)"
+  ).run(userId, data.offer_id, data.supplier_url || "", data.cost_cny || 0, data.qty || 1, data.shipping_cny || 0, data.note || "");
+}
+
+/** 查询采购记录 */
+export function getPurchaseLog(userId, offerId) {
+  if (offerId) return getDb().prepare("SELECT * FROM purchase_log WHERE user_id = ? AND offer_id = ? ORDER BY created_at DESC").all(userId, offerId);
+  return getDb().prepare("SELECT * FROM purchase_log WHERE user_id = ? ORDER BY created_at DESC LIMIT 100").all(userId);
+}
+
+/** 按offer_id汇总采购成本 */
+export function getPurchaseCosts(userId) {
+  return getDb().prepare("SELECT offer_id, SUM(cost_cny * qty) as total_cost_cny, SUM(qty) as total_qty FROM purchase_log WHERE user_id = ? GROUP BY offer_id").all(userId);
 }
