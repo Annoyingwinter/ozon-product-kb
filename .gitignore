@@ -12,3 +12,12 @@ queues/
 config/ozon-api.json
 gcm-diagnose.log
 _remote_latest/
+images/
+.trash/
+data/
+.claude-flow/
+.openclaw/
+.playwright-cli/
+*.db
+*.db-shm
+*.db-wal
