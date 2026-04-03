@@ -48,11 +48,11 @@ async function searchAndCollect(page, keyword) {
 
   const pageType = await detectPageType(page);
   if (pageType === "captcha") {
-    const ok = await waitForCaptcha(page, keyword);
-    if (!ok) return [];
+    console.warn(`    [1688] 验证码，跳过: ${keyword}`);
+    return [];
   }
   if (pageType === "login") {
-    console.warn(`  [1688] 需要登录，跳过: ${keyword}`);
+    console.warn(`    [1688] 需要登录，跳过: ${keyword}`);
     return [];
   }
 
@@ -96,7 +96,7 @@ async function searchAndCollect(page, keyword) {
 async function scrapeDetail(page, url) {
   await gotoSafe(page, url, { wait: 4000 });
   const pageType = await detectPageType(page);
-  if (pageType === "captcha") await waitForCaptcha(page, url);
+  if (pageType === "captcha") { console.warn(`    [1688] 详情页验证码，跳过`); return null; }
   if (pageType === "login") return null;
 
   return page.evaluate(() => {
