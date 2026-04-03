@@ -183,24 +183,24 @@ export const HTML_PAGE = `<!DOCTYPE html>
       position: fixed;
       left: 0;
       top: 48px;
-      width: 44px;
+      width: 52px;
       height: calc(100vh - 48px);
       background: var(--nav-bg);
       border-right: none;
       display: flex;
       flex-direction: column;
       gap: 2px;
-      padding: 12px 4px;
+      padding: 12px 6px;
       z-index: 200;
       transition: width 200ms ease;
       overflow: hidden;
     }
-    .tab-nav:hover { width: 170px; box-shadow: 4px 0 20px rgba(0,0,0,0.15); }
+    .tab-nav:hover { width: 180px; box-shadow: 4px 0 20px rgba(0,0,0,0.15); }
     .tab-btn {
       font-family: var(--sans);
       font-weight: 500;
       font-size: 13px;
-      padding: 9px 10px;
+      padding: 10px 8px;
       border: none;
       border-radius: 8px;
       background: none;
@@ -210,6 +210,9 @@ export const HTML_PAGE = `<!DOCTYPE html>
       white-space: nowrap;
       transition: all 150ms var(--ease);
       border-left: 2px solid transparent;
+      width: 100%;
+      display: flex;
+      align-items: center;
       border-radius: 0 8px 8px 0;
     }
     .tab-btn:hover { color: var(--nav-active); background: rgba(255,255,255,0.06); }
@@ -218,7 +221,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
     .tab-btn .tab-icon { display: inline-block; width: 24px; text-align: center; flex-shrink: 0; font-size: 15px; }
     .tab-btn .tab-text { margin-left: 6px; }
     .app-main {
-      margin-left: 44px;
+      margin-left: 52px;
       min-width: 0;
     }
     .tab-btn .tab-badge {
@@ -1558,18 +1561,20 @@ export const HTML_PAGE = `<!DOCTYPE html>
     let currentTab = 'console';
 
     function switchTab(name) {
-      // 保存当前tab的滚动位置
       tabScrollPos[currentTab] = window.scrollY;
 
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-      document.getElementById('tab-' + name).classList.add('active');
-      const btns = document.querySelectorAll('.tab-btn');
-      const tabMap = { console: 0, products: 1, orders: 2 };
-      btns[tabMap[name] ?? 0].classList.add('active');
-      currentTab = name;
 
-      // 恢复目标tab的滚动位置
+      const target = document.getElementById('tab-' + name);
+      if (target) target.classList.add('active');
+
+      // 用 onclick 内容匹配按钮
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        if (b.getAttribute('onclick')?.includes("'" + name + "'")) b.classList.add('active');
+      });
+
+      currentTab = name;
       requestAnimationFrame(() => window.scrollTo(0, tabScrollPos[name] || 0));
 
       if (name === 'products') loadProducts();
@@ -1827,7 +1832,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
 
         // 日志
         if (d.log?.length) {
-          logEl.textContent = d.log.join('\n');
+          logEl.textContent = d.log.join('\\n');
           logEl.scrollTop = logEl.scrollHeight;
           logEl.parentElement.classList.add('open');
         }
