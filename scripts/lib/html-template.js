@@ -183,19 +183,18 @@ export const HTML_PAGE = `<!DOCTYPE html>
       position: fixed;
       left: 0;
       top: 48px;
-      width: 52px;
+      width: 180px;
       height: calc(100vh - 48px);
-      background: var(--nav-bg);
-      border-right: none;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-right: 1px solid rgba(255,255,255,0.08);
       display: flex;
       flex-direction: column;
       gap: 2px;
-      padding: 12px 6px;
+      padding: 16px 10px;
       z-index: 200;
-      transition: width 200ms ease;
-      overflow: hidden;
     }
-    .tab-nav:hover { width: 180px; box-shadow: 4px 0 20px rgba(0,0,0,0.15); }
     .tab-btn {
       font-family: var(--sans);
       font-weight: 500;
@@ -221,7 +220,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
     .tab-btn .tab-icon { display: inline-block; width: 24px; text-align: center; flex-shrink: 0; font-size: 15px; }
     .tab-btn .tab-text { margin-left: 6px; }
     .app-main {
-      margin-left: 52px;
+      margin-left: 180px;
       min-width: 0;
     }
     .tab-btn .tab-badge {
@@ -1149,14 +1148,15 @@ export const HTML_PAGE = `<!DOCTYPE html>
       .app-layout { flex-direction: column; }
       .tab-nav {
         position: fixed; bottom: 0; top: auto; left: 0; right: 0;
-        width: 100%; height: 48px; flex-direction: row; justify-content: center;
-        border-right: none; border-top: 1px solid rgba(255,255,255,0.08); padding: 0;
+        width: 100%; height: 52px; flex-direction: row; justify-content: center;
+        border-right: none; border-top: 1px solid rgba(255,255,255,0.1);
+        padding: 4px 8px; backdrop-filter: blur(20px);
+        background: rgba(15, 23, 42, 0.85);
       }
-      .tab-nav:hover { width: 100%; box-shadow: none; }
       .tab-btn { border-left: none; border-radius: 8px; }
       .tab-btn .tab-text { display: none; }
-      .tab-btn { padding: 8px 16px; }
-      .app-main { margin-left: 0; margin-bottom: 48px; }
+      .tab-btn { padding: 10px 16px; }
+      .app-main { margin-left: 0; margin-bottom: 52px; }
       header { height: 48px; padding: 0 16px; }
       .wrap { padding: 24px 16px 48px; }
       .order-card { flex-direction: column; gap: 10px; align-items: flex-start; }
