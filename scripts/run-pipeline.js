@@ -456,11 +456,20 @@ Ozon上最近热门品类: ${hotCats}
         }
       }
 
+      // 标题/描述质量检查
+      const titleRu = listing.title_ru || listing.title_en || "";
+      const descRu = inferred?.description_ru || "";
+      // 跳过: 无俄语标题、含中文、太短、乱码
+      if (!titleRu || titleRu.length < 10) { console.log(`  跳过 ${slug}: 标题太短`); continue; }
+      if (/[\u4e00-\u9fff]/.test(titleRu)) { console.log(`  跳过 ${slug}: 标题含中文`); continue; }
+      if (/undefined|null|NaN|error/i.test(titleRu)) { console.log(`  跳过 ${slug}: 标题异常`); continue; }
+
       const mapping = {
         slug,
         status: "可提交",
         offer_id: slug,
-        title_override: listing.title_ru || listing.title_en || best.title || "Product",
+        title_override: titleRu,
+        description_override: descRu || "",
         title_lang: "ru",
         price_override: finalPrice.toFixed(2),
         old_price_override: finalOldPrice.toFixed(2),
@@ -475,8 +484,9 @@ Ozon上最近热门品类: ${hotCats}
         width_override_mm: 200,
         height_override_mm: 100,
         import_fields: {
-          description_category_id: matchedCat?.catId || listing.ozon_category_id || BIZ.ozon_defaults?.category_id || 17027937,
-          type_id: matchedCat?.typeId || listing.ozon_type_id || BIZ.ozon_defaults?.type_id || 970896147,
+          // 统一用默认类目（避免错误类目导致必填属性缺失）
+          description_category_id: BIZ.ozon_defaults?.category_id || 17027937,
+          type_id: BIZ.ozon_defaults?.type_id || 970896147,
           attributes: [
             { id: 9048, complex_id: 0, values: [{ dictionary_value_id: 0, value: model }] },
             { id: 85, complex_id: 0, values: [{ dictionary_value_id: BIZ.ozon_defaults?.no_brand_id || 126745801, value: "Нет бренда" }] },
@@ -485,7 +495,7 @@ Ozon上最近热门品类: ${hotCats}
       };
 
       await fs.writeFile(path.join(dir, "ozon-import-mapping.json"), JSON.stringify(mapping, null, 2), "utf8");
-      const catLabel = matchedCat ? matchedCat.name.slice(0, 25) : "默认";
+      const catLabel = "默认";
       console.log(`  ✓ ${slug}: ¥${supplyCny}→¥${finalPrice} | ${catLabel}`);
       mappingCount++;
     }
@@ -547,9 +557,9 @@ Ozon上最近热门品类: ${hotCats}
           const isExisting = existingOfferIds.has(m.offer_id || m.slug);
           const catId = isExisting ? DEFAULT_CAT : (m.import_fields?.description_category_id || DEFAULT_CAT);
           const typeId = isExisting ? DEFAULT_TYPE : (m.import_fields?.type_id || DEFAULT_TYPE);
-          return {
-            description_category_id: catId,
-            type_id: typeId,
+          const item = {
+            description_category_id: DEFAULT_CAT,
+            type_id: DEFAULT_TYPE,
             name: m.title_override || m.slug || "Product",
             offer_id: m.offer_id || m.slug,
             barcode: "",
@@ -562,6 +572,9 @@ Ozon上最近热门品类: ${hotCats}
             images: images.slice(1), primary_image: images[0] || "",
             attributes: (m.import_fields?.attributes || []).map(a => a.values ? a : { id: a.id, complex_id: 0, values: [{ dictionary_value_id: a.dictionary_value_id || 0, value: String(a.value || "") }] }),
           };
+          // 加描述（如果有）
+          if (m.description_override) item.description = m.description_override;
+          return item;
         });
 
         // 提交（批次20）
