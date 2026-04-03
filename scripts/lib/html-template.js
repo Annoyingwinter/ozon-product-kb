@@ -1307,6 +1307,14 @@ export const HTML_PAGE = `<!DOCTYPE html>
   <!-- TAB: 控制台 -->
   <div class="tab-content active" id="tab-console">
     <div class="wrap">
+      <!-- 设置引导 -->
+      <div id="setup-guide" style="display:none;margin-bottom:24px;">
+        <div class="tile" style="border-left:3px solid var(--warn);padding:16px 20px;">
+          <div style="font-weight:600;font-size:14px;margin-bottom:8px;">完成设置后开始使用</div>
+          <div id="setup-steps" style="font-size:13px;line-height:2;"></div>
+        </div>
+      </div>
+
       <!-- stats bar -->
       <div class="stats-bar" id="stats-bar">
         <div class="stat-card"><span class="stat-icon">&#128230;</span><div class="stat-val" id="stat-products">--</div><div class="stat-label">产品总数</div></div>
@@ -1790,9 +1798,13 @@ export const HTML_PAGE = `<!DOCTYPE html>
     let cycleRefreshTimer = null;
 
     async function cycleStart() {
+      // 前置检查
+      try {
+        const cfg = await api('/ozon/config');
+        if (!cfg.clientId) { alert('请先配置 Ozon API Key 再启动循环'); return; }
+      } catch {}
       await fetch('/api/cycle/start', { method: 'POST' });
       cycleRefresh();
-      // 自动刷新状态
       if (!cycleRefreshTimer) cycleRefreshTimer = setInterval(cycleRefresh, 10000);
     }
 
@@ -2454,11 +2466,48 @@ export const HTML_PAGE = `<!DOCTYPE html>
       loadAdminPanel();
     }
 
+    /* === Setup Guide === */
+    async function checkSetupGuide() {
+      const guide = document.getElementById('setup-guide');
+      const steps = document.getElementById('setup-steps');
+      const issues = [];
+
+      // 1. Ozon API
+      try {
+        const cfg = await api('/ozon/config');
+        if (!cfg.clientId) issues.push({ text: '配置 Ozon API Key', action: "document.getElementById('cfg-collapse-hdr').click()", done: false });
+        else issues.push({ text: 'Ozon API 已配置', done: true });
+      } catch { issues.push({ text: '配置 Ozon API Key', done: false }); }
+
+      // 2. 1688 登录
+      try {
+        const r = await fetch('/api/session-status');
+        const d = await r.json();
+        const s1688 = d['1688'];
+        if (s1688?.valid) issues.push({ text: '1688 已登录', done: true });
+        else issues.push({ text: '登录 1688 采集账号', action: "login('1688')", done: false });
+      } catch { issues.push({ text: '登录 1688', done: false }); }
+
+      const incomplete = issues.filter(i => !i.done);
+      if (incomplete.length === 0) {
+        guide.style.display = 'none';
+      } else {
+        guide.style.display = '';
+        steps.innerHTML = issues.map(i => {
+          const icon = i.done ? '<span style="color:var(--ok);">&#10003;</span>' : '<span style="color:var(--warn);">&#9679;</span>';
+          const link = !i.done && i.action ? ' <a href="javascript:void(0)" onclick="' + i.action + '" style="color:var(--accent);font-size:12px;">去设置</a>' : '';
+          const style = i.done ? 'color:var(--t3);text-decoration:line-through;' : '';
+          return '<div style="' + style + '">' + icon + ' ' + i.text + link + '</div>';
+        }).join('');
+      }
+    }
+
     /* === Init === */
     refresh();
     refreshStats();
     loadOzonConfig();
     refreshOrders();
+    checkSetupGuide();
     // 数据源只在页面首次加载时刷一次，不自动轮询（避免闪烁）
     // 统计和订单低频刷新
     setInterval(refreshStats, 60000);  // 统计: 60秒
