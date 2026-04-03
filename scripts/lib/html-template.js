@@ -1191,6 +1191,22 @@ export const HTML_PAGE = `<!DOCTYPE html>
       <div style="text-align:center; margin-top:16px; font-size:12px; color:var(--t2);">首次使用请先注册</div>
     </div>
   </div>
+
+  <!-- 设置引导弹窗（登录后、未完成配置时显示）-->
+  <div id="setup-overlay" style="display:none; position:fixed; inset:0; z-index:9998; background:rgba(15,23,42,0.5); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:16px; padding:32px 36px; width:420px; max-width:90vw; box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+      <div style="text-align:center; margin-bottom:20px;">
+        <div style="font-size:28px; margin-bottom:8px;">&#9881;</div>
+        <div style="font-size:18px; font-weight:600;">完成设置</div>
+        <div style="font-size:13px; color:var(--t2); margin-top:4px;">请完成以下步骤后开始使用</div>
+      </div>
+      <div id="setup-steps" style="font-size:14px; line-height:2.2;"></div>
+      <div style="text-align:center; margin-top:20px;">
+        <button onclick="checkSetupGuide()" style="padding:8px 24px; background:var(--accent); color:#fff; border:none; border-radius:8px; font-size:13px; cursor:pointer;">刷新状态</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // ─── Auth bootstrap ───
     const _origFetch = window.fetch;
@@ -1307,13 +1323,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
   <!-- TAB: 控制台 -->
   <div class="tab-content active" id="tab-console">
     <div class="wrap">
-      <!-- 设置引导 -->
-      <div id="setup-guide" style="display:none;margin-bottom:24px;">
-        <div class="tile" style="border-left:3px solid var(--warn);padding:16px 20px;">
-          <div style="font-weight:600;font-size:14px;margin-bottom:8px;">完成设置后开始使用</div>
-          <div id="setup-steps" style="font-size:13px;line-height:2;"></div>
-        </div>
-      </div>
+      <!-- 设置引导（内联占位，实际用悬浮弹窗） -->
 
       <!-- stats bar -->
       <div class="stats-bar" id="stats-bar">
@@ -2468,14 +2478,14 @@ export const HTML_PAGE = `<!DOCTYPE html>
 
     /* === Setup Guide === */
     async function checkSetupGuide() {
-      const guide = document.getElementById('setup-guide');
+      const overlay = document.getElementById('setup-overlay');
       const steps = document.getElementById('setup-steps');
       const issues = [];
 
       // 1. Ozon API
       try {
         const cfg = await api('/ozon/config');
-        if (!cfg.clientId) issues.push({ text: '配置 Ozon API Key', action: "document.getElementById('cfg-collapse-hdr').click()", done: false });
+        if (!cfg.clientId) issues.push({ text: '配置 Ozon API Key', action: "document.getElementById('setup-overlay').style.display='none';document.getElementById('cfg-collapse-hdr').click()", done: false });
         else issues.push({ text: 'Ozon API 已配置', done: true });
       } catch { issues.push({ text: '配置 Ozon API Key', done: false }); }
 
@@ -2485,18 +2495,18 @@ export const HTML_PAGE = `<!DOCTYPE html>
         const d = await r.json();
         const s1688 = d['1688'];
         if (s1688?.valid) issues.push({ text: '1688 已登录', done: true });
-        else issues.push({ text: '登录 1688 采集账号', action: "login('1688')", done: false });
+        else issues.push({ text: '登录 1688 采集账号', action: "document.getElementById('setup-overlay').style.display='none';login('1688')", done: false });
       } catch { issues.push({ text: '登录 1688', done: false }); }
 
       const incomplete = issues.filter(i => !i.done);
       if (incomplete.length === 0) {
-        guide.style.display = 'none';
+        overlay.style.display = 'none';
       } else {
-        guide.style.display = '';
+        overlay.style.display = 'flex';
         steps.innerHTML = issues.map(i => {
           const icon = i.done ? '<span style="color:var(--ok);">&#10003;</span>' : '<span style="color:var(--warn);">&#9679;</span>';
-          const link = !i.done && i.action ? ' <a href="javascript:void(0)" onclick="' + i.action + '" style="color:var(--accent);font-size:12px;">去设置</a>' : '';
-          const style = i.done ? 'color:var(--t3);text-decoration:line-through;' : '';
+          const link = !i.done && i.action ? ' <a href="javascript:void(0)" onclick="' + i.action + '" style="color:var(--accent);font-size:13px;font-weight:500;">去设置 &rarr;</a>' : '';
+          const style = i.done ? 'color:var(--t3);text-decoration:line-through;' : 'font-weight:500;';
           return '<div style="' + style + '">' + icon + ' ' + i.text + link + '</div>';
         }).join('');
       }
