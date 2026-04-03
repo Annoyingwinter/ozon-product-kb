@@ -2485,7 +2485,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
       // 1. Ozon API
       try {
         const cfg = await api('/ozon/config');
-        if (!cfg.clientId) issues.push({ text: '配置 Ozon API Key', action: "document.getElementById('setup-overlay').style.display='none';document.getElementById('cfg-collapse-hdr').click()", done: false });
+        if (!cfg.clientId) issues.push({ text: '配置 Ozon API Key', action: "document.getElementById('setup-overlay').style.display='none';document.getElementById('cfg-collapse-body').style.maxHeight='600px';document.getElementById('ozon-client-id').focus();document.getElementById('ozon-client-id').scrollIntoView({behavior:'smooth',block:'center'})", done: false });
         else issues.push({ text: 'Ozon API 已配置', done: true });
       } catch { issues.push({ text: '配置 Ozon API Key', done: false }); }
 
@@ -2495,7 +2495,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
         const d = await r.json();
         const s1688 = d['1688'];
         if (s1688?.valid) issues.push({ text: '1688 已登录', done: true });
-        else issues.push({ text: '登录 1688 采集账号', action: "document.getElementById('setup-overlay').style.display='none';login('1688')", done: false });
+        else issues.push({ text: '登录 1688 采集账号', action: "document.getElementById('setup-overlay').style.display='none';setTimeout(()=>login('1688'),500)", done: false });
       } catch { issues.push({ text: '登录 1688', done: false }); }
 
       const incomplete = issues.filter(i => !i.done);
