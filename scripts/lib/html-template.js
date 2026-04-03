@@ -2138,6 +2138,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
           checkEl.innerHTML = '<span class="cfg-saved-check">&#10003; 已保存</span>';
           setTimeout(() => { checkEl.innerHTML = ''; }, 3000);
           loadOzonConfig();
+          checkSetupGuide(); // 重新检查设置完成状态
         } else {
           document.getElementById('ozon-cfg-status').textContent = '保存失败: ' + (r.error || '未知错误');
           document.getElementById('ozon-cfg-status').className = 'cfg-status disconnected';
@@ -2540,7 +2541,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
         const d = await r.json();
         const s1688 = d['1688'];
         if (s1688?.valid) issues.push({ text: '1688 已登录', done: true });
-        else issues.push({ text: '登录 1688 采集账号', action: "document.getElementById('setup-overlay').style.display='none';setTimeout(()=>login('1688'),500)", done: false });
+        else issues.push({ text: '登录 1688 采集账号', action: "document.getElementById('setup-overlay').style.display='none';alert('即将打开1688登录窗口，请用手机扫码登录');setTimeout(()=>{login('1688');checkSetupGuide()},800)", done: false });
       } catch { issues.push({ text: '登录 1688', done: false }); }
 
       const incomplete = issues.filter(i => !i.done);
