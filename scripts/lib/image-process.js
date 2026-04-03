@@ -39,8 +39,8 @@ export async function processAndSave(url, slug) {
 
     const processed = needResize
       ? await img.resize(TARGET_SIZE, TARGET_SIZE, {
-          fit: "contain",
-          background: { r: 255, g: 255, b: 255, alpha: 1 },
+          fit: "cover",       // 等比放大裁剪（不留白边）
+          kernel: "lanczos3", // 最高质量插值
         }).jpeg({ quality: 92 }).toBuffer()
       : await img.jpeg({ quality: 92 }).toBuffer();
 
