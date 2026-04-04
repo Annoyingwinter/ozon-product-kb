@@ -1283,16 +1283,14 @@ export const HTML_PAGE = `<!DOCTYPE html>
         localStorage.setItem('oz_token', data.token);
         localStorage.setItem('oz_user', JSON.stringify(data.user));
         document.getElementById('auth-overlay').style.display = 'none';
-        document.getElementById('app-container').style.display = '';
         // 管理员显示管理tab
         if (data.user?.is_admin) {
           const adminBtn = document.getElementById('admin-tab-btn');
           if (adminBtn) adminBtn.style.display = '';
         }
-        // 登录成功后立即加载数据（并行）
-        // 先检查设置状态，再加载数据（确保显示正确）
+        // 先加载数据，再检查设置——checkSetupGuide 决定显示向导还是主界面
+        await Promise.all([loadOzonConfig(), refresh(), refreshStats()]).catch(() => {});
         await checkSetupGuide();
-        Promise.all([refresh(), refreshStats(), loadOzonConfig()]).catch(() => {});
       } catch (e) {
         errEl.textContent = '网络错误: ' + e.message;
         errEl.style.display = 'block';
@@ -1321,13 +1319,9 @@ export const HTML_PAGE = `<!DOCTYPE html>
           const adminBtn = document.getElementById('admin-tab-btn');
           if (adminBtn) adminBtn.style.display = '';
         }
-        // 先加载关键数据，再决定显示向导还是主界面
+        // 先加载数据，再检查设置——checkSetupGuide 决定显示向导还是主界面
         await Promise.all([loadOzonConfig(), refresh(), refreshStats()]).catch(() => {});
         await checkSetupGuide();
-        // checkSetupGuide 会显示向导或直接显示主界面
-        if (document.getElementById('setup-overlay').style.display === 'none' || !document.getElementById('setup-overlay').style.display) {
-          document.getElementById('app-container').style.display = '';
-        }
       } catch {
         overlay.style.display = 'flex';
       }
