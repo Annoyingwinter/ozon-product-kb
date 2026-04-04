@@ -1,0 +1,56 @@
+{
+  "slug": "蔬菜清洗盆-沥水双层-c3c688a0",
+  "status": "已上传",
+  "offer_id": "蔬菜清洗盆-沥水双层-c3c688a0",
+  "title_override": "Двухъярусная овощерезка и дуршлаг для овощей и фруктов, набор из 8 предметов, пищевой пластик, современный дизайн",
+  "description_override": "Наш набор из 8 предметов для мытья овощей и фруктов станет незаменимым помощником на вашей кухне. Двухъярусная конструкция позволяет одновременно мыть и сушить продукты, экономя время и пространство. Изготовлен из прочного пищевого пластика, безопасного для здоровья.\n\nИдеально подходит для подготовки салатов, мытья ягод, зелени, фруктов и овощей любого размера. Компактный дизайн позволяет легко хранить набор, а яркие цвета украсят интерьер кухни. Набор включает контейнеры разных размеров для любых кулинарных задач.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 4,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN019nOapk1ixtQh8WGHt_!!2219481174480-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN019nOapk1ixtQh8WGHt_!!2219481174480-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN019bfXWU1ixtQaUxNlL_!!2219481174480-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01vrjgb51ixtQhOB5Qp_!!2219481174480-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01yqeBYA1ixtQfPaN6O_!!2219481174480-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg",
+    "https://img.alicdn.com/imgextra/i2/O1CN01KK4Kot1WPkaZgeewV_!!4611686018427380557-0-rate.jpg_b.jpg"
+  ],
+  "weight_override_g": 800,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-----------c3c688a0-muzy"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007070302,
+  "ozon_task_id": 4102318072,
+  "ozon_import_at": "2026-04-04T03:49:32.418Z"
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "汽车安全带护肩套-e228582f",
+  "status": "已上传",
+  "offer_id": "汽车安全带护肩套-e228582f",
+  "title_override": "Защита для ремня безопасности автомобиля с отверстиями для игрушек, съемный чехол для детей и взрослых, 2 шт.",
+  "description_override": "Удобные и практичные защитные накладки на ремень безопасности автомобиля. Идеально подходят для семей с детьми, делают каждую поездку более комфортной и безопасной для маленьких пассажиров. Мягкий материал предотвращает натирание и дискомфорт от стандартного ремня.\n\nЧехлы легко устанавливаются и снимаются благодаря удобной конструкции. Универсальный размер подходит для большинства автомобилей. Отверстия позволяют крепить любимые игрушки или аксессуары, развлекая ребенка в дороге. Отличный подарок для автовладельцев и родителей.",
+  "title_lang": "ru",
+  "price_override": "24.50",
+  "old_price_override": "31.85",
+  "supply_price_cny": 7,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01O2Wgzc1VgPLsnwHgJ_!!983442682-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01O2Wgzc1VgPLsnwHgJ_!!983442682-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01fT2RVP1VgPLsnxQNk_!!983442682-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01sskZVr1VgPLsWVKef_!!983442682-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014yrlI41VgPLt5W5qn_!!983442682-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01MOShKR1VgPLs2gKQT_!!983442682-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028978,
+    "type_id": 96495,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------e228582f-cbho"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4006299370,
+  "ozon_task_id": 4101877502,
+  "ozon_import_at": "2026-04-04T02:45:22.793Z"
+}

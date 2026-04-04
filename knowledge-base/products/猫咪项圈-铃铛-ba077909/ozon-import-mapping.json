@@ -1,0 +1,55 @@
+{
+  "slug": "猫咪项圈-铃铛-ba077909",
+  "status": "已上传",
+  "offer_id": "猫咪项圈-铃铛-ba077909",
+  "title_override": "Ошейник для кошек с колокольчиком и светоотражающей лентой, регулируемый, для котят и взрослых кошек, с креплением для Airtag",
+  "description_override": "Этот стильный и практичный ошейник для кошек создан для безопасности и комфорта вашего питомца. Светоотражающая лента делает кошку заметной в темное время суток во время прогулок, а легкий колокольчик помогает отслеживать ее перемещения по дому. Регулируемая застежка обеспечивает идеальную посадку на шее любого размера, от маленького котенка до взрослой кошки.\n\nОсобенностью ошейника является специальное крепление для Apple Airtag, превращающее его в современное средство отслеживания. Это идеальное решение для владельцев, которые хотят быть уверены в безопасности своей кошки и быстро находить ее, если она потеряется. Прочный и мягкий материал не натирает кожу, обеспечивая комфорт при длительном ношении.",
+  "title_lang": "ru",
+  "price_override": "143.50",
+  "old_price_override": "186.55",
+  "supply_price_cny": 41,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01dNqVxu1qiKjxuGh03_!!3942465529-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01dNqVxu1qiKjxuGh03_!!3942465529-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN010lKD6j1qiKk3wpzhU_!!3942465529-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN015IxBmc20bbGmmYBLD_!!2218971966868-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01JEBDjE1qiKjpbYLvN_!!3942465529-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01axhC5X1qiKk2LBTf2_!!3942465529-0-cib.jpg"
+  ],
+  "weight_override_g": 20,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028668,
+    "type_id": 95224,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------ba077909-6zvm"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4006592268,
+  "ozon_task_id": 4102049159,
+  "ozon_import_at": "2026-04-04T03:09:15.119Z"
+}

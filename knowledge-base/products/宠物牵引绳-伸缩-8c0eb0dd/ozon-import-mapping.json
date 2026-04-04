@@ -1,0 +1,55 @@
+{
+  "slug": "宠物牵引绳-伸缩-8c0eb0dd",
+  "status": "已上传",
+  "offer_id": "宠物牵引绳-伸缩-8c0eb0dd",
+  "title_override": "Поводок для собак автоматический выдвижной, регулируемая длина до 5 метров, с прочным карабином и эргономичной ручкой",
+  "description_override": "Автоматический выдвижной поводок для собак — идеальное решение для комфортных и безопасных прогулок с вашим питомцем. Он позволяет собаке свободно исследовать территорию, в то время как вы всегда контролируете ситуацию благодаря надежному стоп-механизму и прочному тросу.\n\nЭргономичная ручка обеспечивает удобный хват, а легкий корпус не утяжеляет руку во время долгих прогулок. Поводок подходит для собак средних и мелких пород, таких как такса, корги, джек-рассел-терьер и других активных компаньонов.",
+  "title_lang": "ru",
+  "price_override": "21.00",
+  "old_price_override": "27.30",
+  "supply_price_cny": 6,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01dwyrr21LiZ48TIXDJ_!!2201497931333-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01dwyrr21LiZ48TIXDJ_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN018NDgp01LiZ1lQ08p5_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01QclYz41LiZ1b2Bx8N_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01m3T04A1LiZ1Zah86x_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01NSBHls1LiZ49jyMWh_!!2201497931333-0-cib.jpg"
+  ],
+  "weight_override_g": 250,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028668,
+    "type_id": 95226,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------8c0eb0dd-w38s"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4000656543,
+  "ozon_task_id": 4098519451,
+  "ozon_import_at": "2026-04-03T12:05:11.274Z"
+}

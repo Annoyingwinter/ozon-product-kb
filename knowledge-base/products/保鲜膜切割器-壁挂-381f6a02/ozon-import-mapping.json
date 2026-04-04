@@ -1,0 +1,56 @@
+{
+  "slug": "保鲜膜切割器-壁挂-381f6a02",
+  "status": "已上传",
+  "offer_id": "保鲜膜切割器-壁挂-381f6a02",
+  "title_override": "Держатель для пищевой пленки настенный с резаком, магнитной лентой и присосками, сине-белый, для кухни",
+  "description_override": "Настенный держатель для пищевой пленки с удобным встроенным резаком — идеальное решение для аккуратного хранения и быстрого использования пленки на кухне. Благодаря магнитной ленте и надежным присоскам он прочно крепится к любой гладкой поверхности: холодильнику, стене шкафа или плитке.\n\nЭтот практичный аксессуар экономит место на рабочей поверхности, обеспечивает мгновенный доступ к пленке и позволяет ровно отрезать нужный кусок одной рукой. Подходит для стандартных рулонов пищевой пленки, делая процесс упаковки продуктов и хранения остатков пищи быстрым и удобным.",
+  "title_lang": "ru",
+  "price_override": "42.00",
+  "old_price_override": "54.60",
+  "supply_price_cny": 12,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01mviHHr2K85mSun0gR_!!2830699511-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01mviHHr2K85mSun0gR_!!2830699511-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01aHBy6x2K85mX5IQPd_!!2830699511-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01IU4U1j2K85mX5IUa7_!!2830699511-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ygJsLo2K85mUcJGcN_!!2830699511-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN015J67Pr1Bs2ndJt7Tz_!!0-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------381f6a02-nhbj"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992704545,
+  "ozon_task_id": 4102049159,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T03:09:15.105Z"
+}

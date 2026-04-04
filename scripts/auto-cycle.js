@@ -10,7 +10,23 @@
 import { execFileSync } from "node:child_process";
 import path from "node:path";
 import { parseCliArgs, readJson, KB_ROOT } from "./lib/shared.js";
-import { proxyFetch, getProxyDispatcherAsync } from "./lib/proxy.js";
+
+// 直接创建代理（不依赖 singleton，子进程里更可靠）
+let _dispatcher;
+async function getDispatcher() {
+  if (_dispatcher) return _dispatcher;
+  const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || "";
+  if (!proxyUrl) return null;
+  try {
+    const { ProxyAgent } = await import("undici");
+    _dispatcher = new ProxyAgent({ uri: proxyUrl, connections: 1, pipelining: 0 });
+    return _dispatcher;
+  } catch { return null; }
+}
+async function ozonFetch(url, opts) {
+  const d = await getDispatcher();
+  return fetch(url, { ...opts, ...(d ? { dispatcher: d } : {}) });
+}
 
 const PRUNE_THRESHOLD = 1;   // 浏览占比低于1%的下架
 const PRUNE_DAYS = 7;        // 看最近7天的数据
@@ -37,13 +53,13 @@ async function pruneByAnalytics() {
     return;
   }
 
-  await getProxyDispatcherAsync();
+  await getDispatcher();
   const h = { "Client-Id": String(cfg.clientId), "Api-Key": cfg.apiKey, "Content-Type": "application/json" };
   const dateFrom = new Date(Date.now() - PRUNE_DAYS * 86400_000).toISOString().slice(0, 10);
   const dateTo = new Date().toISOString().slice(0, 10);
 
   try {
-    const r = await proxyFetch("https://api-seller.ozon.ru/v1/analytics/data", {
+    const r = await ozonFetch("https://api-seller.ozon.ru/v1/analytics/data", {
       method: "POST", headers: h,
       body: JSON.stringify({
         date_from: dateFrom, date_to: dateTo,
@@ -71,7 +87,7 @@ async function pruneByAnalytics() {
     // SKU → product_id 映射
     const skuSet = new Set(toPrune.map(d => String(d.dimensions?.[0]?.id)));
     const skuToProductId = {};
-    const sr = await proxyFetch("https://api-seller.ozon.ru/v4/product/info/stocks", {
+    const sr = await ozonFetch("https://api-seller.ozon.ru/v4/product/info/stocks", {
       method: "POST", headers: h,
       body: JSON.stringify({ filter: { visibility: "ALL" }, limit: 1000 }),
     });
@@ -83,7 +99,7 @@ async function pruneByAnalytics() {
 
     const productIds = toPrune.map(d => skuToProductId[String(d.dimensions?.[0]?.id)]).filter(Boolean);
     if (productIds.length) {
-      const ar = await proxyFetch("https://api-seller.ozon.ru/v1/product/archive", {
+      const ar = await ozonFetch("https://api-seller.ozon.ru/v1/product/archive", {
         method: "POST", headers: h,
         body: JSON.stringify({ product_id: productIds }),
       });

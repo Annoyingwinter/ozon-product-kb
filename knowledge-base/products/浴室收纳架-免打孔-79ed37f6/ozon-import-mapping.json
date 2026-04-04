@@ -1,0 +1,55 @@
+{
+  "slug": "浴室收纳架-免打孔-79ed37f6",
+  "status": "已上传",
+  "offer_id": "浴室收纳架-免打孔-79ed37f6",
+  "title_override": "Настенная полка для обуви в ванную комнату без сверления, из аэрокосмического алюминия, для хранения тапочек и аксессуаров",
+  "description_override": "Эта настенная полка для обуви идеально подходит для поддержания порядка в ванной комнате. Ее можно легко установить на стену или дверь без сверления, что защищает поверхности от повреждений. Стильный дизайн в современном стиле гармонично впишется в интерьер любой ванной.\n\nПолка изготовлена из прочного и легкого аэрокосмического алюминия, устойчивого к влаге и коррозии. Решетчатая конструкция обеспечивает эффективную вентиляцию и быстрое высыхание обуви. Идеальна для хранения тапочек, мочалок, щеток и других банных принадлежностей, освобождая ценное пространство на полу.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 4,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01BY24gE1mQElrwK4Ex_!!2206588314948-0-C2M.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01BY24gE1mQElrwK4Ex_!!2206588314948-0-C2M.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN017gV5Iw2LY20hB2ZOh_!!3937219703-0-C2M.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN016FvGEc2LY20jJLBny_!!3937219703-0-C2M.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01cLPlBs2LY20kY28na_!!3937219703-0-C2M.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01R45jt22LY20jR2Sx0_!!3937219703-0-C2M.jpg"
+  ],
+  "weight_override_g": 300,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 80731485,
+    "type_id": 115946601,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------79ed37f6-nrr7"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4000819348,
+  "ozon_task_id": 4098621126,
+  "ozon_import_at": "2026-04-03T12:26:29.885Z"
+}

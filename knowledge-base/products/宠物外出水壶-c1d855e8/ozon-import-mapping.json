@@ -1,0 +1,55 @@
+{
+  "slug": "宠物外出水壶-c1d855e8",
+  "status": "已上传",
+  "offer_id": "宠物外出水壶-c1d855e8",
+  "title_override": "Переносная поилка для собак, портативная бутылка для воды с миской, складная чаша для питья на прогулке, походов и путешествий",
+  "description_override": "Эта умная портативная поилка для собак — идеальный спутник для вашего питомца во время длительных прогулок, походов или путешествий на автомобиле. Она объединяет в себе бутылку для воды и удобную складную миску, обеспечивая вашему любимцу постоянный доступ к свежей воде в любом месте.\n\nИзготовленная из безопасного пищевого пластика PP, поилка легкая, прочная и проста в использовании. Просто нажмите на кнопку, чтобы наполнить чашу водой, а после использования сложите ее обратно — никаких проливов и грязи в сумке. Забота о гидратации вашей собаки на свежем воздухе теперь стала еще проще и удобнее.",
+  "title_lang": "ru",
+  "price_override": "56.00",
+  "old_price_override": "72.80",
+  "supply_price_cny": 16,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01POL65L1EUBCea7FRW_!!2216240880354-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01POL65L1EUBCea7FRW_!!2216240880354-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN018rdsNj1EUB5m2eAuh_!!2216240880354-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01t1Datz1EUB5lCdAZ0_!!2216240880354-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN015qvwwk1EUB5gVLJjt_!!2216240880354-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01brKhxn1EUB5cliO6K_!!2216240880354-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 75163484,
+    "type_id": 970665374,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-------c1d855e8-2qjb"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007414136,
+  "ozon_task_id": 4102522526,
+  "ozon_import_at": "2026-04-04T04:30:10.637Z"
+}

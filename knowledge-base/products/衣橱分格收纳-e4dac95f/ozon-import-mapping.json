@@ -1,0 +1,56 @@
+{
+  "slug": "衣橱分格收纳-e4dac95f",
+  "status": "已上传",
+  "offer_id": "衣橱分格收纳-e4dac95f",
+  "title_override": "Плетеная корзина для хранения в шкафу, разделители, американский стиль, 36.5x15.5x11 см",
+  "description_override": "Эта плетеная корзина с разделителями идеально подходит для организации пространства в вашем шкафу. Она поможет аккуратно разложить нижнее белье, носки, аксессуары или косметику, превратив хаос в порядок.\n\nИзготовленная из натурального плетеного материала в стиле кантри, корзина добавляет уют и теплоту в интерьер. Прочные перегородки позволяют создавать индивидуальные секции под разные нужды. Ее также можно использовать на туалетном столике, в ванной комнате или на полке в гостиной для хранения мелких предметов.",
+  "title_lang": "ru",
+  "price_override": "77.00",
+  "old_price_override": "100.10",
+  "supply_price_cny": 22,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01LTJw5o1itJLZdAKEo_!!2926904470-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01LTJw5o1itJLZdAKEo_!!2926904470-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01nwVVBb1itJLVEHHos_!!2926904470-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01JzhcZz1itJLNTP9tE_!!2926904470-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01xJZCmT1itJLXdw19A_!!2926904470-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ySP1Nz1itJLZdJ3L7_!!2926904470-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 450,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-------e4dac95f-wfny"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4000656550,
+  "ozon_task_id": 4098519451,
+  "ozon_import_at": "2026-04-03T12:05:11.281Z"
+}

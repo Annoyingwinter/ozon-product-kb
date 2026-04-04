@@ -1,0 +1,57 @@
+{
+  "slug": "厨房称重秤-迷你电子-62b80393",
+  "status": "已上传",
+  "offer_id": "厨房称重秤-迷你电子-62b80393",
+  "title_override": "Кухонные весы электронные мини, Точные весы для кухни, Высокая точность 1 г, Взвешивание продуктов, выпечки, трав",
+  "description_override": "Миниатюрные и точные электронные кухонные весы \"Qianque\" станут незаменимым помощником на вашей кухне. Идеально подходят для взвешивания ингредиентов при приготовлении выпечки, диетических блюд, а также для точного дозирования трав и специй. Благодаря компактному размеру и стильному дизайну весы легко поместятся в любом кухонном шкафчике.\n\nВесы обладают высокой точностью измерения до 1 грамма и широким диапазоном взвешивания, что позволяет использовать их как для мелких, так и для более крупных продуктов. Простой интерфейс с одной кнопкой управления и четкий ЖК-дисплей делают использование интуитивно понятным. Автоматическое отключение и индикация низкого заряда батареи продлевают срок службы устройства.",
+  "title_lang": "ru",
+  "price_override": "98.00",
+  "old_price_override": "127.40",
+  "supply_price_cny": 28,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01tusKsO2IQl15BTZg2_!!2217732109281-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01tusKsO2IQl15BTZg2_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014Xq4IB2IQky8Aa0jf_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ZGSGKp2IQky6TW3L4_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01XqeUhy2IQky7PUeHm_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN011SRwBv2IQky6XW3J4_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 250,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028912,
+    "type_id": 91418,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-----------62b80393-6p03"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992704747,
+  "ozon_task_id": 4102169295,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T03:26:12.817Z"
+}

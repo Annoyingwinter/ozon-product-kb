@@ -1,0 +1,55 @@
+{
+  "slug": "车载行车记录仪支架-2106120a",
+  "status": "已上传",
+  "offer_id": "车载行车记录仪支架-2106120a",
+  "title_override": "Крепление для видеорегистратора автомобильное на присоске 1/4 дюйма, универсальное, диаметр 7 мм",
+  "description_override": "Универсальное крепление на присоске для надежной фиксации видеорегистратора, экшн-камеры или другого гаджета на лобовом стекле автомобиля. Прочная присоска диаметром 7 мм обеспечивает стабильное крепление даже на неровных поверхностях, а резьба 1/4 дюйма совместима с большинством популярных моделей устройств.\n\nИдеально подходит для ежедневного использования в автомобиле, обеспечивая оптимальный угол обзора для записи дорожной обстановки. Легко устанавливается и снимается, не оставляя следов на стекле. Компактный и практичный аксессуар для организации пространства в салоне и повышения безопасности вождения.",
+  "title_lang": "ru",
+  "price_override": "24.50",
+  "old_price_override": "31.85",
+  "supply_price_cny": 7,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01T9oOf11aZ99nICUpz_!!2221302523343-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01T9oOf11aZ99nICUpz_!!2221302523343-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN015rR07M1aZ99szvJyM_!!2221302523343-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01kEHvJr1aZ99satZ3i_!!2221302523343-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01oCYCD41aZ99sbreop_!!2221302523343-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01sTjZJv1aZ99sc9G1y_!!2221302523343-0-cib.jpg"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028627,
+    "type_id": 115947272,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------2106120a-c0lt"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007264573,
+  "ozon_task_id": 4102425875,
+  "ozon_import_at": "2026-04-04T04:09:06.962Z"
+}

@@ -1,0 +1,264 @@
+{
+  "schema_version": "ozon-kb-v2-direct-listing",
+  "generated_at": "2026-04-04T04:29:26.342Z",
+  "source_platform": "1688",
+  "source_url": "https://detail.1688.com/offer/965163360621.html",
+  "source_platform_urls": [
+    "https://detail.1688.com/offer/965163360621.html"
+  ],
+  "spu_id": "厨房称重秤-迷你电子-62b80393",
+  "sku_id": "厨房称重秤-迷你电子-62b80393-001",
+  "group_id": "厨房称重秤-迷你电子-62b80393",
+  "variant_theme": "",
+  "variant_values": {},
+  "brand": "Qianque",
+  "model": "A600",
+  "vendor_code": "A600",
+  "barcode": "",
+  "title_cn": "家用厨房秤小型电子秤精准烘焙中药克重称天平秤高精度克秤食物秤 -",
+  "title_en": "Mini Electronic Kitchen Scale, High Precision 1g, Food Scale for Baking, Herbs",
+  "title_ru": "Кухонные весы электронные мини, Точные весы для кухни, Высокая точность 1 г, Взвешивание продуктов, выпечки, трав",
+  "description": "",
+  "bullet_points": [
+    "Высокая точность измерения до 1 грамма",
+    "Компактный и стильный дизайн, экономия места",
+    "Простое управление одной кнопкой и четкий ЖК-дисплей",
+    "Автоматическое отключение для экономии заряда батареи",
+    "Широкий диапазон взвешивания для разных продуктов"
+  ],
+  "price": 0,
+  "old_price": 0,
+  "currency": "RUB",
+  "stock": 0,
+  "min_order_qty": 1,
+  "package_quantity": 1,
+  "vat": "0",
+  "weight": 0.25,
+  "length": 0,
+  "width": 0,
+  "height": 0,
+  "category_path": "厨房用品",
+  "category_id_source": "ai-inferred",
+  "ozon_category_id": null,
+  "ozon_type_id": null,
+  "attributes": {
+    "source_category": "厨房用品",
+    "seasonality": "stable",
+    "fragility": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "material": "Пластик, Стекло (платформа)",
+    "color": "Белый",
+    "size": "Небольшой (примерно 15x15x2 см)",
+    "power_supply": "",
+    "country_of_origin": "CN"
+  },
+  "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01tusKsO2IQl15BTZg2_!!2217732109281-0-cib.jpg",
+  "images": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01tusKsO2IQl15BTZg2_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014Xq4IB2IQky8Aa0jf_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ZGSGKp2IQky6TW3L4_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01XqeUhy2IQky7PUeHm_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN011SRwBv2IQky6XW3J4_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01GQbptB2IQkzk3Bney_!!2217732109281-0-cib.jpg_sum.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01uA9nl62IQkzk0aK3s_!!2217732109281-0-cib.jpg_sum.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01hezTzh2IQkzj04Qpg_!!2217732109281-0-cib.jpg_sum.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg",
+    "https://img.alicdn.com/imgextra/i3/O1CN01bDfvOh1TwJteNM7GX_!!4611686018427384622-0-rate.jpg_b.jpg"
+  ],
+  "video_url": "",
+  "image_count": 10,
+  "image_hash": "da6c0ce87b0f1aaf48960dc918ded261225471ba",
+  "white_background": false,
+  "is_adult": false,
+  "is_fragile": true,
+  "dangerous_goods": false,
+  "country_of_origin": "CN",
+  "certificate_files": [],
+  "brand_authorization": "",
+  "customs_code": "",
+  "restricted_category_flag": false,
+  "supplier": {
+    "name": "深圳市千确电子有限公司综合服务采购咨询2.0退换体验4.0品质体验3.0采购咨询2.0纠纷解决4.0物流时效4.1家用厨房秤小型电子秤精准烘焙中药克重称天平秤高精度克秤食物秤¥23.9全网400+件退货包运费先采后付回头率27%深圳市千确电子有限公司旺旺在线",
+    "platform": "1688",
+    "shop_url": "",
+    "contact": ""
+  },
+  "competitor_offers": [
+    {
+      "source_platform": "1688",
+      "source_url": "https://detail.1688.com/offer/802546707676.html",
+      "offer_title": "咖啡秤高精度计时家用精准厨房电子秤小型手冲食物烘焙迷你克重称 -",
+      "shop_name": "找相似浙江享轻科技有限公司综合服务采购咨询5.0退换体验4.0品质体验4.3采购咨询5.0纠纷解决4.0物流时效3.3咖啡秤高精度计时家用精准厨房电子秤小型手冲食物烘焙迷你克重称元宝可抵1%｜商机组货：高精度厨房秤¥292700+件退货包运费先采后付回头率39%浙江享轻科技有限公司旺旺在线",
+      "shop_url": "",
+      "price": 26,
+      "price_text": "26",
+      "currency": "CNY",
+      "min_order_qty": 1,
+      "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN011IuplX1X2g5TvKvEN_!!4140402866-0-cib.jpg",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN011IuplX1X2g5TvKvEN_!!4140402866-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01mm5iTx1X2g5ScobM0_!!4140402866-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01rApQ7D1X2g5QCO4P4_!!4140402866-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01XTeRVm1X2g5MiixSf_!!4140402866-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN015jMlRf1X2g5PRhYx7_!!4140402866-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN011IuplX1X2g5TvKvEN_!!4140402866-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01vienGL1X2g4yNFhdj_!!4140402866-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01Jp2RQI1X2g2nbbGDO_!!4140402866-0-cib.jpg_sum.jpg",
+        "https://img.alicdn.com/ii3/6000000007172/O1CN01287Eo822qpdcjV91H_!!6000000007172-2-custom.png",
+        "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg",
+        "https://img.alicdn.com/imgextra/i4/O1CN01Nf1aPl1U8gZiB8Co8_!!4611686018427383929-0-rate.jpg_b.jpg",
+        "https://img.alicdn.com/imgextra/i2/O1CN011lVpDE28MVAW3U89i_!!4611686018427382174-0-rate.jpg_b.jpg"
+      ],
+      "image_count": 12,
+      "category_path": "",
+      "normalizedAttributes": {
+        "brand": "享轻",
+        "country_of_origin": "浙江",
+        "vendor_code": "x30",
+        "color": "规格",
+        "style": "简约",
+        "size": "充电电池三用款"
+      },
+      "weight_kg": 0,
+      "page_type": "detail"
+    }
+  ],
+  "comparison_summary": {
+    "compared_at": "2026-04-04T04:29:26.342Z",
+    "candidate_count": 1,
+    "price_min": 26,
+    "price_max": 26,
+    "price_avg": 26,
+    "notes": []
+  },
+  "data_quality": {
+    "title_source": "1688-scraped",
+    "description_source": "ai-inferred",
+    "web_detail_valid": true,
+    "inferred_fields": [
+      "brand",
+      "model",
+      "color",
+      "material",
+      "size",
+      "weight_kg",
+      "country_of_origin",
+      "vendor_code"
+    ]
+  },
+  "analysis": {
+    "product_profile": "厨房用品",
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "target_price_rub": 0,
+    "supply_price_cny": 0,
+    "total_score": 0,
+    "final_decision": "Review"
+  },
+  "ozon_api_ready": {
+    "ready_for_product_import": true,
+    "ready_for_price_import": false,
+    "ready_for_stock_import": false,
+    "offer_id": "A600",
+    "category_id": null,
+    "type_id": null,
+    "warehouse_id": null,
+    "currency_code": "RUB",
+    "dimensions": {
+      "weight_g": 250,
+      "depth_mm": 0,
+      "width_mm": 0,
+      "height_mm": 0
+    },
+    "price_payload": {
+      "price": "0",
+      "old_price": "0",
+      "min_price": "0",
+      "currency_code": "RUB"
+    },
+    "stock_payload": {
+      "warehouse_id": null,
+      "offer_id": "A600",
+      "stock": 0
+    },
+    "product_import_payload_template": {
+      "offer_id": "A600",
+      "name": "Кухонные весы электронные мини, Точные весы для кухни, Высокая точность 1 г, Взвешивание продуктов, выпечки, трав",
+      "description": "Миниатюрные и точные электронные кухонные весы \"Qianque\" станут незаменимым помощником на вашей кухне. Идеально подходят для взвешивания ингредиентов при приготовлении выпечки, диетических блюд, а также для точного дозирования трав и специй. Благодаря компактному размеру и стильному дизайну весы легко поместятся в любом кухонном шкафчике.\n\nВесы обладают высокой точностью измерения до 1 грамма и широким диапазоном взвешивания, что позволяет использовать их как для мелких, так и для более крупных продуктов. Простой интерфейс с одной кнопкой управления и четкий ЖК-дисплей делают использование интуитивно понятным. Автоматическое отключение и индикация низкого заряда батареи продлевают срок службы устройства.",
+      "barcode": "",
+      "category_id": null,
+      "type_id": null,
+      "price": "0",
+      "old_price": "0",
+      "currency_code": "RUB",
+      "primary_image": "https://cbu01.alicdn.com/img/ibank/O1CN01tusKsO2IQl15BTZg2_!!2217732109281-0-cib.jpg",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01tusKsO2IQl15BTZg2_!!2217732109281-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN014Xq4IB2IQky8Aa0jf_!!2217732109281-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01ZGSGKp2IQky6TW3L4_!!2217732109281-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01XqeUhy2IQky7PUeHm_!!2217732109281-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN011SRwBv2IQky6XW3J4_!!2217732109281-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01GQbptB2IQkzk3Bney_!!2217732109281-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01uA9nl62IQkzk0aK3s_!!2217732109281-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01hezTzh2IQkzj04Qpg_!!2217732109281-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg",
+        "https://img.alicdn.com/imgextra/i3/O1CN01bDfvOh1TwJteNM7GX_!!4611686018427384622-0-rate.jpg_b.jpg"
+      ],
+      "dimensions": {
+        "weight_g": 250,
+        "depth_mm": 0,
+        "width_mm": 0,
+        "height_mm": 0
+      },
+      "attributes": [
+        {
+          "attribute_name": "Brand",
+          "attribute_id": 85,
+          "value_type": "string",
+          "value": "Qianque"
+        },
+        {
+          "attribute_name": "Material",
+          "attribute_id": 8229,
+          "value_type": "string",
+          "value": "Пластик, Стекло (платформа)"
+        },
+        {
+          "attribute_name": "Color",
+          "attribute_id": 10096,
+          "value_type": "string",
+          "value": "Белый"
+        },
+        {
+          "attribute_name": "Country of origin",
+          "attribute_id": 4383,
+          "value_type": "string",
+          "value": "CN"
+        }
+      ]
+    },
+    "listing_copy": {
+      "title_ru": "Кухонные весы электронные мини, Точные весы для кухни, Высокая точность 1 г, Взвешивание продуктов, выпечки, трав",
+      "description_ru": "Миниатюрные и точные электронные кухонные весы \"Qianque\" станут незаменимым помощником на вашей кухне. Идеально подходят для взвешивания ингредиентов при приготовлении выпечки, диетических блюд, а также для точного дозирования трав и специй. Благодаря компактному размеру и стильному дизайну весы легко поместятся в любом кухонном шкафчике.\n\nВесы обладают высокой точностью измерения до 1 грамма и широким диапазоном взвешивания, что позволяет использовать их как для мелких, так и для более крупных продуктов. Простой интерфейс с одной кнопкой управления и четкий ЖК-дисплей делают использование интуитивно понятным. Автоматическое отключение и индикация низкого заряда батареи продлевают срок службы устройства.",
+      "bullet_points_ru": [
+        "Высокая точность измерения до 1 грамма",
+        "Компактный и стильный дизайн, экономия места",
+        "Простое управление одной кнопкой и четкий ЖК-дисплей",
+        "Автоматическое отключение для экономии заряда батареи",
+        "Широкий диапазон взвешивания для разных продуктов"
+      ]
+    }
+  },
+  "seo_keywords_ru": [
+    "кухонные весы электронные",
+    "мини весы для кухни",
+    "точные весы для выпечки",
+    "весы для продуктов",
+    "кухонные весы 1 грамм"
+  ]
+}

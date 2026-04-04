@@ -1,0 +1,56 @@
+{
+  "slug": "汽车车门把手保护套-硅胶-cae7cbf1",
+  "status": "已上传",
+  "offer_id": "汽车车门把手保护套-硅胶-cae7cbf1",
+  "title_override": "Защита для ручек автомобильных дверей силиконовая, комплект 4 шт, универсальная, предотвращает царапины и износ",
+  "description_override": "Силиконовые защитные накладки для ручек автомобильных дверей — это простое и эффективное решение для сохранения внешнего вида вашего автомобиля. Они надежно защищают поверхность ручек от царапин, сколов, потертостей и загрязнений, которые возникают при ежедневном использовании.\n\nУниверсальный дизайн подходит для большинства моделей автомобилей. Мягкий и эластичный силикон плотно облегает ручку, не мешая ее функциональности. Установка занимает секунды без использования инструментов или клея. Защита сохраняет заводской лак и цвет кузова, повышая стоимость автомобиля при перепродаже.",
+  "title_lang": "ru",
+  "price_override": "38.50",
+  "old_price_override": "50.05",
+  "supply_price_cny": 11,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01D8TAFp1maJUo2Tqj8_!!2534164970-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01D8TAFp1maJUo2Tqj8_!!2534164970-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01NA7JZz1zLHZP7gR50_!!2215070226697-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01fxfYqg1qzjxr8nA75_!!1049355567-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01igsDYd1TFifprq27W_!!2208522372353-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01lvaCDz1nlanS05Eys_!!2218349095130-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01qVehyu1WSUy1BHQD6_!!2219064492787-0-cib.jpg"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-------------cae7cbf-31j4"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007414182,
+  "ozon_task_id": 4102522526,
+  "ozon_import_at": "2026-04-04T04:30:10.639Z"
+}

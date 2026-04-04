@@ -1,0 +1,56 @@
+{
+  "slug": "文件收纳盒-桌面-带盖-093ad3e4",
+  "status": "已上传",
+  "offer_id": "文件收纳盒-桌面-带盖-093ad3e4",
+  "title_override": "Органайзер для документов настольный с крышкой, бесшовный нетканый материал, 35x26x22 см, современный минимализм",
+  "description_override": "Настольный органайзер с крышкой — идеальное решение для поддержания порядка в доме и офисе. Его прочная конструкция из нетканого материала и картона обеспечивает долговечность, а элегантный дизайн в стиле современного минимализма гармонично впишется в любой интерьер.\n\nИспользуйте этот органайзер для хранения документов, канцелярских принадлежностей, журналов, косметики, аксессуаров для гаджетов и других мелких вещей. Закрывающаяся крышка защищает содержимое от пыли и придает аккуратный вид вашему рабочему пространству. Универсальные размеры и возможность нанесения логотипа делают его также отличным корпоративным подарком или промо-продуктом.",
+  "title_lang": "ru",
+  "price_override": "35.00",
+  "old_price_override": "45.50",
+  "supply_price_cny": 10,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01E3VvyG1tAqYecBpvB_!!2212654045862-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01E3VvyG1tAqYecBpvB_!!2212654045862-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wvwPmI1tAqYhBaV3q_!!2212654045862-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01i6E76c1tAqYdZw54b_!!2212654045862-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN010OUMBf1tAqYhBcRc9_!!2212654045862-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01dDxNuZ1Bs2opp0X00_!!0-0-cib.jpg"
+  ],
+  "weight_override_g": 300,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 95482,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "------------093ad3e4-6sxj"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992707252,
+  "ozon_task_id": 4102169295,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T03:26:12.826Z"
+}

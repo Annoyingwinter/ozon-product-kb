@@ -1,0 +1,56 @@
+{
+  "slug": "猫粮密封储粮桶-c2dea546",
+  "status": "已上传",
+  "offer_id": "猫粮密封储粮桶-c2dea546",
+  "title_override": "Контейнер для хранения корма для кошек с вакуумной герметизацией, автоматической крышкой, защита от влаги и запаха, 5 л",
+  "description_override": "Специальный герметичный контейнер для длительного хранения сухого корма для кошек и собак. Вакуумная система удаляет воздух из емкости, создавая отрицательное давление, что предотвращает окисление, потерю вкуса и аромата корма, а также защищает от влаги, насекомых и посторонних запахов.\n\nКонтейнер оснащен удобной автоматической крышкой с системой 'одно нажатие' для быстрого открывания и закрывания. Прочный пищевой пластик безопасен для хранения корма, легко моется и компактно размещается на кухне или в кладовой. Идеальное решение для сохранения свежести больших упаковок корма.",
+  "title_lang": "ru",
+  "price_override": "15.93",
+  "old_price_override": "20.71",
+  "supply_price_cny": 4.55,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01vozhg225xeSCaIAH6_!!2218359047593-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01vozhg225xeSCaIAH6_!!2218359047593-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014eiNBf25xeSC8Y5n1_!!2218359047593-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01v0xSvQ25xeS76HF2Q_!!2218359047593-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01XqfEJ825xeSBr8Qub_!!2218359047593-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01WVIpyU1cfDemg7nRq_!!6000000003627-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 500,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------c2dea546-by6c"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007264581,
+  "ozon_task_id": 4102425875,
+  "ozon_import_at": "2026-04-04T04:09:06.960Z"
+}

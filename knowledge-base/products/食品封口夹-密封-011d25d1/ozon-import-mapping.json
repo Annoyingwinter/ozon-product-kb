@@ -1,0 +1,56 @@
+{
+  "slug": "食品封口夹-密封-011d25d1",
+  "status": "已上传",
+  "offer_id": "食品封口夹-密封-011d25d1",
+  "title_override": "Зажим для пакетов пищевой, герметичный, с носиком для высыпания, 12 шт, для кухни, хранения продуктов",
+  "description_override": "Набор герметичных зажимов для пакетов — идеальное решение для поддержания свежести продуктов на вашей кухне. Удобный носик позволяет аккуратно высыпать содержимое, не снимая зажим, что предотвращает рассыпание и сохраняет аромат.\n\nИзготовленные из прочного пластика, эти зажимы надежно фиксируют пакеты с крупами, мукой, сахаром, чаем, кофе, орехами и снеками. Они защищают продукты от влаги, запахов и вредителей, продлевая срок их хранения. Компактный набор из 12 штук подходит для пакетов разной толщины и станет вашим незаменимым помощником в организации кухонного пространства.",
+  "title_lang": "ru",
+  "price_override": "93.84",
+  "old_price_override": "121.99",
+  "supply_price_cny": 26.81,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01cjwwym1DwkOnW45KH_!!2210843980281-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01cjwwym1DwkOnW45KH_!!2210843980281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ZCfWWw1DwkOoewG8i_!!2210843980281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01c4Tqqx1DwkOnWWHGy_!!2210843980281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01sX2pvS1DwkOocjaC0_!!2210843980281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01WnU0Dg1DwkOnAeMMG_!!2210843980281-0-cib.jpg"
+  ],
+  "weight_override_g": 100,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------011d25d1-c36i"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992711578,
+  "ozon_task_id": 4102522526,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T04:30:10.642Z"
+}

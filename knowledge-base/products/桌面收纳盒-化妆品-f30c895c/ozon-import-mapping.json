@@ -1,0 +1,55 @@
+{
+  "slug": "桌面收纳盒-化妆品-f30c895c",
+  "status": "已上传",
+  "offer_id": "桌面收纳盒-化妆品-f30c895c",
+  "title_override": "Органайзер для косметики настольный, большой, с выдвижными ящиками, для хранения косметики и аксессуаров, белый",
+  "description_override": "Этот стильный и функциональный органайзер для косметики поможет навести идеальный порядок на вашем туалетном столике, в ванной комнате или на рабочем столе. Его просторные отделения и выдвижные ящики предназначены для аккуратного хранения всех ваших косметических средств, кистей, украшений и мелких аксессуаров.\n\nИзготовленный из прочного и безопасного полипропилена (PP), органайзер устойчив к влаге и легко моется. Современный минималистичный дизайн в белом цвете гармонично впишется в любой интерьер, будь то спальня, ванная или офис. Большой размер позволяет хранить множество предметов, освобождая ценное пространство.",
+  "title_lang": "ru",
+  "price_override": "27.48",
+  "old_price_override": "35.72",
+  "supply_price_cny": 7.85,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01rk9kj11aynGcxL1MB_!!2200658093399-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01rk9kj11aynGcxL1MB_!!2200658093399-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01KUAUmt1aynGlWKMwA_!!2200658093399-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01uVrmFI1aynGkca933_!!2200658093399-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ugKnFu1aynGkAeOzv_!!2200658093399-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN017aCDf91aynGjz7MQv_!!2200658093399-0-cib.jpg"
+  ],
+  "weight_override_g": 500,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------f30c895c-btpt"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007264619,
+  "ozon_task_id": 4102425875,
+  "ozon_import_at": "2026-04-04T04:09:06.958Z"
+}

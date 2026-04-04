@@ -1,0 +1,55 @@
+{
+  "slug": "厨房调料瓶收纳架-转盘-06fd9e8f",
+  "status": "已上传",
+  "offer_id": "厨房调料瓶收纳架-转盘-06fd9e8f",
+  "title_override": "Органайзер для специй кухонный вращающийся, подставка для бутылок с приправами, поворотный лоток из ABS, ретро деревянный дизайн",
+  "description_override": "Этот вращающийся органайзер для специй — идеальное решение для поддержания порядка на кухне. Он позволяет компактно разместить все бутылки с маслом, уксусом, соусами и приправами, обеспечивая мгновенный доступ к нужной бутылке благодаря плавному вращению на 360 градусов. Элегантный ретро-дизайн с текстурой под дерево гармонично впишется в интерьер кухни в стиле лофт, кантри или прованс.\n\nИзготовленный из прочного и безопасного ABS-пластика, органайзер устойчив к влаге и жиру, его легко мыть. Вращающаяся конструкция экономит место на столешнице или в шкафу, делая процесс готовки более удобным и организованным. Это не просто органайзер, а стильный аксессуар для вашей кухни.",
+  "title_lang": "ru",
+  "price_override": "94.50",
+  "old_price_override": "122.85",
+  "supply_price_cny": 27,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01mnoY7N1FC9IsKCIaU_!!3524700450-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01mnoY7N1FC9IsKCIaU_!!3524700450-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ilNMyW1FC9IqXyKG0_!!3524700450-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01EXhhHR1FC9IpJaq2N_!!3524700450-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN010tDkFE1FC9Ir6c5ll_!!3524700450-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01eXCjq11FC9Ir98j1I_!!3524700450-0-cib.jpg"
+  ],
+  "weight_override_g": 500,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "------------06fd9e8f-mogp"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007070220,
+  "ozon_task_id": 4102318072,
+  "ozon_import_at": "2026-04-04T03:49:32.406Z"
+}

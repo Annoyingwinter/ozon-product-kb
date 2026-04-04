@@ -1,0 +1,55 @@
+{
+  "slug": "汽车钥匙扣-207686e6",
+  "status": "已上传",
+  "offer_id": "汽车钥匙扣-207686e6",
+  "title_override": "Брелок для ключей автомобиля Мишка в космосе, подарочный, из смолы, для ключей и сумок",
+  "description_override": "Очаровательный брелок в виде медвежонка в космическом стиле — идеальный аксессуар для ваших ключей от машины, дома или рюкзака. Изготовлен из качественной смолы с детальной проработкой, он отличается прочностью и долговечностью, сохраняя яркий вид надолго.\n\nЭтот брелок станет отличным подарком на любой праздник: день рождения, свадьбу, выпускной или просто как знак внимания. Его универсальный дизайн подходит как мужчинам, так и женщинам, добавляя индивидуальности вашим вещам.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 3,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01MyblIF2LSzU83flTN_!!2215387099692-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01MyblIF2LSzU83flTN_!!2215387099692-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01y31MoN2LSzTzlVAH9_!!2215387099692-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01XH3m7B2LSzU0CNRi8_!!2215387099692-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01zgBeYB2LSzU1j2g05_!!2215387099692-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01xUXsLh2LSzU68NpTG_!!2215387099692-0-cib.jpg"
+  ],
+  "weight_override_g": 30,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028978,
+    "type_id": 96495,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "------207686e6-w7dz"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4000656532,
+  "ozon_task_id": 4098519451,
+  "ozon_import_at": "2026-04-03T12:05:11.278Z"
+}

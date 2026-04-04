@@ -1,0 +1,55 @@
+{
+  "slug": "汽车座椅缝隙填充条-64681b6d",
+  "status": "已上传",
+  "offer_id": "汽车座椅缝隙填充条-64681b6d",
+  "title_override": "Заполнитель щелей автомобильного сиденья EVA, набор из 2 шт., предотвращает падение предметов, универсальный для большинства автомобилей",
+  "description_override": "Заполнитель щелей автомобильного сиденья из высококачественного материала EVA — это простое и эффективное решение для предотвращения падения мелких предметов (телефонов, ключей, монет) в труднодоступные щели между сиденьем и центральной консолью. Установка занимает секунды: просто вставьте уплотнитель в щель.\n\nИзготовленный из упругого и долговечного EVA, заполнитель плотно прилегает к поверхностям, не скользит и не мешает регулировке сиденья. Он также помогает поддерживать чистоту в салоне, предотвращая попадание крошек и мусора в щели. Подходит для большинства седанов, хэтчбеков, кроссоверов и внедорожников.",
+  "title_lang": "ru",
+  "price_override": "21.00",
+  "old_price_override": "27.30",
+  "supply_price_cny": 6,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN0195U5KN1n6pfHTOito_!!2200756875041-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN0195U5KN1n6pfHTOito_!!2200756875041-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN018I7lDV1n6pfI0ENpw_!!2200756875041-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01uWRs0s1n6pfCkDXhv_!!2200756875041-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN016NINdz1n6pfICOZlC_!!2200756875041-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01H0Mxrs1n6pfIIO6Yr_!!2200756875041-0-cib.jpg"
+  ],
+  "weight_override_g": 100,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028978,
+    "type_id": 96495,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------64681b6d-mq5f"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007070237,
+  "ozon_task_id": 4102318072,
+  "ozon_import_at": "2026-04-04T03:49:32.409Z"
+}

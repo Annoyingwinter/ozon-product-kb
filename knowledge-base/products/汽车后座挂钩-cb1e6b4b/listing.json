@@ -1,0 +1,302 @@
+{
+  "schema_version": "ozon-kb-v2-direct-listing",
+  "generated_at": "2026-04-04T04:29:26.396Z",
+  "source_platform": "1688",
+  "source_url": "https://www.1688.com/?spm=a260k.24848612.notfound&theme=index",
+  "source_platform_urls": [
+    "https://www.1688.com/?spm=a260k.24848612.notfound&theme=index"
+  ],
+  "spu_id": "汽车后座挂钩-cb1e6b4b",
+  "sku_id": "汽车后座挂钩-cb1e6b4b-001",
+  "group_id": "汽车后座挂钩-cb1e6b4b",
+  "variant_theme": "",
+  "variant_values": {},
+  "brand": "Generic",
+  "model": "Rear Seat Hook Universal",
+  "vendor_code": "CAR-HOOK-02-BLACK",
+  "barcode": "",
+  "title_cn": "阿里1688首页",
+  "title_en": "Car Rear Seat Hook, 2 pcs, Universal Mount, Durable Metal, for Bags and Clothes",
+  "title_ru": "Автомобильный крючок для заднего сиденья, 2 шт., универсальный крепеж, прочный металл, для сумок и одежды",
+  "description": "",
+  "bullet_points": [
+    "✅ Универсальные крючки для крепления на подголовники сидений",
+    "✅ Комплект из 2 штук для организации пространства с двух сторон",
+    "✅ Прочная металлическая конструкция с защитным покрытием",
+    "✅ Идеально для сумок, пакетов, одежды и зонтов",
+    "✅ Простая установка без инструментов, подходит для большинства авто"
+  ],
+  "price": 0,
+  "old_price": 0,
+  "currency": "RUB",
+  "stock": 0,
+  "min_order_qty": 1,
+  "package_quantity": 1,
+  "vat": "0",
+  "weight": 0.15,
+  "length": 0,
+  "width": 0,
+  "height": 0,
+  "category_path": "汽车用品",
+  "category_id_source": "ai-inferred",
+  "ozon_category_id": null,
+  "ozon_type_id": null,
+  "attributes": {
+    "source_category": "汽车用品",
+    "seasonality": "stable",
+    "fragility": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "material": "Металл, пластик",
+    "color": "Черный",
+    "size": "Один размер",
+    "power_supply": "",
+    "country_of_origin": "CN"
+  },
+  "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01c0gbTO21NEP2ncxKr_!!1867006972-0-cib.jpg.jpg",
+  "images": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01c0gbTO21NEP2ncxKr_!!1867006972-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01g0DNZ021zFGje1R0v_!!2215541627055-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01k6SnQ82HmuWaBgd9A_!!3472019194-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01YmYzaP1xsb7jNp2j1_!!2213753556499-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01qUaQ8s1Pui31eePlx_!!2222094931901-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01jHXbqR1hzR6f59soc_!!2207950294348-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01TuXzad1EFWUg9ddOu_!!2208323700322-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01UwG7gu1Bs2odNVA6S_!!0-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014QvN041JwBFyaVilI_!!2208039121092-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01VMuNuX1z1aUPEDR09_!!1645046654-0-cib.jpg.jpg"
+  ],
+  "video_url": "",
+  "image_count": 10,
+  "image_hash": "4766a6d2ee815722d366a168d531f846b3ae86d2",
+  "white_background": false,
+  "is_adult": false,
+  "is_fragile": false,
+  "dangerous_goods": false,
+  "country_of_origin": "CN",
+  "certificate_files": [],
+  "brand_authorization": "",
+  "customs_code": "",
+  "restricted_category_flag": false,
+  "supplier": {
+    "name": "广州淼渺商贸有限公司",
+    "platform": "1688",
+    "shop_url": "",
+    "contact": ""
+  },
+  "competitor_offers": [
+    {
+      "source_platform": "1688",
+      "source_url": "https://detail.1688.com/offer/1007643742774.html",
+      "offer_title": "顺旺顺汽车挂钩车载座椅背升级双挂钩翻毛皮后排车内双头后座挂钩 -",
+      "shop_name": "找相似¥4.10≥1个综合服务验厂报告采购咨询3.5退换体验4.0品质体验3.0采购咨询3.5纠纷解决4.0物流时效3.4顺旺顺顺旺顺汽车挂钩车载座椅背升级双挂钩翻毛皮后排车内双头后座挂钩车挂榜第3名¥8.2全网10万+件退货包运费先采后付回头率45%深圳市贝思蒂科技有限公司旺旺在线",
+      "shop_url": "",
+      "price": 4,
+      "price_text": "4",
+      "currency": "CNY",
+      "min_order_qty": 1,
+      "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01fQ6HOb1GqHfPbnROw_!!2217231660673-0-cib.jpg",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01fQ6HOb1GqHfPbnROw_!!2217231660673-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01F6YT791GqHfPboa8w_!!2217231660673-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01gvVhdh1CxNJHQgObQ_!!4611686018427379859-0-overseas_pic.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01H2Y4831GqHfPboaAE_!!2217231660673-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01vrQE8d1GqHfPK2gtE_!!2217231660673-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN012nESXl1GqHfPJqTL4_!!2217231660673-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01Bo2F2d1GqHfOzAXSW_!!2217231660673-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01szIwpG1GqHfPUuhlT_!!2217231660673-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg",
+        "https://img.alicdn.com/imgextra/i4/O1CN01ZYRa1M1uhCRRvCTRI_!!4611686018427381828-0-rate.jpg_b.jpg",
+        "https://img.alicdn.com/imgextra/i3/O1CN01frG0j41uhCRQitzZf_!!4611686018427381828-0-rate.jpg_b.jpg"
+      ],
+      "image_count": 11,
+      "category_path": "",
+      "normalizedAttributes": {
+        "brand": "顺旺顺",
+        "vendor_code": "GG005-Y型车载钩挂",
+        "size": "长(cm)",
+        "material": "翻毛皮",
+        "style": "现代简约风"
+      },
+      "weight_kg": 0,
+      "page_type": "detail"
+    },
+    {
+      "source_platform": "1688",
+      "source_url": "https://detail.1688.com/offer/1002450997969.html",
+      "offer_title": "汽车座椅背挂钩车内多功能隐藏翻毛皮通用挂钩车载后座置物小挂钩 -",
+      "shop_name": "汽车座椅背挂钩车内多功能隐藏翻毛皮通用挂钩车载后座置物小挂钩车内装饰｜简约｜车用挂钩¥12.18全网10万+件退货包运费先采后付回头率29%广州市贡美汽车用品有限公司旺旺在线",
+      "shop_url": "",
+      "price": 12,
+      "price_text": "12",
+      "currency": "CNY",
+      "min_order_qty": 1,
+      "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN012CacJz1xhbbGrRbQa_!!2220099756475-0-cib.jpg",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN012CacJz1xhbbGrRbQa_!!2220099756475-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01H9gEYs1xhbbEwhTLF_!!2220099756475-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01sYuxbB1xhbbF0TAW9_!!2220099756475-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN015rFjdH1xhbbA9YW1N_!!2220099756475-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01lrJxeL1xhbbG2ITn2_!!2220099756475-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01CgDTkn1xhbbF0jsxN_!!2220099756475-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN010LRTa11xhbbA9opQB_!!2220099756475-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg",
+        "https://img.alicdn.com/imgextra/i4/O1CN01FcKdZu1HYFgjbcpuf_!!4611686018427384017-0-rate.jpg_b.jpg",
+        "https://img.alicdn.com/imgextra/i1/O1CN01JnOYTN1HYFgiqKyjT_!!4611686018427384017-0-rate.jpg_b.jpg",
+        "https://img.alicdn.com/imgextra/i3/O1CN01BqBNa71HYFgivP1aH_!!4611686018427384017-0-rate.jpg_b.jpg",
+        "https://img.alicdn.com/imgextra/i2/O1CN01CaqRca1ky0ovxdQ9p_!!4611686018427382527-0-rate.jpg_b.jpg",
+        "https://img.alicdn.com/imgextra/i2/O1CN01i3tXd21ky0ovxV0sE_!!4611686018427382527-0-rate.jpg_b.jpg",
+        "https://img.alicdn.com/imgextra/i2/O1CN01Y3XDwM1ky0ovdQPlP_!!4611686018427382527-0-rate.jpg_b.jpg",
+        "https://img.alicdn.com/imgextra/i1/O1CN01f8W9Qg1ky0owBJjuM_!!4611686018427382527-0-rate.jpg_b.jpg"
+      ],
+      "image_count": 15,
+      "category_path": "",
+      "normalizedAttributes": {
+        "brand": "否",
+        "vendor_code": "007",
+        "color": "重量(g)",
+        "material": "ABS",
+        "style": "简约"
+      },
+      "weight_kg": 0,
+      "page_type": "detail"
+    }
+  ],
+  "comparison_summary": {
+    "compared_at": "2026-04-04T04:29:26.396Z",
+    "candidate_count": 2,
+    "price_min": 4,
+    "price_max": 12,
+    "price_avg": 8,
+    "notes": []
+  },
+  "data_quality": {
+    "title_source": "1688-scraped",
+    "description_source": "ai-inferred",
+    "web_detail_valid": true,
+    "inferred_fields": [
+      "brand",
+      "model",
+      "color",
+      "material",
+      "size",
+      "weight_kg",
+      "country_of_origin",
+      "vendor_code"
+    ]
+  },
+  "analysis": {
+    "product_profile": "汽车用品",
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "target_price_rub": 0,
+    "supply_price_cny": 0,
+    "total_score": 0,
+    "final_decision": "Review"
+  },
+  "ozon_api_ready": {
+    "ready_for_product_import": true,
+    "ready_for_price_import": false,
+    "ready_for_stock_import": false,
+    "offer_id": "CAR-HOOK-02-BLACK",
+    "category_id": null,
+    "type_id": null,
+    "warehouse_id": null,
+    "currency_code": "RUB",
+    "dimensions": {
+      "weight_g": 150,
+      "depth_mm": 0,
+      "width_mm": 0,
+      "height_mm": 0
+    },
+    "price_payload": {
+      "price": "0",
+      "old_price": "0",
+      "min_price": "0",
+      "currency_code": "RUB"
+    },
+    "stock_payload": {
+      "warehouse_id": null,
+      "offer_id": "CAR-HOOK-02-BLACK",
+      "stock": 0
+    },
+    "product_import_payload_template": {
+      "offer_id": "CAR-HOOK-02-BLACK",
+      "name": "Автомобильный крючок для заднего сиденья, 2 шт., универсальный крепеж, прочный металл, для сумок и одежды",
+      "description": "Автомобильные крючки для заднего сиденья — это практичное решение для организации пространства в салоне вашего авто. Они легко крепятся к подголовникам передних сидений, предоставляя удобные места для подвешивания пакетов с покупками, сумок, зонтов или верхней одежды, предотвращая их падение и беспорядок во время движения.\n\nИзготовленные из прочного металла с антикоррозийным покрытием, эти крючки выдерживают значительный вес и надежно служат долгое время. Универсальный дизайн и простота установки без инструментов делают их идеальным аксессуаром для любого автомобиля, помогая поддерживать чистоту и порядок в салоне.",
+      "barcode": "",
+      "category_id": null,
+      "type_id": null,
+      "price": "0",
+      "old_price": "0",
+      "currency_code": "RUB",
+      "primary_image": "https://cbu01.alicdn.com/img/ibank/O1CN01c0gbTO21NEP2ncxKr_!!1867006972-0-cib.jpg.jpg",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01c0gbTO21NEP2ncxKr_!!1867006972-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01g0DNZ021zFGje1R0v_!!2215541627055-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01k6SnQ82HmuWaBgd9A_!!3472019194-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01YmYzaP1xsb7jNp2j1_!!2213753556499-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01qUaQ8s1Pui31eePlx_!!2222094931901-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01jHXbqR1hzR6f59soc_!!2207950294348-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01TuXzad1EFWUg9ddOu_!!2208323700322-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01UwG7gu1Bs2odNVA6S_!!0-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN014QvN041JwBFyaVilI_!!2208039121092-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01VMuNuX1z1aUPEDR09_!!1645046654-0-cib.jpg.jpg"
+      ],
+      "dimensions": {
+        "weight_g": 150,
+        "depth_mm": 0,
+        "width_mm": 0,
+        "height_mm": 0
+      },
+      "attributes": [
+        {
+          "attribute_name": "Brand",
+          "attribute_id": 85,
+          "value_type": "string",
+          "value": "Generic"
+        },
+        {
+          "attribute_name": "Material",
+          "attribute_id": 8229,
+          "value_type": "string",
+          "value": "Металл, пластик"
+        },
+        {
+          "attribute_name": "Color",
+          "attribute_id": 10096,
+          "value_type": "string",
+          "value": "Черный"
+        },
+        {
+          "attribute_name": "Country of origin",
+          "attribute_id": 4383,
+          "value_type": "string",
+          "value": "CN"
+        }
+      ]
+    },
+    "listing_copy": {
+      "title_ru": "Автомобильный крючок для заднего сиденья, 2 шт., универсальный крепеж, прочный металл, для сумок и одежды",
+      "description_ru": "Автомобильные крючки для заднего сиденья — это практичное решение для организации пространства в салоне вашего авто. Они легко крепятся к подголовникам передних сидений, предоставляя удобные места для подвешивания пакетов с покупками, сумок, зонтов или верхней одежды, предотвращая их падение и беспорядок во время движения.\n\nИзготовленные из прочного металла с антикоррозийным покрытием, эти крючки выдерживают значительный вес и надежно служат долгое время. Универсальный дизайн и простота установки без инструментов делают их идеальным аксессуаром для любого автомобиля, помогая поддерживать чистоту и порядок в салоне.",
+      "bullet_points_ru": [
+        "✅ Универсальные крючки для крепления на подголовники сидений",
+        "✅ Комплект из 2 штук для организации пространства с двух сторон",
+        "✅ Прочная металлическая конструкция с защитным покрытием",
+        "✅ Идеально для сумок, пакетов, одежды и зонтов",
+        "✅ Простая установка без инструментов, подходит для большинства авто"
+      ]
+    }
+  },
+  "seo_keywords_ru": [
+    "автомобильный крючок",
+    "крючок для заднего сиденья",
+    "аксессуары для авто",
+    "организатор салона",
+    "крючок для сумок"
+  ]
+}

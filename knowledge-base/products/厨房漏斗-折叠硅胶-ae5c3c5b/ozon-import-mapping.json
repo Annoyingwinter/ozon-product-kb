@@ -1,0 +1,56 @@
+{
+  "slug": "厨房漏斗-折叠硅胶-ae5c3c5b",
+  "status": "已上传",
+  "offer_id": "厨房漏斗-折叠硅胶-ae5c3c5b",
+  "title_override": "Кухонная воронка силиконовая складная мини для жидкостей и масла, современный дизайн, 4 цвета",
+  "description_override": "Эта практичная складная силиконовая воронка станет незаменимым помощником на вашей кухне. Её гибкая конструкция позволяет легко переливать жидкости, масла, соусы и уксус в бутылки с узким горлышком, не проливая ни капли. Идеально подходит для заправки масленок, переливания домашних заготовок, напитков и многого другого.\n\nИзготовленная из пищевого силикона, воронка абсолютно безопасна для здоровья, не имеет запаха и легко моется. В сложенном виде она занимает минимум места в ящике, что делает её идеальной для небольших кухонь и хранения. Современный дизайн и выбор из четырех стильных цветов (зеленый, белый, розовый, синий) позволят подобрать аксессуар под интерьер вашей кухни.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 1.8,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/8977114592_922139211.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/8977114592_922139211.jpg",
+    "https://cbu01.alicdn.com/img/ibank/8994650980_922139211.jpg",
+    "https://cbu01.alicdn.com/img/ibank/8956914591_922139211.jpg",
+    "https://cbu01.alicdn.com/img/ibank/4368872627_922139211.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01keW7GK1KcJoKyOUPt_!!1620721184-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------ae5c3c5b-w1o3"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4000656579,
+  "ozon_task_id": 4098519451,
+  "ozon_import_at": "2026-04-03T12:05:11.270Z"
+}

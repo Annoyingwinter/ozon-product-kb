@@ -1,0 +1,363 @@
+{
+  "spu_id": "宠物外出水壶-c1d855e8",
+  "source_platform": "1688",
+  "seed": {
+    "keyword": "宠物外出水壶",
+    "category": "宠物用品"
+  },
+  "keyword": "宠物外出水壶",
+  "scraped_at": "2026-04-04T04:26:14.545Z",
+  "candidates": [
+    {
+      "rank": 1,
+      "title": "狗狗外出水壶便携式水杯宠物饮水器喂水粮户外遛狗喝水随行杯用品 -",
+      "source_url": "https://detail.1688.com/offer/839670806397.html",
+      "prices": [
+        "9",
+        "16"
+      ],
+      "attributes": {
+        "brand": "否",
+        "country_of_origin": "浙江",
+        "vendor_code": "猫耳水杯",
+        "compatible_models": "情侣,夫妻,同事,朋友,孩子,同学,其他",
+        "material": "PP",
+        "size": "重量(g)"
+      },
+      "raw_attributes": [
+        {
+          "key": "品牌",
+          "value": "圣世"
+        },
+        {
+          "key": "产地",
+          "value": "浙江"
+        },
+        {
+          "key": "是否进口",
+          "value": "否"
+        },
+        {
+          "key": "货号",
+          "value": "猫耳水杯"
+        },
+        {
+          "key": "箱装数量",
+          "value": "48"
+        },
+        {
+          "key": "是否专利货源",
+          "value": "否"
+        },
+        {
+          "key": "主要下游平台",
+          "value": "ebay、亚马逊、wish、速卖通、独立站、LAZADA、其他"
+        },
+        {
+          "key": "主要销售地区",
+          "value": "非洲、欧洲、南美、东南亚、北美、东北亚、中东、其他"
+        },
+        {
+          "key": "有可授权的自有品牌",
+          "value": "否"
+        },
+        {
+          "key": "是否跨境出口专供货源",
+          "value": "是"
+        },
+        {
+          "key": "适用送礼场合",
+          "value": "婚庆、派对聚会、其他"
+        },
+        {
+          "key": "适用送礼关系",
+          "value": "情侣、夫妻、同事、朋友、孩子、同学、其他"
+        },
+        {
+          "key": "适用节日",
+          "value": "圣诞节、情人节、春节、元旦、七夕、万圣节、复活节、国庆节、儿童节、其他"
+        },
+        {
+          "key": "是否属于礼品",
+          "value": "是，个人礼品"
+        },
+        {
+          "key": "是否IP授权",
+          "value": "否"
+        },
+        {
+          "key": "材质",
+          "value": "PP"
+        },
+        {
+          "key": "成套自动喂食",
+          "value": "是"
+        },
+        {
+          "key": "是否进口",
+          "value": "否"
+        },
+        {
+          "key": "箱装数量",
+          "value": "48"
+        },
+        {
+          "key": "主要销售地区",
+          "value": "非洲,欧洲,南美,东南亚,北美,东北亚,中东,其他"
+        },
+        {
+          "key": "是否跨境出口专供货源",
+          "value": "是"
+        },
+        {
+          "key": "适用送礼关系",
+          "value": "情侣,夫妻,同事,朋友,孩子,同学,其他"
+        },
+        {
+          "key": "是否属于礼品",
+          "value": "是，个人礼品"
+        },
+        {
+          "key": "规格",
+          "value": "重量(g)"
+        },
+        {
+          "key": "水杯黄色小号380ML",
+          "value": "200"
+        },
+        {
+          "key": "水杯粉色小号380ML",
+          "value": "200"
+        },
+        {
+          "key": "水杯灰色小号380ML",
+          "value": "200"
+        },
+        {
+          "key": "水杯紫色小号380ML",
+          "value": "200"
+        },
+        {
+          "key": "水杯黄色大号500ML",
+          "value": "200"
+        },
+        {
+          "key": "水杯粉色大号500ML",
+          "value": "200"
+        },
+        {
+          "key": "水杯灰色大号500ML",
+          "value": "200"
+        },
+        {
+          "key": "水杯紫色大号500ML",
+          "value": "200"
+        },
+        {
+          "key": "光版款卡通水粮杯紫色",
+          "value": "200"
+        },
+        {
+          "key": "光版款卡通水粮杯灰色",
+          "value": "200"
+        },
+        {
+          "key": "光版款卡通水粮杯粉色",
+          "value": "200"
+        },
+        {
+          "key": "光版款卡通水粮杯黄色",
+          "value": "200"
+        },
+        {
+          "key": "条纹款卡通水粮杯紫色",
+          "value": "200"
+        },
+        {
+          "key": "条纹款卡通水粮杯灰色",
+          "value": "200"
+        },
+        {
+          "key": "条纹款卡通水粮杯粉色",
+          "value": "200"
+        },
+        {
+          "key": "条纹款卡通水粮杯黄色",
+          "value": "200"
+        },
+        {
+          "key": "小号水杯380ML紫色【送斜跨绳】",
+          "value": "200"
+        },
+        {
+          "key": "小号水杯380ML黄色【送斜跨绳】",
+          "value": "200"
+        },
+        {
+          "key": "小号水杯380ML白色【送斜跨绳】",
+          "value": "200"
+        },
+        {
+          "key": "大号水杯500ML紫色【送斜跨绳】",
+          "value": "200"
+        },
+        {
+          "key": "大号水杯500ML黄色【送斜跨绳】",
+          "value": "200"
+        },
+        {
+          "key": "大号水杯500ML白色【送斜跨绳】",
+          "value": "200"
+        },
+        {
+          "key": "水粮杯紫色【送斜跨绳】",
+          "value": "200"
+        },
+        {
+          "key": "水粮杯黄色【送斜跨绳】",
+          "value": "200"
+        },
+        {
+          "key": "水粮杯白色【送斜跨绳】",
+          "value": "200"
+        }
+      ],
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01POL65L1EUBCea7FRW_!!2216240880354-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN018rdsNj1EUB5m2eAuh_!!2216240880354-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01t1Datz1EUB5lCdAZ0_!!2216240880354-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN015qvwwk1EUB5gVLJjt_!!2216240880354-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01brKhxn1EUB5cliO6K_!!2216240880354-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01nWDyPt1EUB53sUnCz_!!2216240880354-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01eALu9L1EUB57T6A9K_!!2216240880354-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01Zl6VeP1EUB55IB4U8_!!2216240880354-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01OYG6el1EUB4yCr0Vu_!!2216240880354-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01LCzjQl1EUB57T4geC_!!2216240880354-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01GOR3zt1EUB4yngiav_!!2216240880354-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01fLriwZ1EUB57T7lvj_!!2216240880354-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01HIB2Ov1EUB50ncaSk_!!2216240880354-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01fc0NvI1EUB4yCrCzf_!!2216240880354-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01U3cHP21EUB53DNd5p_!!2216240880354-0-cib.jpg_sum.jpg"
+      ],
+      "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01POL65L1EUBCea7FRW_!!2216240880354-0-cib.jpg",
+      "shop_name": "找相似义乌市圣世宠物用品有限公司综合服务验厂报告采购咨询3.0退换体验4.0品质体验3.0采购咨询3.0纠纷解决4.0物流时效3.4狗狗外出水壶便携式水杯宠物饮水器喂水粮户外遛狗喝水随行杯用品商机组货：宠物便携式水杯¥9.91.3万+件退货包运费先采后付回头率55%义乌市圣世宠物用品有限公司旺旺在线"
+    },
+    {
+      "rank": 2,
+      "title": "新款狗狗吨吨大容量宠物外出饮水壶猫咪饮水器便携水杯水粮一体碗 -",
+      "source_url": "https://detail.1688.com/offer/781749245903.html",
+      "prices": [
+        "6",
+        "22"
+      ],
+      "attributes": {
+        "brand": "是",
+        "country_of_origin": "中国",
+        "vendor_code": "2404SPBL8103-GP",
+        "color": "嬉皮狗爆款",
+        "material": "塑料"
+      },
+      "raw_attributes": [
+        {
+          "key": "品牌",
+          "value": "嬉皮狗"
+        },
+        {
+          "key": "产地",
+          "value": "中国"
+        },
+        {
+          "key": "是否进口",
+          "value": "否"
+        },
+        {
+          "key": "货号",
+          "value": "2404SPBL8103-GP"
+        },
+        {
+          "key": "箱装数量",
+          "value": "其他"
+        },
+        {
+          "key": "是否专利货源",
+          "value": "否"
+        },
+        {
+          "key": "颜色",
+          "value": "嬉皮狗爆款"
+        },
+        {
+          "key": "主要下游平台",
+          "value": "ebay、亚马逊、wish、速卖通、独立站、LAZADA"
+        },
+        {
+          "key": "主要销售地区",
+          "value": "欧洲、南美、东南亚、北美"
+        },
+        {
+          "key": "有可授权的自有品牌",
+          "value": "是"
+        },
+        {
+          "key": "是否跨境出口专供货源",
+          "value": "是"
+        },
+        {
+          "key": "是否属于礼品",
+          "value": "否"
+        },
+        {
+          "key": "是否IP授权",
+          "value": "否"
+        },
+        {
+          "key": "材质",
+          "value": "塑料"
+        },
+        {
+          "key": "成套自动喂食",
+          "value": "否"
+        },
+        {
+          "key": "是否进口",
+          "value": "否"
+        },
+        {
+          "key": "箱装数量",
+          "value": "其他"
+        },
+        {
+          "key": "主要下游平台",
+          "value": "ebay,亚马逊,wish,速卖通,独立站,LAZADA"
+        },
+        {
+          "key": "有可授权的自有品牌",
+          "value": "是"
+        },
+        {
+          "key": "是否属于礼品",
+          "value": "否"
+        }
+      ],
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01JoQPC12APMhlAGkka_!!2743028195-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01WSSvNE2APMhoEVMhh_!!2743028195-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01whiL8k2APMhn9eD1c_!!2743028195-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN011HGQhZ2APMhosIDnu_!!2743028195-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01hpOmu12APMhosHx9F_!!2743028195-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01LEtl5L2APMhcYuQdX_!!2743028195-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01t2iMAs2APMhkowxlz_!!2743028195-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01z7cR7h2APMhh2qkbD_!!2743028195-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01vrAV0N2APMhktKeJN_!!2743028195-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01GMubRd2APMhoszrKL_!!2743028195-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN019brRSA2APMhh2uNGe_!!2743028195-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01u6O6tZ2APMhktM3ep_!!2743028195-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01AbLp6Y2APMhoFE4iZ_!!2743028195-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01MbulX92APMhi2J66e_!!2743028195-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01MxL0zZ2APMi4VFqQo_!!2743028195-0-cib.jpg_sum.jpg"
+      ],
+      "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01JoQPC12APMhlAGkka_!!2743028195-0-cib.jpg",
+      "shop_name": "找相似南京嬉皮狗宠物有限公司综合服务验厂报告采购咨询4.5退换体验4.0品质体验3.0采购咨询4.5纠纷解决4.0物流时效3.6新款狗狗吨吨大容量宠物外出饮水壶猫咪饮水器便携水杯水粮一体碗元宝可抵1%｜商机组货：宠物便携式水杯¥6.54.8万+件退货包运费先采后付回头率67%南京嬉皮狗宠物有限公司旺旺在线"
+    }
+  ]
+}

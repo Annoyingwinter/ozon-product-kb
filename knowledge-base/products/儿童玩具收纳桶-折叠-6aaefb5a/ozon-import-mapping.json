@@ -1,0 +1,55 @@
+{
+  "slug": "儿童玩具收纳桶-折叠-6aaefb5a",
+  "status": "已上传",
+  "offer_id": "儿童玩具收纳桶-折叠-6aaefb5a",
+  "title_override": "Складное ведро для хранения игрушек, детское, тканевое, складное, для организации детской комнаты",
+  "description_override": "Это складное ведро для хранения игрушек — идеальное решение для поддержания порядка в детской комнате. Изготовленное из прочного полиэстера, оно легко складывается, когда не используется, экономя драгоценное пространство.\n\nЯркий дизайн и удобная ручка привлекают детей и побуждают их самостоятельно убирать игрушки после игры. Весёлый и практичный аксессуар, который помогает привить ребёнку навыки аккуратности и организации с самого раннего возраста.",
+  "title_lang": "ru",
+  "price_override": "17.50",
+  "old_price_override": "22.75",
+  "supply_price_cny": 5,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01pne1JU24qwyezV95x_!!2218158557443-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01pne1JU24qwyezV95x_!!2218158557443-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01OQWgxa24qwygVHDJP_!!2218158557443-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01jm1auW24qwyhTh7QN_!!2218158557443-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01F0KZJH24qwyhThvHl_!!2218158557443-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01WdtjNy24qwyggBVwH_!!2218158557443-0-cib.jpg"
+  ],
+  "weight_override_g": 200,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-----------6aaefb5a-2mj9"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007414175,
+  "ozon_task_id": 4102522526,
+  "ozon_import_at": "2026-04-04T04:30:10.636Z"
+}

@@ -1,0 +1,56 @@
+{
+  "slug": "猫咪自嗨玩具-电动-54829fd4",
+  "status": "已上传",
+  "offer_id": "猫咪自嗨玩具-电动-54829fd4",
+  "title_override": "Игрушка для кошек Гвен с автоматическим движением, на присоске, с длинной ручкой, для самостоятельной игры питомца",
+  "description_override": "Автоматическая игрушка-удочка для кошек Гвен — идеальное решение для развлечения вашего питомца, когда вас нет дома. Мощная присоска надежно крепится к любой гладкой поверхности (стекло, плитка, холодильник), а длинная гибкая ручка с перьями на конце совершает хаотичные движения, имитируя добычу.\n\nИгрушка изготовлена из безопасного и прочного пластика ABS, легко моется и не требует батареек — работает от встроенного аккумулятора (зарядка через USB). Подходит для котят и взрослых кошек, способствует развитию охотничьих инстинктов и предотвращает скуку, защищая вашу мебель от царапин.",
+  "title_lang": "ru",
+  "price_override": "126.00",
+  "old_price_override": "163.80",
+  "supply_price_cny": 36,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01fAguNc1eJLyMTDVYv_!!2214246033850-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01fAguNc1eJLyMTDVYv_!!2214246033850-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01WDwZpV1nA2QmNUTI2_!!2208117205048.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN012sXggN1eJLx4KXLgZ_!!2214246033850-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN019hrrwx1eJLx38MXf1_!!2214246033850-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01gFIx3F1eJLyjKv9fH_!!2214246033850-0-cib.jpg"
+  ],
+  "weight_override_g": 160,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------54829fd4-mteo"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992709633,
+  "ozon_task_id": 4102425875,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T04:09:06.959Z"
+}

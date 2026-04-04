@@ -1,0 +1,57 @@
+{
+  "slug": "汽车后座挂钩-cb1e6b4b",
+  "status": "已上传",
+  "offer_id": "汽车后座挂钩-cb1e6b4b",
+  "title_override": "Автомобильный крючок для заднего сиденья, 2 шт., универсальный крепеж, прочный металл, для сумок и одежды",
+  "description_override": "Автомобильные крючки для заднего сиденья — это практичное решение для организации пространства в салоне вашего авто. Они легко крепятся к подголовникам передних сидений, предоставляя удобные места для подвешивания пакетов с покупками, сумок, зонтов или верхней одежды, предотвращая их падение и беспорядок во время движения.\n\nИзготовленные из прочного металла с антикоррозийным покрытием, эти крючки выдерживают значительный вес и надежно служат долгое время. Универсальный дизайн и простота установки без инструментов делают их идеальным аксессуаром для любого автомобиля, помогая поддерживать чистоту и порядок в салоне.",
+  "title_lang": "ru",
+  "price_override": "17.50",
+  "old_price_override": "22.75",
+  "supply_price_cny": 5,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01c0gbTO21NEP2ncxKr_!!1867006972-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01c0gbTO21NEP2ncxKr_!!1867006972-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01g0DNZ021zFGje1R0v_!!2215541627055-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01k6SnQ82HmuWaBgd9A_!!3472019194-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01YmYzaP1xsb7jNp2j1_!!2213753556499-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01qUaQ8s1Pui31eePlx_!!2222094931901-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01jHXbqR1hzR6f59soc_!!2207950294348-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028978,
+    "type_id": 96495,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-------cb1e6b4b-6wko"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992707209,
+  "ozon_task_id": 4102169295,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T03:26:12.828Z"
+}

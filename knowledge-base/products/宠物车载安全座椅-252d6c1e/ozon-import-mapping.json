@@ -1,0 +1,56 @@
+{
+  "slug": "宠物车载安全座椅-252d6c1e",
+  "status": "已上传",
+  "offer_id": "宠物车载安全座椅-252d6c1e",
+  "title_override": "Автомобильное сиденье для собак и кошек, Безопасная переноска для питомцев в машине, Размер 41x38x23 см, Оксфордская ткань",
+  "description_override": "Автомобильное сиденье-переноска обеспечивает безопасность и комфорт вашего питомца во время поездок. Изготовлено из прочной оксфордской ткани, оно надежно крепится к штатному ремню безопасности автомобиля, предотвращая беспокойное поведение животного и отвлечение водителя.\n\nИдеально подходит для ежедневных поездок, посещения ветеринара или путешествий на дальние расстояния. Мягкие стенки и удобная форма создают уютное пространство для собаки или кошки, уменьшая стресс от транспортировки. Легко чистится и складывается для хранения.",
+  "title_lang": "ru",
+  "price_override": "164.50",
+  "old_price_override": "213.85",
+  "supply_price_cny": 47,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN014C0MR528rBXWLmm9y_!!2207614057985-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN014C0MR528rBXWLmm9y_!!2207614057985-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01YHoCes28rBdDV0k23_!!2207614057985-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01qoRQzh28rBXXHFfNC_!!2207614057985-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01lhFZ8f28rBXXHBAk2_!!2207614057985-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01u6Iomy28rBXdqZBoX_!!2207614057985-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 800,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------252d6c1e-nojv"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4000819239,
+  "ozon_task_id": 4098621126,
+  "ozon_import_at": "2026-04-03T12:26:29.883Z"
+}

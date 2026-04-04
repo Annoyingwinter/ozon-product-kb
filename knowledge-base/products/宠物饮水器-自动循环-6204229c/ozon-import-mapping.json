@@ -1,0 +1,56 @@
+{
+  "slug": "宠物饮水器-自动循环-6204229c",
+  "status": "已上传",
+  "offer_id": "宠物饮水器-自动循环-6204229c",
+  "title_override": "Автоматический фонтан-поилка для кошек и собак, циркуляция воды, 2 в 1: поилка и миска для еды",
+  "description_override": "Автоматический фонтан-поилка обеспечивает вашего питомца свежей, насыщенной кислородом водой благодаря непрерывной циркуляции. Это стимулирует естественный инстинкт питомца пить из проточных источников, что способствует увеличению потребления воды и поддержанию здоровья почек и мочевыводящих путей.\n\nКонструкция \"2 в 1\" включает в себя как поилку с циркуляцией, так и отдельную миску для еды, что экономит место и упрощает кормление. Тихая работа насоса не потревожит вас и вашего питомца. Легко разбирается для чистки, обеспечивая гигиеничность.",
+  "title_lang": "ru",
+  "price_override": "73.50",
+  "old_price_override": "95.55",
+  "supply_price_cny": 21,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN013UNokD1QxkCaNOvfx_!!2218568502043-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN013UNokD1QxkCaNOvfx_!!2218568502043-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01HCUYBP1QxkCaNQCmc_!!2218568502043-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN019L3GRd1QxkCbFvISk_!!2218568502043-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN011Vvx5q1QxkCblKKki_!!2218568502043-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01yHNLpX1Qxk9QUv0TL_!!2218568502043-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 800,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 75163484,
+    "type_id": 970665374,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-----------6204229c-c7rs"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4006299206,
+  "ozon_task_id": 4101877502,
+  "ozon_import_at": "2026-04-04T02:45:22.742Z"
+}

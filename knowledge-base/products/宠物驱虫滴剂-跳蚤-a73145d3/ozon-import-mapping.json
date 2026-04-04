@@ -1,0 +1,57 @@
+{
+  "slug": "宠物驱虫滴剂-跳蚤-a73145d3",
+  "status": "已上传",
+  "offer_id": "宠物驱虫滴剂-跳蚤-a73145d3",
+  "title_override": "Капли от блох и клещей для собак и кошек Хуэйлофэн, средство от паразитов, уничтожает блох, клещей, вшей, комаров",
+  "description_override": "Эффективные капли Хуэйлофэн для наружного применения обеспечивают надежную защиту вашего питомца от блох, клещей, вшей и других эктопаразитов. Простое в использовании средство наносится на кожу в области холки, откуда распределяется по кожному покрову, создавая длительный защитный барьер.\n\nПрепарат подходит для собак и кошек различных пород и размеров. Регулярное применение помогает предотвратить дискомфорт, зуд и возможные заболевания, переносимые паразитами, обеспечивая здоровье и благополучие вашего любимца. Формула разработана для быстрого действия и продолжительного эффекта.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 2,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01iZk8kD2NU1kU68XGN_!!2216500199965-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01iZk8kD2NU1kU68XGN_!!2216500199965-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01m5UFQu2NU1kVmphn1_!!2216500199965-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wYwkJ92NU1rjmZw66_!!2216500199965-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01sVIjGG2NU1kSQm0lr_!!2216500199965-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01JOuoYn2NU1nErOVQJ_!!2216500199965-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------a73145d3-6rkz"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992707227,
+  "ozon_task_id": 4102169295,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T03:26:12.822Z"
+}

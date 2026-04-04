@@ -1,0 +1,56 @@
+{
+  "slug": "冰箱收纳盒-f165dae5",
+  "status": "已上传",
+  "offer_id": "冰箱收纳盒-f165dae5",
+  "title_override": "Контейнер для хранения в холодильнике, набор 5 шт, прозрачный пластик, герметичные крышки, организация продуктов",
+  "description_override": "Набор практичных контейнеров для хранения продуктов в холодильнике поможет навести идеальный порядок и сэкономить пространство. Прозрачные стенки позволяют быстро находить нужные ингредиенты, а герметичные крышки надежно защищают от запахов и сохраняют свежесть.\n\nИдеально подходит для хранения готовых блюд, нарезки, сыра, колбасы, овощей, фруктов и полуфабрикатов. Контейнеры легко моются, штабелируются для компактного хранения и безопасны для пищевых продуктов. Превратите ваш холодильник в образец чистоты и организованности.",
+  "title_lang": "ru",
+  "price_override": "17.50",
+  "old_price_override": "22.75",
+  "supply_price_cny": 5,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01qVehyu1WSUy1BHQD6_!!2219064492787-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01qVehyu1WSUy1BHQD6_!!2219064492787-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN012Sx8Is2CUWXfpE6Oc_!!2214089838477-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01fxfYqg1qzjxr8nA75_!!1049355567-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01igsDYd1TFifprq27W_!!2208522372353-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01lvaCDz1nlanS05Eys_!!2218349095130-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN018hDEGa1TozTv1CGDA_!!2519712430-0-cib.jpg"
+  ],
+  "weight_override_g": 500,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "------f165dae5-c245"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4006299143,
+  "ozon_task_id": 4101877502,
+  "ozon_import_at": "2026-04-04T02:45:22.666Z"
+}
