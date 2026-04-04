@@ -178,49 +178,41 @@ export const HTML_PAGE = `<!DOCTYPE html>
       min-height: calc(100vh - 48px);
     }
 
-    /* ── floating nav ── */
+    /* ── top tab bar ── */
     .tab-nav {
-      position: fixed;
-      left: 0;
-      top: 48px;
-      width: 180px;
-      height: calc(100vh - 48px);
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border-right: 1px solid rgba(255,255,255,0.08);
       display: flex;
-      flex-direction: column;
-      gap: 2px;
-      padding: 16px 10px;
-      z-index: 200;
+      gap: 0;
+      background: var(--s1);
+      border-bottom: 1px solid var(--edge);
+      padding: 0 24px;
+      position: sticky;
+      top: 48px;
+      z-index: 99;
     }
     .tab-btn {
       font-family: var(--sans);
       font-weight: 500;
       font-size: 13px;
-      padding: 10px 8px;
+      padding: 12px 18px;
       border: none;
-      border-radius: 8px;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
       background: none;
-      color: var(--nav-text);
+      color: var(--t2);
       cursor: pointer;
-      text-align: left;
+      text-align: center;
       white-space: nowrap;
       transition: all 150ms var(--ease);
-      border-left: 2px solid transparent;
-      width: 100%;
       display: flex;
       align-items: center;
-      border-radius: 0 8px 8px 0;
+      gap: 6px;
     }
-    .tab-btn:hover { color: var(--nav-active); background: rgba(255,255,255,0.06); }
-    .tab-btn.active { color: var(--nav-active); background: rgba(255,255,255,0.08); font-weight: 600; border-left-color: var(--accent); }
+    .tab-btn:hover { color: var(--t1); background: rgba(5,150,105,0.03); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
     .tab-btn.active::after { display: none; }
-    .tab-btn .tab-icon { display: inline-block; width: 24px; text-align: center; flex-shrink: 0; font-size: 15px; }
-    .tab-btn .tab-text { margin-left: 6px; }
+    .tab-btn .tab-icon { font-size: 14px; }
+    .tab-btn .tab-text { }
     .app-main {
-      margin-left: 180px;
       min-width: 0;
     }
     .tab-btn .tab-badge {
@@ -1145,18 +1137,9 @@ export const HTML_PAGE = `<!DOCTYPE html>
       .stats-bar { grid-template-columns: 1fr 1fr; }
       .pdetail-grid { grid-template-columns: 1fr; }
       .tab-btn { padding: 10px 14px; font-size: 12px; }
-      .app-layout { flex-direction: column; }
-      .tab-nav {
-        position: fixed; bottom: 0; top: auto; left: 0; right: 0;
-        width: 100%; height: 52px; flex-direction: row; justify-content: center;
-        border-right: none; border-top: 1px solid rgba(255,255,255,0.1);
-        padding: 4px 8px; backdrop-filter: blur(20px);
-        background: rgba(15, 23, 42, 0.85);
-      }
-      .tab-btn { border-left: none; border-radius: 8px; }
+      .tab-nav { padding: 0 12px; overflow-x: auto; }
+      .tab-btn { padding: 10px 12px; font-size: 12px; }
       .tab-btn .tab-text { display: none; }
-      .tab-btn { padding: 10px 16px; }
-      .app-main { margin-left: 0; margin-bottom: 52px; }
       header { height: 48px; padding: 0 16px; }
       .wrap { padding: 24px 16px 48px; }
       .order-card { flex-direction: column; gap: 10px; align-items: flex-start; }
