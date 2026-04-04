@@ -54,7 +54,7 @@ function sign(data) {
  * @param {number} [expiresInHours=72]
  * @returns {string} JWT token
  */
-export function signToken(payload, expiresInHours = 72) {
+export function signToken(payload, expiresInHours = 168) { // 7天
   const now = Math.floor(Date.now() / 1000);
   const body = b64url(JSON.stringify({
     sub: payload.userId, email: payload.email, iat: now,
