@@ -1289,9 +1289,8 @@ export const HTML_PAGE = `<!DOCTYPE html>
           const adminBtn = document.getElementById('admin-tab-btn');
           if (adminBtn) adminBtn.style.display = '';
         }
-        // 异步加载数据+检查设置（不阻塞页面显示）
+        // 异步加载数据
         loadOzonConfig(); refresh(); refreshStats();
-        checkSetupGuide();
       } catch (e) {
         errEl.textContent = '网络错误: ' + e.message;
         errEl.style.display = 'block';
@@ -1323,7 +1322,6 @@ export const HTML_PAGE = `<!DOCTYPE html>
         }
         // 异步加载（不阻塞页面）
         loadOzonConfig(); refresh(); refreshStats();
-        checkSetupGuide();
       } catch {
         overlay.style.display = 'flex';
       }
