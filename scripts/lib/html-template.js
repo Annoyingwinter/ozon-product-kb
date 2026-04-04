@@ -2196,7 +2196,6 @@ export const HTML_PAGE = `<!DOCTYPE html>
           checkEl.innerHTML = '<span class="cfg-saved-check">&#10003; 已保存</span>';
           setTimeout(() => { checkEl.innerHTML = ''; }, 3000);
           loadOzonConfig();
-          checkSetupGuide(); // 重新检查设置完成状态
         } else {
           document.getElementById('ozon-cfg-status').textContent = '保存失败: ' + (r.error || '未知错误');
           document.getElementById('ozon-cfg-status').className = 'cfg-status disconnected';
@@ -2705,7 +2704,6 @@ export const HTML_PAGE = `<!DOCTYPE html>
     refreshStats();
     loadOzonConfig();
     refreshOrders();
-    checkSetupGuide();
     // 数据源只在页面首次加载时刷一次，不自动轮询（避免闪烁）
     // 统计和订单低频刷新
     setInterval(refreshStats, 60000);  // 统计: 60秒
