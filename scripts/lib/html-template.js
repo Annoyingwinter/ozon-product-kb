@@ -1173,7 +1173,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
 </head>
 <body>
   <!-- ─── Auth Overlay ─── -->
-  <div id="auth-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(15,23,42,0.5); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); align-items:center; justify-content:center;">
+  <div id="auth-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:#f8f9fa; align-items:center; justify-content:center;">
     <div style="background:var(--s1); border-radius:16px; padding:40px; box-shadow:0 20px 60px rgba(0,0,0,0.15); width:380px; max-width:90vw;">
       <div style="text-align:center; margin-bottom:24px;">
         <div style="display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-size:22px; font-weight:700; color:var(--t0);">
@@ -1300,6 +1300,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
         localStorage.setItem('oz_token', data.token);
         localStorage.setItem('oz_user', JSON.stringify(data.user));
         document.getElementById('auth-overlay').style.display = 'none';
+        document.getElementById('app-container').style.display = '';
         // 管理员显示管理tab
         if (data.user?.is_admin) {
           const adminBtn = document.getElementById('admin-tab-btn');
@@ -1330,6 +1331,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
         const data = await res.json();
         localStorage.setItem('oz_user', JSON.stringify(data.user));
         overlay.style.display = 'none';
+        document.getElementById('app-container').style.display = '';
         // 管理员显示管理tab
         if (data.user?.is_admin) {
           const adminBtn = document.getElementById('admin-tab-btn');
@@ -1347,6 +1349,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
     });
   </script>
 
+  <div id="app-container" style="display:none;">
   <header>
     <div class="hdr-left">
       <div class="hdr-logo">OP</div>
@@ -2637,6 +2640,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
 
     function setupComplete() {
       document.getElementById('setup-overlay').style.display = 'none';
+      document.getElementById('app-container').style.display = '';
       Promise.all([refresh(), refreshStats()]).catch(() => {});
     }
 
@@ -2734,5 +2738,6 @@ export const HTML_PAGE = `<!DOCTYPE html>
   </script>
   </div><!-- .app-main -->
   </div><!-- .app-layout -->
+  </div><!-- #app-container -->
 </body>
 </html>`;
