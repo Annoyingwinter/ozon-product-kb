@@ -244,9 +244,9 @@ export const HTML_PAGE = `<!DOCTYPE html>
 
     /* ── main ── */
     .wrap {
-      max-width: 920px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 36px 24px 64px;
+      padding: 20px 24px 48px;
     }
 
     /* ── stats bar ── */
@@ -1401,7 +1401,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
         </div>
         <span class="collapse-arrow">&#9660;</span>
       </div>
-      <div class="collapse-body" id="cfg-collapse-body" style="max-height:600px;">
+      <div class="collapse-body" id="cfg-collapse-body" style="max-height:none;">
         <div class="tile" id="ozon-cfg-tile" style="margin-bottom:28px;">
           <div class="tile-head">
             <div><div class="tile-label">Ozon Seller API</div><div class="tile-sub">api-seller.ozon.ru</div></div>
