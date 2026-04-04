@@ -1194,15 +1194,32 @@ export const HTML_PAGE = `<!DOCTYPE html>
 
   <!-- 设置引导弹窗（登录后、未完成配置时显示）-->
   <div id="setup-overlay" style="display:none; position:fixed; inset:0; z-index:9998; background:rgba(15,23,42,0.5); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); align-items:center; justify-content:center;">
-    <div style="background:#fff; border-radius:16px; padding:32px 36px; width:420px; max-width:90vw; box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+    <div style="background:#fff; border-radius:16px; padding:32px 36px; width:480px; max-width:90vw; box-shadow:0 20px 60px rgba(0,0,0,0.15);">
       <div style="text-align:center; margin-bottom:20px;">
         <div style="font-size:28px; margin-bottom:8px;">&#9881;</div>
         <div style="font-size:18px; font-weight:600;">完成设置</div>
         <div style="font-size:13px; color:var(--t2); margin-top:4px;">请完成以下步骤后开始使用</div>
       </div>
       <div id="setup-steps" style="font-size:14px; line-height:2.2;"></div>
-      <div style="text-align:center; margin-top:20px;">
-        <button onclick="checkSetupGuide()" style="padding:8px 24px; background:var(--accent); color:#fff; border:none; border-radius:8px; font-size:13px; cursor:pointer;">刷新状态</button>
+
+      <!-- 内嵌 Ozon 配置表单（默认隐藏）-->
+      <div id="setup-ozon-form" style="display:none; margin-top:16px; padding:16px; background:#f8f9fa; border-radius:10px;">
+        <div style="font-weight:600; margin-bottom:10px;">配置 Ozon API</div>
+        <input id="setup-ozon-cid" type="text" placeholder="Client-Id (纯数字)" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px; margin-bottom:8px; font-size:14px;" autocomplete="new-password">
+        <input id="setup-ozon-key" type="text" placeholder="Api-Key" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px; margin-bottom:10px; font-size:14px;" autocomplete="new-password">
+        <button onclick="setupSaveOzon()" style="padding:8px 20px; background:var(--accent); color:#fff; border:none; border-radius:8px; font-size:13px; cursor:pointer; width:100%;">保存并验证</button>
+        <div id="setup-ozon-msg" style="font-size:12px; margin-top:8px; text-align:center;"></div>
+      </div>
+
+      <!-- 1688 登录状态（默认隐藏）-->
+      <div id="setup-1688-status" style="display:none; margin-top:16px; padding:16px; background:#f8f9fa; border-radius:10px;">
+        <div style="font-weight:600; margin-bottom:10px;">1688 登录</div>
+        <div id="setup-1688-msg" style="font-size:13px; color:var(--t2);">点击下方按钮打开登录窗口，扫码完成后自动检测</div>
+        <button onclick="setupLogin1688()" id="setup-1688-btn" style="margin-top:10px; padding:8px 20px; background:var(--accent); color:#fff; border:none; border-radius:8px; font-size:13px; cursor:pointer; width:100%;">打开1688扫码登录</button>
+      </div>
+
+      <div style="text-align:center; margin-top:16px;">
+        <button onclick="checkSetupGuide()" style="padding:8px 24px; background:#e5e7eb; color:var(--t1); border:none; border-radius:8px; font-size:13px; cursor:pointer;">刷新状态</button>
       </div>
     </div>
   </div>
@@ -2545,12 +2562,12 @@ export const HTML_PAGE = `<!DOCTYPE html>
       // 1. Ozon API
       try {
         const cfg = await api('/ozon/config');
-        if (!cfg.clientId) issues.push({ text: '配置 Ozon API Key', action: "document.getElementById('setup-overlay').style.display='none';setTimeout(function(){document.getElementById('cfg-collapse-body').style.maxHeight='600px';var el=document.getElementById('ozon-client-id');el.scrollIntoView({behavior:'smooth',block:'center'});el.focus();},300)", done: false });
+        if (!cfg.clientId) issues.push({ text: '配置 Ozon API Key', action: "document.getElementById('setup-ozon-form').style.display='';document.getElementById('setup-ozon-cid').focus()", done: false });
         else issues.push({ text: 'Ozon API 已配置', done: true });
       } catch { issues.push({ text: '配置 Ozon API Key', done: false }); }
 
       // 2. 1688 登录
-      const login1688Action = "document.getElementById('setup-overlay').style.display='none';alert('即将打开1688登录窗口，请用手机扫码登录');setTimeout(function(){login('1688');},800)";
+      const login1688Action = "document.getElementById('setup-1688-status').style.display=''";
       try {
         const s1688 = await api('/status/1688');
         if (s1688?.valid) issues.push({ text: '1688 已登录', done: true });
@@ -2568,6 +2585,60 @@ export const HTML_PAGE = `<!DOCTYPE html>
           const style = i.done ? 'color:var(--t3);text-decoration:line-through;' : 'font-weight:500;';
           return '<div style="' + style + '">' + icon + ' ' + i.text + link + '</div>';
         }).join('');
+      }
+    }
+
+    // 弹窗内保存Ozon配置
+    async function setupSaveOzon() {
+      const cid = document.getElementById('setup-ozon-cid').value.trim();
+      const key = document.getElementById('setup-ozon-key').value.trim();
+      const msg = document.getElementById('setup-ozon-msg');
+      if (!cid) { msg.textContent = '请输入 Client-Id'; msg.style.color = 'var(--err)'; return; }
+      msg.textContent = '保存中...'; msg.style.color = 'var(--t2)';
+      try {
+        const body = { clientId: cid };
+        if (key) body.apiKey = key;
+        const r = await fetch('/api/ozon/config', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        const d = await r.json();
+        if (d.ok) {
+          msg.textContent = '保存成功!'; msg.style.color = 'var(--ok)';
+          document.getElementById('setup-ozon-form').style.display = 'none';
+          checkSetupGuide();
+        } else {
+          msg.textContent = '失败: ' + (d.error || '未知'); msg.style.color = 'var(--err)';
+        }
+      } catch (e) { msg.textContent = '网络错误'; msg.style.color = 'var(--err)'; }
+    }
+
+    // 弹窗内1688登录
+    async function setupLogin1688() {
+      const msg = document.getElementById('setup-1688-msg');
+      const btn = document.getElementById('setup-1688-btn');
+      btn.disabled = true; btn.textContent = '正在打开...';
+      msg.textContent = '正在打开1688登录窗口，请扫码...';
+      try {
+        await api('/login/1688', 'POST');
+        msg.textContent = '请在弹出的浏览器窗口中扫码登录，完成后自动检测...';
+        btn.textContent = '等待扫码...';
+        // 轮询检测登录状态
+        let polls = 0;
+        const interval = setInterval(async () => {
+          polls++;
+          if (polls > 60) { clearInterval(interval); msg.textContent = '超时，请重试'; btn.disabled = false; btn.textContent = '重新登录'; return; }
+          try {
+            const s = await api('/status/1688');
+            if (s?.valid) {
+              clearInterval(interval);
+              msg.textContent = '登录成功!';
+              msg.style.color = 'var(--ok)';
+              btn.textContent = '已登录';
+              setTimeout(() => checkSetupGuide(), 1000);
+            }
+          } catch {}
+        }, 3000);
+      } catch (e) {
+        msg.textContent = '启动失败: ' + e.message;
+        btn.disabled = false; btn.textContent = '重试';
       }
     }
 
