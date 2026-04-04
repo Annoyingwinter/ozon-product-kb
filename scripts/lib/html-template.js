@@ -1395,13 +1395,13 @@ export const HTML_PAGE = `<!DOCTYPE html>
       </div>
 
       <!-- Ozon API Config (collapsible) -->
-      <div class="collapse-header" id="cfg-collapse-hdr" onclick="toggleCollapse('cfg')">
+      <div class="collapse-header collapsed" id="cfg-collapse-hdr" onclick="toggleCollapse('cfg')">
         <div class="sec" style="display:flex;align-items:center;gap:8px;">
           <span style="font-size:14px;opacity:0.6;">&#128272;</span> Ozon API 配置
         </div>
         <span class="collapse-arrow">&#9660;</span>
       </div>
-      <div class="collapse-body" id="cfg-collapse-body" style="max-height:none;">
+      <div class="collapse-body collapsed" id="cfg-collapse-body" style="max-height:none;">
         <div class="tile" id="ozon-cfg-tile" style="margin-bottom:28px;">
           <div class="tile-head">
             <div><div class="tile-label">Ozon Seller API</div><div class="tile-sub">api-seller.ozon.ru</div></div>
