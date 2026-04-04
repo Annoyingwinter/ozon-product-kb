@@ -2538,9 +2538,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
       // 2. 1688 登录
       const login1688Action = "document.getElementById('setup-overlay').style.display='none';alert('即将打开1688登录窗口，请用手机扫码登录');setTimeout(function(){login('1688');},800)";
       try {
-        const r = await fetch('/api/session-status');
-        const d = await r.json();
-        const s1688 = d['1688'];
+        const s1688 = await api('/status/1688');
         if (s1688?.valid) issues.push({ text: '1688 已登录', done: true });
         else issues.push({ text: '登录 1688 采集账号', action: login1688Action, done: false });
       } catch { issues.push({ text: '登录 1688 采集账号', action: login1688Action, done: false }); }
