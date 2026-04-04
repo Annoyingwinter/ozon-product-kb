@@ -1,0 +1,56 @@
+{
+  "slug": "窗户清洁刮水器-dd08b56e",
+  "status": "已上传",
+  "offer_id": "窗户清洁刮水器-dd08b56e",
+  "title_override": "Оконный скребок T-образный для чистки стекол с вращающейся ручкой, универсальный очиститель окон без царапин, синий/серо-белый",
+  "description_override": "Универсальный T-образный скребок для идеальной чистки окон, зеркал и стеклянных поверхностей. Вращающаяся ручка обеспечивает удобный угол работы и позволяет легко удалять воду, моющие средства и грязь без разводов.\n\nИзготовлен из качественных материалов, бережно относится к поверхности стекла, не оставляет царапин. Идеально подходит для домашней уборки, мойки автомобильных стекол и поддержания чистоты в офисе или коммерческих помещениях.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 4,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01ZGeLIQ1yYjYbgL8qn_!!1936176591-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ZGeLIQ1yYjYbgL8qn_!!1936176591-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01n27Cgd1yYjGwU44gT_!!1936176591-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01y1npwJ1yYjOIAyiz1_!!1936176591-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01lzzq1c1yYjGpLg5rM_!!1936176591-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01suy9On1yYjByWowkv_!!1936176591-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014M75fK1Ti79oTFCtx_!!1791842415-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------dd08b56e-sy2q"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009046306,
+  "ozon_task_id": 4103503806,
+  "ozon_import_at": "2026-04-04T07:10:25.890Z"
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "鼠标腕托-硅胶-bec2fc47",
+  "status": "已上传",
+  "offer_id": "鼠标腕托-硅胶-bec2fc47",
+  "title_override": "Подставка для запястья из силикона и кожи WKUK для мыши и клавиатуры, размер 130x63x20.5 мм, антискользящая, эргономичная защита",
+  "description_override": "Эргономичная подставка для запястья WKUK создана для комфортной и безопасной работы за компьютером. Мягкая силиконовая основа в сочетании с износостойким кожаным покрытием обеспечивает оптимальную поддержку запястья, снижая нагрузку и предотвращая развитие туннельного синдрома при длительном использовании мыши или клавиатуры.\n\nИдеально подходит для офисных работников, геймеров, программистов и всех, кто проводит много времени за ПК. Универсальный размер и антискользящее основание гарантируют стабильное положение на любом столе. Простой уход и долговечные материалы делают эту подставку практичным решением для здоровья ваших рук.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 4,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01CGAIOd2506sn2Qixa_!!2218641607463-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01CGAIOd2506sn2Qixa_!!2218641607463-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01HWAcOf2506spY3rBJ_!!2218641607463-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01zjlABq2506sndleuB_!!2218641607463-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01aUf2F12506sodA8FV_!!2218641607463-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01OxoR6a2506sp4JPAm_!!2218641607463-0-cib.jpg"
+  ],
+  "weight_override_g": 80,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028727,
+    "type_id": 93659,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------bec2fc47-t1rs"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009046106,
+  "ozon_task_id": 4103503806,
+  "ozon_import_at": "2026-04-04T07:10:25.892Z"
+}

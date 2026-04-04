@@ -1,0 +1,54 @@
+{
+  "slug": "厨房刀架-壁挂磁吸-8cb9f4a0",
+  "status": "已上传",
+  "offer_id": "厨房刀架-壁挂磁吸-8cb9f4a0",
+  "title_override": "Магнитная подставка для ножей настенная, нержавеющая сталь, двойная сторона, держатель для кухонных ножей",
+  "description_override": "Эта настенная магнитная подставка для ножей — идеальное решение для организации вашей кухни. Изготовленная из прочной нержавеющей стали, она надежно удерживает ножи сильными магнитами, обеспечивая легкий доступ и безопасное хранение.\n\nДвойная магнитная сторона позволяет разместить больше ножей и кухонных инструментов, экономя ценное пространство на столешнице. Современный минималистичный дизайн гармонично впишется в любой интерьер кухни, делая ее не только функциональной, но и стильной.",
+  "title_lang": "ru",
+  "price_override": "108.50",
+  "old_price_override": "141.05",
+  "supply_price_cny": 31,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01zwAUgo2NGHvpb7CNn_!!2208845609935-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01zwAUgo2NGHvpb7CNn_!!2208845609935-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01S3F0032NGHvqo8DJ1_!!2208845609935-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01WEjScy2NGHvpDpfWo_!!2208845609935-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01asGuBe2NGHviOBzLw_!!2208845609935-0-cib.jpg"
+  ],
+  "weight_override_g": 500,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------8cb9f4a0-6qr1"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007869376,
+  "ozon_task_id": 4102822803,
+  "ozon_import_at": "2026-04-04T05:29:12.155Z"
+}

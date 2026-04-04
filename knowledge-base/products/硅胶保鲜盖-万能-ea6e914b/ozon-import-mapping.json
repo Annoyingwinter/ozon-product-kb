@@ -1,0 +1,56 @@
+{
+  "slug": "硅胶保鲜盖-万能-ea6e914b",
+  "status": "已上传",
+  "offer_id": "硅胶保鲜盖-万能-ea6e914b",
+  "title_override": "Силиконовая крышка для контейнеров Универсальная герметичная крышка для хранения продуктов в холодильнике и микроволновке",
+  "description_override": "Универсальная силиконовая крышка — это идеальное решение для хранения продуктов в холодильнике и их разогрева в микроволновой печи. Она плотно прилегает к краям различных контейнеров, тарелок и даже половинок фруктов, обеспечивая надежную герметичность и защищая от проливания.\n\nИзготовленная из высококачественного пищевого силикона, крышка безопасна для здоровья, не содержит BPA и легко моется. Эластичный материал позволяет использовать одну крышку для посуды разного диаметра, что экономит место на кухне и избавляет от необходимости искать подходящую крышку для каждого контейнера.",
+  "title_lang": "ru",
+  "price_override": "17.50",
+  "old_price_override": "22.75",
+  "supply_price_cny": 5,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01OgmTKV1Oh8XnSB1RV_!!964351736-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01OgmTKV1Oh8XnSB1RV_!!964351736-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01r7rew41Oh8P5OgSx4_!!964351736-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01KL6egF1Oh8Ow4eDXM_!!964351736-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01zLMwct1Oh8P2Xttfo_!!964351736-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN012i4O2O1Oh8KznYDCl_!!964351736-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------ea6e914b-wbid"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008112089,
+  "ozon_task_id": 4102937810,
+  "ozon_import_at": "2026-04-04T05:49:12.669Z"
+}

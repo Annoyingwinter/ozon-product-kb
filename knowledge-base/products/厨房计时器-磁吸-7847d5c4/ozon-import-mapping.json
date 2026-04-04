@@ -1,0 +1,57 @@
+{
+  "slug": "厨房计时器-磁吸-7847d5c4",
+  "status": "已上传",
+  "offer_id": "厨房计时器-磁吸-7847d5c4",
+  "title_override": "Кухонный таймер механический с магнитной задней панелью для готовки, визуальный отсчет времени, 60 минут, ABS пластик",
+  "description_override": "Этот механический кухонный таймер с магнитной задней панелью станет незаменимым помощником на вашей кухне. Он позволяет точно отслеживать время приготовления блюд, выпечки, варки яиц или заваривания чая, освобождая вас от необходимости постоянно следить за часами.\n\nПростой и интуитивно понятный в использовании: просто поверните циферблат на нужное время (до 60 минут), и таймер начнет обратный отсчет с отчетливым тиканьем. По истечении времени раздастся громкий и четкий звуковой сигнал. Благодаря магнитному креплению его можно удобно разместить на холодильнике, вытяжке или любой другой металлической поверхности, всегда держа под рукой.\n\nСовременный минималистичный дизайн впишется в интерьер любой кухни, а прочный корпус из ABS-пластика обеспечивает долговечность и устойчивость к бытовым воздействиям.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 2.6,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN013XLuIK1dMjGDnBcDg_!!2211547993722-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN013XLuIK1dMjGDnBcDg_!!2211547993722-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01GxAKWy1dMjGCMyCIK_!!2211547993722-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01tw8t7r1dMjGD1nRu2_!!2211547993722-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01EVdaZI1dMjGDE1ikT_!!2211547993722-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01blJ8v21dMjGCLwU3O_!!2211547993722-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 80,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 72095144,
+    "type_id": 91765,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------7847d5c4-hzf6"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992704642,
+  "ozon_task_id": 4102822803,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T05:29:12.159Z"
+}

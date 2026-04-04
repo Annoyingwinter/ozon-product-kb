@@ -1,0 +1,55 @@
+{
+  "slug": "衣物分类收纳袋-旅行-6bc02a91",
+  "status": "已上传",
+  "offer_id": "衣物分类收纳袋-旅行-6bc02a91",
+  "title_override": "Набор органайзеров для одежды в дорогу, 6 шт., водонепроницаемый, для путешествий и командировок, компактный",
+  "description_override": "Этот практичный набор органайзеров для одежды станет вашим незаменимым помощником в путешествиях и командировках. Он позволяет аккуратно разделить вещи по категориям (нижнее белье, носки, футболки, брюки и т.д.), что экономит место в чемодане и избавляет от хаоса.\n\nИзготовлен из прочного и легкого водонепроницаемого материала, который защитит ваши вещи от влаги и загрязнений. Компактный дизайн и прозрачные секции позволяют быстро найти нужную вещь, не перерывая весь багаж. Идеально подходит для организации как личных, так и детских вещей в дороге.",
+  "title_lang": "ru",
+  "price_override": "168.00",
+  "old_price_override": "218.40",
+  "supply_price_cny": 48,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01Ddya2B2Njb9YD313H_!!2213296929999-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Ddya2B2Njb9YD313H_!!2213296929999-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01FwoWwg2Njb9ZEvlLC_!!2213296929999-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Iw4TM22Njb9aLHM37_!!2213296929999-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01FNEp362Njb9PtuQg9_!!2213296929999-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN013y51W02Njb9YD4I7P_!!2213296929999-0-cib.jpg"
+  ],
+  "weight_override_g": 450,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-----------6bc02a91-wezn"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008111972,
+  "ozon_task_id": 4102937810,
+  "ozon_import_at": "2026-04-04T05:49:12.670Z"
+}

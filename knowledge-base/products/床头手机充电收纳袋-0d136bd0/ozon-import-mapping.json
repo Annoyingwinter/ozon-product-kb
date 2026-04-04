@@ -1,0 +1,57 @@
+{
+  "slug": "床头手机充电收纳袋-0d136bd0",
+  "status": "已上传",
+  "offer_id": "床头手机充电收纳袋-0d136bd0",
+  "title_override": "Органайзер для телефона и зарядки на спинку кровати, карман для хранения у изголовья, тканевый, универсальный",
+  "description_override": "Этот удобный органайзер крепится на спинку кровати и обеспечивает идеальное место для хранения вашего телефона, зарядного устройства, планшета, очков и других мелких предметов перед сном. Больше не нужно искать телефон среди простыней или беспокоиться о том, что он упадет с тумбочки.\n\nИзготовленный из прочной и мягкой ткани, органайзер защищает ваши устройства от царапин. Несколько карманов разного размера позволяют удобно организовать все необходимое под рукой, освобождая место на прикроватной тумбочке. Простая установка с помощью регулируемых ремней делает его совместимым с большинством типов изголовий кроватей.",
+  "title_lang": "ru",
+  "price_override": "21.00",
+  "old_price_override": "27.30",
+  "supply_price_cny": 6,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01rKnk9Q1KYeoNxELoS_!!2218300131176-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01rKnk9Q1KYeoNxELoS_!!2218300131176-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01qODZWU2CPwSQKucFn_!!3492328467-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01lvaCDz1nlanS05Eys_!!2218349095130-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01FWbQeF2DuSb3xoGnr_!!2217541098669-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01tWRYvR1i2BYGFID7N_!!2212655344354-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN0149m6of1Oh8aJWYAfR_!!2218999701736-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------0d136bd0-6vre"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992707259,
+  "ozon_task_id": 4102937810,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T05:49:12.666Z"
+}

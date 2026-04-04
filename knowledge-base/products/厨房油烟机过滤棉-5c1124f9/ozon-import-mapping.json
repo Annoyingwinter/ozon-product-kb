@@ -1,0 +1,56 @@
+{
+  "slug": "厨房油烟机过滤棉-5c1124f9",
+  "status": "已上传",
+  "offer_id": "厨房油烟机过滤棉-5c1124f9",
+  "title_override": "Фильтр для кухонной вытяжки, сменный впитывающий материал, синий, для бокового всасывания, из нетканого полотна, для улавливания жира и масла",
+  "description_override": "Сменный фильтр-вкладыш для кухонной вытяжки эффективно улавливает жир, масло и частицы пищи, предотвращая их попадание в двигатель и воздуховоды. Изготовлен из высококачественного нетканого материала синего цвета, который обладает отличной впитывающей способностью и устойчивостью к влаге.\n\nИдеальное решение для поддержания чистоты и продления срока службы вашей вытяжки. Просто поместите фильтр в жироулавливающий лоток (маслосборник) вашей вытяжки бокового всасывания. Регулярная замена фильтра обеспечивает оптимальную работу вытяжки, снижает уровень шума и предотвращает неприятные запахи на кухне.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 0.88,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01613zVS1pUlVdV4ajK_!!2209745415364-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01613zVS1pUlVdV4ajK_!!2209745415364-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01NWbEoI1pUlS7aTM1b_!!2209745415364-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01x4cWZ41pUlSBfWDrf_!!2209745415364-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ZxQYyM1pUlS6gp2tS_!!2209745415364-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01LkCJyW1pUlS9Tmdj6_!!2209745415364-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 20,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------5c1124f9-hlzp"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009219890,
+  "ozon_task_id": 4103624171,
+  "ozon_import_at": "2026-04-04T07:29:35.169Z"
+}

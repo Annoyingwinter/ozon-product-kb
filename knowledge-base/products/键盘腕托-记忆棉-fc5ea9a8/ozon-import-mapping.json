@@ -1,0 +1,55 @@
+{
+  "slug": "键盘腕托-记忆棉-fc5ea9a8",
+  "status": "已上传",
+  "offer_id": "键盘腕托-记忆棉-fc5ea9a8",
+  "title_override": "Подставка для запястья под клавиатуру Память Пена Облако Градиент Мягкая поддержка запястья Коврик для мыши Офис Эргономика",
+  "description_override": "Эргономичная подставка для запястья \"Облако\" с эффектом градиента создана для максимального комфорта во время длительной работы за компьютером. Её мягкая память пена повторяет естественный изгиб запястья, обеспечивая оптимальную поддержку и снижая нагрузку на суставы и мышцы.\n\nИдеально подходит для офисных работников, геймеров, программистов и всех, кто проводит много времени за клавиатурой и мышкой. Стильный дизайн в пастельных тонах украсит любой рабочий стол, а нескользящее силиконовое основание надежно фиксирует коврик на месте. Износостойкая молочная шелковая ткань приятна на ощупь и легко чистится.",
+  "title_lang": "ru",
+  "price_override": "77.00",
+  "old_price_override": "100.10",
+  "supply_price_cny": 22,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01zO8AKZ2JDIlhqu43h_!!2216671919387-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01zO8AKZ2JDIlhqu43h_!!2216671919387-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wG1SgD2JDIleDwoIn_!!2216671919387-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Fb5SK22JDIlhr12Y4_!!2216671919387-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01OeYI8g2JDIlhqdsgF_!!2216671919387-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01xVnR6P2JDIlrleMI2_!!2216671919387-0-cib.jpg"
+  ],
+  "weight_override_g": 250,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028727,
+    "type_id": 93659,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------fc5ea9a8-hu8p"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009219911,
+  "ozon_task_id": 4103624171,
+  "ozon_import_at": "2026-04-04T07:29:35.175Z"
+}

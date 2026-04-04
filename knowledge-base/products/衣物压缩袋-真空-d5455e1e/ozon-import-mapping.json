@@ -1,0 +1,55 @@
+{
+  "slug": "衣物压缩袋-真空-d5455e1e",
+  "status": "已上传",
+  "offer_id": "衣物压缩袋-真空-d5455e1e",
+  "title_override": "Вакуумные компрессионные пакеты для одежды и постельного белья, набор из 5 шт, усиленные PET+PE, для сезонного хранения",
+  "description_override": "Вакуумные компрессионные пакеты — это идеальное решение для экономии места при хранении сезонной одежды, пуховиков, одеял и подушек. С помощью обычного пылесоса вы легко удалите воздух из пакета, уменьшив объем вещей до 80%, что позволит освободить драгоценное пространство в шкафу, на антресолях или под кроватью.\n\nИзготовлены из прочного двухслойного материала PET+PE, который устойчив к проколам и разрывам, обеспечивая надежную защиту ваших вещей от пыли, влаги и моли. Герметичный клапан предотвращает попадание воздуха обратно, сохраняя ваши вещи в идеальном состоянии до следующего сезона. Подходят для многократного использования.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 2.2,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01Kf9hym1Ie26smclSX_!!2214758310917-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Kf9hym1Ie26smclSX_!!2214758310917-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN013Yq9h61Ie2FfRAOlO_!!2214758310917-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN0197Xgi01Ie26rTdm0d_!!2214758310917-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01eRfxwt1Ie20WnmEUd_!!2214758310917-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN011W1Dyv1Ie238Iws9V_!!2214758310917-0-cib.jpg"
+  ],
+  "weight_override_g": 300,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------d5455e1e-i609"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007711747,
+  "ozon_task_id": 4102721330,
+  "ozon_import_at": "2026-04-04T05:09:49.694Z"
+}

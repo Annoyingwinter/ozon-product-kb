@@ -1,0 +1,56 @@
+{
+  "slug": "宠物除臭喷雾-423d94ec",
+  "status": "已上传",
+  "offer_id": "宠物除臭喷雾-423d94ec",
+  "title_override": "Спрей для устранения запахов домашних животных - Биоэнзимный дезодорант для кошек и собак, нейтрализует запах мочи, 500 мл, аромат зеленого чая или белого персика",
+  "description_override": "Эффективный биоэнзимный спрей для быстрого и безопасного устранения стойких запахов от домашних животных. Идеально подходит для обработки лотков, лежанок, ковров, мебели и других поверхностей в доме, где могут оставаться запахи мочи, слюны или других биологических загрязнений.\n\nФормула на основе натуральных энзимов и растительных компонентов не просто маскирует запах, а полностью расщепляет его молекулы, обеспечивая долговременную свежесть. Безопасен для животных и людей, не содержит агрессивных химикатов, отдушек или спирта, которые могут вызывать раздражение.\n\nДоступен в двух приятных натуральных ароматах - освежающем зеленом чае или нежном белом персике, которые оставляют после обработки легкий и ненавязчивый шлейф. Удобный распылитель позволяет точно наносить средство даже в труднодоступные места.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 4,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01HKC4Sl1LiYzwzwTGP_!!2201497931333-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01HKC4Sl1LiYzwzwTGP_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN016VCFbJ1LiYuozYBLr_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ddJJOM1LiYuhhwUQt_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wu2kpn1LiYuozYeRt_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01S0PZcc1LiYupp8fQ4_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 600,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-------423d94ec-6sa0"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007869367,
+  "ozon_task_id": 4102822803,
+  "ozon_import_at": "2026-04-04T05:29:12.168Z"
+}

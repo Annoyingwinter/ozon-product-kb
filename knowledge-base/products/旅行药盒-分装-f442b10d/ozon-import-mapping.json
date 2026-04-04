@@ -1,0 +1,56 @@
+{
+  "slug": "旅行药盒-分装-f442b10d",
+  "status": "已上传",
+  "offer_id": "旅行药盒-分装-f442b10d",
+  "title_override": "Портативная таблетница для путешествий с 7 отделениями, герметичная, миниатюрная, для таблеток и украшений, цвет молочный",
+  "description_override": "Эта компактная и практичная таблетница станет вашим незаменимым спутником в путешествиях, на работе или в повседневной жизни. Она идеально подходит для организации и хранения ежедневных лекарств, витаминов, а также мелких украшений, таких как серьги или кольца.\n\nИзготовленная из прочных материалов PP, TRP и ABS, таблетница обеспечивает надежную защиту содержимого от влаги и пыли благодаря герметичным отделениям. Ее современный минималистичный дизайн и небольшой размер позволяют легко поместить ее в сумку, рюкзак или карман, сохраняя порядок и доступ к необходимым мелочам в любой момент.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 3,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01VXN30i1lJXJaRiNT2_!!2206533744798-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01VXN30i1lJXJaRiNT2_!!2206533744798-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01GB08Xb1lJXJZxJEJY_!!2206533744798-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01uRWVKV1lJXJYbmLHh_!!2206533744798-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01YFh2O71lJXJbc848L_!!2206533744798-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01HeTPvc1lJXJaUSXrm_!!2206533744798-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------f442b10d-wnxu"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009631697,
+  "ozon_task_id": 4103898607,
+  "ozon_import_at": "2026-04-04T08:09:14.626Z"
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "洗漱台收纳杯-牙刷架-750f5b17",
+  "status": "已上传",
+  "offer_id": "洗漱台收纳杯-牙刷架-750f5b17",
+  "title_override": "Настенная подставка для зубных щеток и стаканов из аэрокосмического алюминия, держатель для ванной комнаты YSJ-001QH",
+  "description_override": "Эта стильная настенная подставка поможет навести порядок в вашей ванной комнате. Она надежно крепится на стену и вмещает несколько зубных щеток и стакан для полоскания, освобождая ценное пространство на раковине. Изготовлена из прочного и легкого аэрокосмического алюминия с покрытием \"gunmetal grey\", которое устойчиво к влаге и коррозии, что делает его идеальным для условий ванной комнаты.\n\nПростая установка без сверления благодаря мощному клейкому слою 3M или классическому креплению на винты (комплект входит в поставку). Компактный дизайн органично впишется в любой интерьер ванной, от классического до современного. Легко моется, поддерживает чистоту и гигиену, предотвращая скопление воды и бактерий на щетках.",
+  "title_lang": "ru",
+  "price_override": "35.00",
+  "old_price_override": "45.50",
+  "supply_price_cny": 10,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01ipiK5V1FAm8p4aSdB_!!2219594560447-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ipiK5V1FAm8p4aSdB_!!2219594560447-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01NkucP41FAm8oQ6fXQ_!!2219594560447-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014j6bK11FAm8itNDIh_!!2219594560447-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01b5lw6n1FAm8nb8mYG_!!2219594560447-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01AfGZpJ1FAm8naWqZb_!!2219594560447-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-----------750f5b17-bnr4"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008598582,
+  "ozon_task_id": 4103202795,
+  "ozon_import_at": "2026-04-04T06:28:51.830Z"
+}

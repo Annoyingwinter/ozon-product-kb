@@ -1,0 +1,56 @@
+{
+  "slug": "卷发棒-迷你-便携-642d9b84",
+  "status": "已上传",
+  "offer_id": "卷发棒-迷你-便携-642d9b84",
+  "title_override": "Выпрямитель для волос мини портативный с пластиковым кейсом, терморегуляция, сухой и влажный режим, пастельные цвета",
+  "description_override": "Миниатюрный выпрямитель для волос — идеальный спутник в путешествиях, учебе и на каждый день. Его компактный размер и удобный пластиковый кейс позволяют легко брать его с собой в сумку, не занимая много места. Устройство быстро нагревается до оптимальной температуры, бережно выпрямляя волосы без повреждений.\n\nИдеально подходит для создания аккуратных укладок, оформления челки и работы с отдельными прядями. Благодаря функции работы с влажными волосами вы можете использовать его сразу после мытья головы, экономя время на сушку. Легкий и эргономичный дизайн обеспечивает комфортное использование даже для новичков.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 2,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/9323325722_1057532889.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/9323325722_1057532889.jpg",
+    "https://cbu01.alicdn.com/img/ibank/9323349272_1057532889.jpg",
+    "https://cbu01.alicdn.com/img/ibank/9366881959_1057532889.jpg",
+    "https://cbu01.alicdn.com/img/ibank/9366881965_1057532889.jpg",
+    "https://cbu01.alicdn.com/img/ibank/9347590666_1057532889.jpg",
+    "https://img.alicdn.com/tfs/TB10qL.khnaK1RjSZFtXXbC2VXa-256-172.png"
+  ],
+  "weight_override_g": 200,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------642d9b84-arij"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009418665,
+  "ozon_task_id": 4103771339,
+  "ozon_import_at": "2026-04-04T07:52:11.052Z"
+}

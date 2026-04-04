@@ -1,0 +1,55 @@
+{
+  "slug": "宠物粘毛器-a9e4c19a",
+  "status": "已上传",
+  "offer_id": "宠物粘毛器-a9e4c19a",
+  "title_override": "Ролик для удаления шерсти с одежды и мебели, липкий валик для питомцев, сменные рулоны, 10 см ширина",
+  "description_override": "Этот липкий ролик — незаменимый помощник для владельцев домашних животных, позволяющий быстро и эффективно удалять шерсть, пыль и мелкий мусор с одежды, мягкой мебели, автомобильных сидений и других поверхностей. Его компактный размер и эргономичная ручка делают использование удобным как дома, так и в дороге.\n\nРолик работает по принципу многоразовой липкой ленты: после загрязнения верхний слой легко отрывается, открывая свежий липкий слой. Это экономичное и экологичное решение по сравнению с одноразовыми аналогами. Идеально подходит для ежедневного ухода за вещами, поддержания чистоты в доме и подготовки одежды к выходу.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 3,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN013Mg99G1TNVaRq126m_!!3387412370-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN013Mg99G1TNVaRq126m_!!3387412370-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014WzBaV1TNVYzTpF7a_!!3387412370-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01hoOsbv1TNVZ6r0Yqp_!!3387412370-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01UPijvI1TNVY0lBpih_!!3387412370-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01V3lCFR1TNVZ6rQoD8_!!3387412370-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027929,
+    "type_id": 94615,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "------a9e4c19a-mv0f"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3974657495,
+  "ozon_task_id": 4103060671,
+  "ozon_import_at": "2026-04-04T06:09:44.180Z"
+}

@@ -1,0 +1,56 @@
+{
+  "slug": "洗衣机槽清洗剂-泡腾片-3315aa12",
+  "status": "已上传",
+  "offer_id": "洗衣机槽清洗剂-泡腾片-3315aa12",
+  "title_override": "Таблетки для чистки барабана стиральной машины - Универсальные, 3 шт., Удаление накипи, дезинфекция, борьба с плесенью",
+  "description_override": "Эффективные таблетки для глубокой очистки барабана и внутренних элементов стиральной машины. Удаляют стойкие известковые отложения, остатки моющих средств, грязь и неприятные запахи, обеспечивая гигиеничную чистоту для вашего белья.\n\nПодходят для всех типов стиральных машин (фронтальная и вертикальная загрузка). Просто поместите 1-2 таблетки в пустой барабан и запустите цикл стирки при высокой температуре (60-90°C) для достижения наилучшего результата. Регулярное использование (раз в 1-2 месяца) продлевает срок службы техники и предотвращает появление плесени.",
+  "title_lang": "ru",
+  "price_override": "17.50",
+  "old_price_override": "22.75",
+  "supply_price_cny": 5,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01wMTL8O2K4QwLBrMFP_!!973889503-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wMTL8O2K4QwLBrMFP_!!973889503-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01dzrwjY2K4QwLXpXto_!!973889503-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01kRn9E72K4QwLSAqHi_!!973889503-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01fRUIIF2K4QwLZqwO8_!!973889503-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01KWacJe2K4QwLrEyn0_!!973889503-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "------------3315aa12-wrlm"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009631757,
+  "ozon_task_id": 4103898607,
+  "ozon_import_at": "2026-04-04T08:09:14.627Z"
+}

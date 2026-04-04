@@ -1,0 +1,56 @@
+{
+  "slug": "不锈钢夹子-食品-0fa0fbfd",
+  "status": "已上传",
+  "offer_id": "不锈钢夹子-食品-0fa0fbfd",
+  "title_override": "Кухонные щипцы из нержавеющей стали 304 для барбекю, стейков и выпечки, длинная и короткая версии",
+  "description_override": "Универсальные кухонные щипцы из высококачественной нержавеющей стали 304 станут незаменимым помощником на вашей кухне. Идеально подходят для безопасного переворачивания стейков, котлет, овощей на гриле или сковороде, а также для извлечения горячей выпечки из духовки. Прочная конструкция с удобными ручками и надежным захватом обеспечивает комфорт и безопасность во время готовки.\n\nЭти щипцы изготовлены из пищевой нержавеющей стали, которая не ржавеет, легко моется и выдерживает высокие температуры. Они подходят для использования с антипригарным покрытием, не повреждая его. Благодаря двум вариантам длины (длинные и короткие) вы можете выбрать наиболее удобный инструмент для разных задач: длинные идеальны для гриля и глубоких кастрюль, короткие — для работы на сковороде.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 3,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01MkUK0R20enunYTl4j_!!2059436875-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01MkUK0R20enunYTl4j_!!2059436875-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01G1y4wc20enump1Vwg_!!2059436875-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN011cORGd20enunzOBMl_!!2059436875-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01gdC3h420enupr1x2q_!!2059436875-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01TPgsHP20enum1yO1d_!!2059436875-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------0fa0fbfd-1np8"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008830942,
+  "ozon_task_id": 4103354301,
+  "ozon_import_at": "2026-04-04T06:49:13.205Z"
+}

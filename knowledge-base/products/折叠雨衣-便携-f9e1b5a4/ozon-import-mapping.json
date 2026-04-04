@@ -1,0 +1,56 @@
+{
+  "slug": "折叠雨衣-便携-f9e1b5a4",
+  "status": "已上传",
+  "offer_id": "折叠雨衣-便携-f9e1b5a4",
+  "title_override": "Складной дождевик для путешествий, ультракомпактный и водонепроницаемый, размер L/XL",
+  "description_override": "Этот складной дождевик — идеальный спутник для любого путешественника, туриста или городского жителя. Его ультракомпактный дизайн позволяет легко поместить его в карман, сумку или рюкзак, обеспечивая надежную защиту от внезапного дождя в любой ситуации.\n\nИзготовленный из прочного и водонепроницаемого материала, этот плащ-дождевик сохранит вас сухим и комфортным. Он подходит для прогулок по городу, походов, фестивалей, спортивных мероприятий или просто как незаменимый аксессуар в бардачке автомобиля. Легкость и практичность делают его must-have для любого сезона.",
+  "title_lang": "ru",
+  "price_override": "24.50",
+  "old_price_override": "31.85",
+  "supply_price_cny": 7,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01lgpWWO1YrLdcqZa1f_!!2215608513112-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01lgpWWO1YrLdcqZa1f_!!2215608513112-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01RsDUhH1WYS6avtNEo_!!2218855622800-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ivLMGA1x637t1798R_!!2212045906393-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01DspIHT1re2s0GPURO_!!2213820195655-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN012abb1t2IQkwEyMjAP_!!2217732109281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN0175Mvq31UZFZN1zjkh_!!2221166822531-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------f9e1b5a4-hpbt"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009220114,
+  "ozon_task_id": 4103624171,
+  "ozon_import_at": "2026-04-04T07:29:35.170Z"
+}

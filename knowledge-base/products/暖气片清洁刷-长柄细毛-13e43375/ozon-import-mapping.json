@@ -1,0 +1,56 @@
+{
+  "slug": "暖气片清洁刷-长柄细毛-13e43375",
+  "status": "已上传",
+  "offer_id": "暖气片清洁刷-长柄细毛-13e43375",
+  "title_override": "Щетка для чистки радиаторов отопления с длинной ручкой и тонкой щетиной, инструмент для уборки труднодоступных мест",
+  "description_override": "Эта щетка с длинной ручкой и тонкой щетиной специально разработана для эффективной и удобной чистки радиаторов отопления, вентиляционных решеток и других труднодоступных мест в доме. Ее конструкция позволяет легко удалять пыль, паутину и мелкий мусор без необходимости двигать тяжелую мебель или прилагать чрезмерные усилия.\n\nИдеально подходит для регулярной уборки в жилых помещениях, офисах и коммерческих объектах. Длинная ручка обеспечивает комфортную работу без наклонов, защищая спину, а гибкая головка повторяет форму очищаемой поверхности, обеспечивая тщательную очистку.",
+  "title_lang": "ru",
+  "price_override": "24.50",
+  "old_price_override": "31.85",
+  "supply_price_cny": 7,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01FWbQeF2DuSb3xoGnr_!!2217541098669-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01FWbQeF2DuSb3xoGnr_!!2217541098669-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01tWRYvR1i2BYGFID7N_!!2212655344354-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01lvaCDz1nlanS05Eys_!!2218349095130-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01JhE0Jp2N1d9lYHy4v_!!3584759903-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Rzmfeh1liGWjgIdds_!!3403594852-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN019QJxDU1OeOK7XObMI_!!979861730-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028718,
+    "type_id": 970869623,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "------------13e43375-aw6e"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009418584,
+  "ozon_task_id": 4103771339,
+  "ozon_import_at": "2026-04-04T07:52:11.160Z"
+}

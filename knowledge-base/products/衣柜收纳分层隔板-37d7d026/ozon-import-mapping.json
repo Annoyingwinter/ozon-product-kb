@@ -1,0 +1,55 @@
+{
+  "slug": "衣柜收纳分层隔板-37d7d026",
+  "status": "已上传",
+  "offer_id": "衣柜收纳分层隔板-37d7d026",
+  "title_override": "Разделитель для шкафа, регулируемый, без сверления, для организации одежды и обуви, углеродистая сталь, 40-80 см",
+  "description_override": "Регулируемый разделитель для шкафа — идеальное решение для создания дополнительных полок и порядка в гардеробе, платяном шкафу, комоде или обувнице. Легко устанавливается без сверления и инструментов, просто отрегулируйте длину и зафиксируйте между стенками.\n\nИзготовлен из прочной углеродистой стали с антикоррозийным покрытием, выдерживает значительный вес одежды, обуви, постельного белья или других вещей. Подходит для квартиры, общежития, офиса, помогает максимально эффективно использовать вертикальное пространство.",
+  "title_lang": "ru",
+  "price_override": "26.25",
+  "old_price_override": "34.13",
+  "supply_price_cny": 7.5,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01SEbyMx1SSiSUnj0qs_!!2346112246-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01SEbyMx1SSiSUnj0qs_!!2346112246-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014GhUzj1SSieinH5sC_!!2346112246-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wtOZFG1SSiSVt6eo1_!!2346112246-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01l5h46p1SSiSUnlUiD_!!2346112246-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01dsXKnX1SSiSVt6OCE_!!2346112246-0-cib.jpg"
+  ],
+  "weight_override_g": 500,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------37d7d026-n07p"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008366977,
+  "ozon_task_id": 4103060671,
+  "ozon_import_at": "2026-04-04T06:09:44.189Z"
+}

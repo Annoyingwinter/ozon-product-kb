@@ -1,0 +1,296 @@
+{
+  "schema_version": "ozon-kb-v2-direct-listing",
+  "generated_at": "2026-04-04T08:08:43.705Z",
+  "source_platform": "1688",
+  "source_url": "https://www.1688.com/?spm=a260k.24848612.notfound&theme=index",
+  "source_platform_urls": [
+    "https://www.1688.com/?spm=a260k.24848612.notfound&theme=index"
+  ],
+  "spu_id": "床头手机充电收纳袋-0d136bd0",
+  "sku_id": "床头手机充电收纳袋-0d136bd0-001",
+  "group_id": "床头手机充电收纳袋-0d136bd0",
+  "variant_theme": "",
+  "variant_values": {},
+  "brand": "Без бренда",
+  "model": "Органайзер для кровати",
+  "vendor_code": "BED-ORG-01",
+  "barcode": "",
+  "title_cn": "阿里1688首页",
+  "title_en": "Bed Headboard Phone Charging Storage Organizer Pouch, Fabric, Universal",
+  "title_ru": "Органайзер для телефона и зарядки на спинку кровати, карман для хранения у изголовья, тканевый, универсальный",
+  "description": "",
+  "bullet_points": [
+    "Удобное хранение телефона и зарядки у изголовья кровати",
+    "Несколько карманов для телефона, планшета, очков и мелочей",
+    "Крепится на спинку кровати с помощью регулируемых ремней",
+    "Изготовлен из мягкой ткани для защиты устройств от царапин",
+    "Освобождает место на прикроватной тумбочке, поддерживает порядок"
+  ],
+  "price": 0,
+  "old_price": 0,
+  "currency": "RUB",
+  "stock": 0,
+  "min_order_qty": 1,
+  "package_quantity": 1,
+  "vat": "0",
+  "weight": 0.15,
+  "length": 0,
+  "width": 0,
+  "height": 0,
+  "category_path": "家居收纳",
+  "category_id_source": "ai-inferred",
+  "ozon_category_id": null,
+  "ozon_type_id": null,
+  "attributes": {
+    "source_category": "家居收纳",
+    "seasonality": "stable",
+    "fragility": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "material": "Полиэстер",
+    "color": "Черный",
+    "size": "Универсальный",
+    "power_supply": "",
+    "country_of_origin": "CN"
+  },
+  "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01rKnk9Q1KYeoNxELoS_!!2218300131176-0-cib.jpg.jpg",
+  "images": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01rKnk9Q1KYeoNxELoS_!!2218300131176-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01qODZWU2CPwSQKucFn_!!3492328467-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01lvaCDz1nlanS05Eys_!!2218349095130-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01FWbQeF2DuSb3xoGnr_!!2217541098669-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01tWRYvR1i2BYGFID7N_!!2212655344354-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN0149m6of1Oh8aJWYAfR_!!2218999701736-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01cIYESi2LPmrlDL9In_!!2218038839685-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01G5qQv11qzjqgWQJcB_!!1049355567-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01rz717P1yb1Y0tsn5a_!!2211024996596-0-cib.jpg.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wWGTVB1nW1PSq9dyI_!!2217578365096-0-cib.jpg.jpg"
+  ],
+  "video_url": "",
+  "image_count": 10,
+  "image_hash": "e756ffc3d5b785ee96d96244ddc7ecb9930cb3a4",
+  "white_background": false,
+  "is_adult": false,
+  "is_fragile": false,
+  "dangerous_goods": false,
+  "country_of_origin": "CN",
+  "certificate_files": [],
+  "brand_authorization": "",
+  "customs_code": "",
+  "restricted_category_flag": false,
+  "supplier": {
+    "name": "河北仲迈毛毡制品有限公司",
+    "platform": "1688",
+    "shop_url": "",
+    "contact": ""
+  },
+  "competitor_offers": [
+    {
+      "source_platform": "1688",
+      "source_url": "https://detail.1688.com/offer/862958657919.html",
+      "offer_title": "多功能数码收纳袋手机数据线 旅行充电宝手机配件耳机数码收纳包 -",
+      "shop_name": "¥7.801~49件¥7.5050~1999件¥6.80≥2000件综合服务验厂报告采购咨询2.0退换体验4.0品质体验4.3采购咨询2.0纠纷解决4.0物流时效3.9多功能数码收纳袋手机数据线 旅行充电宝手机配件耳机数码收纳包¥7.8退货包运费先采后付回头率57%义乌市虎盾箱包有限公司旺旺在线",
+      "shop_url": "",
+      "price": 7,
+      "price_text": "7",
+      "currency": "CNY",
+      "min_order_qty": 1,
+      "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01oyXVbu1XNkMXX5m7X_!!2208913202912-0-cib.jpg",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01oyXVbu1XNkMXX5m7X_!!2208913202912-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01uZa5s61XNkMasMH4Y_!!2208913202912-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01000frO1XNkMZhjc7V_!!2208913202912-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01ZxfQKS1XNkMXX8BsQ_!!2208913202912-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01dIC4wX1XNkMa0PtTO_!!2208913202912-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01PC3jIP1XNkMbdtxCr_!!2208913202912-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01KSQpDJ1XNkMaHNbmP_!!2208913202912-0-cib.jpg_sum.jpg",
+        "https://zgc-custom-public.oss-cn-hangzhou.aliyuncs.com/external/aiplot/aigc/0/8adc412d-bf7a-4ad7-9e25-e257a7a90470.png"
+      ],
+      "image_count": 8,
+      "category_path": "",
+      "normalizedAttributes": {
+        "model": "HD-803",
+        "compatible_models": "-1",
+        "style": "现代简约",
+        "color": "长(cm)",
+        "country_of_origin": "义乌",
+        "vendor_code": "HD-803",
+        "material": "600D牛津布",
+        "brand": "H-DWISS"
+      },
+      "weight_kg": 0,
+      "page_type": "detail"
+    },
+    {
+      "source_platform": "1688",
+      "source_url": "https://detail.1688.com/offer/683777527994.html",
+      "offer_title": "ins床头布艺收纳挂袋 手机多层门后墙挂式可爱学生宿舍好物收纳袋 -",
+      "shop_name": "找相似¥2.532~49个¥2.4050~2999个¥2.35≥3000个综合服务验厂报告采购咨询3.0退换体验2.7品质体验3.0采购咨询3.0纠纷解决4.0物流时效3.3ins床头布艺收纳挂袋 手机多层门后墙挂式可爱学生宿舍好物收纳袋分享再减5元¥2.536200+件退货包运费先采后付回头率70%义乌市零启家居用品有限公司旺旺在线",
+      "shop_url": "",
+      "price": 2,
+      "price_text": "2",
+      "currency": "CNY",
+      "min_order_qty": 1,
+      "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01HEi9R81KGn6cVqoS1_!!2200607071137-0-cib.jpg",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01HEi9R81KGn6cVqoS1_!!2200607071137-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01CdIwQN1KGn6abU514_!!2200607071137-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01pNnlUt1KGn6abTbv3_!!2200607071137-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01KoEDXk1KGn6fNZBdj_!!2200607071137-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01Jz1neq1KGn6TrtoXJ_!!2200607071137-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+      ],
+      "image_count": 6,
+      "category_path": "",
+      "normalizedAttributes": {
+        "brand": "宝轩",
+        "model": "大号",
+        "vendor_code": "69",
+        "country_of_origin": "义乌",
+        "style": "日式",
+        "compatible_models": "车内悬挂式,衣柜悬挂式,厨房挂壁式,门窗悬挂式,其他",
+        "color": "大黑点挂袋,小兔子挂袋,字母挂袋,双箭头挂袋,蝙蝠挂袋,半圆挂袋",
+        "material": "棉麻"
+      },
+      "weight_kg": 0,
+      "page_type": "detail"
+    }
+  ],
+  "comparison_summary": {
+    "compared_at": "2026-04-04T08:08:43.705Z",
+    "candidate_count": 2,
+    "price_min": 2,
+    "price_max": 7,
+    "price_avg": 4.5,
+    "notes": []
+  },
+  "data_quality": {
+    "title_source": "1688-scraped",
+    "description_source": "ai-inferred",
+    "web_detail_valid": true,
+    "inferred_fields": [
+      "brand",
+      "model",
+      "color",
+      "material",
+      "size",
+      "weight_kg",
+      "country_of_origin",
+      "vendor_code"
+    ]
+  },
+  "analysis": {
+    "product_profile": "家居收纳",
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "target_price_rub": 0,
+    "supply_price_cny": 0,
+    "total_score": 0,
+    "final_decision": "Review"
+  },
+  "ozon_api_ready": {
+    "ready_for_product_import": true,
+    "ready_for_price_import": false,
+    "ready_for_stock_import": false,
+    "offer_id": "BED-ORG-01",
+    "category_id": null,
+    "type_id": null,
+    "warehouse_id": null,
+    "currency_code": "RUB",
+    "dimensions": {
+      "weight_g": 150,
+      "depth_mm": 0,
+      "width_mm": 0,
+      "height_mm": 0
+    },
+    "price_payload": {
+      "price": "0",
+      "old_price": "0",
+      "min_price": "0",
+      "currency_code": "RUB"
+    },
+    "stock_payload": {
+      "warehouse_id": null,
+      "offer_id": "BED-ORG-01",
+      "stock": 0
+    },
+    "product_import_payload_template": {
+      "offer_id": "BED-ORG-01",
+      "name": "Органайзер для телефона и зарядки на спинку кровати, карман для хранения у изголовья, тканевый, универсальный",
+      "description": "Этот удобный органайзер крепится на спинку кровати и обеспечивает идеальное место для хранения вашего телефона, зарядного устройства, планшета, очков и других мелких предметов перед сном. Больше не нужно искать телефон среди простыней или беспокоиться о том, что он упадет с тумбочки.\n\nИзготовленный из прочной и мягкой ткани, органайзер защищает ваши устройства от царапин. Несколько карманов разного размера позволяют удобно организовать все необходимое под рукой, освобождая место на прикроватной тумбочке. Простая установка с помощью регулируемых ремней делает его совместимым с большинством типов изголовий кроватей.",
+      "barcode": "",
+      "category_id": null,
+      "type_id": null,
+      "price": "0",
+      "old_price": "0",
+      "currency_code": "RUB",
+      "primary_image": "https://cbu01.alicdn.com/img/ibank/O1CN01rKnk9Q1KYeoNxELoS_!!2218300131176-0-cib.jpg.jpg",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01rKnk9Q1KYeoNxELoS_!!2218300131176-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01qODZWU2CPwSQKucFn_!!3492328467-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01lvaCDz1nlanS05Eys_!!2218349095130-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01FWbQeF2DuSb3xoGnr_!!2217541098669-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01tWRYvR1i2BYGFID7N_!!2212655344354-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN0149m6of1Oh8aJWYAfR_!!2218999701736-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01cIYESi2LPmrlDL9In_!!2218038839685-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01G5qQv11qzjqgWQJcB_!!1049355567-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01rz717P1yb1Y0tsn5a_!!2211024996596-0-cib.jpg.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01wWGTVB1nW1PSq9dyI_!!2217578365096-0-cib.jpg.jpg"
+      ],
+      "dimensions": {
+        "weight_g": 150,
+        "depth_mm": 0,
+        "width_mm": 0,
+        "height_mm": 0
+      },
+      "attributes": [
+        {
+          "attribute_name": "Brand",
+          "attribute_id": 85,
+          "value_type": "string",
+          "value": "Без бренда"
+        },
+        {
+          "attribute_name": "Material",
+          "attribute_id": 8229,
+          "value_type": "string",
+          "value": "Полиэстер"
+        },
+        {
+          "attribute_name": "Color",
+          "attribute_id": 10096,
+          "value_type": "string",
+          "value": "Черный"
+        },
+        {
+          "attribute_name": "Country of origin",
+          "attribute_id": 4383,
+          "value_type": "string",
+          "value": "CN"
+        }
+      ]
+    },
+    "listing_copy": {
+      "title_ru": "Органайзер для телефона и зарядки на спинку кровати, карман для хранения у изголовья, тканевый, универсальный",
+      "description_ru": "Этот удобный органайзер крепится на спинку кровати и обеспечивает идеальное место для хранения вашего телефона, зарядного устройства, планшета, очков и других мелких предметов перед сном. Больше не нужно искать телефон среди простыней или беспокоиться о том, что он упадет с тумбочки.\n\nИзготовленный из прочной и мягкой ткани, органайзер защищает ваши устройства от царапин. Несколько карманов разного размера позволяют удобно организовать все необходимое под рукой, освобождая место на прикроватной тумбочке. Простая установка с помощью регулируемых ремней делает его совместимым с большинством типов изголовий кроватей.",
+      "bullet_points_ru": [
+        "Удобное хранение телефона и зарядки у изголовья кровати",
+        "Несколько карманов для телефона, планшета, очков и мелочей",
+        "Крепится на спинку кровати с помощью регулируемых ремней",
+        "Изготовлен из мягкой ткани для защиты устройств от царапин",
+        "Освобождает место на прикроватной тумбочке, поддерживает порядок"
+      ]
+    }
+  },
+  "seo_keywords_ru": [
+    "органайзер для кровати",
+    "карман для телефона на кровать",
+    "хранение у изголовья",
+    "органайзер для зарядки",
+    "прикроватный органайзер"
+  ]
+}

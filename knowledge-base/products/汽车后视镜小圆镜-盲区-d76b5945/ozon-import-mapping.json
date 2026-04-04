@@ -1,0 +1,56 @@
+{
+  "slug": "汽车后视镜小圆镜-盲区-d76b5945",
+  "status": "已上传",
+  "offer_id": "汽车后视镜小圆镜-盲区-d76b5945",
+  "title_override": "Слепое зеркало для автомобиля Круглое зеркало заднего вида для устранения слепых зон 2 шт. в комплекте",
+  "description_override": "Круглые слепые зеркала для автомобиля — это простое и эффективное решение для повышения безопасности вождения. Устанавливаются на стандартные зеркала заднего вида и значительно расширяют обзор, устраняя опасные слепые зоны.\n\nИдеально подходят для парковки, перестроения на многополосных дорогах и контроля за пространством рядом с автомобилем. Комплект из двух зеркал позволяет обеспечить полный контроль как с левой, так и с правой стороны. Универсальное крепление на липучке или клейкой основе обеспечивает быстрый и надежный монтаж без повреждения заводского зеркала.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 3,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01c37rRw21RoLQmteE7_!!2218835966982-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01c37rRw21RoLQmteE7_!!2218835966982-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01UkxPvC21RoLRGHshl_!!2218835966982-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01o56l7s21RoLPTCXxs_!!2218835966982-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01YDbAbI21RoLNzEwNC_!!2218835966982-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01rbFvHZ21RoLMe3Fzq_!!2218835966982-0-cib.jpg"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028978,
+    "type_id": 96495,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "------------d76b5945-wotb"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992707230,
+  "ozon_task_id": 4102721330,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T05:09:49.664Z"
+}

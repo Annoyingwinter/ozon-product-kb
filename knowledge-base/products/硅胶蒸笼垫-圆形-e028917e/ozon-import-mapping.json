@@ -1,0 +1,56 @@
+{
+  "slug": "硅胶蒸笼垫-圆形-e028917e",
+  "status": "已上传",
+  "offer_id": "硅胶蒸笼垫-圆形-e028917e",
+  "title_override": "Кухонный силиконовый коврик для пароварки, круглый, 18 см, пищевой силикон, многоразовый, для варки пельменей, вареников, овощей",
+  "description_override": "Круглый силиконовый коврик для пароварки — это незаменимый помощник на современной кухне. Он идеально подходит для приготовления пельменей, вареников, мантов, овощей и других блюд на пару. Коврик предотвращает прилипание продуктов к решетке пароварки, обеспечивает их целостность и упрощает процесс готовки и последующей уборки.\n\nИзготовлен из высококачественного пищевого силикона, безопасного для здоровья. Коврик не впитывает запахи, легко моется и выдерживает высокие температуры. Его можно использовать в пароварках, мультиварках, кастрюлях и даже в микроволновой печи. Компактный размер и удобная форма делают его практичным аксессуаром для любой кухни.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 0.16,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN0170d6Sn1a6kGSiy5tx_!!2212871703281-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN0170d6Sn1a6kGSiy5tx_!!2212871703281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01gJUSpS1a6kGUvkeHU_!!2212871703281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Xtz4aO1a6kGGyrpp1_!!2212871703281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01e8VzpJ1a6kFREgjtU_!!2212871703281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01bHk7CY1a6kTEmcI8t_!!2212871703281-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 20,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------e028917e-mwzc"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008367110,
+  "ozon_task_id": 4103060671,
+  "ozon_import_at": "2026-04-04T06:09:44.186Z"
+}

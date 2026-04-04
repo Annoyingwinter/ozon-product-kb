@@ -1,0 +1,55 @@
+{
+  "slug": "车载手套箱收纳袋-942a8fd6",
+  "status": "已上传",
+  "offer_id": "车载手套箱收纳袋-942a8fd6",
+  "title_override": "Органайзер для бардачка автомобиля, складной, из оксфордской ткани, с крышкой, водонепроницаемый, для хранения вещей в багажнике",
+  "description_override": "Этот складной органайзер из прочной оксфордской ткани идеально подходит для поддержания порядка в бардачке или багажнике вашего автомобиля. Благодаря водонепроницаемому покрытию и удобной крышке он надежно защищает ваши вещи от пыли, влаги и беспорядка во время поездок.\n\nКомпактный в сложенном виде и простой в установке, органайзер легко адаптируется под различные предметы: документы, салфетки, инструменты, детские игрушки или продукты. Он станет незаменимым помощником для семейных путешествий, дальних поездок и повседневного использования автомобиля, экономя ваше время на поиск нужных вещей.",
+  "title_lang": "ru",
+  "price_override": "266.00",
+  "old_price_override": "345.80",
+  "supply_price_cny": 76,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01JkyDYz2DIRjaOQ9Is_!!2219075368586-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01JkyDYz2DIRjaOQ9Is_!!2219075368586-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wi9Vax2DIRjbipupc_!!2219075368586-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01pR4qMz2DIRjbePLSU_!!2219075368586-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01mmpa0I2DIRjcPxFZa_!!2219075368586-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN016ex6MT2DIRjaltYUQ_!!2219075368586-0-cib.jpg"
+  ],
+  "weight_override_g": 800,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------942a8fd6-n5ba"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008367052,
+  "ozon_task_id": 4103060671,
+  "ozon_import_at": "2026-04-04T06:09:44.192Z"
+}

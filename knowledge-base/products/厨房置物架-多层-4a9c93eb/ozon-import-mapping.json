@@ -1,0 +1,55 @@
+{
+  "slug": "厨房置物架-多层-4a9c93eb",
+  "status": "已上传",
+  "offer_id": "厨房置物架-多层-4a9c93eb",
+  "title_override": "Кухонная полка для хранения овощей и фруктов, многоуровневая, пластиковая, напольная, для кухни и кладовой",
+  "description_override": "Эта многоуровневая кухонная полка идеально подходит для хранения овощей, фруктов, закусок и других продуктов. Её современный дизайн в стиле минимализм гармонично впишется в интерьер любой кухни, кладовой или балкона, помогая поддерживать порядок и экономить пространство.\n\nПрочная пластиковая конструкция обеспечивает долговечность и лёгкость в уходе. Полка легко собирается и разбирается, что делает её удобной для транспортировки и хранения. Используйте её для организации продуктов, игрушек или кухонной утвари.",
+  "title_lang": "ru",
+  "price_override": "77.35",
+  "old_price_override": "100.56",
+  "supply_price_cny": 22.1,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/12696646471_1431476520.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/12696646471_1431476520.jpg",
+    "https://cbu01.alicdn.com/img/ibank/12659133826_1431476520.jpg",
+    "https://cbu01.alicdn.com/img/ibank/12696661329_1431476520.jpg",
+    "https://cbu01.alicdn.com/img/ibank/12697939404_1431476520.jpg",
+    "https://cbu01.alicdn.com/img/ibank/12697936700_1431476520.jpg"
+  ],
+  "weight_override_g": 1200,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 80731485,
+    "type_id": 115946601,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------4a9c93eb-wisv"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4007573080,
+  "ozon_task_id": 4102633108,
+  "ozon_import_at": "2026-04-04T04:53:12.437Z"
+}

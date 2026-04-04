@@ -1,0 +1,57 @@
+{
+  "slug": "宠物梳毛手套-452b03e2",
+  "status": "已上传",
+  "offer_id": "宠物梳毛手套-452b03e2",
+  "title_override": "Перчатка для вычесывания шерсти домашних животных - антистатическая, для удаления шерсти кошек и собак, 20x15 см",
+  "description_override": "Устали от шерсти питомцев по всему дому? Наша антистатическая перчатка для вычесывания — простое и эффективное решение. Она мягко и безболезненно удаляет выпавшую шерсть, подшерсток и грязь во время ласки или игры с вашим любимцем.\n\nИдеально подходит для кошек и собак, особенно мелких пород. Резиновые силиконовые шипы создают приятный массажный эффект, улучшая кровообращение кожи животного и делая шерсть более здоровой и блестящей. Перчатка легко моется и подходит для многоразового использования.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 1.2,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01Z47t0m1Zjqm6MPC7V_!!1729763231-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Z47t0m1Zjqm6MPC7V_!!1729763231-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01R7HRM51Zjqm4LipEq_!!1729763231-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN015qlBW61Zjqm5esZbb_!!1729763231-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Zz9npe1Zjqm4ovRhc_!!1729763231-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN016hOZRf1Zjqm00stwc_!!1729763231-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "-------452b03e2-i3fp"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992704618,
+  "ozon_task_id": 4102822803,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T05:29:12.165Z"
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "厨房垃圾袋挂架-39318c45",
+  "status": "已上传",
+  "offer_id": "厨房垃圾袋挂架-39318c45",
+  "title_override": "Кухонный держатель для мусорных пакетов складной, настенный, без сверления, для шкафа, 2 шт",
+  "description_override": "Этот складной держатель для мусорных пакетов — идеальное решение для поддержания чистоты и порядка на кухне, в ванной комнате или кладовой. Он легко крепится на дверцу шкафа или стену без необходимости сверления, что сохраняет поверхности неповреждёнными.\n\nИзготовленный из прочного материала, держатель надёжно фиксирует стандартные мусорные пакеты, предотвращая их соскальзывание. Складная конструкция позволяет экономить пространство, когда он не используется, делая его максимально практичным и удобным в быту.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 0.46,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01giAE8B1scxSqxJ5I6_!!2206804345788-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01giAE8B1scxSqxJ5I6_!!2206804345788-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN011uEj5e1scxSr0UY2i_!!2206804345788-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01sBC4FK1scxSrt8pcF_!!2206804345788-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01VxnVhm1scxSqZF6PR_!!2206804345788-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01QWDzZE1scxSrHLlwP_!!2206804345788-0-cib.jpg"
+  ],
+  "weight_override_g": 100,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------39318c45-bcyg"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008598605,
+  "ozon_task_id": 4103202795,
+  "ozon_import_at": "2026-04-04T06:28:51.825Z"
+}

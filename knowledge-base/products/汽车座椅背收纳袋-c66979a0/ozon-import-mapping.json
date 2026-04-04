@@ -1,0 +1,57 @@
+{
+  "slug": "汽车座椅背收纳袋-c66979a0",
+  "status": "已上传",
+  "offer_id": "汽车座椅背收纳袋-c66979a0",
+  "title_override": "Сетчатый органайзер для автомобильного сиденья - Универсальный карман для хранения с эластичными краями, 2-3 слоя, материал лён",
+  "description_override": "Этот практичный сетчатый органайзер идеально подходит для поддержания порядка в салоне вашего автомобиля. Он легко крепится на спинку переднего сиденья, предоставляя удобное пространство для хранения книг, планшетов, игрушек, бутылок с водой и других необходимых в дороге мелочей. Отличное решение для семей с детьми, позволяющее держать салон в чистоте и обеспечивать легкий доступ к вещам во время поездки.\n\nИзготовлен из прочного льняного материала, органайзер отличается долговечностью и устойчивостью к деформации. Эластичные края обеспечивают плотное и надежное крепление к сиденьям большинства моделей автомобилей, не оставляя следов. Компактная и легкая конструкция не мешает пассажирам, при этом значительно увеличивая полезное пространство для хранения.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 0.98,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01bdSyVh1HNFuLjNbxM_!!2211376930745-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01bdSyVh1HNFuLjNbxM_!!2211376930745-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/4037857777_1843964492.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Xy6rwp1HNFkOsLDWa_!!2211376930745-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/4037330216_1843964492.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01DUZgsq1HNGAyOYBOS_!!2211376930745-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "---------c66979a0-bkx3"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992707143,
+  "ozon_task_id": 4103354301,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T06:49:13.213Z"
+}

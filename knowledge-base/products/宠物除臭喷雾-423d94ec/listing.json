@@ -1,0 +1,250 @@
+{
+  "schema_version": "ozon-kb-v2-direct-listing",
+  "generated_at": "2026-04-04T08:08:43.692Z",
+  "source_platform": "1688",
+  "source_url": "https://detail.1688.com/offer/800105851649.html",
+  "source_platform_urls": [
+    "https://detail.1688.com/offer/800105851649.html"
+  ],
+  "spu_id": "宠物除臭喷雾-423d94ec",
+  "sku_id": "宠物除臭喷雾-423d94ec-001",
+  "group_id": "宠物除臭喷雾-423d94ec",
+  "variant_theme": "",
+  "variant_values": {},
+  "brand": "",
+  "model": "Биоэнзимный дезодорант для домашних животных",
+  "vendor_code": "PET-DEODOR-SPRAY-01",
+  "barcode": "",
+  "title_cn": "宠物除臭清洁去尿味猫咪狗狗猫尿狗尿生物酶分解剂消味除臭喷雾 -",
+  "title_en": "Pet Odor Eliminator Spray - Bio-Enzymatic Deodorizer for Cats and Dogs, Neutralizes Urine Odor, 500ml, Green Tea or White Peach Scent",
+  "title_ru": "Спрей для устранения запахов домашних животных - Биоэнзимный дезодорант для кошек и собак, нейтрализует запах мочи, 500 мл, аромат зеленого чая или белого персика",
+  "description": "",
+  "bullet_points": [
+    "✅ Биоэнзимная формула полностью расщепляет молекулы запаха, а не маскирует",
+    "✅ Эффективно нейтрализует запахи мочи, слюны и других биологических загрязнений",
+    "✅ Безопасен для кошек, собак, людей и окружающей среды, без агрессивной химии",
+    "✅ Два варианта аромата: освежающий зеленый чай или нежный белый персик",
+    "✅ Удобный флакон с распылителем для точечного нанесения на любые поверхности"
+  ],
+  "price": 0,
+  "old_price": 0,
+  "currency": "RUB",
+  "stock": 0,
+  "min_order_qty": 1,
+  "package_quantity": 1,
+  "vat": "0",
+  "weight": 0.6,
+  "length": 0,
+  "width": 0,
+  "height": 0,
+  "category_path": "宠物用品",
+  "category_id_source": "ai-inferred",
+  "ozon_category_id": null,
+  "ozon_type_id": null,
+  "attributes": {
+    "source_category": "宠物用品",
+    "seasonality": "stable",
+    "fragility": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "material": "Вода, энзимы, растительные экстракты, натуральные ароматизаторы",
+    "color": "Прозрачная жидкость",
+    "size": "500 мл",
+    "power_supply": "",
+    "country_of_origin": "CN"
+  },
+  "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN01HKC4Sl1LiYzwzwTGP_!!2201497931333-0-cib.jpg",
+  "images": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01HKC4Sl1LiYzwzwTGP_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN016VCFbJ1LiYuozYBLr_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ddJJOM1LiYuhhwUQt_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wu2kpn1LiYuozYeRt_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01S0PZcc1LiYupp8fQ4_!!2201497931333-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Fjmzf01LiYuplOmti_!!2201497931333-0-cib.jpg_sum.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01YPYNuz1LiYupNLJUf_!!2201497931333-0-cib.jpg_sum.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg",
+    "https://img.alicdn.com/imgextra/i4/O1CN011RcZDV2FHeFx08nAX_!!4611686018427380567-0-tbbala.jpg_b.jpg",
+    "https://img.alicdn.com/imgextra/i4/O1CN01o6eKVt1ueS2LcaQE3_!!4611686018427387598-0-rate.jpg_b.jpg"
+  ],
+  "video_url": "",
+  "image_count": 10,
+  "image_hash": "a84f39c8d244c6908c21054c26fa05948bdc9e32",
+  "white_background": false,
+  "is_adult": false,
+  "is_fragile": true,
+  "dangerous_goods": false,
+  "country_of_origin": "CN",
+  "certificate_files": [],
+  "brand_authorization": "",
+  "customs_code": "",
+  "restricted_category_flag": false,
+  "supplier": {
+    "name": "找相似¥4.002~199瓶¥3.80200~999瓶¥3.50≥1000瓶综合服务验厂报告采购咨询3.0退换体验4.7品质体验3.0采购咨询3.0纠纷解决4.0物流时效3.4瓜洲牧宠物除臭清洁去尿味猫咪狗狗猫尿狗尿生物酶分解剂消味除臭喷雾分享再减7元｜商机组货：宠物除臭清新剂¥4全网1.8万+件退货包运费先采后付回头率47%义乌市一切宠简宠物用品有限公司旺旺在线",
+    "platform": "1688",
+    "shop_url": "",
+    "contact": ""
+  },
+  "competitor_offers": [
+    {
+      "source_platform": "1688",
+      "source_url": "https://detail.1688.com/offer/787989723908.html",
+      "offer_title": "狗狗除臭剂杀菌去尿味猫咪除臭喷雾除臭生物酶分解净味宠物除臭剂 -",
+      "shop_name": "找相似¥5.801~49瓶¥5.5050~99瓶¥5.00≥100瓶综合服务验厂报告采购咨询4.5退换体验4.0品质体验3.7采购咨询4.5纠纷解决4.0物流时效3.0狗狗除臭剂杀菌去尿味猫咪除臭喷雾除臭生物酶分解净味宠物除臭剂元宝可抵1%｜商机组货：宠物除臭清新剂¥5.83.9万+件退货包运费先采后付回头率55%南京宠道夫宠物用品有限公司旺旺在线",
+      "shop_url": "",
+      "price": 5,
+      "price_text": "5",
+      "currency": "CNY",
+      "min_order_qty": 1,
+      "main_image": "https://cbu01.alicdn.com/img/ibank/O1CN017ksLBz2HPYBCopmgu_!!2214785739143-0-cib.jpg",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN017ksLBz2HPYBCopmgu_!!2214785739143-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01uL3aJ72HPYBH0Onri_!!2214785739143-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01wZeFSl2HPYBEq28vT_!!2214785739143-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01hbEqum2HPYBI7it4N_!!2214785739143-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01XclhMb2HPYB7LtNGB_!!2214785739143-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01KfeM5S2HPYBBsnqhb_!!2214785739143-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01oBBrSj2HPYB7M1phT_!!2214785739143-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg",
+        "https://img.alicdn.com/imgextra/i3/O1CN01mbKgnR1uo4KGmwe8Z_!!4611686018427386419-0-rate.jpg_b.jpg"
+      ],
+      "image_count": 9,
+      "category_path": "",
+      "normalizedAttributes": {
+        "country_of_origin": "中国",
+        "brand": "宠道夫"
+      },
+      "weight_kg": 0,
+      "page_type": "detail"
+    }
+  ],
+  "comparison_summary": {
+    "compared_at": "2026-04-04T08:08:43.692Z",
+    "candidate_count": 1,
+    "price_min": 5,
+    "price_max": 5,
+    "price_avg": 5,
+    "notes": []
+  },
+  "data_quality": {
+    "title_source": "1688-scraped",
+    "description_source": "ai-inferred",
+    "web_detail_valid": true,
+    "inferred_fields": [
+      "model",
+      "color",
+      "material",
+      "size",
+      "weight_kg",
+      "country_of_origin",
+      "vendor_code"
+    ]
+  },
+  "analysis": {
+    "product_profile": "宠物用品",
+    "fragility": "low",
+    "certification_risk": "low",
+    "return_risk": "low",
+    "competition_level": "medium",
+    "content_potential": "medium",
+    "seasonality": "stable",
+    "target_price_rub": 0,
+    "supply_price_cny": 0,
+    "total_score": 0,
+    "final_decision": "Review"
+  },
+  "ozon_api_ready": {
+    "ready_for_product_import": true,
+    "ready_for_price_import": false,
+    "ready_for_stock_import": false,
+    "offer_id": "PET-DEODOR-SPRAY-01",
+    "category_id": null,
+    "type_id": null,
+    "warehouse_id": null,
+    "currency_code": "RUB",
+    "dimensions": {
+      "weight_g": 600,
+      "depth_mm": 0,
+      "width_mm": 0,
+      "height_mm": 0
+    },
+    "price_payload": {
+      "price": "0",
+      "old_price": "0",
+      "min_price": "0",
+      "currency_code": "RUB"
+    },
+    "stock_payload": {
+      "warehouse_id": null,
+      "offer_id": "PET-DEODOR-SPRAY-01",
+      "stock": 0
+    },
+    "product_import_payload_template": {
+      "offer_id": "PET-DEODOR-SPRAY-01",
+      "name": "Спрей для устранения запахов домашних животных - Биоэнзимный дезодорант для кошек и собак, нейтрализует запах мочи, 500 мл, аромат зеленого чая или белого персика",
+      "description": "Эффективный биоэнзимный спрей для быстрого и безопасного устранения стойких запахов от домашних животных. Идеально подходит для обработки лотков, лежанок, ковров, мебели и других поверхностей в доме, где могут оставаться запахи мочи, слюны или других биологических загрязнений.\n\nФормула на основе натуральных энзимов и растительных компонентов не просто маскирует запах, а полностью расщепляет его молекулы, обеспечивая долговременную свежесть. Безопасен для животных и людей, не содержит агрессивных химикатов, отдушек или спирта, которые могут вызывать раздражение.\n\nДоступен в двух приятных натуральных ароматах - освежающем зеленом чае или нежном белом персике, которые оставляют после обработки легкий и ненавязчивый шлейф. Удобный распылитель позволяет точно наносить средство даже в труднодоступные места.",
+      "barcode": "",
+      "category_id": null,
+      "type_id": null,
+      "price": "0",
+      "old_price": "0",
+      "currency_code": "RUB",
+      "primary_image": "https://cbu01.alicdn.com/img/ibank/O1CN01HKC4Sl1LiYzwzwTGP_!!2201497931333-0-cib.jpg",
+      "images": [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01HKC4Sl1LiYzwzwTGP_!!2201497931333-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN016VCFbJ1LiYuozYBLr_!!2201497931333-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01ddJJOM1LiYuhhwUQt_!!2201497931333-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01wu2kpn1LiYuozYeRt_!!2201497931333-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01S0PZcc1LiYupp8fQ4_!!2201497931333-0-cib.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01Fjmzf01LiYuplOmti_!!2201497931333-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/O1CN01YPYNuz1LiYupNLJUf_!!2201497931333-0-cib.jpg_sum.jpg",
+        "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg",
+        "https://img.alicdn.com/imgextra/i4/O1CN011RcZDV2FHeFx08nAX_!!4611686018427380567-0-tbbala.jpg_b.jpg",
+        "https://img.alicdn.com/imgextra/i4/O1CN01o6eKVt1ueS2LcaQE3_!!4611686018427387598-0-rate.jpg_b.jpg"
+      ],
+      "dimensions": {
+        "weight_g": 600,
+        "depth_mm": 0,
+        "width_mm": 0,
+        "height_mm": 0
+      },
+      "attributes": [
+        {
+          "attribute_name": "Material",
+          "attribute_id": 8229,
+          "value_type": "string",
+          "value": "Вода, энзимы, растительные экстракты, натуральные ароматизаторы"
+        },
+        {
+          "attribute_name": "Color",
+          "attribute_id": 10096,
+          "value_type": "string",
+          "value": "Прозрачная жидкость"
+        },
+        {
+          "attribute_name": "Country of origin",
+          "attribute_id": 4383,
+          "value_type": "string",
+          "value": "CN"
+        }
+      ]
+    },
+    "listing_copy": {
+      "title_ru": "Спрей для устранения запахов домашних животных - Биоэнзимный дезодорант для кошек и собак, нейтрализует запах мочи, 500 мл, аромат зеленого чая или белого персика",
+      "description_ru": "Эффективный биоэнзимный спрей для быстрого и безопасного устранения стойких запахов от домашних животных. Идеально подходит для обработки лотков, лежанок, ковров, мебели и других поверхностей в доме, где могут оставаться запахи мочи, слюны или других биологических загрязнений.\n\nФормула на основе натуральных энзимов и растительных компонентов не просто маскирует запах, а полностью расщепляет его молекулы, обеспечивая долговременную свежесть. Безопасен для животных и людей, не содержит агрессивных химикатов, отдушек или спирта, которые могут вызывать раздражение.\n\nДоступен в двух приятных натуральных ароматах - освежающем зеленом чае или нежном белом персике, которые оставляют после обработки легкий и ненавязчивый шлейф. Удобный распылитель позволяет точно наносить средство даже в труднодоступные места.",
+      "bullet_points_ru": [
+        "✅ Биоэнзимная формула полностью расщепляет молекулы запаха, а не маскирует",
+        "✅ Эффективно нейтрализует запахи мочи, слюны и других биологических загрязнений",
+        "✅ Безопасен для кошек, собак, людей и окружающей среды, без агрессивной химии",
+        "✅ Два варианта аромата: освежающий зеленый чай или нежный белый персик",
+        "✅ Удобный флакон с распылителем для точечного нанесения на любые поверхности"
+      ]
+    }
+  },
+  "seo_keywords_ru": [
+    "спрей от запаха животных",
+    "дезодорант для кошек",
+    "устранение запаха мочи",
+    "биоэнзимный спрей",
+    "средство для ухода за питомцем"
+  ]
+}

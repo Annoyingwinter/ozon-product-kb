@@ -1,0 +1,57 @@
+{
+  "slug": "宠物牙刷-指套-9608be3e",
+  "status": "已上传",
+  "offer_id": "宠物牙刷-指套-9608be3e",
+  "title_override": "Напальчник для чистки зубов домашних животных KIMHOME, Универсальный, 10 шт, Удаление зубного налета и запаха изо рта у собак и кошек",
+  "description_override": "Напальчники KIMHOME для чистки зубов — это удобное и эффективное решение для гигиены полости рта вашего питомца. Мягкие силиконовые щетинки бережно удаляют зубной налет и остатки пищи, предотвращая образование зубного камня и неприятного запаха изо рта. Просто наденьте напальчник на палец, нанесите немного зубной пасты для животных (по желанию) и аккуратно почистите зубы и десны вашей собаки или кошки.\n\nИдеально подходит для ежедневного ухода за полостью рта питомцев всех размеров и пород. Регулярное использование способствует поддержанию здоровья зубов и десен, снижая риск стоматологических заболеваний. Набор из 10 напальчников обеспечивает длительное использование, а их универсальный размер подходит для большинства пальцев взрослого человека.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 2,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01xDIYap1KUX2I30H7K_!!2215560381167-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01xDIYap1KUX2I30H7K_!!2215560381167-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01UMyd4o1KUX2BJgbli_!!2215560381167-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01BdCXWX1KUX2K9duOf_!!2215560381167-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ssm1Jj1KUX2KViRh0_!!2215560381167-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Fbm2Ri1KUX2PTyYHf_!!2215560381167-0-cib.jpg",
+    "https://zgc-custom-public.oss-cn-hangzhou.aliyuncs.com/external/aiplot/aigc/0/cadc23ab-c767-4116-88eb-1aa00d1af664.png"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------9608be3e-wlw6"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992704546,
+  "ozon_task_id": 4102721330,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T05:09:49.629Z"
+}

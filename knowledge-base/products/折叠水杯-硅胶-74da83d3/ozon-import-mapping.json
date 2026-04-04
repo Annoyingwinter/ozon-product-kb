@@ -1,0 +1,56 @@
+{
+  "slug": "折叠水杯-硅胶-74da83d3",
+  "status": "已上传",
+  "offer_id": "折叠水杯-硅胶-74da83d3",
+  "title_override": "Складная силиконовая кружка для путешествий, компактная, сжимаемая, для питья и полоскания рта, переносная, 300 мл",
+  "description_override": "Эта складная силиконовая кружка — идеальный спутник для путешествий, походов, командировок и спорта. Благодаря гибкому силиконовому материалу она легко сжимается до минимального размера, занимая минимум места в рюкзаке, сумке или кармане. Отлично подходит не только для питья воды, но и в качестве стаканчика для полоскания рта или хранения мелких предметов.\n\nКружка изготовлена из безопасного пищевого силикона, не имеет запаха, легко моется и быстро восстанавливает форму. Она устойчива к перепадам температур, не протекает в сложенном состоянии. Легкий вес и яркий дизайн делают её практичным и стильным аксессуаром для активного образа жизни.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 3,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN016r8jnT22PoGXqi5Nk_!!2218392557113-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN016r8jnT22PoGXqi5Nk_!!2218392557113-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01rSODDM22PoGZ8h7dN_!!2218392557113-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01houvwF22PoGXqhDJE_!!2218392557113-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN0195AtzW22PoGXJDLWz_!!2218392557113-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01B3DJza22PoGWEiKq6_!!2218392557113-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028741,
+    "type_id": 92499,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------74da83d3-ss1l"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009046143,
+  "ozon_task_id": 4103503806,
+  "ozon_import_at": "2026-04-04T07:10:25.884Z"
+}

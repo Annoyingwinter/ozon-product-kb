@@ -1,0 +1,55 @@
+{
+  "slug": "车载眼镜夹-遮阳板-c7e1eb5e",
+  "status": "已上传",
+  "offer_id": "车载眼镜夹-遮阳板-c7e1eb5e",
+  "title_override": "Автомобильный органайзер для очков и документов на солнцезащитном козырьке, кожаный, 31x16.5 см",
+  "description_override": "Этот практичный органайзер крепится на солнцезащитный козырек автомобиля, обеспечивая удобный доступ к солнцезачным очкам, документам, картам и мелким предметам. Изготовлен из качественной искусственной кожи, он надежно защищает ваши вещи от пыли и царапин.\n\nИдеальное решение для поддержания порядка в салоне автомобиля. Большой карман для очков и несколько отделений для документов, пропусков, банковских карт или визиток. Больше не нужно искать очки в бардачке или сумке – они всегда под рукой.",
+  "title_lang": "ru",
+  "price_override": "94.50",
+  "old_price_override": "122.85",
+  "supply_price_cny": 27,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01Ky44zc1cV8U8BYdaR_!!2624973605-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Ky44zc1cV8U8BYdaR_!!2624973605-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01SWt6zu1cV8U2raL24_!!2624973605-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ULrMl61cV8TuFm13V_!!2624973605-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01nqV7341cV8TuFi3jH_!!2624973605-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01x56SuZ1cV8U0KWMF1_!!2624973605-0-cib.jpg"
+  ],
+  "weight_override_g": 100,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028978,
+    "type_id": 96495,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------c7e1eb5e-whbt"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008112055,
+  "ozon_task_id": 4102937810,
+  "ozon_import_at": "2026-04-04T05:49:12.672Z"
+}

@@ -1,0 +1,57 @@
+{
+  "slug": "抽屉分隔盒-e753bf92",
+  "status": "已上传",
+  "offer_id": "抽屉分隔盒-e753bf92",
+  "title_override": "Органайзер для ящиков выдвижной, разделитель для косметики, носков, белья, современный, PP пластик, 5008",
+  "description_override": "Универсальный выдвижной органайзер-разделитель для идеального порядка в ящиках комода, тумбы или на столе. Легко настраивается под ваши нужды благодаря гибким перегородкам, создавая отдельные секции для косметики, украшений, носков, нижнего белья, канцелярии, мелких аксессуаров и многого другого.\n\nИзготовлен из прочного и безопасного полипропилена (PP), который легко моется и не впитывает запахи. Современный минималистичный дизайн органично впишется в интерьер спальни, ванной комнаты или гардеробной. Экономьте время на поиски вещей и поддерживайте безупречный порядок каждый день.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 1.17,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN0166vFe824RIotTFA9y_!!991137387-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN0166vFe824RIotTFA9y_!!991137387-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Rz96C624RIosrmxps_!!991137387-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01iSfeAu24RIotne3BE_!!991137387-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01wAUNvM24RIosorJ5y_!!991137387-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01PSrF4b24RIosrkgQU_!!991137387-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01ddH2ml1UuJlOUbwOp_!!3395032577-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "------e753bf92-suk1"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992707205,
+  "ozon_task_id": 4103624171,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T07:29:35.172Z"
+}

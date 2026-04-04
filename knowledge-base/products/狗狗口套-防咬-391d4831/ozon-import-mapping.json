@@ -1,0 +1,56 @@
+{
+  "slug": "狗狗口套-防咬-391d4831",
+  "status": "已上传",
+  "offer_id": "狗狗口套-防咬-391d4831",
+  "title_override": "Намордник для собак кожаный, регулируемый, черный/коричневый, защита от укусов, для дрессировки и выгула",
+  "description_override": "Прочный и удобный кожаный намордник для собак средних и крупных пород. Идеально подходит для безопасного выгула в общественных местах, посещения ветеринара или дрессировки. Регулируемые ремни обеспечивают идеальную посадку, не причиняя дискомфорта вашему питомцу.\n\nИзготовлен из качественной искусственной кожи, которая легко чистится и долго служит. Намордник позволяет собаке свободно дышать и пить воду, но предотвращает нежелательные укусы или подбирание мусора с земли. Незаменимый аксессуар для ответственных владельцев собак.",
+  "title_lang": "ru",
+  "price_override": "21.00",
+  "old_price_override": "27.30",
+  "supply_price_cny": 6,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01oqGyqw2JjMdq9tabo_!!2216529979457-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01oqGyqw2JjMdq9tabo_!!2216529979457-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN0165sxbn2JjMdrwRoDL_!!2216529979457-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01l7OqCf2JjMdrwSkWf_!!2216529979457-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01yYCd8P2JjMdrwRsSf_!!2216529979457-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN014TAHMU1Bs330UgmGh_!!0-0-cib.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028668,
+    "type_id": 95221,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------391d4831-w83a"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 3992709597,
+  "ozon_task_id": 4103060671,
+  "ozon_import_errors": "description_category_has_no_description_type: Указанный тип не относится к указанной категории. Выберете доступный тип в строке поиска в поле «Категория и тип». Если вы работаете по API, получите список категорий и типов с помощью метода /v1/description-category/tree и используйте значение последнего уровня выбранной категории",
+  "ozon_import_at": "2026-04-04T06:09:44.184Z"
+}

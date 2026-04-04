@@ -1,0 +1,56 @@
+{
+  "slug": "车载雨伞挂钩-后座-a2c39501",
+  "status": "已上传",
+  "offer_id": "车载雨伞挂钩-后座-a2c39501",
+  "title_override": "Автомобильный держатель для зонта, крючок для заднего сиденья, органайзер для зонта, черный, современный дизайн",
+  "description_override": "Автомобильный держатель для зонта — это практичное решение для аккуратного хранения зонта в салоне автомобиля. Он надежно крепится к подголовнику заднего сиденья, предотвращая попадание влаги на сиденья и беспорядок.\n\nИзготовленный из прочного пластика, этот органайзер идеально подходит для семейных поездок, таксистов и всех, кто ценит порядок в машине. Компактный и стильный дизайн гармонично вписывается в интерьер любого автомобиля.",
+  "title_lang": "ru",
+  "price_override": "15.75",
+  "old_price_override": "20.48",
+  "supply_price_cny": 4.5,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/3971358895_2087363497.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/3971358895_2087363497.jpg",
+    "https://cbu01.alicdn.com/img/ibank/3969406016_2087363497.jpg",
+    "https://cbu01.alicdn.com/img/ibank/3968477526_2087363497.jpg",
+    "https://cbu01.alicdn.com/img/ibank/3969403118_2087363497.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN015XCOfS1CEUMLiiyLS_!!2842520049-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 50,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028978,
+    "type_id": 96495,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "----------a2c39501-1u6g"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008830984,
+  "ozon_task_id": 4103354301,
+  "ozon_import_at": "2026-04-04T06:49:13.217Z"
+}

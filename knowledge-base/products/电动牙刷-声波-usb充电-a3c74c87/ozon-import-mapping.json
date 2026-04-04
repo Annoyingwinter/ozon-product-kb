@@ -1,0 +1,56 @@
+{
+  "slug": "电动牙刷-声波-usb充电-a3c74c87",
+  "status": "已上传",
+  "offer_id": "电动牙刷-声波-usb充电-a3c74c87",
+  "title_override": "Детская электрическая зубная щетка, звуковая, USB-зарядка, 3 режима, мягкая щетина, для детей 3-6 лет, автоматическая, с 3 насадками",
+  "description_override": "Детская электрическая зубная щетка со звуковой технологией обеспечивает бережную и эффективную чистку зубов для вашего ребенка. Она оснащена мягкими щетинками, которые не травмируют нежную детскую эмаль и десны, и тремя режимами скорости для индивидуального подхода.\n\nУдобная USB-зарядка позволяет быстро заряжать щетку от любого источника с USB-портом, что идеально для путешествий или дома. Автоматический таймер помогает детям чистить зубы рекомендованные 2 минуты, формируя здоровые привычки. В комплект входят 3 сменные насадки с веселыми рисунками, которые понравятся малышам.",
+  "title_lang": "ru",
+  "price_override": "15.00",
+  "old_price_override": "19.50",
+  "supply_price_cny": 3.5,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN01Eg44U72A8PyKZPY0L_!!2213332428158-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN01Eg44U72A8PyKZPY0L_!!2213332428158-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01SoBWQl2A8PyJPRK9h_!!2213332428158-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN017SyHaR2A8PyORmjCP_!!2213332428158-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01TNo7Dc2A8PyJPTKyA_!!2213332428158-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01J3S3U72A8PyNEnOYN_!!2213332428158-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/2020/428/378/22185873824_536529798.jpg"
+  ],
+  "weight_override_g": 150,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17028937,
+    "type_id": 91903,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "--------usb---a3c74c-wva4"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4009631699,
+  "ozon_task_id": 4103898607,
+  "ozon_import_at": "2026-04-04T08:09:14.628Z"
+}

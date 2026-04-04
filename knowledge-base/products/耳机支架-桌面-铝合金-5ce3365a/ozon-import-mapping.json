@@ -1,0 +1,55 @@
+{
+  "slug": "耳机支架-桌面-铝合金-5ce3365a",
+  "status": "已上传",
+  "offer_id": "耳机支架-桌面-铝合金-5ce3365a",
+  "title_override": "Держатель для наушников настольный алюминиевый, регулируемый, для игровых и студийных наушников",
+  "description_override": "Этот стильный и прочный держатель для наушников из алюминиевого сплава станет идеальным аксессуаром для вашего рабочего или игрового стола. Он надежно удерживает ваши наушники, освобождая пространство и предотвращая их падение или повреждение.\n\nРегулируемая конструкция позволяет разместить практически любые модели наушников, от компактных до крупных геймерских. Держатель легко собирается и разбирается, что делает его удобным для транспортировки или хранения. Элегантный дизайн впишется в любой интерьер.",
+  "title_lang": "ru",
+  "price_override": "24.50",
+  "old_price_override": "31.85",
+  "supply_price_cny": 7,
+  "currency_code": "CNY",
+  "initial_stock": 100,
+  "warehouse_id": 1020005009633310,
+  "primary_image_override": "https://cbu01.alicdn.com/img/ibank/O1CN0135G92Q26FVsTgPN09_!!2216865607632-0-cib.jpg",
+  "images_override": [
+    "https://cbu01.alicdn.com/img/ibank/O1CN0135G92Q26FVsTgPN09_!!2216865607632-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01knECai26FVsUJjmlB_!!2216865607632-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01bjyTjd26FVsTBhEGP_!!2216865607632-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01RAEGag26FVsU2ZwbI_!!2216865607632-0-cib.jpg",
+    "https://cbu01.alicdn.com/img/ibank/O1CN01jhVxEb26FVsUcFem0_!!2216865607632-0-cib.jpg"
+  ],
+  "weight_override_g": 300,
+  "depth_override_mm": 300,
+  "width_override_mm": 200,
+  "height_override_mm": 100,
+  "import_fields": {
+    "description_category_id": 17027937,
+    "type_id": 970896147,
+    "attributes": [
+      {
+        "id": 9048,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 0,
+            "value": "------------5ce3365a-bpsq"
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "complex_id": 0,
+        "values": [
+          {
+            "dictionary_value_id": 126745801,
+            "value": "Нет бренда"
+          }
+        ]
+      }
+    ]
+  },
+  "ozon_product_id": 4008598607,
+  "ozon_task_id": 4103202795,
+  "ozon_import_at": "2026-04-04T06:28:51.832Z"
+}
