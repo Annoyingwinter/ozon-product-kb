@@ -1691,7 +1691,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
     /* === Stats === */
     async function refreshStats() {
       try {
-        const [prods, kw, profit] = await Promise.all([api('/products'), api('/keywords'), api('/ozon/profit').catch(() => null)]);
+        const [prods, kw, profit] = await Promise.all([api('/products'), api('/keywords').catch(() => ({ remaining: 0, total: 0 })), api('/ozon/profit').catch(() => null)]);
         document.getElementById('stat-products').textContent = prods.length;
 
         // 利润数据
@@ -1714,7 +1714,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
           document.getElementById('stat-profit').textContent = '--';
         }
 
-        document.getElementById('stat-keywords').textContent = kw.remaining + '/' + kw.total;
+        document.getElementById('stat-keywords').textContent = (kw?.remaining ?? '--') + '/' + (kw?.total ?? '--');
       } catch (e) { console.warn('stats:', e.message); }
     }
 
