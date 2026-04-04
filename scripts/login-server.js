@@ -942,29 +942,8 @@ function createServer(port) {
         const entries = await fs.readdir(USER_PRODUCTS, { withFileTypes: true }).catch(() => []);
         const products = [];
 
-        // 查 Ozon 实际错误（如果有API Key）
-        let ozonErrors = {}; // offer_id → { severe: [...], warn: [...] }
-        try {
-          const cfg = await loadUserOzonCfg();
-          if (cfg.clientId && cfg.apiKey) {
-            const allItems = [];
-            const lr = await ozonApi("/v3/product/list", { filter: { visibility: "ALL" }, limit: 1000 }, cfg);
-            if (lr.ok) allItems.push(...(lr.data.result?.items || []));
-            const offerIds = allItems.map(i => i.offer_id);
-            for (let i = 0; i < offerIds.length; i += 20) {
-              const batch = offerIds.slice(i, i + 20);
-              try {
-                const ir = await ozonApi("/v3/product/info/list", { offer_id: batch }, cfg);
-                for (const p of (ir.data?.result?.items || ir.data?.items || [])) {
-                  const errs = p.errors || [];
-                  const severe = errs.filter(e => e.level === "ERROR_LEVEL_ERROR").map(e => e.code);
-                  const warn = errs.filter(e => e.level !== "ERROR_LEVEL_ERROR").map(e => e.code);
-                  if (severe.length || warn.length) ozonErrors[p.offer_id] = { severe, warn };
-                }
-              } catch {}
-            }
-          }
-        } catch {}
+        // 不再同步查 Ozon 错误（太慢）— 用 /api/ozon/errors 单独异步查
+        const ozonErrors = {};
 
         for (const entry of entries) {
           if (!entry.isDirectory()) continue;

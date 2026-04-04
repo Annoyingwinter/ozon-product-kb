@@ -1249,7 +1249,8 @@ export const HTML_PAGE = `<!DOCTYPE html>
           const adminBtn = document.getElementById('admin-tab-btn');
           if (adminBtn) adminBtn.style.display = '';
         }
-        if (typeof initApp === 'function') initApp();
+        // 登录成功后立即加载数据（并行）
+        Promise.all([refresh(), refreshStats(), checkSetupGuide()]).catch(() => {});
       } catch (e) {
         errEl.textContent = '网络错误: ' + e.message;
         errEl.style.display = 'block';
@@ -1945,6 +1946,19 @@ export const HTML_PAGE = `<!DOCTYPE html>
       try {
         allProducts = await api('/products');
         renderProducts(allProducts);
+        // 异步加载Ozon错误（不阻塞产品列表显示）
+        api('/ozon/errors').then(errData => {
+          if (!errData?.products?.length) return;
+          for (const p of errData.products) {
+            const prod = allProducts.find(x => x.slug === p.offer_id);
+            if (prod) {
+              prod.errors = { severe: (p.errors||[]).filter(e=>e.level==='error').map(e=>e.code), warn: (p.errors||[]).filter(e=>e.level!=='error').map(e=>e.code) };
+              if (prod.errors.severe.length) prod.workflow.current_stage = '有错误';
+              else if (prod.errors.warn.length) prod.workflow.current_stage = '有警告';
+            }
+          }
+          renderProducts(allProducts); // 二次渲染带错误标记
+        }).catch(() => {});
       } catch {}
     }
 
@@ -2531,7 +2545,7 @@ export const HTML_PAGE = `<!DOCTYPE html>
       // 1. Ozon API
       try {
         const cfg = await api('/ozon/config');
-        if (!cfg.clientId) issues.push({ text: '配置 Ozon API Key', action: "document.getElementById('setup-overlay').style.display='none';document.getElementById('cfg-collapse-body').style.maxHeight='600px';document.getElementById('ozon-client-id').focus();document.getElementById('ozon-client-id').scrollIntoView({behavior:'smooth',block:'center'})", done: false });
+        if (!cfg.clientId) issues.push({ text: '配置 Ozon API Key', action: "document.getElementById('setup-overlay').style.display='none';setTimeout(function(){document.getElementById('cfg-collapse-body').style.maxHeight='600px';var el=document.getElementById('ozon-client-id');el.scrollIntoView({behavior:'smooth',block:'center'});el.focus();},300)", done: false });
         else issues.push({ text: 'Ozon API 已配置', done: true });
       } catch { issues.push({ text: '配置 Ozon API Key', done: false }); }
 
