@@ -281,7 +281,7 @@ async function startLogin(platform) {
   }
 
   const { context, browser } = await launchBrowser(config.profileDir, {
-    headless: false,
+    headless: true, // 服务器无显示器，用截图流代替
     storageStatePath: config.storagePath,
   });
 
@@ -354,7 +354,19 @@ async function startLogin(platform) {
     }
   } catch (e) { if (e?.message) console.warn("warn:", e.message.slice(0, 60)); }
 
-  activeSessions[platform] = { context, browser, page, status: "waiting_login", initialKeyCookieSignature };
+  activeSessions[platform] = { context, browser, page, status: "waiting_login", initialKeyCookieSignature, screenshot: null };
+
+  // 每2秒截图一次（供前端实时显示登录页面）
+  const screenshotLoop = setInterval(async () => {
+    const s = activeSessions[platform];
+    if (!s || !s.page || s.page.isClosed?.()) { clearInterval(screenshotLoop); return; }
+    try {
+      s.screenshot = await s.page.screenshot({ type: "jpeg", quality: 60 });
+    } catch {}
+  }, 2000);
+  // 首次截图
+  try { activeSessions[platform].screenshot = await page.screenshot({ type: "jpeg", quality: 60 }); } catch {}
+
   pollLoginStatus(platform);
   return { started: true, platform };
 }
@@ -901,6 +913,20 @@ function createServer(port) {
       const session = activeSessions[platform];
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ status: session?.status || null }));
+      return;
+    }
+
+    // ─── API: 登录页面截图（实时流）───
+    if (url.pathname.startsWith("/api/login-screen/") && req.method === "GET") {
+      const platform = safePath(url.pathname.split("/").pop());
+      const session = activeSessions[platform];
+      if (session?.screenshot) {
+        res.writeHead(200, { "Content-Type": "image/jpeg", "Cache-Control": "no-cache" });
+        res.end(session.screenshot);
+      } else {
+        res.writeHead(204);
+        res.end();
+      }
       return;
     }
 
